@@ -1,3 +1,9 @@
+.App {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     line-height: 150%;
     margin: 0;
@@ -5,6 +11,10 @@ body {
     font-size: 16px;
     background-color: #fff;
     font-family: "Roboto";
+}
+
+main { 
+    flex: 1 1 auto;
 }
 
 .container {
@@ -46,7 +56,6 @@ body {
     font-weight: 400;
 }
 
-
 .nav__menu {
     display: flex;
     :not(:last-child) {
@@ -57,4 +66,52 @@ body {
     color: #fff;
     font-size: 18px;
     font-weight: 400;
+}
+
+// ./HEADER
+
+.footer {
+    padding: 90px 80px;
+    background-color: #1f2021;
+}
+.footer__title {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.footer__subtitle {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 400;
+}
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form__cheakbox-text {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+}
+.form__cheakbox-input {
+    margin-right: 22px;
+    order: -2;
+}
+.form__input {
+    margin-right: 16px;
+    padding: 22px 33px;
+    background: #fff;
+    border-radius: 10px;
+}
+.form__button {
+    background: #6ebbd3;
+    border-radius: 10px;
+    padding: 22px 74px;
 }

@@ -114,6 +114,11 @@ h6 {
 }
 
 // Default
+html,
+body {
+    height: 100%;
+}
+
 html {
     box-sizing: border-box;
 }
