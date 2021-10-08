@@ -22,6 +22,18 @@ main {
     margin: 0 auto;
 }
 
+.button {
+    background: #6ebbd3;
+    border-radius: 10px;
+    padding: 22px 74px;
+}
+
+.bold {
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+}
+
 .header {
     padding: 100px 124px;
     background-image: url(../images/header-background.png);
@@ -110,14 +122,13 @@ main {
     background: #fff;
     border-radius: 10px;
 }
-.form__button {
-    background: #6ebbd3;
-    border-radius: 10px;
-    padding: 22px 74px;
-}
 
 
 // /.FOOTER
+
+.gallery {
+    margin: 30px 0 80px 0;
+}
 
 .controls {
     margin: 40px 0;
@@ -135,4 +146,75 @@ main {
 }
 .controls__menu_age {
     margin: 0 0 0 0;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    min-height: 520px;
+}
+.card__preview {
+    width: 380px;
+    height: 264px;
+    position: relative;
+}
+
+.discount {
+    left: 10%;
+    top: 10%;
+    position: absolute;
+    height: 39px;
+    width: 78px;
+    background-color: #E52D2D;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.discount__percent {
+    color: #fff;
+}
+.discount__button {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    height: 40px;
+    width: 46px;
+    background: transparent;
+    background-image: url(../images/heart.svg);
+}
+
+.card__information {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #F3F3F3;
+}
+.card__description {
+    margin: 20px 0;
+}
+.card__price {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+.card__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+.card__button {
+    border-radius: 0 0 10px 10px;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    :not(:last-child) {
+        margin-right: 10px;
+    }
+}
+.description__item {
+    font-size: 12px;
 }

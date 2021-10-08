@@ -2,6 +2,7 @@ import './App.scss';
 import './assets/scss/style.scss';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import Card from './components/Card/Card.jsx';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             </select>
           </div>
 
+        <div className="gallery">
+            <Card/>
+        </div>
 
         </div>
       </main>
