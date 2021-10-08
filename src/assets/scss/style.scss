@@ -115,3 +115,24 @@ main {
     border-radius: 10px;
     padding: 22px 74px;
 }
+
+
+// /.FOOTER
+
+.controls {
+    margin: 40px 0;
+}
+.controls__title {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+}
+.controls__menu {
+    margin: 0 50px;
+    option {
+        font-size: 14px;
+    }
+}
+.controls__menu_age {
+    margin: 0 0 0 0;
+}
