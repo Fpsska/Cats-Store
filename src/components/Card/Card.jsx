@@ -13,14 +13,14 @@ const Card = () => {
                 <div className="card__information">
                     <p className="card__name">Кот полосатый</p>
                 <ul className="card__description description">
-                    <li className="description__item description__item_color">Коричневый окрас</li>
+                    <li className="description__item description__item_color">Коричневый <br /> окрас</li>
                     <li className="description__item description__item_age"><span className="bold">2 мес. </span> <br /> Возраст</li>
                     <li className="description__item description__item_paw"><span className="bold">4</span> <br />  Кол-во лап</li>
                 </ul>
                 <p className="card__price">30 000 руб.</p>
                 </div>
                 <button className="card__button button">Купить</button>
-            </div>
+            </div>            
     )
 }
 

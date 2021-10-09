@@ -26,9 +26,18 @@ function App() {
             </select>
           </div>
 
-        <div className="gallery">
-            <Card/>
-        </div>
+          <div className="gallery">
+            <div className="gallery__wrapper">
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </div>
+            <button className="gallery__button button">Показать еще 20</button>
+            <button className="pagination"></button>
+          </div>
 
         </div>
       </main>
