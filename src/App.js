@@ -2,7 +2,8 @@ import './App.scss';
 import './assets/scss/reset.scss';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import Card from './components/Card/Card.jsx';
+import CardList from './components/Card/CardLits';
+// import store from './Redux/store';
 
 function App() {
   return (
@@ -26,14 +27,7 @@ function App() {
             </select>
           </div>
           <div className="gallery">
-            <div className="gallery__wrapper">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-            </div>
+            <CardList/>
             <button className="gallery__button button">Показать еще 20</button>
             <button className="pagination"></button>
           </div>
