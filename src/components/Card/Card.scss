@@ -1,0 +1,100 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    min-height: 520px;
+    margin-bottom: 28px;
+    &:not(:nth-child(3n + 3)) {
+        margin-right: 10px;
+    }
+}
+.card__preview {
+    width: 380px;
+    height: 264px;
+    position: relative;
+}
+.card__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.card__information {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #f3f3f3;
+}
+.card__description {
+    margin: 22px 0;
+}
+.card__price {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.26px;
+}
+.card__name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.26px;
+}
+.card__button {
+    border-radius: 0 0 10px 10px;
+    font-weight: 700;
+    line-height: 19.5px;
+    color: #fff;
+}
+
+.discount {
+    left: 10%;
+    top: 10%;
+    position: absolute;
+    height: 39px;
+    width: 78px;
+    background-color: #e52d2d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.discount__percent {
+    color: #fff;
+}
+.discount__button {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    height: 40px;
+    width: 46px;
+    background: transparent;
+    background-image: url(../../assets/images/heart.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    :not(:last-child) {
+        margin-right: 10px;
+    }
+}
+.description__item {
+    font-size: 12px;
+    line-height: 14.63px;
+}
+.description__item_color {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 26px;
+        width: 4px;
+        background-color: #6ebbd3;
+        left: -20%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

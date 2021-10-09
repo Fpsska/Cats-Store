@@ -1,5 +1,5 @@
 import './App.scss';
-import './assets/scss/style.scss';
+import './assets/scss/reset.scss';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Card from './components/Card/Card.jsx';
@@ -25,7 +25,6 @@ function App() {
               <option>1 год</option>
             </select>
           </div>
-
           <div className="gallery">
             <div className="gallery__wrapper">
               <Card />
@@ -38,7 +37,6 @@ function App() {
             <button className="gallery__button button">Показать еще 20</button>
             <button className="pagination"></button>
           </div>
-
         </div>
       </main>
       <Footer />

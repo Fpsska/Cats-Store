@@ -1,0 +1,46 @@
+.footer {
+    padding: 90px 80px;
+    background-color: #1f2021;
+}
+.footer__title {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.footer__subtitle {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 25.54px;
+}
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form__cheakbox-text {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+}
+.form__cheakbox-input {
+    margin-right: 22px;
+    order: -2;
+}
+.form__input {
+    margin-right: 16px;
+    padding: 22px 33px;
+    background: #fff;
+    border-radius: 10px;
+}
+.form__button {
+    font-weight: 700;
+    line-height: 17.07px;
+    color: #fff;
+}

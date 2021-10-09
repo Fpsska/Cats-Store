@@ -1,11 +1,12 @@
 import React from 'react';
+import './Header.scss'
 
 const Header = () => {
     return (
         <header className="header">
         <div className="container">
           <div className="header__section">
-            <img className="header__logo" src="../assets/images/logo.png" alt="logo" />
+            <img className="header__logo" src="../../assets/images/logo.png" alt="logo" />
             <nav className="nav">
               <ul className="nav__menu">
                 <li className="nav__menu_item"><a className="nav__menu_link" href="#">Main</a></li>
