@@ -1,26 +1,29 @@
-import React from 'react';
-import Card from './Card';
-import cards from '../../Redux/store'
+import React from "react";
+import Card from "./Card";
+import { connect } from "react-redux";
 
-const CardList = () => {
-    const cardList = cards.map(item => {
-        return (
-            <Card 
-            key={item.id}
-            image={item.image}
-            name={item.name}
-            color={item.color}
-            age={item.age}
-            paw={item.paw}
-            price={item.price}
-            discount={item.discount}
-            />
-        )
-    })
-
+const CardList = (props) => {
+  const cardList = props.cards.map((item) => {
     return (
-        <div className="gallery__wrapper"> {cardList} </div>
-    )
-}
+      <Card
+        key={item.id}
+        image={item.image}
+        name={item.name}
+        color={item.color}
+        age={item.age}
+        paw={item.paw}
+        price={item.price}
+        discount={item.discount}
+      />
+    );
+  });
+  return <div className="gallery__wrapper">{cardList}</div>;
+};
 
-export default CardList;
+const mapStateToProps = (state) => {
+  return {
+    cards: state.cards,
+  };
+};
+
+export default connect(mapStateToProps)(CardList);

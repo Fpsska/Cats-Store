@@ -1,19 +1,21 @@
 .header {
     padding: 100px 124px;
     background-image: url(../../assets/images/header-background.png);
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    flex: 0 0 auto;
 }
 .header__section {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 46px;
 }
 .header__text {
     color: #fff;
     font-size: 38px;
     font-weight: 700;
-    margin-top: 46px;
 }
 
 .telephone {
