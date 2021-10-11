@@ -1,8 +1,14 @@
-// import React from 'react';
-// import './Header.scss'
+import React from "react";
+import "./Header.scss";
 
-// const HeaderLink = (props) => {
-//     <li className="nav__menu_item"><a className="nav__menu_link" href="#">{props.text}</a></li>
-// }
+const HeaderLink = (props) => {
+  return (
+    <li className="nav__menu_item">
+      <a className="nav__menu_link" target="_blank" rel="noreferrer" href={props.link}>
+        {props.text}
+      </a>
+    </li>
+  );
+};
 
-// export default HeaderLink;
+export default HeaderLink;

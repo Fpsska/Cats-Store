@@ -66,19 +66,23 @@ const initialState = {
     headerLinks: [
         {
             id: 1,
-            text: "Main"
+            text: "Main",
+            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         },
         {
             id: 2,
-            text: "Gallery"
+            text: "Gallery",
+            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         },
         {
             id: 3,
-            text: "News"
+            text: "News",
+            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         },
         {
             id: 4,
-            text: "Profile"
+            text: "Profile",
+            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         }
     ]
 }

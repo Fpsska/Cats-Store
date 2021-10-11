@@ -3,7 +3,7 @@ import Card from "./Card";
 import { connect } from "react-redux";
 
 const CardList = (props) => {
-  const cardList = props.cards.map((item) => {
+  const cardList = props.cards.map(item => {
     return (
       <Card
         key={item.id}

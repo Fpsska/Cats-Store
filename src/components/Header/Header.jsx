@@ -1,38 +1,20 @@
 import React from "react";
-// import HeaderLink from "./HeaderLink";
-// import headerLinks from "../../Redux/store";
+import HeaderLink from "./HeaderLink";
 import logo from "../../assets/images/logo.png";
+import { connect } from "react-redux";
 import "./Header.scss";
 
-const HeaderList = () => {
+const HeaderList = (props) => {
+  const headerList = props.headerLinks.map((item) => {
+    return <HeaderLink key={item.id} text={item.text} />;
+  });
   return (
     <header className="header">
       <div className="container">
         <div className="header__section">
           <img className="header__logo" src={logo} alt="logo" />
           <nav className="nav">
-            <ul className="nav__menu">
-              <li className="nav__menu_item">
-                <a className="nav__menu_link" href="#">
-                  Main
-                </a>
-              </li>
-              <li className="nav__menu_item">
-                <a className="nav__menu_link" href="">
-                  Gallery
-                </a>
-              </li>
-              <li className="nav__menu_item">
-                <a className="nav__menu_link" href="">
-                  News
-                </a>
-              </li>
-              <li className="nav__menu_item">
-                <a className="nav__menu_link" href="">
-                  Profile
-                </a>
-              </li>
-            </ul>
+            <ul className="nav__menu">{headerList}</ul>
           </nav>
           <div className="header__telephone telephone">
             <a className="telephone__number" href="tel:+544 3490 00000">
@@ -47,4 +29,10 @@ const HeaderList = () => {
   );
 };
 
-export default HeaderList;
+const mapStateToProps = (state) => {
+  return {
+    headerLinks: state.headerLinks,
+  };
+};
+
+export default connect(mapStateToProps)(HeaderList);
