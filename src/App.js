@@ -1,14 +1,14 @@
 import './App.scss';
 import './assets/scss/reset.scss';
-import Header from './components/Header/Header.jsx';
-import Footer from './components/Footer/Footer.jsx';
-import CardList from './components/Card/CardLits';
-// import store from './Redux/store';
+import Footer from './components/Footer/Footer';
+
+import HeaderContainer from './components/Header/HeaderContainer';
+import CardContainer from './components/Card/CardContainer';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <HeaderContainer />
       <main>
         <div className="container">
           <div className="controls">
@@ -21,7 +21,7 @@ function App() {
             </select>
           </div>
           <div className="gallery">
-            <CardList/>
+            <CardContainer />
             <button className="gallery__button button">Показать еще 3</button>
             <button className="pagination"></button>
           </div>
@@ -31,5 +31,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

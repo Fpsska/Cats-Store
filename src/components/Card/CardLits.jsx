@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import { connect } from "react-redux";
 
 const CardList = (props) => {
   const cardList = props.cards.map(item => {
@@ -20,10 +19,4 @@ const CardList = (props) => {
   return <div className="gallery__wrapper">{cardList}</div>;
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cards: state.cards,
-  };
-};
-
-export default connect(mapStateToProps)(CardList);
+export default CardList;
