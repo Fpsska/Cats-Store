@@ -2,6 +2,11 @@ import React from "react";
 import "./Card.scss";
 
 const Card = (props) => {
+  // const setNewStatus = () => {
+  //   console.log("cliked ", props.newStatus);
+  //   // props.newStatus()
+  // }
+
   return (
     <div className="card">
       <div className="card__preview">
@@ -26,9 +31,12 @@ const Card = (props) => {
         </ul>
         <p className="card__price">{props.price} руб.</p>
       </div>
-      <button className="card__button button">Купить</button>
+      <button className="card__button button">
+        Купить
+      </button>
     </div>
   );
 };
+
 
 export default Card;

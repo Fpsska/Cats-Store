@@ -1,3 +1,5 @@
+// import CHANGE_CARD_STATUS from './actions'
+
 const initialState = {
     cards: [
         {
@@ -83,21 +85,22 @@ const initialState = {
             link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         }
     ],
-    isGalleryOpen: false,
+    status: "Купить"
 }
 
 
-// /. DEFAULT STATE
-
-const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "ACTION_GALLERY_DISPLAY":
-            return { ...state, isGalleryOpen: !state.isGalleryOpen };
-        default:
-    }
-    return state  // reducer всегда должен возвращать store
+const mainPageReducer = (state = initialState, action) => {
+    // switch (action.type) {
+    //     case CHANGE_CARD_STATUS:
+    //         return {
+    //             ...state, status: state.status = "Продано"
+    //         }
+    //     case ACTION_GALLERY_DISPLAY:
+    //         return { ...state, isGalleryOpen: state.isGalleryOpen = !state.isGalleryOpen }
+    //     default:
+    //         return state
+    // }
+    return state
 }
 
-// /. REDUCER
-
-export default rootReducer;
+export default mainPageReducer;
