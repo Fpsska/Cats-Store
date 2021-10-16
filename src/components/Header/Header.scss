@@ -1,14 +1,14 @@
 .header {
-    padding: 100px 124px;
+    padding: 60px 124px 100px 124px;
     background-image: url(../../assets/images/header-background.png);
-    background-size: 100% 100%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     flex: 0 0 auto;
 }
 .header__section {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 46px;
 }
@@ -17,6 +17,7 @@
     font-size: 38px;
     font-weight: 700;
 }
+
 
 .telephone {
     display: flex;

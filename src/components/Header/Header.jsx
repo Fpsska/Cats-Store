@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderLink from "./HeaderLink";
-import logo from "../../assets/images/logo.png";
+import SvgTemplate from "../SvgTemplate";
 import "./Header.scss";
 
 const Header = (props) => {
@@ -11,7 +11,9 @@ const Header = (props) => {
     <header className="header">
       <div className="container">
         <div className="header__section">
-          <img className="header__logo" src={logo} alt="logo" />
+          <span className="icon">
+            <SvgTemplate id="logo" />
+          </span>
           <nav className="nav">
             <ul className="nav__menu">{headerNav}</ul>
           </nav>
