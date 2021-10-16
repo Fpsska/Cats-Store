@@ -6,6 +6,7 @@ const CardList = (props) => {
     return (
       <Card
         key={item.id}
+        id={item.id}
         image={item.image}
         name={item.name}
         color={item.color}
@@ -13,6 +14,10 @@ const CardList = (props) => {
         paw={item.paw}
         price={item.price}
         discount={item.discount}
+        status={item.status}
+        isFavourite={item.isFavourite}
+        changeStatus={props.changeStatus}
+        toggleIsFavourite={props.toggleIsFavourite}
       />
     );
   });

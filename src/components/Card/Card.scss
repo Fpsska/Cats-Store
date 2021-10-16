@@ -64,13 +64,30 @@
     position: absolute;
     top: 10%;
     left: 80%;
-    height: 40px;
+    height: 46px;
     width: 46px;
     background: transparent;
-    background-image: url(../../assets/images/heart.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    padding: 0;
+}
+.discount__button-active {
+    top: 10%;
+    left: 80%;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    background: transparent;
+    padding: 0;
+    .icon__heart path {
+        fill: #e52d2d;
+        opacity: 1;
+    }
+}
+.icon__heart path {
+    opacity: 0.35;
+    transition: .2s linear;
+    &:hover {
+        fill: #e52d2d;
+    }
 }
 
 .description {

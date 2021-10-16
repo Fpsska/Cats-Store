@@ -4,9 +4,17 @@ import CardList from "../Card/CardLits";
 import Footer from "../Footer/Footer";
 
 const Main = (props) => {
+  const setGalleryDisplay = () => {
+    console.log("cliked button >", typeof props.changeDisplay, props.changeDisplay);
+    props.changeDisplay()
+  }
+  const startScroll = () => {
+    console.log("scroll >", typeof props.scroll, props.scroll);
+    props.scroll()
+  }
   return (
     <div className="page">
-      <Header id={props.id} text={props.text} headerLinks={props.headerLinks} />
+      <Header headerLinks={props.headerLinks} />
       <main>
         <div className="container">
           <div className="controls">
@@ -19,9 +27,9 @@ const Main = (props) => {
             </select>
           </div>
           <div className="gallery">
-            <CardList cards={props.cards} />
-            <button className="gallery__button button">Показать еще 3</button>
-            <button className="pagination"></button>
+            <CardList cards={props.cards} toggleIsFavourite={props.toggleIsFavourite}/>
+            <button className="gallery__button button" onClick={setGalleryDisplay}>Показать еще 3</button>
+            <button className="pagination" onClick={startScroll}></button>
           </div>
         </div>
       </main>

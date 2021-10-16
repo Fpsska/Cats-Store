@@ -1,4 +1,5 @@
-// import CHANGE_CARD_STATUS from './actions'
+import { ACTION_GALLERY_DISPLAY, ACTION_SCROLL_TOP, ACTION_TOGGLE_FAVOURITE } from './actions'
+
 
 const initialState = {
     cards: [
@@ -10,7 +11,8 @@ const initialState = {
             paw: "4",
             age: "2 мес.",
             price: "30 000",
-            discount: "-40%"
+            discount: "-40%",
+            isFavourite: false
         },
         {
             id: 2,
@@ -20,7 +22,8 @@ const initialState = {
             paw: "4",
             age: "3 мес.",
             price: "22 000",
-            discount: "-5%"
+            discount: "-5%",
+            isFavourite: false
         },
         {
             id: 3,
@@ -30,38 +33,39 @@ const initialState = {
             paw: "4",
             age: "5 мес.",
             price: "35 000",
-            discount: "-10%"
+            discount: "-10%",
+            isFavourite: false
         },
-        {
-            id: 4,
-            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-            name: "Кот полосатый",
-            color: "Дымчатый окрас",
-            paw: "4",
-            age: "2 мес.",
-            price: "15 000",
-            discount: "-35%"
-        },
-        {
-            id: 5,
-            image: "https://images.unsplash.com/photo-1534330980656-d201223895ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            name: "Кот дымчатый",
-            color: "Серый окрас",
-            paw: "4",
-            age: "3 мес.",
-            price: "18 000",
-            discount: "-50%"
-        },
-        {
-            id: 6,
-            image: "https://images.unsplash.com/photo-1488740304459-45c4277e7daf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-            name: "Кот пушистый",
-            color: "Белый окрас",
-            paw: "4",
-            age: "5 мес.",
-            price: "26 000",
-            discount: "free"
-        }
+        // {
+        //     id: 4,
+        //     image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+        //     name: "Кот полосатый",
+        //     color: "Дымчатый окрас",
+        //     paw: "4",
+        //     age: "2 мес.",
+        //     price: "15 000",
+        //     discount: "-35%",
+        // },
+        // {
+        //     id: 5,
+        //     image: "https://images.unsplash.com/photo-1534330980656-d201223895ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        //     name: "Кот дымчатый",
+        //     color: "Серый окрас",
+        //     paw: "4",
+        //     age: "3 мес.",
+        //     price: "18 000",
+        //     discount: "-50%",
+        // },
+        // {
+        //     id: 6,
+        //     image: "https://images.unsplash.com/photo-1488740304459-45c4277e7daf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+        //     name: "Кот пушистый",
+        //     color: "Белый окрас",
+        //     paw: "4",
+        //     age: "5 мес.",
+        //     price: "26 000",
+        //     discount: "free",
+        // }
     ],
     headerLinks: [
         {
@@ -85,22 +89,32 @@ const initialState = {
             link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         }
     ],
-    status: "Купить"
+    isGalleryOpen: false,
+    isScrolled: false,
 }
 
 
 const mainPageReducer = (state = initialState, action) => {
-    // switch (action.type) {
-    //     case CHANGE_CARD_STATUS:
-    //         return {
-    //             ...state, status: state.status = "Продано"
-    //         }
-    //     case ACTION_GALLERY_DISPLAY:
-    //         return { ...state, isGalleryOpen: state.isGalleryOpen = !state.isGalleryOpen }
-    //     default:
-    //         return state
-    // }
-    return state
+    switch (action.type) {
+        case ACTION_GALLERY_DISPLAY:
+            return { ...state, isGalleryOpen: state.isGalleryOpen = true } // !state.isGalleryOpen 
+        case ACTION_SCROLL_TOP:
+            return {
+                ...state, isScrolled: state.isScrolled = true
+            }
+        case ACTION_TOGGLE_FAVOURITE:
+            let stateCopy = { ...state }
+            stateCopy.cards = [...state.cards];
+            stateCopy.cards.forEach(item => {
+                if (item.id === action.id) {
+                    item.isFavourite = action.payload
+                }
+            })
+            return stateCopy
+        default:
+            return state
+    }
+    // return state
 }
 
 export default mainPageReducer;
