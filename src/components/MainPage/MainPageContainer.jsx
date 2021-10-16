@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { toggleIsFavourite, changeGalleryDisplay, scrollTop } from "../../Redux/actions";
+import {
+  toggleIsFavourite,
+  changeGalleryDisplay,
+} from "../../Redux/actions";
 import Main from "./MainPage";
 
 const mapStateToProps = (state) => {
@@ -12,8 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeDisplay: () => dispatch(changeGalleryDisplay()),
-    scroll: () => dispatch(scrollTop()),
-    toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id))
+    toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
   };
 };
 

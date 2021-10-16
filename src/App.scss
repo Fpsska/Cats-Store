@@ -66,14 +66,14 @@ svg {
 .pagination {
     width: 58px;
     height: 58px;
-    background-color: #6EBBD3;
-    background-image: url(../src/assets/images/arrow-up.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 30%;
+    background-color: #6ebbd3;
     position: absolute;
     right: 0;
     bottom: 0;
+    &:hover .icon__arrow path {
+        fill: #abadad;
+        transition: 0.1s linear;
+    }
 }
 
 .controls {

@@ -1,4 +1,4 @@
-import { ACTION_GALLERY_DISPLAY, ACTION_SCROLL_TOP, ACTION_TOGGLE_FAVOURITE } from './actions'
+import { ACTION_GALLERY_DISPLAY, ACTION_TOGGLE_FAVOURITE } from './actions'
 
 
 const initialState = {
@@ -36,36 +36,36 @@ const initialState = {
             discount: "-10%",
             isFavourite: false
         },
-        // {
-        //     id: 4,
-        //     image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-        //     name: "Кот полосатый",
-        //     color: "Дымчатый окрас",
-        //     paw: "4",
-        //     age: "2 мес.",
-        //     price: "15 000",
-        //     discount: "-35%",
-        // },
-        // {
-        //     id: 5,
-        //     image: "https://images.unsplash.com/photo-1534330980656-d201223895ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        //     name: "Кот дымчатый",
-        //     color: "Серый окрас",
-        //     paw: "4",
-        //     age: "3 мес.",
-        //     price: "18 000",
-        //     discount: "-50%",
-        // },
-        // {
-        //     id: 6,
-        //     image: "https://images.unsplash.com/photo-1488740304459-45c4277e7daf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-        //     name: "Кот пушистый",
-        //     color: "Белый окрас",
-        //     paw: "4",
-        //     age: "5 мес.",
-        //     price: "26 000",
-        //     discount: "free",
-        // }
+        {
+            id: 4,
+            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+            name: "Кот полосатый",
+            color: "Дымчатый окрас",
+            paw: "4",
+            age: "2 мес.",
+            price: "15 000",
+            discount: "-35%",
+        },
+        {
+            id: 5,
+            image: "https://images.unsplash.com/photo-1534330980656-d201223895ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            name: "Кот дымчатый",
+            color: "Серый окрас",
+            paw: "4",
+            age: "3 мес.",
+            price: "18 000",
+            discount: "-50%",
+        },
+        {
+            id: 6,
+            image: "https://images.unsplash.com/photo-1488740304459-45c4277e7daf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+            name: "Кот пушистый",
+            color: "Белый окрас",
+            paw: "4",
+            age: "5 мес.",
+            price: "26 000",
+            discount: "free",
+        }
     ],
     headerLinks: [
         {
@@ -98,10 +98,6 @@ const mainPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_GALLERY_DISPLAY:
             return { ...state, isGalleryOpen: state.isGalleryOpen = true } // !state.isGalleryOpen 
-        case ACTION_SCROLL_TOP:
-            return {
-                ...state, isScrolled: state.isScrolled = true
-            }
         case ACTION_TOGGLE_FAVOURITE:
             let stateCopy = { ...state }
             stateCopy.cards = [...state.cards];
