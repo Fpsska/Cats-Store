@@ -27,7 +27,7 @@ main {
 }
 
 .button {
-    background: #6ebbd3;
+    background-color: #6ebbd3;
     border-radius: 10px;
     padding: 22px 74px;
 }
@@ -53,7 +53,8 @@ svg {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
-    height: auto;
+    height: 545px;
+    overflow: hidden;
 }
 .gallery__button {
     border: 1px solid #cacaca;

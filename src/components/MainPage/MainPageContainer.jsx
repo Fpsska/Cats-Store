@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import {
   toggleIsFavourite,
-  changeGalleryDisplay,
+  // changeGalleryDisplay,
 } from "../../Redux/actions";
 import Main from "./MainPage";
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeDisplay: () => dispatch(changeGalleryDisplay()),
+    // changeDisplay: () => dispatch(changeGalleryDisplay()),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
   };
 };

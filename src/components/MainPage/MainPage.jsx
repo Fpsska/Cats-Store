@@ -5,13 +5,17 @@ import Footer from "../Footer/Footer";
 import SvgTemplate from "../SvgTemplate";
 
 const Main = (props) => {
-  const setGalleryDisplay = () => {
-    console.log(
-      "cliked button >",
-      typeof props.changeDisplay,
-      props.changeDisplay
-    );
-    props.changeDisplay();
+  const showGallery = () => {
+    // console.log(
+    //   "cliked button >",
+    //   typeof props.changeDisplay,
+    //   props.changeDisplay
+    // );
+    // props.changeDisplay();
+
+    document.querySelector(".gallery__wrapper").style.height = "auto";
+    // document.querySelector(".gallery__wrapper").appendChild(document.querySelector(".card"))
+    // console.log(props.cards.length);
   };
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -35,11 +39,8 @@ const Main = (props) => {
               cards={props.cards}
               toggleIsFavourite={props.toggleIsFavourite}
             />
-            <button
-              className="gallery__button button"
-              onClick={setGalleryDisplay}
-            >
-              Показать еще 3
+            <button className="gallery__button button" onClick={showGallery}>
+              Показать еще
             </button>
             <button className="pagination" onClick={scrollTop}>
               <span className="icon">

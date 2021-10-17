@@ -43,36 +43,44 @@
     font-weight: 700;
     line-height: 19.5px;
     color: #fff;
+    background-color: #6ebbd3;
+}
+.card__button-sold {
+    border-radius: 0 0 10px 10px;
+    font-weight: 700;
+    line-height: 19.5px;
+    color: #fff;
+    background-color: #1f2021;
 }
 
 .discount {
-    left: 10%;
-    top: 10%;
-    position: absolute;
-    height: 39px;
-    width: 78px;
-    background-color: #e52d2d;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.discount__percent {
+.card__icons_discount {
+    background-color: #e52d2d;
+    border-radius: 10px;
     color: #fff;
+    padding: 8px 20px;
 }
-.discount__button {
+
+.card__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     position: absolute;
-    top: 10%;
-    left: 80%;
+    top: 0;
+    padding: 34px;
+}
+.card__icons_button {
     height: 46px;
     width: 46px;
     background: transparent;
     padding: 0;
 }
-.discount__button-active {
-    top: 10%;
-    left: 80%;
-    position: absolute;
+.card__icons_button-active {
     height: 46px;
     width: 46px;
     background: transparent;
@@ -84,7 +92,7 @@
 }
 .icon__heart path {
     opacity: 0.35;
-    transition: .2s linear;
+    transition: 0.2s linear;
     &:hover {
         fill: #e52d2d;
     }

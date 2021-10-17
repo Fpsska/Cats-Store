@@ -12,12 +12,11 @@ const Card = (props) => {
   return (
     <div className="card">
       <div className="card__preview">
-        <div className="discount">
-          <span className="discount__percent">{props.discount}</span>
-        </div>
+        <div className="card__icons">
+        <span className={props.discountStatus ? "card__icons_discount" : "card__icons_discount-none"}>{props.discount}</span>
         <button
           className={
-            props.isFavourite ? "discount__button-active" : "discount__button"
+            props.isFavourite ? "card__icons_button-active" : "card__icons_button"
           }
           onClick={setFavourite}
         >
@@ -25,6 +24,8 @@ const Card = (props) => {
             <SvgTemplate id="heart" />
           </span>
         </button>
+        </div>
+
         <img className="card__image" src={props.image} alt="cat" />
       </div>
       <div className="card__information">
@@ -42,9 +43,15 @@ const Card = (props) => {
         </ul>
         <p className="card__price">{props.price} руб.</p>
       </div>
-      <button className="card__button button">Купить</button>
+      <button
+        className={
+          props.cardStatus ? "card__button button" : "card__button-sold button"
+        }
+      >
+        {props.cardStatus ? "Купить" : "Продано"}
+      </button>
     </div>
   );
 };
-
+// button card__button card__button-sold
 export default Card;
