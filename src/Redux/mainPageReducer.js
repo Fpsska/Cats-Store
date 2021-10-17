@@ -11,7 +11,7 @@ const initialState = {
             paw: "4",
             age: "2 мес.",
             price: "30 000",
-            discount: "-40",
+            discount: "-40%",
             discountStatus: true,
             isFavourite: false,
             cardStatus: false
@@ -46,7 +46,7 @@ const initialState = {
             name: "Кот полосатый",
             color: "Дымчатый окрас",
             paw: "4",
-            age: "2 мес.",
+            age: "1 мес.",
             price: "15 000",
             discountStatus: false,
             cardStatus: true
@@ -57,7 +57,7 @@ const initialState = {
             name: "Кот дымчатый",
             color: "Серый окрас",
             paw: "4",
-            age: "3 мес.",
+            age: "2.5 мес.",
             price: "18 000",
             discount: "-50%",
             discountStatus: true,
@@ -69,7 +69,7 @@ const initialState = {
             name: "Кот пушистый",
             color: "Белый окрас",
             paw: "4",
-            age: "5 мес.",
+            age: "8 мес.",
             price: "26 000",
             discount: "free",
             discountStatus: true,
@@ -81,7 +81,7 @@ const initialState = {
             name: "Кот полосатый",
             color: "Дымчатый окрас",
             paw: "4",
-            age: "2 мес.",
+            age: "6 мес.",
             price: "15 000",
             discountStatus: false,
             cardStatus: false
@@ -92,7 +92,7 @@ const initialState = {
             name: "Кот дымчатый",
             color: "Серый окрас",
             paw: "4",
-            age: "3 мес.",
+            age: "9 мес.",
             price: "18 000",
             discount: "free",
             discountStatus: true,
@@ -104,7 +104,7 @@ const initialState = {
             name: "Кот пушистый",
             color: "Белый окрас",
             paw: "4",
-            age: "5 мес.",
+            age: "6 мес.",
             price: "26 000",
             discountStatus: false,
             cardStatus: true
@@ -136,11 +136,8 @@ const initialState = {
     isScrolled: false,
 }
 
-
 const mainPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        // case ACTION_GALLERY_DISPLAY:
-        //     return { ...state, isGalleryOpen: state.isGalleryOpen = true } 
         case ACTION_TOGGLE_FAVOURITE:
             let stateCopy = { ...state }
             stateCopy.cards = [...state.cards];
@@ -150,10 +147,22 @@ const mainPageReducer = (state = initialState, action) => {
                 }
             })
             return stateCopy
+        // case ACTION_GALLERY_DISPLAY:
+        //     return { ...state, isGalleryOpen: state.isGalleryOpen = true } 
         default:
             return state
     }
     // return state
 }
+
+
+
+
+
+
+// let priceSortButton = document.querySelector("controls__menu_price")
+
+
+
 
 export default mainPageReducer;

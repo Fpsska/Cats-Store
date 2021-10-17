@@ -62,6 +62,10 @@ svg {
     padding: 22px 126px;
     background-color: transparent;
     margin: 0 auto 20px auto;
+    transition: .15s linear;
+    &:hover {
+        background-color: #abadad;
+    }
 }
 
 .pagination {
@@ -87,10 +91,8 @@ svg {
 }
 .controls__menu {
     margin: 0 50px;
-    option {
-        font-size: 14px;
-    }
+    font-size: 14px;
 }
 .controls__menu_age {
-    margin: 0 0 0 0;
+    margin: 0;
 }

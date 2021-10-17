@@ -25,7 +25,6 @@ const Card = (props) => {
           </span>
         </button>
         </div>
-
         <img className="card__image" src={props.image} alt="cat" />
       </div>
       <div className="card__information">
