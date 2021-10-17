@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import CardList from "../Card/CardLits";
 import Footer from "../Footer/Footer";
 import SvgTemplate from "../SvgTemplate";
+import SortButtonList from "../SortButton/SortButtonList";
 
 const Main = (props) => {
   const scrollPoint = useRef(null);
@@ -10,13 +11,6 @@ const Main = (props) => {
   const scrollTop = () => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
-
-  // const showGallery = () => {
-  //   document.querySelector(".gallery__wrapper").style.height = "auto";
-  // };
-
-  // let ageSortButton = document.querySelector(".controls__menu_age");
-  // console.log(ageSortButton);
 
   // const sortByAge = (array) => {
   //   const temp = JSON.parse(JSON.stringify(array)); // независимая глубокая копия массива
@@ -27,11 +21,6 @@ const Main = (props) => {
   //   console.log("temp from FUNC> ", temp);
   // };
 
-  // document.querySelector(".controls__menu_age").addEventListener("click", () => {
-  //   console.log("ready to sort");
-  //   sortByAge(props.cards);
-  // });
-
   return (
     <div ref={scrollPoint} className="page">
       <Header headerLinks={props.headerLinks} />
@@ -39,12 +28,7 @@ const Main = (props) => {
         <div className="container">
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
-            <button className="controls__menu controls__menu_price">
-              Цена
-            </button>
-            <button className="controls__menu controls__menu_age">
-              Возраст
-            </button>
+            <SortButtonList sortButtons={props.sortButtons} />
           </div>
           <div className="gallery">
             <CardList

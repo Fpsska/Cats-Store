@@ -132,6 +132,16 @@ const initialState = {
             link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
         }
     ],
+    sortButtons: [
+        {
+            id: 1,
+            text: "Цена"
+        },
+        {
+            id: 2,
+            text: "Возраст"
+        }
+    ],
     // isGalleryOpen: false,
     isScrolled: false,
 }

@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
   return {
     headerLinks: state.mainPage.headerLinks,
     cards: state.mainPage.cards,
+    sortButtons: state.mainPage.sortButtons,
   };
 };
 
