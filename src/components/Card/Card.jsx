@@ -52,5 +52,4 @@ const Card = (props) => {
     </div>
   );
 };
-// button card__button card__button-sold
 export default Card;

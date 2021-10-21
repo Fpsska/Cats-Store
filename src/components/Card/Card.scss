@@ -1,7 +1,9 @@
 .card {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    width: 380px;
+    flex: 0 1 30%;
+    // width: 380px;
     min-height: 520px;
     margin-bottom: 28px;
     &:not(:nth-child(3n + 3)) {

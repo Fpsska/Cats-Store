@@ -1,5 +1,5 @@
 export const ACTION_TOGGLE_FAVOURITE = "ACTION_TOGGLE_FAVOURITE"
-export const ACTION_SORT_CARD_BY_AGE = "ACTION_SORT_CARD_BY_AGE"
+export const ACTION_SORT_CARDS = "ACTION_SORT_CARDS"
 // export const ACTION_GALLERY_DISPLAY = "ACTION_GALLERY_DISPLAY"
 
 // export const changeGalleryDisplay = (newDisplay) => {      
@@ -9,10 +9,10 @@ export const ACTION_SORT_CARD_BY_AGE = "ACTION_SORT_CARD_BY_AGE"
 //     }
 // }
 
-export const sortByAge = () => {
+export const toggleSortCards = (newID) => {
     return {
-        type: ACTION_SORT_CARD_BY_AGE,
-        payload: null
+        type: ACTION_SORT_CARDS,
+        id: newID
     }
 }
 

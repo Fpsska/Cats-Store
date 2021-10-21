@@ -12,15 +12,6 @@ const Main = (props) => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
 
-  // const sortByAge = (array) => {
-  //   const temp = JSON.parse(JSON.stringify(array)); // независимая глубокая копия массива
-  //   temp.forEach((item) => {
-  //     item.age = parseInt(item.age.replace(/\d\./g, ""));
-  //   });
-  //   temp.sort((a, b) => (a.age > b.age ? 1 : -1));
-  //   console.log("temp from FUNC> ", temp);
-  // };
-
   return (
     <div ref={scrollPoint} className="page">
       <Header headerLinks={props.headerLinks} />
@@ -28,7 +19,7 @@ const Main = (props) => {
         <div className="container">
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
-            <SortButtonList sortButtons={props.sortButtons} />
+            <SortButtonList sortButtons={props.sortButtons} toggleSortCards={props.toggleSortCards} isSorted={props.isSorted} />
           </div>
           <div className="gallery">
             <CardList

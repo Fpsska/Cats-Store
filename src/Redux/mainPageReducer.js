@@ -1,4 +1,4 @@
-import { ACTION_TOGGLE_FAVOURITE } from './actions'
+import { ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 
 const initialState = {
@@ -134,16 +134,20 @@ const initialState = {
     ],
     sortButtons: [
         {
-            id: 1,
-            text: "Цена"
+            id: "price",
+            text: "Цена",
+            sortProperty: "ASCENDING",
+            isSorted: false
         },
         {
-            id: 2,
-            text: "Возраст"
+            id: "age",
+            text: "Возраст",
+            sortProperty: "ASCENDING",
+            isSorted: false
         }
     ],
     // isGalleryOpen: false,
-    isScrolled: false,
+
 }
 
 const mainPageReducer = (state = initialState, action) => {
@@ -157,6 +161,20 @@ const mainPageReducer = (state = initialState, action) => {
                 }
             })
             return stateCopy
+        case ACTION_SORT_CARDS:
+            if (action.id === "price") {
+                return {
+                    ...state,
+                    cards: [...state.cards.sort((a, b) => { return parseInt(a.price) - parseInt(b.price) })],
+                }
+            }
+            else if (action.id === "age") {
+                return {
+                    ...state,
+                    cards: [...state.cards.sort((a, b) => { return parseInt(a.age) - parseInt(b.age) })],
+                }
+            }
+            break
         // case ACTION_GALLERY_DISPLAY:
         //     return { ...state, isGalleryOpen: state.isGalleryOpen = true } 
         default:
@@ -164,6 +182,7 @@ const mainPageReducer = (state = initialState, action) => {
     }
     // return state
 }
+
 
 
 

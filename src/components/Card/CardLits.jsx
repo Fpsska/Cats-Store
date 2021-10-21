@@ -17,7 +17,6 @@ const CardList = (props) => {
         isFavourite={item.isFavourite}
         cardStatus={item.cardStatus}
         discountStatus={item.discountStatus}
-        // changeStatus={props.changeStatus}
         toggleIsFavourite={props.toggleIsFavourite}
       />
     );
