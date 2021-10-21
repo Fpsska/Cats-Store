@@ -19,10 +19,15 @@
     display: flex;
     justify-content: space-between;
 }
+.footer__description {
+    flex: 0 0 50%;
+}
+
 
 .form {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
 }
 .form__cheakbox-text {
     color: #fff;

@@ -1,5 +1,6 @@
 import './App.scss';
 import './assets/scss/reset.scss';
+import './assets/scss/media.scss'
 import MainContainer from './components/MainPage/MainPageContainer';
 
 

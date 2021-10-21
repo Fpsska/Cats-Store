@@ -9,7 +9,7 @@
 }
 
 body {
-    line-height: 150%;
+    line-height: 1;
     margin: 0;
     padding: 0;
     font-size: 16px;
@@ -22,8 +22,9 @@ main {
 }
 
 .container {
-    max-width: 1180px;
+    max-width: 1190px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .button {
@@ -53,7 +54,6 @@ svg {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
-    // height: 545px;
     overflow: hidden;
 }
 .gallery__button {

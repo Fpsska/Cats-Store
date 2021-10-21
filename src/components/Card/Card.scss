@@ -2,22 +2,20 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    flex: 0 1 30%;
-    // width: 380px;
-    min-height: 520px;
+    width: 380px;
     margin-bottom: 28px;
     &:not(:nth-child(3n + 3)) {
         margin-right: 10px;
     }
 }
 .card__preview {
-    width: 380px;
-    height: 264px;
     position: relative;
+    min-height: 264px;
+    flex: 1;
 }
 .card__image {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .card__information {
