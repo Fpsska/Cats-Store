@@ -1,5 +1,6 @@
 export const ACTION_TOGGLE_FAVOURITE = "ACTION_TOGGLE_FAVOURITE"
 export const ACTION_SORT_CARDS = "ACTION_SORT_CARDS"
+export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS"
 // export const ACTION_GALLERY_DISPLAY = "ACTION_GALLERY_DISPLAY"
 
 // export const changeGalleryDisplay = (newDisplay) => {      
@@ -8,6 +9,12 @@ export const ACTION_SORT_CARDS = "ACTION_SORT_CARDS"
 //         payload: newDisplay
 //     }
 // }
+const fetchCards = (results) => {
+    return {
+        type: ACTION_FETCH_CARDS,
+        payload: results
+    }
+}
 
 export const toggleSortCards = (newID) => {
     return {
@@ -26,6 +33,6 @@ export const toggleIsFavourite = (newValue, newID) => {
 
 
 
-
+export default fetchCards;
 
 

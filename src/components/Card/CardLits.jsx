@@ -1,15 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Card from "./Card";
 
 const CardList = (props) => {
-  const cardList = props.cards.map(item => {
+
+  const [cards, setCards] = useState(props.cards)
+
+  useEffect(() => {
+    setCards(props.cards)
+  }, [props.cards])
+
+  const cardList = props.cards.map((item) => {
     return (
       <Card
         key={item.id}
         id={item.id}
         image={item.image}
         name={item.name}
-        color={item.color}
+        location={item.location}
         age={item.age}
         paw={item.paw}
         price={item.price}

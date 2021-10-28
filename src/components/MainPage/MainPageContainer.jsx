@@ -1,10 +1,7 @@
 import { connect } from "react-redux";
-import {
-  toggleIsFavourite,
-  toggleSortCards,
-  // changeGalleryDisplay,
-} from "../../Redux/actions";
+import { toggleIsFavourite, toggleSortCards } from "../../Redux/actions";
 import Main from "./MainPage";
+import requestHandler from "../../Redux/Middleware/request";
 
 const mapStateToProps = (state) => {
   return {
@@ -16,9 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // changeDisplay: () => dispatch(changeGalleryDisplay()),
     toggleSortCards: (id) => dispatch(toggleSortCards(id)),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
+    requestHandler: () => dispatch(requestHandler()),
   };
 };
 

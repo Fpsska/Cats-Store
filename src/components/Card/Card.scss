@@ -67,6 +67,7 @@
 }
 .card__icons_discount-none {
     background-color: transparent;
+    visibility: hidden;
 }
 
 .card__icons {
@@ -111,6 +112,7 @@
     }
 }
 .description__item {
+    flex: 1;
     font-size: 12px;
     line-height: 14.63px;
 }
