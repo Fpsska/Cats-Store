@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { toggleIsFavourite, toggleSortCards } from "../../Redux/actions";
+import { toggleIsFavourite, toggleSortCards, fetchToggle } from "../../Redux/actions";
 import Main from "./MainPage";
 import requestHandler from "../../Redux/Middleware/request";
 
@@ -7,7 +7,10 @@ const mapStateToProps = (state) => {
   return {
     headerLinks: state.mainPage.headerLinks,
     cards: state.mainPage.cards,
+    visibleCards: state.mainPage.visibleCards,
     sortButtons: state.mainPage.sortButtons,
+    catsCount: state.mainPage.catsCount,
+    isFetching: state.mainPage.isFetching
   };
 };
 
@@ -16,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleSortCards: (id) => dispatch(toggleSortCards(id)),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
     requestHandler: () => dispatch(requestHandler()),
+    fetchToggle: (value) => dispatch(fetchToggle(value))
   };
 };
 

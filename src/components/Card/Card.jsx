@@ -5,7 +5,6 @@ import defaultImage from "../../assets/images/no_photo.png";
 
 const Card = (props) => {
   const setFavourite = () => {
-    console.log("from Card: ", props.requestHandler);
     props.isFavourite
       ? props.toggleIsFavourite(false, props.id)
       : props.toggleIsFavourite(true, props.id);
@@ -37,12 +36,11 @@ const Card = (props) => {
             </span>
           </button>
         </div>
-        {/* <img
+        <img
           className="card__image"
-          src={props.isLoading ? props.image : defaultImage}
+          src={props.isLoadingImage ? props.image : defaultImage}
           alt="cat"
-        /> */}
-        <img className="card__image" src={props.image} alt="cat" />
+        />
       </div>
       <div className="card__information">
         <p className="card__name">{props.name}</p>

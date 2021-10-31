@@ -24,7 +24,7 @@ const Header = (props) => {
             <span className="telephone__description">Звони скорее!</span>
           </div>
         </div>
-        <h1 className="header__text">Найдено 349 котов</h1>
+        <h1 className="header__text">Найдено {props.catsCount} котов</h1>
       </div>
     </header>
   );

@@ -7,10 +7,6 @@ const reducers = combineReducers({
     mainPage: mainPageReducer
 });
 
-// const loggerMiddleware = store => next => action => {
-//     console.log("MIDDLeware run", action.type);
-// }
-
 
 const store = createStore(reducers, applyMiddleware(thunk));
 

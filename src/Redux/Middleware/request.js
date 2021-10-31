@@ -1,17 +1,17 @@
 import getDataAPI from '../../api/api'
-import fetchCards from '../../Redux/actions'
-
+import { fetchCards, fetchToggle } from '../../Redux/actions'
 
 const requestHandler = () => {
     return dispatch => {
         getDataAPI()
-            .then(response => {
-                const responseData = response.data.results
-                console.log("from request.js: ", responseData);
-
+            .then(async function (response) {
+                setTimeout(() => {
+                    dispatch(fetchToggle(true)) // preloader is active
+                },1500)
+                
+                const responseData = await response.data.results
                 const actualData = []
-
-                responseData.forEach(item => {
+                await responseData.forEach(item => {
                     actualData.push(
                         {
                             id: item.id,
@@ -21,14 +21,14 @@ const requestHandler = () => {
                             paw: "4",
                             age: `${Math.floor(Math.random() * 12) + 1} мес.`,
                             price: `${Math.floor(Math.random() * 10000) + 1500} руб.`,
-                            discount: `-${Math.floor(Math.random() * 60)}%`,
+                            discount: `-${Math.floor(Math.random() * 60) + 10}%`,
                             discountStatus: Boolean(Math.round(Math.random())),
+                            cardStatus: Boolean(Math.round(Math.random())),
                             isFavourite: false,
-                            cardStatus: false
+                            isLoadingImage: true
                         }
                     )
                 })
-                console.log("actualData:", actualData);
                 dispatch(fetchCards(actualData))
             })
             .catch(error => console.log(error))
