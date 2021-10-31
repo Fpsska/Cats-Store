@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleSortCards: (id) => dispatch(toggleSortCards(id)),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
     requestHandler: () => dispatch(requestHandler()),
-    fetchToggle: (value) => dispatch(fetchToggle(value))
+    fetchToggle: (value) => dispatch(fetchToggle(value)),
   };
 };
 

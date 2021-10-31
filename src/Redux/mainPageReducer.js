@@ -1,4 +1,4 @@
-import { ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 
 const initialState = {
@@ -28,20 +28,20 @@ const initialState = {
     ],
     sortButtons: [
         {
-            id: "price",
             text: "Цена",
+            id: "price",
             sortProperty: "ASCENDING",
             isSorted: false
         },
         {
-            id: "age",
             text: "Возраст",
+            id: "age",
             sortProperty: "ASCENDING",
             isSorted: false
         }
     ],
     catsCount: "",
-    isFetching: true
+    isFetching: false
 }
 
 
@@ -77,10 +77,15 @@ const mainPageReducer = (state = initialState, action) => {
                 catsCount: ""
             }
         case ACTION_FETCH_TOGGLE:
-            console.log("FETCH-STATUS: " , action.payload);
             return {
                 ...state,
                 isFetching: action.payload
+            }
+        case ACTION_GET_CATS_COUNT:
+            console.log(action.payload);
+            return {
+                ...state,
+                catsCount: state.catsCount = action.payload
             }
         default:
             return state

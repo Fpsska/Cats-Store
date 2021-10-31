@@ -4,7 +4,7 @@ import "./Preloader.scss";
 let Preloader = () => {
   return (
     <div className="preloader">
-      <div className="preloader__wrapper">
+      <div className="lds-roller">
         <div></div>
         <div></div>
         <div></div>

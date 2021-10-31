@@ -1,5 +1,5 @@
 import getDataAPI from '../../api/api'
-import { fetchCards, fetchToggle } from '../../Redux/actions'
+import { getCatsCount, fetchCards, fetchToggle } from '../../Redux/actions'
 
 const requestHandler = () => {
     return dispatch => {
@@ -7,8 +7,8 @@ const requestHandler = () => {
             .then(async function (response) {
                 setTimeout(() => {
                     dispatch(fetchToggle(true)) // preloader is active
-                },1500)
-                
+                }, 1500)
+
                 const responseData = await response.data.results
                 const actualData = []
                 await responseData.forEach(item => {
@@ -29,7 +29,11 @@ const requestHandler = () => {
                         }
                     )
                 })
-                dispatch(fetchCards(actualData))
+                await dispatch(fetchCards(actualData))
+
+                setTimeout(() => {
+                    dispatch(getCatsCount(response.data.total_pages)) // get count of cats
+                }, 1000)
             })
             .catch(error => console.log(error))
     }

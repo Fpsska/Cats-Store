@@ -1,10 +1,10 @@
 import { React } from "react";
-import SvgTemplate from "../SvgTemplate";
+import SvgTemplate from "../Common/SvgTemplate";
 
 const SortButtonTemplate = (props) => {
+
   const runSort = () => {
     props.toggleSortCards(props.id);
-    //
   };
 
   return (

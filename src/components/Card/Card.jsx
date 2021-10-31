@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.scss";
-import SvgTemplate from "../SvgTemplate";
+import SvgTemplate from "../Common/SvgTemplate";
 import defaultImage from "../../assets/images/no_photo.png";
 
 const Card = (props) => {

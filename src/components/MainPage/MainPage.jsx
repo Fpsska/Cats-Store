@@ -2,9 +2,9 @@ import { React, useRef, useEffect } from "react";
 import Header from "../Header/Header";
 import CardList from "../Card/CardLits";
 import Footer from "../Footer/Footer";
-import SvgTemplate from "../SvgTemplate";
+import SvgTemplate from "../Common/SvgTemplate";
 import SortButtonList from "../SortButton/SortButtonList";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../Common/Preloader/Preloader";
 
 const Main = (props) => {
   const scrollPoint = useRef(null);
@@ -13,7 +13,7 @@ const Main = (props) => {
   };
 
   const testRequest = () => {
-    props.requestHandler()
+    props.requestHandler();
   };
 
   useEffect(() => {
@@ -29,9 +29,9 @@ const Main = (props) => {
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
             <SortButtonList
+              cardsSort={props.cardsSort}
               sortButtons={props.sortButtons}
               toggleSortCards={props.toggleSortCards}
-              isSorted={props.isSorted}
             />
           </div>
           <div className="gallery">

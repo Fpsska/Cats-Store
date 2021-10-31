@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import HeaderLink from "./HeaderLink";
-import SvgTemplate from "../SvgTemplate";
+import SvgTemplate from "../Common/SvgTemplate";
 import "./Header.scss";
 
 const Header = (props) => {
   const headerNav = props.headerLinks.map((item) => {
     return <HeaderLink key={item.id} text={item.text} />;
   });
+
+  const [catsCount, setCatsCount] = useState(props.catsCount);
+  useEffect(() => {
+    setCatsCount(props.catsCount);
+  }, [props.catsCount]); // when state props.cards is changed
+
   return (
     <header className="header">
       <div className="container">
@@ -24,7 +30,7 @@ const Header = (props) => {
             <span className="telephone__description">Звони скорее!</span>
           </div>
         </div>
-        <h1 className="header__text">Найдено {props.catsCount} котов</h1>
+        <h1 className="header__text">Найдено {catsCount} котов</h1>
       </div>
     </header>
   );
