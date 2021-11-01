@@ -22,9 +22,11 @@
     flex-direction: column;
     padding: 30px;
     background-color: #f3f3f3;
+    flex: 1;
 }
 .card__description {
     margin: 22px 0;
+    flex: 1;
 }
 .card__price {
     color: #000;
@@ -95,7 +97,7 @@
     }
 }
 .icon__heart path {
-    opacity: 0.35;
+    opacity: 0.55;
     transition: 0.2s linear;
     &:hover {
         fill: #e52d2d;

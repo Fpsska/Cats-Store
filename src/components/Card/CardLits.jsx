@@ -7,7 +7,7 @@ const CardList = (props) => {
     setCards(props.cards);
   }, [props.cards]); // when state props.cards is changed
 
-  const cardList = cards.map((item) => {
+  const cardList = props.cards.map((item) => { // cards.map
     return (
       <Card
         key={item.id}

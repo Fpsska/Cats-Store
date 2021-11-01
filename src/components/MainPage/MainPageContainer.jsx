@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
   return {
     headerLinks: state.mainPage.headerLinks,
     cards: state.mainPage.cards,
-    visibleCards: state.mainPage.visibleCards,
     sortButtons: state.mainPage.sortButtons,
     catsCount: state.mainPage.catsCount,
     isFetching: state.mainPage.isFetching

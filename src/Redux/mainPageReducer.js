@@ -3,7 +3,6 @@ import { ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_
 
 const initialState = {
     cards: [],
-    visibleCards: [],
     headerLinks: [
         {
             id: 1,
@@ -82,7 +81,6 @@ const mainPageReducer = (state = initialState, action) => {
                 isFetching: action.payload
             }
         case ACTION_GET_CATS_COUNT:
-            console.log(action.payload);
             return {
                 ...state,
                 catsCount: state.catsCount = action.payload

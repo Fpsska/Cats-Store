@@ -18,7 +18,6 @@ const Main = (props) => {
 
   useEffect(() => {
     props.requestHandler(); // to request middleware
-    console.log("REQUEST_HANDLER DID MOUNT");
   }, []); // when Component did mount
 
   return (
