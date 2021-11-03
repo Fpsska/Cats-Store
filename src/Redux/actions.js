@@ -4,6 +4,7 @@ export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS"
 export const ACTION_FETCH_TOGGLE = "ACTION_FETCH_TOGGLE"
 export const ACTION_GET_CATS_COUNT = "ACTION_GET_CATS_COUNT"
 
+
 export const getCatsCount = (count) => {
     return {
         type: ACTION_GET_CATS_COUNT,

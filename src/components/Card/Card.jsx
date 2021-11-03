@@ -1,7 +1,6 @@
 import React from "react";
 import "./Card.scss";
 import SvgTemplate from "../Common/SvgTemplate";
-import defaultImage from "../../assets/images/no_photo.png";
 
 const Card = (props) => {
   const setFavourite = () => {
@@ -38,7 +37,7 @@ const Card = (props) => {
         </div>
         <img
           className="card__image"
-          src={props.isLoadingImage ? props.image : defaultImage}
+          src={props.image}
           alt="cat"
         />
       </div>
@@ -46,7 +45,7 @@ const Card = (props) => {
         <p className="card__name">{props.name}</p>
         <ul className="card__description description">
           <li className="description__item description__item_color">
-            Location: <br/>
+            Location: <br />
             <strong>{props.location}</strong>
           </li>
           <li className="description__item description__item_age">

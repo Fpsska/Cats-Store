@@ -40,7 +40,7 @@ const initialState = {
         }
     ],
     catsCount: "",
-    isFetching: false
+    isFetching: false,
 }
 
 

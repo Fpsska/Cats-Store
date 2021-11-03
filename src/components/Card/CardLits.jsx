@@ -7,7 +7,7 @@ const CardList = (props) => {
     setCards(props.cards);
   }, [props.cards]); // when state props.cards is changed
 
-  const cardList = props.cards.map((item) => { // cards.map
+  const cardList = cards.map((item) => { // cards.map
     return (
       <Card
         key={item.id}
@@ -22,7 +22,7 @@ const CardList = (props) => {
         isFavourite={item.isFavourite}
         cardStatus={item.cardStatus}
         discountStatus={item.discountStatus}
-        isLoadingImage={item.isLoadingImage}
+        isLoadingImage={item.isLoadingImage} 
         toggleIsFavourite={props.toggleIsFavourite}
       />
     );

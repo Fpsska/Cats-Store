@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     cards: state.mainPage.cards,
     sortButtons: state.mainPage.sortButtons,
     catsCount: state.mainPage.catsCount,
-    isFetching: state.mainPage.isFetching
+    isFetching: state.mainPage.isFetching,
   };
 };
 
