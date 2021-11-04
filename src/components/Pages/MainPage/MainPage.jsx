@@ -1,12 +1,12 @@
 import { React, useRef, useEffect } from "react";
-import Header from "../Header/Header";
-import CardList from "../Card/CardLits";
-import Footer from "../Footer/Footer";
-import SvgTemplate from "../Common/SvgTemplate";
-import SortButtonList from "../SortButton/SortButtonList";
-import Preloader from "../Common/Preloader/Preloader";
+import Header from "../../Header/Header";
+import CardList from "../../Card/CardLits";
+import Footer from "../../Footer/Footer";
+import SvgTemplate from "../../Common/SvgTemplate";
+import SortButtonList from "../../SortButton/SortButtonList";
+import Preloader from "../../Common/Preloader/Preloader";
 
-const Main = (props) => {
+const MainPage = (props) => {
   const scrollPoint = useRef(null);
   const scrollTop = () => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
@@ -22,7 +22,7 @@ const Main = (props) => {
 
   return (
     <div ref={scrollPoint} className="page">
-      <Header catsCount={props.catsCount} headerLinks={props.headerLinks} />
+      <Header catsCount={props.catsCount} headerLinks={props.headerLinks}/>
       <main>
         <div className="container">
           <div className="controls">
@@ -58,4 +58,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default MainPage;

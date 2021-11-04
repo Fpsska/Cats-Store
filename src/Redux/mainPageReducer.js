@@ -7,22 +7,22 @@ const initialState = {
         {
             id: 1,
             text: "Main",
-            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
+            link: ""
         },
         {
             id: 2,
             text: "Gallery",
-            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
+            link: "page2"
         },
         {
             id: 3,
             text: "News",
-            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
+            link: "page3"
         },
         {
             id: 4,
             text: "Profile",
-            link: "https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats"
+            link: "page4"
         }
     ],
     sortButtons: [

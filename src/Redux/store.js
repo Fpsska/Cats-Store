@@ -3,8 +3,9 @@ import thunk from 'redux-thunk';
 import mainPageReducer from './mainPageReducer'
 
 
+
 const reducers = combineReducers({
-    mainPage: mainPageReducer
+    mainPage: mainPageReducer,
 });
 
 

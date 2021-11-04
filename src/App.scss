@@ -1,17 +1,14 @@
 .App {
     height: 100%;
 }
-
 .page {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-
 #root {
     height: 100%;
 }
-
 body {
     line-height: 1;
     margin: 0;
@@ -20,7 +17,6 @@ body {
     background-color: #fff;
     font-family: "Roboto";
 }
-
 main {
     flex: 1 0 auto;
 }
@@ -30,6 +26,18 @@ main {
     margin: 0 auto;
     padding: 0 10px;
 }
+
+.section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.section__text {
+    font-weight: 400;
+    font-size: 44px;
+}
+// /. general pages styles
 
 .button {
     background-color: #6ebbd3;
@@ -83,6 +91,4 @@ svg {
         transition: 0.1s linear;
     }
 }
-
-
-
+// /. main page styles

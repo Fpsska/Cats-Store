@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeaderLink = (props) => {
   return (
     <li className="nav__menu_item">
-      <a
+      <Link
+        to={props.link}
         className="nav__menu_link"
-        target="_blank"
         rel="noreferrer"
-        href={props.link}
+        href="#"
       >
         {props.text}
-      </a>
+      </Link>
     </li>
   );
 };

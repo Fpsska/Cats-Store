@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
-import { toggleIsFavourite, toggleSortCards, fetchToggle } from "../../Redux/actions";
-import Main from "./MainPage";
-import requestHandler from "../../Redux/Middleware/request";
+import {
+  toggleIsFavourite,
+  toggleSortCards,
+  fetchToggle,
+} from "../../../Redux/actions";
+import MainPage from "./MainPage";
+import requestHandler from "../../../Redux/Middleware/request";
 
 const mapStateToProps = (state) => {
   return {
@@ -22,6 +26,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const MainContainer = connect(mapStateToProps, mapDispatchToProps)(Main);
+const MainContainer = connect(mapStateToProps, mapDispatchToProps)(MainPage);
 
 export default MainContainer;
