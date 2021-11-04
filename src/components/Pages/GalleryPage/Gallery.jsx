@@ -5,7 +5,7 @@ const GalleryPage = () => {
     <>
       <main>
         <div className="section">
-          <h1 className="section__text">GALLERY PAGE IN PROCESS</h1>
+          <h1 className="section__title">GALLERY PAGE IN PROCESS</h1>
         </div>
       </main>
     </>

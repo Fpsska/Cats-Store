@@ -4,6 +4,7 @@ import App from '../App'
 import GalleryPage from '../components/Pages/GalleryPage/Gallery'
 import NewsPage from '../components/Pages/NewsPage/NewsPage'
 import ProfilePage from '../components/Pages/ProfilePage/ProfilePage'
+import NoFoundPage from '../components/Pages/NoFoundPage/NoFoundPage';
 
 
 const Router = () => {
@@ -14,6 +15,7 @@ const Router = () => {
                 <Route path='/react-spa/page2' element={<GalleryPage />} />
                 <Route path='/react-spa/page3' element={<NewsPage />} />
                 <Route path='/react-spa/page4' element={<ProfilePage />} />
+                <Route path="*" element={<NoFoundPage />} />
             </Routes>
         </BrowserRouter>
     )

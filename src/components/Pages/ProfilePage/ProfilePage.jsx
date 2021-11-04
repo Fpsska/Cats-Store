@@ -5,7 +5,7 @@ const ProfilePage = () => {
     <>
       <main>
         <div className="section">
-          <h1 className="section__text">PROFILE PAGE IN PROCESS</h1>
+          <h1 className="section__title">PROFILE PAGE IN PROCESS</h1>
         </div>
       </main>
     </>

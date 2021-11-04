@@ -7,7 +7,7 @@ import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
 
 const MainPage = (props) => {
-  const scrollPoint = useRef(null);
+  const scrollPoint = useRef();
   const scrollTop = () => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
