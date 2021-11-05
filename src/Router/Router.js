@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from '../App'
-import GalleryPage from '../components/Pages/GalleryPage/Gallery'
+import GalleryPage from '../components/Pages/GalleryPage/GalleryPage'
 import NewsPage from '../components/Pages/NewsPage/NewsPage'
 import ProfilePage from '../components/Pages/ProfilePage/ProfilePage'
 import NoFoundPage from '../components/Pages/NoFoundPage/NoFoundPage';

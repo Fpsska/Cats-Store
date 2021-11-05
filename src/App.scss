@@ -6,17 +6,24 @@
     display: flex;
     flex-direction: column;
 }
+
 #root {
     height: 100%;
 }
+
 body {
     line-height: 1;
     margin: 0;
     padding: 0;
     font-size: 16px;
-    background-color: #f3f3f3;
+    // background-color: #f3f3f3;
+    background-color: #fff;
     font-family: "Roboto";
 }
+body.static {
+    overflow-y: hidden;
+}
+
 main {
     flex: 1 0 auto;
     background-color: #fff;
@@ -43,13 +50,15 @@ main {
 .section__title {
     font-weight: 400;
     font-size: 44px;
+    margin: 10px;
 }
 .section__title-error {
     font-weight: 900;
     font-size: 120px;
-    margin: 10px;
 }
 // /. general pages styles
+
+
 
 .button {
     background-color: #6ebbd3;
@@ -85,7 +94,7 @@ svg {
     padding: 22px 126px;
     background-color: transparent;
     margin: 0 auto 20px auto;
-    transition: .15s linear;
+    transition: 0.15s linear;
     &:hover {
         background-color: #abadad;
     }

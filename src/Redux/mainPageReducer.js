@@ -1,4 +1,4 @@
-import { ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_CHANGE_NAV_DISPLAY , ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 
 const initialState = {
@@ -41,6 +41,7 @@ const initialState = {
     ],
     catsCount: "",
     isFetching: false,
+    isBurgerHidden: false
 }
 
 
@@ -84,6 +85,12 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 catsCount: state.catsCount = action.payload
+            }
+        case ACTION_CHANGE_NAV_DISPLAY:
+            console.log("burgerStatus:" , action.payload);
+            return {
+                ...state,
+                isBurgerHidden: state.isBurgerHidden = action.payload
             }
         default:
             return state

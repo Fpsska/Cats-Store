@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeaderLink = (props) => {
   return (
-    <li className="nav__menu_item">
+    <li className={props.isBurgerHidden ? "nav__menu_item" : "nav__menu_item-burger"}>
       <Link
         to={props.link}
         className="nav__menu_link"
