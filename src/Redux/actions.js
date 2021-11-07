@@ -33,18 +33,18 @@ export const fetchCards = (results) => {
     }
 }
 
-export const toggleSortCards = (newID) => {
+export const toggleSortCards = (newID, status) => {
     return {
         type: ACTION_SORT_CARDS,
-        id: newID
+        id: newID,
+        payload: status
     }
 }
 
-export const toggleIsFavourite = (newValue, newID) => {
+export const toggleIsFavourite = (value, id) => {
     return {
         type: ACTION_TOGGLE_FAVOURITE,
-        payload: newValue,
-        id: newID
+        payload: {value, id},
     }
 }
 

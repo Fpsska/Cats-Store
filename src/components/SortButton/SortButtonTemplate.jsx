@@ -5,7 +5,7 @@ const SortButtonTemplate = (props) => {
   const arrowIcon = useRef();
 
   const runSort = () => {
-    props.toggleSortCards(props.id);
+    props.toggleSortCards(props.id, props.isSorted);
     arrowIcon.current.style.transform = "rotate(360deg)";
   };
 

@@ -3,7 +3,6 @@ import SortButtonTemplate from "./SortButtonTemplate";
 import "./Sort.scss";
 
 const SortButtonList = (props) => {
-
   const sortButtonList = props.sortButtons.map((item) => {
     return (
       <SortButtonTemplate

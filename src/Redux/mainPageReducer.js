@@ -48,19 +48,25 @@ const initialState = {
 const mainPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_TOGGLE_FAVOURITE:
-            let stateCopy = { ...state }
-            stateCopy.cards = [...state.cards];
-            stateCopy.cards.forEach(item => {
-                if (item.id === action.id) {
-                    item.isFavourite = action.payload
-                }
-            })
-            return stateCopy
+            return {
+                ...state,
+                cards: state.cards.map(item => {
+                    if (item.id === action.payload.id) {
+                        return  {
+                            ...item,
+                            isFavourite: action.payload.value 
+                        }
+                    }
+                    return item
+                })
+            }
         case ACTION_SORT_CARDS:
             if (action.id === "price") {
+                console.log("action ID: ", action.id, "//", "action PAYLOAD: ", action.payload);
                 return {
                     ...state,
                     cards: [...state.cards.sort((a, b) => { return parseInt(a.price) - parseInt(b.price) })],
+                    // sortButtons: [...state.sortButtons.isSorted] 
                 }
             }
             else if (action.id === "age") {

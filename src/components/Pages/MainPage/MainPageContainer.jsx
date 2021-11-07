@@ -8,7 +8,6 @@ import MainPage from "./MainPage";
 import requestHandler from "../../../Redux/Middleware/request";
 import burgerHandler from "../../../Redux/Middleware/burger";
 
-
 const mapStateToProps = (state) => {
   return {
     headerLinks: state.mainPage.headerLinks,
@@ -16,18 +15,17 @@ const mapStateToProps = (state) => {
     sortButtons: state.mainPage.sortButtons,
     catsCount: state.mainPage.catsCount,
     isFetching: state.mainPage.isFetching,
-    isBurgerHidden: state.mainPage.isBurgerHidden
+    isBurgerHidden: state.mainPage.isBurgerHidden,
   };
 };
 
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleSortCards: (id) => dispatch(toggleSortCards(id)),
+    toggleSortCards: (id, status) => dispatch(toggleSortCards(id, status)),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
     fetchToggle: (value) => dispatch(fetchToggle(value)),
     requestHandler: () => dispatch(requestHandler()),
-    burgerHandler: () => dispatch(burgerHandler())
+    burgerHandler: () => dispatch(burgerHandler()),
   };
 };
 
