@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-spa/static/css/main.1f389af7.chunk.css",
-    "main.js": "/react-spa/static/js/main.a10e2883.chunk.js",
-    "main.js.map": "/react-spa/static/js/main.a10e2883.chunk.js.map",
+    "main.css": "/react-spa/static/css/main.9d0a7b09.chunk.css",
+    "main.js": "/react-spa/static/js/main.ac2d42ab.chunk.js",
+    "main.js.map": "/react-spa/static/js/main.ac2d42ab.chunk.js.map",
     "runtime-main.js": "/react-spa/static/js/runtime-main.81eb53fe.js",
     "runtime-main.js.map": "/react-spa/static/js/runtime-main.81eb53fe.js.map",
     "static/js/2.e8ac9f94.chunk.js": "/react-spa/static/js/2.e8ac9f94.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.f959f393.chunk.js": "/react-spa/static/js/3.f959f393.chunk.js",
     "static/js/3.f959f393.chunk.js.map": "/react-spa/static/js/3.f959f393.chunk.js.map",
     "index.html": "/react-spa/index.html",
-    "static/css/main.1f389af7.chunk.css.map": "/react-spa/static/css/main.1f389af7.chunk.css.map",
+    "static/css/main.9d0a7b09.chunk.css.map": "/react-spa/static/css/main.9d0a7b09.chunk.css.map",
     "static/js/2.e8ac9f94.chunk.js.LICENSE.txt": "/react-spa/static/js/2.e8ac9f94.chunk.js.LICENSE.txt",
     "static/media/Header.scss": "/react-spa/static/media/header-background.6da77330.jpg",
     "static/media/in_process.448aa860.png": "/react-spa/static/media/in_process.448aa860.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.81eb53fe.js",
     "static/js/2.e8ac9f94.chunk.js",
-    "static/css/main.1f389af7.chunk.css",
-    "static/js/main.a10e2883.chunk.js"
+    "static/css/main.9d0a7b09.chunk.css",
+    "static/js/main.ac2d42ab.chunk.js"
   ]
 }
