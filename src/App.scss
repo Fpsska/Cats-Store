@@ -16,12 +16,12 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    // background-color: #f3f3f3;
-    background-color: #fff;
+    background-color: #f3f3f3;
     font-family: "Roboto";
+    position: relative;
 }
-body.static {
-    overflow-y: hidden;
+body.fixed {
+    overflow: hidden;
 }
 
 main {
@@ -50,14 +50,13 @@ main {
 .section__title {
     font-weight: 400;
     font-size: 44px;
-    margin: 10px;
+    margin: 10px 0 0 0;
 }
 .section__title-error {
     font-weight: 900;
     font-size: 120px;
 }
 // /. general pages styles
-
 
 
 .button {

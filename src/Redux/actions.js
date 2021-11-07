@@ -6,7 +6,6 @@ export const ACTION_GET_CATS_COUNT = "ACTION_GET_CATS_COUNT"
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY"
 
 export const changeNavDisplay = (status) => {
-    console.log("ACTION:", status);
     return {
         type: ACTION_CHANGE_NAV_DISPLAY,
         payload: status

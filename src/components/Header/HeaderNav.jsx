@@ -3,7 +3,7 @@ import HeaderLink from "./HeaderLink";
 
 const HeaderNav = (props) => {
   const headerNav = props.headerLinks.map((item) => {
-    return <HeaderLink key={item.id} text={item.text} link={item.link} />;
+    return <HeaderLink key={item.id} text={item.text} link={item.link} isBurgerHidden={props.isBurgerHidden}/>;
   });
   return (
     <nav className="nav">

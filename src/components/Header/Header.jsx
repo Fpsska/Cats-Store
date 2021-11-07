@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
@@ -9,11 +8,9 @@ const Header = (props) => {
   const [catsCount, setCatsCount] = useState(props.catsCount);
   useEffect(() => {
     setCatsCount(props.catsCount);
-  }, [props.catsCount]); // when state props.cards is changed
+  }, [props.catsCount]); // when state props.catsCount is changed
 
-  console.log("Header:", props.isBurgerHidden);
 
-  // const dispatch = useDispatch()
   useEffect(() => {
     props.burgerHandler();
   }, []);
@@ -27,7 +24,10 @@ const Header = (props) => {
           </span>
           <>
             {props.isBurgerHidden ? (
-              <HeaderNav headerLinks={props.headerLinks} isBurgerHidden={props.isBurgerHidden} />
+              <HeaderNav
+                headerLinks={props.headerLinks}
+                isBurgerHidden={props.isBurgerHidden}
+              />
             ) : (
               <BurgerMenu headerLinks={props.headerLinks} />
             )}

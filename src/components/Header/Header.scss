@@ -1,6 +1,6 @@
 .header {
     padding: 60px 124px 100px 124px;
-    background-image: url(../../assets/images/header-background.png);
+    background-image: url(../../assets/images/header-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -17,7 +17,6 @@
     font-size: 38px;
     font-weight: 700;
 }
-
 
 .telephone {
     display: flex;
@@ -39,14 +38,41 @@
 
 .nav__menu {
     display: flex;
-    :not(:last-child) {
+}
+.nav__menu-burger {
+    @extend .nav__menu;
+    text-align: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav__menu_item {
+    &:not(:last-child) {
         margin-right: 50px;
     }
 }
+.nav__menu_item-burger {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
 .nav__menu_link {
     color: #fff;
     font-size: 18px;
     font-weight: 300;
     line-height: 21.94px;
 }
+.nav__menu_link-burger {
+    @extend .nav__menu_link;
+    transition: 0.15s linear;
+    &:hover {
+        color: #6ebbd3;
+    }
+}
+
+
 

@@ -6,7 +6,8 @@ import {
 } from "../../../Redux/actions";
 import MainPage from "./MainPage";
 import requestHandler from "../../../Redux/Middleware/request";
-import burgerHandler from "../../../Redux/Middleware/burger"
+import burgerHandler from "../../../Redux/Middleware/burger";
+
 
 const mapStateToProps = (state) => {
   return {
@@ -19,12 +20,13 @@ const mapStateToProps = (state) => {
   };
 };
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleSortCards: (id) => dispatch(toggleSortCards(id)),
     toggleIsFavourite: (value, id) => dispatch(toggleIsFavourite(value, id)),
-    requestHandler: () => dispatch(requestHandler()),
     fetchToggle: (value) => dispatch(fetchToggle(value)),
+    requestHandler: () => dispatch(requestHandler()),
     burgerHandler: () => dispatch(burgerHandler())
   };
 };

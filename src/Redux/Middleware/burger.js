@@ -1,14 +1,21 @@
-import changeNavDisplay from "../actions"
+import { changeNavDisplay } from "../actions"
 
 const burgerHandler = () => {
     return dispatch => {
-        window.addEventListener("resize", () => {
-            if (window.innerWidth <= 800) {
-                console.log("It works!");
-                // dispatch(changeNavDisplay(false)) // Check the render method of `CardList`
+        const defineBurgerStatus = () => {
+            if (window.innerWidth < 800) {
+                dispatch(changeNavDisplay(false))
             }
-        })
+            else if (window.innerWidth > 800) {
+                dispatch(changeNavDisplay(true))
+            }
+        }
+
+        window.addEventListener("resize", () => defineBurgerStatus())
+        window.onload = () => defineBurgerStatus()
     }
 }
+
+
 
 export default burgerHandler;

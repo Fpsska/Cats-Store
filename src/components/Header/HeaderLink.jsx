@@ -6,7 +6,7 @@ const HeaderLink = (props) => {
     <li className={props.isBurgerHidden ? "nav__menu_item" : "nav__menu_item-burger"}>
       <Link
         to={props.link}
-        className="nav__menu_link"
+        className={props.isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"}
         rel="noreferrer"
         href="#"
       >

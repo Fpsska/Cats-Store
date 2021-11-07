@@ -22,7 +22,12 @@ const MainPage = (props) => {
 
   return (
     <div ref={scrollPoint} className="page">
-      <Header catsCount={props.catsCount} headerLinks={props.headerLinks} isBurgerHidden={props.isBurgerHidden} burgerHandler={props.burgerHandler} />
+      <Header
+        catsCount={props.catsCount}
+        headerLinks={props.headerLinks}
+        isBurgerHidden={props.isBurgerHidden}
+        burgerHandler={props.burgerHandler}
+      />
       <main>
         <div className="container">
           <div className="controls">

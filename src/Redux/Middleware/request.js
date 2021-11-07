@@ -1,5 +1,5 @@
 import { getDataAPI } from '../../api/api'
-import { getCatsCount, fetchCards, fetchToggle } from '../../Redux/actions'
+import { getCatsCount, fetchCards, fetchToggle } from '../actions'
 import url from "../../assets/images/no_photo.png";
 
 const requestHandler = () => {
