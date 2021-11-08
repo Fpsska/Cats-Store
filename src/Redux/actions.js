@@ -4,6 +4,14 @@ export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS"
 export const ACTION_FETCH_TOGGLE = "ACTION_FETCH_TOGGLE"
 export const ACTION_GET_CATS_COUNT = "ACTION_GET_CATS_COUNT"
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY"
+export const ACTION_CHANGE_SCROLL_STATUS= "ACTION_CHANGE_SCROLL_STATUS"
+
+export const changeScrollStatus = (status) => {
+    return {
+        type: ACTION_CHANGE_SCROLL_STATUS,
+        payload: status
+    }
+}
 
 export const changeNavDisplay = (status) => {
     return {
@@ -33,18 +41,17 @@ export const fetchCards = (results) => {
     }
 }
 
-export const toggleSortCards = (newID, status) => {
+export const toggleSortCards = (id, status) => {
     return {
         type: ACTION_SORT_CARDS,
-        id: newID,
-        payload: status
+        payload: {id, status}
     }
 }
 
-export const toggleIsFavourite = (value, id) => {
+export const toggleIsFavourite = (id, status) => {
     return {
         type: ACTION_TOGGLE_FAVOURITE,
-        payload: {value, id},
+        payload: {id, status},
     }
 }
 

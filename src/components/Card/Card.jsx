@@ -5,8 +5,8 @@ import SvgTemplate from "../Common/SvgTemplate";
 const Card = (props) => {
   const setFavourite = () => {
     props.isFavourite
-      ? props.toggleIsFavourite(false, props.id)
-      : props.toggleIsFavourite(true, props.id);
+      ? props.toggleIsFavourite(props.id, false)
+      : props.toggleIsFavourite(props.id, true);
   };
 
   return (

@@ -6,6 +6,9 @@
     display: flex;
     flex-direction: column;
 }
+.page.fixed {
+    overflow: hidden;
+}
 
 #root {
     height: 100%;
@@ -20,9 +23,7 @@ body {
     font-family: "Roboto";
     position: relative;
 }
-body.fixed {
-    overflow: hidden;
-}
+
 
 main {
     flex: 1 0 auto;

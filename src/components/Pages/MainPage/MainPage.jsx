@@ -1,4 +1,4 @@
-import { React, useRef, useEffect } from "react";
+import { React, useRef, useEffect, useState } from "react";
 import Header from "../../Header/Header";
 import CardList from "../../Card/CardLits";
 import Footer from "../../Footer/Footer";
@@ -20,13 +20,16 @@ const MainPage = (props) => {
     props.requestHandler(); // to request middleware
   }, []); // when Component did mount
 
+
+  console.log(props.isOpened);
   return (
-    <div ref={scrollPoint} className="page">
+    <div ref={scrollPoint} className={props.isBodyScrolling ? "page" : "page fixed" }>
       <Header
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}
         isBurgerHidden={props.isBurgerHidden}
         burgerHandler={props.burgerHandler}
+        changeScrollStatus={props.changeScrollStatus}
       />
       <main>
         <div className="container">

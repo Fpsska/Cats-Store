@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_CHANGE_SCROLL_STATUS , ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 
 const initialState = {
@@ -41,7 +41,8 @@ const initialState = {
     ],
     catsCount: "",
     isFetching: false,
-    isBurgerHidden: true
+    isBurgerHidden: true,
+    isBodyScrolling: true
 }
 
 
@@ -52,9 +53,9 @@ const mainPageReducer = (state = initialState, action) => {
                 ...state,
                 cards: state.cards.map(item => {
                     if (item.id === action.payload.id) {
-                        return  {
+                        return {
                             ...item,
-                            isFavourite: action.payload.value 
+                            isFavourite: action.payload.status
                         }
                     }
                     return item
@@ -66,7 +67,12 @@ const mainPageReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cards: [...state.cards.sort((a, b) => { return parseInt(a.price) - parseInt(b.price) })],
-                    // sortButtons: [...state.sortButtons.isSorted] 
+                    sortButtons: state.sortButtons.map(item => {
+                        return {
+                            ...item,
+                            isSorted: action.payload.status
+                        }
+                    })
                 }
             }
             else if (action.id === "age") {
@@ -96,6 +102,12 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isBurgerHidden: action.payload
+            }
+        case ACTION_CHANGE_SCROLL_STATUS:
+            console.log("reducer PAYLOAD: ", action.payload);
+            return {
+                ...state,
+                isBodyScrolling: action.payload
             }
         default:
             return state

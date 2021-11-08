@@ -10,7 +10,6 @@ const Header = (props) => {
     setCatsCount(props.catsCount);
   }, [props.catsCount]); // when state props.catsCount is changed
 
-
   useEffect(() => {
     props.burgerHandler();
   }, []);
@@ -29,7 +28,11 @@ const Header = (props) => {
                 isBurgerHidden={props.isBurgerHidden}
               />
             ) : (
-              <BurgerMenu headerLinks={props.headerLinks} />
+              <BurgerMenu
+                headerLinks={props.headerLinks}
+                isBodyScrolling={props.isBodyScrolling}
+                changeScrollStatus={props.changeScrollStatus}
+              />
             )}
           </>
           <div className="header__telephone telephone">

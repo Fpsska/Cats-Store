@@ -3,7 +3,7 @@ import noFoundPage from "../../../assets/images/no_found.png";
 
 const NoFoundPage = () => {
   return (
-    <>
+    <div className="page">
       <main>
         <div className="section">
           <img className="section__image" src={noFoundPage} alt="404 error" />
@@ -11,7 +11,7 @@ const NoFoundPage = () => {
           <p className="section__subtitle">Sorry, your page no found.</p>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 
