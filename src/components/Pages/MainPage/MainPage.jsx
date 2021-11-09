@@ -20,8 +20,6 @@ const MainPage = (props) => {
     props.requestHandler(); // to request middleware
   }, []); // when Component did mount
 
-
-  console.log(props.isOpened);
   return (
     <div ref={scrollPoint} className={props.isBodyScrolling ? "page" : "page fixed" }>
       <Header
@@ -36,7 +34,7 @@ const MainPage = (props) => {
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
             <SortButtonList
-              cardsSort={props.cardsSort}
+              // cardsSort={props.cardsSort}
               sortButtons={props.sortButtons}
               toggleSortCards={props.toggleSortCards}
             />

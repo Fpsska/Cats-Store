@@ -1,5 +1,4 @@
-import { ACTION_CHANGE_SCROLL_STATUS , ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
-
+import { ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 const initialState = {
     cards: [],
@@ -29,13 +28,11 @@ const initialState = {
         {
             text: "Цена",
             id: "price",
-            sortProperty: "ASCENDING",
             isSorted: false
         },
         {
             text: "Возраст",
             id: "age",
-            sortProperty: "ASCENDING",
             isSorted: false
         }
     ],
@@ -62,25 +59,44 @@ const mainPageReducer = (state = initialState, action) => {
                 })
             }
         case ACTION_SORT_CARDS:
-            if (action.id === "price") {
-                console.log("action ID: ", action.id, "//", "action PAYLOAD: ", action.payload);
+            if (action.payload.id === "price" && action.payload.status === false) {
                 return {
                     ...state,
-                    cards: [...state.cards.sort((a, b) => { return parseInt(a.price) - parseInt(b.price) })],
+                    cards: [...state.cards.sort((a, b) => { return parseInt(b.price) - parseInt(a.price) })],
                     sortButtons: state.sortButtons.map(item => {
                         return {
                             ...item,
-                            isSorted: action.payload.status
+                            isSorted: action.payload.status,
+                        }
+                    })
+                }
+            } 
+            else if (action.payload.id === "price" && action.payload.status === true) {
+                return {
+                    ...state,
+                    cards: [...state.cards.sort((a, b) => { return parseInt(a.price) - parseInt(b.price) })],
+                }
+            }
+            // /. price sort
+            else if (action.payload.id === "age" && action.payload.status === false) {
+                return {
+                    ...state,
+                    cards: [...state.cards.sort((a, b) => { return parseInt(b.age) - parseInt(a.age) })],
+                    sortButtons: state.sortButtons.map(item => {
+                        return {
+                            ...item,
+                            isSorted: action.payload.status,
                         }
                     })
                 }
             }
-            else if (action.id === "age") {
+            else if (action.payload.id === "age" && action.payload.status === true) {
                 return {
                     ...state,
                     cards: [...state.cards.sort((a, b) => { return parseInt(a.age) - parseInt(b.age) })],
                 }
             }
+            // /. age sort
             break
         case ACTION_FETCH_CARDS:
             return {
@@ -104,7 +120,6 @@ const mainPageReducer = (state = initialState, action) => {
                 isBurgerHidden: action.payload
             }
         case ACTION_CHANGE_SCROLL_STATUS:
-            console.log("reducer PAYLOAD: ", action.payload);
             return {
                 ...state,
                 isBodyScrolling: action.payload

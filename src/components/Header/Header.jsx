@@ -8,7 +8,7 @@ const Header = (props) => {
   const [catsCount, setCatsCount] = useState(props.catsCount);
   useEffect(() => {
     setCatsCount(props.catsCount);
-  }, [props.catsCount]); // when state props.catsCount is changed
+  }, [props.catsCount]);  // when state props.catsCount is changed
 
   useEffect(() => {
     props.burgerHandler();

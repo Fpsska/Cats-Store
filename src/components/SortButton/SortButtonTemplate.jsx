@@ -1,18 +1,20 @@
-import { React, useRef } from "react";
+import { React, useState } from "react";
 import SvgTemplate from "../Common/SvgTemplate";
 
 const SortButtonTemplate = (props) => {
-  const arrowIcon = useRef();
-
+  const [isSwitched, setSwitchStatus] = useState(false);
 
   const runSort = () => {
-    arrowIcon.current.style.transform = "rotate(360deg)";
+    setSwitchStatus(!isSwitched);
+
+    console.log(props.toggleSortCards);
+    props.toggleSortCards(props.id, isSwitched);
   };
 
   return (
     <button onClick={runSort} className="controls__menu">
       <span className="controls__menu_text">{props.text}</span>
-      <span className="icon" ref={arrowIcon}>
+      <span className={isSwitched ? "icon sorted" : "icon"}>
         <SvgTemplate id="arrow-sort" />
       </span>
     </button>
