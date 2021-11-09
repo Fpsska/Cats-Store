@@ -1,5 +1,3 @@
-
-
 const sortHandler = () => {
     return dispatch => {
 

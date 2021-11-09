@@ -6,8 +6,6 @@ const SortButtonTemplate = (props) => {
 
   const runSort = () => {
     setSwitchStatus(!isSwitched);
-
-    console.log(props.toggleSortCards);
     props.toggleSortCards(props.id, isSwitched);
   };
 
