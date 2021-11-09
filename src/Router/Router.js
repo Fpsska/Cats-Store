@@ -12,9 +12,9 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/react-spa' element={<App />} />
-                <Route path='/react-spa/page2' element={<GalleryPage />} />
-                <Route path='/react-spa/page3' element={<NewsPage />} />
-                <Route path='/react-spa/page4' element={<ProfilePage />} />
+                <Route path='/react-spa/gallery' element={<GalleryPage />} />
+                <Route path='/react-spa/news' element={<NewsPage />} />
+                <Route path='/react-spa/profile' element={<ProfilePage />} />
                 <Route path="*" element={<NoFoundPage />} />
             </Routes>
         </BrowserRouter>

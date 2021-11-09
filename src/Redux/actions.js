@@ -42,7 +42,6 @@ export const fetchCards = (results) => {
 }
 
 export const toggleSortCards = (id, status) => {
-    // console.log("ACTION: " , id , status);
     return {
         type: ACTION_SORT_CARDS,
         payload: {id, status}

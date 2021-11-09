@@ -18,7 +18,6 @@ const HeaderLink = (props) => {
           props.isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"
         }
         rel="noreferrer"
-        href="#"
         onClick={removeFixed}
       >
         {props.text}

@@ -34,7 +34,6 @@ const MainPage = (props) => {
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
             <SortButtonList
-              // cardsSort={props.cardsSort}
               sortButtons={props.sortButtons}
               toggleSortCards={props.toggleSortCards}
             />

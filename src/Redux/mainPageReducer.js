@@ -6,22 +6,22 @@ const initialState = {
         {
             id: 1,
             text: "Main",
-            link: ""
+            link: "/react-spa"
         },
         {
             id: 2,
             text: "Gallery",
-            link: "page2"
+            link: "/react-spa/gallery"
         },
         {
             id: 3,
             text: "News",
-            link: "page3"
+            link: "/react-spa/news"
         },
         {
             id: 4,
             text: "Profile",
-            link: "page4"
+            link: "/react-spa/profile"
         }
     ],
     sortButtons: [
