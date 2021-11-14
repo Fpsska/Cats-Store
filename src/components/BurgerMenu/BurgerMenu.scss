@@ -32,7 +32,7 @@
 }
 
 .burger {
-    position: fixed;
+    position: absolute;
     min-width: 100%;
     z-index: 2;
     height: 100%;
@@ -41,6 +41,7 @@
     transition: transform 0.45s ease-in-out;
 }
 .burger.active {
+    position: fixed;
     transform: translate(100%, 0);
 }
 

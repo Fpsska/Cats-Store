@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HeaderLink = (props) => {
-  const removeFixed = () => {
-    props.changeScrollStatus(true);
-  };
-
   return (
     <li
       className={
@@ -17,8 +13,6 @@ const HeaderLink = (props) => {
         className={
           props.isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"
         }
-        rel="noreferrer"
-        onClick={removeFixed}
       >
         {props.text}
       </Link>

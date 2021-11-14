@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState } from "react";
+import { React, useRef, useEffect} from "react";
 import Header from "../../Header/Header";
 import CardList from "../../Card/CardLits";
 import Footer from "../../Footer/Footer";
@@ -21,7 +21,7 @@ const MainPage = (props) => {
   }, []); // when Component did mount
 
   return (
-    <div ref={scrollPoint} className={props.isBodyScrolling ? "page" : "page fixed" }>
+    <div ref={scrollPoint} className="page">
       <Header
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}

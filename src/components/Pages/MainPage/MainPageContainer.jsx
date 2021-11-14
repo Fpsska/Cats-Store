@@ -6,6 +6,7 @@ import {
   changeScrollStatus
 } from "../../../Redux/actions";
 import MainPage from "./MainPage";
+import GalleryPage from "../GalleryPage/GalleryPage";
 import requestHandler from "../../../Redux/Middleware/request";
 import burgerHandler from "../../../Redux/Middleware/burger";
 

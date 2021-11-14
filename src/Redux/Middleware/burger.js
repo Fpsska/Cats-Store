@@ -12,7 +12,7 @@ const burgerHandler = () => {
         }
 
         window.addEventListener("resize", () => defineBurgerStatus())
-        window.onload = () => defineBurgerStatus()
+        window.addEventListener("load", () => defineBurgerStatus())
     }
 }
 

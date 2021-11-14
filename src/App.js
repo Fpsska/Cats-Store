@@ -1,14 +1,27 @@
+import { React } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import MainContainer from './components/Pages/MainPage/MainPageContainer';
+import MainPage from './components/Pages/MainPage/MainPage';
+import GalleryPage from './components/Pages/GalleryPage/GalleryPage'
+import NewsPage from './components/Pages/NewsPage/NewsPage'
+import ProfilePage from './components/Pages/ProfilePage/ProfilePage'
+import NoFoundPage from './components/Pages/NoFoundPage/NoFoundPage';
 import './App.scss';
 import './assets/scss/reset.scss';
 import './assets/scss/media.scss'
-import MainContainer from './components/Pages/MainPage/MainPageContainer';
-import { React } from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <MainContainer/>
-    </div >
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<MainContainer />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path='/gallery' element={<GalleryPage />} />
+        <Route path='/news' element={<NewsPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path="*" element={<NoFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
