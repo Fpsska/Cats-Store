@@ -6,7 +6,7 @@ const initialState = {
         {
             id: 1,
             text: "Main",
-            link: "/"
+            link: "/react-spa"
         },
         {
             id: 2,

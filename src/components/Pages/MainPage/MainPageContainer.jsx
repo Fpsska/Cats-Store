@@ -3,12 +3,11 @@ import {
   toggleIsFavourite,
   toggleSortCards,
   fetchToggle,
-  changeScrollStatus
+  changeScrollStatus,
+  changeNavDisplay
 } from "../../../Redux/actions";
 import MainPage from "./MainPage";
-import GalleryPage from "../GalleryPage/GalleryPage";
 import requestHandler from "../../../Redux/Middleware/request";
-import burgerHandler from "../../../Redux/Middleware/burger";
 
 const mapStateToProps = (state) => {
   return {
@@ -28,8 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleIsFavourite: (id, status) => dispatch(toggleIsFavourite(id, status)),
     fetchToggle: (value) => dispatch(fetchToggle(value)),
     requestHandler: () => dispatch(requestHandler()),
-    burgerHandler: () => dispatch(burgerHandler()),
-    changeScrollStatus: (status) => dispatch(changeScrollStatus(status))
+    changeScrollStatus: (status) => dispatch(changeScrollStatus(status)),
+    changeNavDisplay: (status) => dispatch(changeNavDisplay(status))
   };
 };
 

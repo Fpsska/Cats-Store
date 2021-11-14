@@ -12,7 +12,7 @@ const GalleryPage = () => {
           <p className="section__link">
             return to home{" "}
             <span>
-              <Link to="/">page</Link>
+              <Link to="/react-spa">page</Link>
             </span>
           </p>
         </div>

@@ -14,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainContainer />} />
-        <Route path="/" element={<MainPage />} />
+        <Route index path="/react-spa" element={<MainContainer />} />
+        <Route path="/react-spa" element={<MainPage />} />
         <Route path='/gallery' element={<GalleryPage />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/profile' element={<ProfilePage />} />

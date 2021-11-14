@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
@@ -8,10 +8,27 @@ const Header = (props) => {
   const [catsCount, setCatsCount] = useState(props.catsCount);
   useEffect(() => {
     setCatsCount(props.catsCount);
-  }, [props.catsCount]);  // when state props.catsCount is changed
+  }, [props.catsCount]); // when state props.catsCount is changed
+
+  const defineBurgerStatus = () => {
+    if (window.innerWidth < 800) {
+      props.changeNavDisplay(false);
+    } else if (window.innerWidth > 800) {
+      props.changeNavDisplay(true);
+    }
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("resize", defineBurgerStatus);
+    window.addEventListener("load", defineBurgerStatus);
+    return () => {
+      window.removeEventListener("resize", defineBurgerStatus);
+      window.removeEventListener("load", defineBurgerStatus);
+    };
+  }, []);
 
   useEffect(() => {
-    props.burgerHandler();
+    // props.burgerHandler();
   }, []);
 
   return (

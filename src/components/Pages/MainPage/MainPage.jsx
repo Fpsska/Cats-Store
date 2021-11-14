@@ -26,8 +26,8 @@ const MainPage = (props) => {
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}
         isBurgerHidden={props.isBurgerHidden}
-        burgerHandler={props.burgerHandler}
         changeScrollStatus={props.changeScrollStatus}
+        changeNavDisplay={props.changeNavDisplay}
       />
       <main>
         <div className="container">
