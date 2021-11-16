@@ -1,7 +1,6 @@
-import { React, useRef, useEffect} from "react";
+import { React, useEffect, useRef } from "react";
 import Header from "../../Header/Header";
 import CardList from "../../Card/CardLits";
-import Footer from "../../Footer/Footer";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
@@ -12,24 +11,24 @@ const MainPage = (props) => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
 
-  const testRequest = () => {
+  const fetchRequest = () => {
     props.requestHandler();
   };
 
   useEffect(() => {
-    props.requestHandler(); // to request middleware
-  }, []); // when Component did mount
+    props.requestHandler();
+  }, []);
 
   return (
-    <div ref={scrollPoint} className="page">
-      <Header
+    <>
+      <Header 
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}
         isBurgerHidden={props.isBurgerHidden}
         changeScrollStatus={props.changeScrollStatus}
         changeNavDisplay={props.changeNavDisplay}
       />
-      <main>
+      <main ref={scrollPoint}>
         <div className="container">
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
@@ -47,7 +46,7 @@ const MainPage = (props) => {
             ) : (
               <Preloader />
             )}
-            <button className="gallery__button button" onClick={testRequest}>
+            <button className="gallery__button button" onClick={fetchRequest}>
               Показать ещё
             </button>
             <button className="pagination" onClick={scrollTop}>
@@ -58,8 +57,7 @@ const MainPage = (props) => {
           </div>
         </div>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

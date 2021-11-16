@@ -1,7 +1,7 @@
 import { React } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Common/Layout';
 import MainContainer from './components/Pages/MainPage/MainPageContainer';
-import MainPage from './components/Pages/MainPage/MainPage';
 import GalleryPage from './components/Pages/GalleryPage/GalleryPage'
 import NewsPage from './components/Pages/NewsPage/NewsPage'
 import ProfilePage from './components/Pages/ProfilePage/ProfilePage'
@@ -12,18 +12,18 @@ import './assets/scss/media.scss'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index path="/react-spa" element={<MainContainer />} />
-        <Route path="/react-spa" element={<MainPage />} />
-        <Route path='/gallery' element={<GalleryPage />} />
-        <Route path='/news' element={<NewsPage />} />
-        <Route path='/profile' element={<ProfilePage />} />
+    <Routes>
+      <Route path="/react-spa" element={<Layout />}>
+        <Route index element={<MainContainer />} />
+        <Route path='/react-spa/gallery' element={<GalleryPage />} />
+        <Route path='/react-spa/news' element={<NewsPage />} />
+        <Route path='/react-spa/profile' element={<ProfilePage />} />
         <Route path="*" element={<NoFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+      </Route>
+    </Routes>
   );
 }
+
 
 
 export default App;

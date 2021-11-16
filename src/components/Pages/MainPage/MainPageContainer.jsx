@@ -3,7 +3,6 @@ import {
   toggleIsFavourite,
   toggleSortCards,
   fetchToggle,
-  changeScrollStatus,
   changeNavDisplay
 } from "../../../Redux/actions";
 import MainPage from "./MainPage";
@@ -17,7 +16,6 @@ const mapStateToProps = (state) => {
     catsCount: state.mainPage.catsCount,
     isFetching: state.mainPage.isFetching,
     isBurgerHidden: state.mainPage.isBurgerHidden,
-    isBodyScrolling: state.mainPage.isBodyScrolling
   };
 };
 
@@ -27,7 +25,6 @@ const mapDispatchToProps = (dispatch) => {
     toggleIsFavourite: (id, status) => dispatch(toggleIsFavourite(id, status)),
     fetchToggle: (value) => dispatch(fetchToggle(value)),
     requestHandler: () => dispatch(requestHandler()),
-    changeScrollStatus: (status) => dispatch(changeScrollStatus(status)),
     changeNavDisplay: (status) => dispatch(changeNavDisplay(status))
   };
 };

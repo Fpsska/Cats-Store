@@ -39,18 +39,16 @@
     font-weight: 700;
     line-height: 29.26px;
 }
-.card__button {
+.card__button.card__button {
     border-radius: 0 0 10px 10px;
     font-weight: 700;
     line-height: 19.5px;
     color: #fff;
     background-color: #6ebbd3;
 }
-.card__button-sold {
+.card__button-sold.card__button-sold {
+    @extend .card__button;
     border-radius: 0 0 10px 10px;
-    font-weight: 700;
-    line-height: 19.5px;
-    color: #fff;
     background-color: #1f2021;
 }
 
