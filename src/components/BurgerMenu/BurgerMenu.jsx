@@ -4,10 +4,17 @@ import "./BurgerMenu.scss";
 
 const BurgerMenu = (props) => {
   const [isOpened, setOpenedStatus] = useState(false);
+
   const openBurger = () => {
     setOpenedStatus(!isOpened);
 
-    props.changeScrollStatus(isOpened);
+    props.changeScrollStatus(!isOpened);
+
+    if (props.isBurgerHidden === !isOpened) {
+      document.body.style.overflowY = "auto";
+    } else {
+      document.body.style.overflowY = "hidden";
+    }
 
     const ScrollBarWidth = window.innerWidth - document.body.clientWidth;
     document.body.style.paddingRight = `${ScrollBarWidth}px`;

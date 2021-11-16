@@ -32,8 +32,8 @@
 }
 
 .burger {
-    position: absolute;
-    min-width: 100%;
+    position: fixed;
+    width: 100%;
     z-index: 2;
     height: 100%;
     left: -100%;

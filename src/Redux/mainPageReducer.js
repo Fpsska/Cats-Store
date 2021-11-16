@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 const initialState = {
     cards: [],
@@ -39,6 +39,7 @@ const initialState = {
     catsCount: "",
     isFetching: false,
     isBurgerHidden: true,
+    isBodyScrolling: true
 }
 
 
@@ -98,7 +99,6 @@ const mainPageReducer = (state = initialState, action) => {
             // /. age sort
             break
         case ACTION_FETCH_CARDS:
-            console.log(action.payload);
             return {
                 ...state,
                 cards: [...state.cards.concat(action.payload)],
@@ -118,6 +118,11 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isBurgerHidden: action.payload
+            }
+        case ACTION_CHANGE_SCROLL_STATUS:
+            return {
+                ...state,
+                isBodyScrolling: action.payload
             }
         default:
             return state

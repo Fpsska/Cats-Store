@@ -28,10 +28,6 @@ const Header = (props) => {
     };
   }, []);
 
-  useEffect(() => {
-    // props.burgerHandler();
-  }, []);
-
   return (
     <header className="header">
       <div className="container">
@@ -49,6 +45,7 @@ const Header = (props) => {
               <BurgerMenu
                 headerLinks={props.headerLinks}
                 isBodyScrolling={props.isBodyScrolling}
+                isBurgerHidden={props.isBurgerHidden}
                 changeScrollStatus={props.changeScrollStatus}
               />
             )}

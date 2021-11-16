@@ -16,17 +16,23 @@ const MainPage = (props) => {
   };
 
   useEffect(() => {
+    // correct work, when page is refreshed, FIX!!!
+    console.log("mount");
     props.requestHandler();
+    return () => {
+      console.log("unmount");
+    };
   }, []);
 
   return (
     <>
-      <Header 
+      <Header
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}
         isBurgerHidden={props.isBurgerHidden}
         changeScrollStatus={props.changeScrollStatus}
         changeNavDisplay={props.changeNavDisplay}
+        changeScrollStatus={props.changeScrollStatus}
       />
       <main ref={scrollPoint}>
         <div className="container">

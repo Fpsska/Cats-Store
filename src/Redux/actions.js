@@ -5,6 +5,13 @@ export const ACTION_FETCH_TOGGLE = "ACTION_FETCH_TOGGLE"
 export const ACTION_GET_CATS_COUNT = "ACTION_GET_CATS_COUNT"
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY"
 
+export const ACTION_CHANGE_SCROLL_STATUS= "ACTION_CHANGE_SCROLL_STATUS"
+export const changeScrollStatus = (status) => {
+    return {
+        type: ACTION_CHANGE_SCROLL_STATUS,
+        payload: status
+    }
+}
 
 export const changeNavDisplay = (status) => {
     return {
