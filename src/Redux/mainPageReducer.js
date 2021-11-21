@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_GET_INPUT_VALUE, ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 const initialState = {
     cards: [],
@@ -39,7 +39,8 @@ const initialState = {
     catsCount: "",
     isFetching: false,
     isBurgerHidden: true,
-    isBodyScrolling: true
+    isBodyScrolling: true,
+    emailValue: ""
 }
 
 
@@ -123,6 +124,11 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isBodyScrolling: action.payload
+            }
+        case ACTION_GET_INPUT_VALUE:
+            return {
+                ...state,
+                emailValue: action.payload
             }
         default:
             return state

@@ -4,7 +4,7 @@ import {
   toggleSortCards,
   fetchToggle,
   changeNavDisplay,
-  changeScrollStatus
+  changeScrollStatus,
 } from "../../../Redux/actions";
 import MainPage from "./MainPage";
 import requestHandler from "../../../Redux/Middleware/request";
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchToggle: (value) => dispatch(fetchToggle(value)),
     requestHandler: () => dispatch(requestHandler()),
     changeNavDisplay: (status) => dispatch(changeNavDisplay(status)),
-    changeScrollStatus: (status) => dispatch(changeScrollStatus(status))
+    changeScrollStatus: (status) => dispatch(changeScrollStatus(status)),
   };
 };
 
