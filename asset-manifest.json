@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Cats-Store/static/css/main.07b0d5e3.chunk.css",
-    "main.js": "/Cats-Store/static/js/main.8f174b5e.chunk.js",
-    "main.js.map": "/Cats-Store/static/js/main.8f174b5e.chunk.js.map",
+    "main.js": "/Cats-Store/static/js/main.7cca17b8.chunk.js",
+    "main.js.map": "/Cats-Store/static/js/main.7cca17b8.chunk.js.map",
     "runtime-main.js": "/Cats-Store/static/js/runtime-main.3cf23896.js",
     "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.3cf23896.js.map",
     "static/js/2.91b1d20a.chunk.js": "/Cats-Store/static/js/2.91b1d20a.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.3cf23896.js",
     "static/js/2.91b1d20a.chunk.js",
     "static/css/main.07b0d5e3.chunk.css",
-    "static/js/main.8f174b5e.chunk.js"
+    "static/js/main.7cca17b8.chunk.js"
   ]
 }
