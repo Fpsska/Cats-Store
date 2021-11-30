@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Cats-Shop/static/css/main.50a25e0b.chunk.css",
-    "main.js": "/Cats-Shop/static/js/main.8f174b5e.chunk.js",
-    "main.js.map": "/Cats-Shop/static/js/main.8f174b5e.chunk.js.map",
-    "runtime-main.js": "/Cats-Shop/static/js/runtime-main.c9a32e21.js",
-    "runtime-main.js.map": "/Cats-Shop/static/js/runtime-main.c9a32e21.js.map",
-    "static/js/2.91b1d20a.chunk.js": "/Cats-Shop/static/js/2.91b1d20a.chunk.js",
-    "static/js/2.91b1d20a.chunk.js.map": "/Cats-Shop/static/js/2.91b1d20a.chunk.js.map",
-    "static/js/3.793f73f5.chunk.js": "/Cats-Shop/static/js/3.793f73f5.chunk.js",
-    "static/js/3.793f73f5.chunk.js.map": "/Cats-Shop/static/js/3.793f73f5.chunk.js.map",
-    "index.html": "/Cats-Shop/index.html",
-    "static/css/main.50a25e0b.chunk.css.map": "/Cats-Shop/static/css/main.50a25e0b.chunk.css.map",
-    "static/js/2.91b1d20a.chunk.js.LICENSE.txt": "/Cats-Shop/static/js/2.91b1d20a.chunk.js.LICENSE.txt",
-    "static/media/Header.scss": "/Cats-Shop/static/media/header-background.6da77330.jpg",
-    "static/media/in_process.448aa860.png": "/Cats-Shop/static/media/in_process.448aa860.png",
-    "static/media/no_found.bee11de8.png": "/Cats-Shop/static/media/no_found.bee11de8.png",
-    "static/media/no_photo.bb351cb8.png": "/Cats-Shop/static/media/no_photo.bb351cb8.png"
+    "main.css": "/Cats-Store/static/css/main.07b0d5e3.chunk.css",
+    "main.js": "/Cats-Store/static/js/main.8f174b5e.chunk.js",
+    "main.js.map": "/Cats-Store/static/js/main.8f174b5e.chunk.js.map",
+    "runtime-main.js": "/Cats-Store/static/js/runtime-main.3cf23896.js",
+    "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.3cf23896.js.map",
+    "static/js/2.91b1d20a.chunk.js": "/Cats-Store/static/js/2.91b1d20a.chunk.js",
+    "static/js/2.91b1d20a.chunk.js.map": "/Cats-Store/static/js/2.91b1d20a.chunk.js.map",
+    "static/js/3.793f73f5.chunk.js": "/Cats-Store/static/js/3.793f73f5.chunk.js",
+    "static/js/3.793f73f5.chunk.js.map": "/Cats-Store/static/js/3.793f73f5.chunk.js.map",
+    "index.html": "/Cats-Store/index.html",
+    "static/css/main.07b0d5e3.chunk.css.map": "/Cats-Store/static/css/main.07b0d5e3.chunk.css.map",
+    "static/js/2.91b1d20a.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.91b1d20a.chunk.js.LICENSE.txt",
+    "static/media/Header.scss": "/Cats-Store/static/media/header-background.6da77330.jpg",
+    "static/media/in_process.448aa860.png": "/Cats-Store/static/media/in_process.448aa860.png",
+    "static/media/no_found.bee11de8.png": "/Cats-Store/static/media/no_found.bee11de8.png",
+    "static/media/no_photo.bb351cb8.png": "/Cats-Store/static/media/no_photo.bb351cb8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c9a32e21.js",
+    "static/js/runtime-main.3cf23896.js",
     "static/js/2.91b1d20a.chunk.js",
-    "static/css/main.50a25e0b.chunk.css",
+    "static/css/main.07b0d5e3.chunk.css",
     "static/js/main.8f174b5e.chunk.js"
   ]
 }
