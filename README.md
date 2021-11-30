@@ -1,8 +1,8 @@
-# react-spa
+# Cats-Store
 ```
 GH-PAGES:
 ```
-- [cats-store](https://fpsska.github.io/react-spa/)
+- [cats-store](https://fpsska.github.io/Cats-Store/)
 
 # Getting Started with Create React App
 
