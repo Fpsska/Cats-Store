@@ -16,12 +16,7 @@ const MainPage = (props) => {
   };
 
   useEffect(() => {
-    // correct work, when page is refreshed, FIX!!!
-    console.log("mount");
     props.requestHandler();
-    return () => {
-      console.log("unmount");
-    };
   }, []);
 
   return (

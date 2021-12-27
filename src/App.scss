@@ -93,9 +93,13 @@ svg {
     padding: 22px 126px;
     background-color: transparent;
     margin: 0 auto 20px auto;
-    transition: 0.15s linear;
+    transition: all 0.15s linear;
+    transform: scale(1);
     &:hover {
         background-color: #abadad;
+    }
+    &:active {
+        transform: scale(1.05);
     }
 }
 

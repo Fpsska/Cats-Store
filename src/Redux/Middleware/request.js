@@ -7,20 +7,20 @@ const requestHandler = () => {
         getDataAPI()
             .then(async function (response) {
                 setTimeout(() => {
-                    dispatch(fetchToggle(true)) // preloader is active
+                    dispatch(fetchToggle(true))
                 }, 1500)
 
                 const responseData = await response.data
                 const actualData = []
 
                 await responseData.forEach(item => {
-                    if (item["image"] === undefined) {  
+                    if (item["image"] === undefined) {
                         const wrongItem = item
-                        wrongItem.image = {url} 
+                        wrongItem.image = { url }
                     }
-                    if (Object.keys(item.image).length === 0 && item.image.constructor === Object) { 
+                    if (Object.keys(item.image).length === 0 && item.image.constructor === Object) {
                         const wrongItem = item
-                        wrongItem.image = {url}
+                        wrongItem.image = { url }
                     }
                     // /. response validation
                     actualData.push(
@@ -42,6 +42,7 @@ const requestHandler = () => {
                 })
                 await dispatch(fetchCards(actualData))
                 await dispatch(getCatsCount(response.headers["pagination-count"])) // get count of cats
+                // await dispatch(fetchToggle(false))
             })
             .catch((error) => {
                 console.error(error)
