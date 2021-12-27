@@ -13,11 +13,11 @@ import './assets/scss/media.scss'
 function App() {
   return (
     <Routes>
-      <Route path="/react-spa" element={<Layout />}>
+      <Route path="/Cats-Store" element={<Layout />}>
         <Route index element={<MainContainer />} />
-        <Route path='/react-spa/gallery' element={<GalleryPage />} />
-        <Route path='/react-spa/news' element={<NewsPage />} />
-        <Route path='/react-spa/profile' element={<ProfilePage />} />
+        <Route path='Gallery' element={<GalleryPage />} />
+        <Route path='News' element={<NewsPage />} />
+        <Route path='Profile' element={<ProfilePage />} />
         <Route path="*" element={<NoFoundPage />} />
       </Route>
     </Routes>

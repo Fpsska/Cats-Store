@@ -11,17 +11,17 @@ const initialState = {
         {
             id: 2,
             text: "Gallery",
-            link: "gallery"
+            link: "Gallery"
         },
         {
             id: 3,
             text: "News",
-            link: "news"
+            link: "News"
         },
         {
             id: 4,
             text: "Profile",
-            link: "profile"
+            link: "Profile"
         }
     ],
     sortButtons: [

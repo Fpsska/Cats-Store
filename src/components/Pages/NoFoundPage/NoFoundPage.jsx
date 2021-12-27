@@ -11,7 +11,7 @@ const NoFoundPage = () => {
         <p className="section__link">
           Sorry, this page doesn't exist, return to home{" "}
           <span>
-            <Link to="/react-spa">page</Link>
+            <Link to="/Cats-Store">page</Link>
           </span>
         </p>
       </div>

@@ -7,7 +7,7 @@ const Card = (props) => {
     props.isFavourite
       ? props.toggleIsFavourite(props.id, false)
       : props.toggleIsFavourite(props.id, true);
-  };
+  }; 
 
   return (
     <div className="card">
