@@ -56,7 +56,18 @@ const Header = (props) => {
             <span className="telephone__description">Звони скорее!</span>
           </div>
         </div>
-        <h1 className="header__text">Найдено {catsCount} котов</h1>
+        {props.isFetching ? (
+          <h1 className="header__text">Найдено {catsCount} котов</h1>
+        ) : (
+          <>
+            <h1 className="header__text header__text--loading">
+              Загрузка
+              <span className="header__text_dot"></span>
+              <span className="header__text_dot"></span>
+              <span className="header__text_dot"></span>
+            </h1>
+          </>
+        )}
       </div>
     </header>
   );
