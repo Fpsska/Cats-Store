@@ -12,6 +12,7 @@ const SortButtonList = (props) => {
         name={item.name}
         isSorted={item.isSorted}
         toggleSortCards={props.toggleSortCards}
+        isFetching={props.isFetching}
       />
     );
   });

@@ -10,7 +10,11 @@ const SortButtonTemplate = (props) => {
   };
 
   return (
-    <button onClick={runSort} className="controls__menu">
+    <button
+      className="controls__menu"
+      disabled={props.isFetching ? "" : true}
+      onClick={runSort}
+    >
       <span className="controls__menu_text">{props.text}</span>
       <span className={isSwitched ? "icon sorted" : "icon"}>
         <SvgTemplate id="arrow-sort" />

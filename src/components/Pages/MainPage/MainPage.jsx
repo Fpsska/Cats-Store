@@ -22,18 +22,19 @@ const MainPage = (props) => {
   return (
     <>
       <Header
+        isFetching={props.isFetching}
         catsCount={props.catsCount}
         headerLinks={props.headerLinks}
         isBurgerHidden={props.isBurgerHidden}
         changeScrollStatus={props.changeScrollStatus}
         changeNavDisplay={props.changeNavDisplay}
-        changeScrollStatus={props.changeScrollStatus}
       />
       <main ref={scrollPoint}>
         <div className="container">
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
             <SortButtonList
+              isFetching={props.isFetching}
               sortButtons={props.sortButtons}
               toggleSortCards={props.toggleSortCards}
             />
@@ -47,10 +48,18 @@ const MainPage = (props) => {
             ) : (
               <Preloader />
             )}
-            <button className="gallery__button button" onClick={fetchRequest}>
+            <button
+              className="gallery__button button"
+              disabled={props.isFetching ? "" : true}
+              onClick={fetchRequest}
+            >
               Показать ещё
             </button>
-            <button className="pagination" onClick={scrollTop}>
+            <button
+              className="pagination"
+              disabled={props.isFetching ? "" : true}
+              onClick={scrollTop}
+            >
               <span className="icon">
                 <SvgTemplate id="arrow" />
               </span>

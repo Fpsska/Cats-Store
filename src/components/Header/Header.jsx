@@ -10,7 +10,6 @@ const Header = (props) => {
     setCatsCount(props.catsCount);
   }, [props.catsCount]); // when state props.catsCount is changed
 
-
   const defineBurgerStatus = () => {
     if (window.innerWidth < 800) {
       props.changeNavDisplay(false);

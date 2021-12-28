@@ -20,6 +20,9 @@
         margin: 0 50px;
     }
 }
+.controls__menu[disabled] svg {
+    opacity: 0.2;
+}
 .controls__menu_text {
     font-size: 18px;
     margin-right: 14px;
