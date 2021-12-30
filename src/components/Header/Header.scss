@@ -6,8 +6,11 @@
     background-position: center;
     flex: 0 0 auto;
 }
-.header--small {
+.header--minimized {
     padding: 60px 124px;
+    .header__section {
+        margin: 0;
+    }
 }
 .header__section {
     display: flex;

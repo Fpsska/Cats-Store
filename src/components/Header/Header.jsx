@@ -37,7 +37,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={isHomePage ? "header" : "header header--small"}>
+    <header className={isHomePage ? "header" : "header header--minimized"}>
       <div className="container">
         <div className="header__section">
           <span className="icon">
