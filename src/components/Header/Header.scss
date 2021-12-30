@@ -6,6 +6,9 @@
     background-position: center;
     flex: 0 0 auto;
 }
+.header--small {
+    padding: 60px 124px;
+}
 .header__section {
     display: flex;
     align-items: center;
@@ -104,6 +107,10 @@
     font-weight: 300;
     line-height: 21.94px;
 }
+.nav__menu_link.active {
+    color: #6ebbd3;
+}
+
 .nav__menu_link-burger {
     @extend .nav__menu_link;
     transition: 0.15s linear;

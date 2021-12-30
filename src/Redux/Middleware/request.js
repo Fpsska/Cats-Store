@@ -42,7 +42,6 @@ const requestHandler = () => {
                 })
                 await dispatch(fetchCards(actualData))
                 await dispatch(getCatsCount(response.headers["pagination-count"])) // get count of cats
-                // await dispatch(fetchToggle(false))
             })
             .catch((error) => {
                 console.error(error)

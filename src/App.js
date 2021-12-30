@@ -12,15 +12,17 @@ import './assets/scss/media.scss'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/Cats-Store" element={<Layout />}>
-        <Route index element={<MainContainer />} />
-        <Route path='Gallery' element={<GalleryPage />} />
-        <Route path='News' element={<NewsPage />} />
-        <Route path='Profile' element={<ProfilePage />} />
-        <Route path="*" element={<NoFoundPage />} />
-      </Route>
-    </Routes>
+    <div className='App'>
+      <Routes>
+        <Route path="/Cats-Store" element={<Layout />}>
+          <Route index element={<MainContainer />} />
+          <Route path='Gallery' element={<GalleryPage />} />
+          <Route path='News' element={<NewsPage />} />
+          <Route path='Profile' element={<ProfilePage />} />
+          <Route path="*" element={<NoFoundPage />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

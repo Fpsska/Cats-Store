@@ -1,5 +1,4 @@
 import { React, useEffect, useRef } from "react";
-import Header from "../../Header/Header";
 import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
@@ -17,18 +16,11 @@ const MainPage = (props) => {
 
   useEffect(() => {
     props.requestHandler();
+    console.log("requestHandler");
   }, []);
 
   return (
     <>
-      <Header
-        isFetching={props.isFetching}
-        catsCount={props.catsCount}
-        headerLinks={props.headerLinks}
-        isBurgerHidden={props.isBurgerHidden}
-        changeScrollStatus={props.changeScrollStatus}
-        changeNavDisplay={props.changeNavDisplay}
-      />
       <main ref={scrollPoint}>
         <div className="container">
           <div className="controls">

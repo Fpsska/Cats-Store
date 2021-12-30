@@ -1,20 +1,30 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
+import { useDispatch } from "react-redux";
+import { changeNavDisplay } from "../../Redux/actions";
+import { useSelector } from "react-redux";
 
-const Header = (props) => {
-  const [catsCount, setCatsCount] = useState(props.catsCount);
-  useEffect(() => {
-    setCatsCount(props.catsCount);
-  }, [props.catsCount]); // when state props.catsCount is changed
+const Header = () => {
+  const {
+    headerLinks,
+    catsCount,
+    isFetching,
+    isBurgerHidden,
+    isBodyScrolling,
+    changeScrollStatus,
+    isHomePage,
+  } = useSelector((state) => state.mainPage);
+
+  const dispatch = useDispatch();
 
   const defineBurgerStatus = () => {
     if (window.innerWidth < 800) {
-      props.changeNavDisplay(false);
+      dispatch(changeNavDisplay(false));
     } else if (window.innerWidth > 800) {
-      props.changeNavDisplay(true);
+      dispatch(changeNavDisplay(true));
     }
   };
 
@@ -28,24 +38,24 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header className="header">
+    <header className={isHomePage ? "header" : "header header--small"}>
       <div className="container">
         <div className="header__section">
           <span className="icon">
             <SvgTemplate id="logo" />
           </span>
           <>
-            {props.isBurgerHidden ? (
+            {isBurgerHidden ? (
               <HeaderNav
-                headerLinks={props.headerLinks}
-                isBurgerHidden={props.isBurgerHidden}
+                headerLinks={headerLinks}
+                isBurgerHidden={isBurgerHidden}
               />
             ) : (
               <BurgerMenu
-                headerLinks={props.headerLinks}
-                isBodyScrolling={props.isBodyScrolling}
-                isBurgerHidden={props.isBurgerHidden}
-                changeScrollStatus={props.changeScrollStatus}
+                headerLinks={headerLinks}
+                isBodyScrolling={isBodyScrolling}
+                isBurgerHidden={isBurgerHidden}
+                changeScrollStatus={changeScrollStatus}
               />
             )}
           </>
@@ -56,18 +66,26 @@ const Header = (props) => {
             <span className="telephone__description">Звони скорее!</span>
           </div>
         </div>
-        {props.isFetching ? (
-          <h1 className="header__text">Найдено {catsCount} котов</h1>
-        ) : (
-          <>
-            <h1 className="header__text header__text--loading">
-              Загрузка
-              <span className="header__text_dot"></span>
-              <span className="header__text_dot"></span>
-              <span className="header__text_dot"></span>
-            </h1>
-          </>
-        )}
+        <>
+          {isHomePage ? (
+            <>
+              {isFetching ? (
+                <h1 className="header__text">Найдено {catsCount} котов</h1>
+              ) : (
+                <>
+                  <h1 className="header__text header__text--loading">
+                    Загрузка
+                    <span className="header__text_dot"></span>
+                    <span className="header__text_dot"></span>
+                    <span className="header__text_dot"></span>
+                  </h1>
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
+        </>
       </div>
     </header>
   );

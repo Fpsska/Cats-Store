@@ -1,4 +1,4 @@
-import { ACTION_GET_INPUT_VALUE, ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_CHANGE_PAGE_STATUS, ACTION_GET_INPUT_VALUE, ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 const initialState = {
     cards: [],
@@ -40,6 +40,7 @@ const initialState = {
     isFetching: false,
     isBurgerHidden: true,
     isBodyScrolling: true,
+    isHomePage: true,
     emailValue: ""
 }
 
@@ -71,7 +72,7 @@ const mainPageReducer = (state = initialState, action) => {
                         }
                     })
                 }
-            } 
+            }
             else if (action.payload.id === "price" && action.payload.status === true) {
                 return {
                     ...state,
@@ -129,6 +130,11 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 emailValue: action.payload
+            }
+        case ACTION_CHANGE_PAGE_STATUS:
+            return {
+                ...state,
+                isHomePage: action.payload
             }
         default:
             return state
