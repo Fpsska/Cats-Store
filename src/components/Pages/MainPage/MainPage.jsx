@@ -1,21 +1,26 @@
 import { React, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
+import requestHandler from "../../../Redux/Middleware/request";
 
-const MainPage = (props) => {
+const MainPage = () => {
+  const { isFetching } = useSelector((state) => state.mainPage);
+  const dispatch = useDispatch();
+
   const scrollPoint = useRef();
   const scrollTop = () => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
 
   const fetchRequest = () => {
-    props.requestHandler();
+    dispatch(requestHandler());
   };
 
   useEffect(() => {
-    props.requestHandler();
+    dispatch(requestHandler());
     console.log("requestHandler");
   }, []);
 
@@ -25,31 +30,22 @@ const MainPage = (props) => {
         <div className="container">
           <div className="controls">
             <span className="controls__title">Сортировать по:</span>
-            <SortButtonList
-              isFetching={props.isFetching}
-              sortButtons={props.sortButtons}
-              toggleSortCards={props.toggleSortCards}
-            />
+            <>
+              <SortButtonList />
+            </>
           </div>
           <div className="gallery">
-            {props.isFetching ? (
-              <CardList
-                cards={props.cards}
-                toggleIsFavourite={props.toggleIsFavourite}
-              />
-            ) : (
-              <Preloader />
-            )}
+            {isFetching ? <CardList /> : <Preloader />}
             <button
               className="gallery__button button"
-              disabled={props.isFetching ? "" : true}
+              disabled={isFetching ? "" : true}
               onClick={fetchRequest}
             >
               Показать ещё
             </button>
             <button
               className="pagination"
-              disabled={props.isFetching ? "" : true}
+              disabled={isFetching ? "" : true}
               onClick={scrollTop}
             >
               <span className="icon">

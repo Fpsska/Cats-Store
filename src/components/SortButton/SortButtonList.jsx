@@ -1,9 +1,14 @@
 import React from "react";
 import SortButtonTemplate from "./SortButtonTemplate";
 import "./Sort.scss";
+import { useSelector } from "react-redux";
 
-const SortButtonList = (props) => {
-  const sortButtonList = props.sortButtons.map((item) => {
+const SortButtonList = () => {
+  const { isFetching, sortButtons, toggleSortCards } = useSelector(
+    (state) => state.mainPage
+  );
+
+  const sortButtonList = sortButtons.map((item) => {
     return (
       <SortButtonTemplate
         key={item.id}
@@ -11,8 +16,8 @@ const SortButtonList = (props) => {
         text={item.text}
         name={item.name}
         isSorted={item.isSorted}
-        toggleSortCards={props.toggleSortCards}
-        isFetching={props.isFetching}
+        toggleSortCards={toggleSortCards}
+        isFetching={isFetching}
       />
     );
   });

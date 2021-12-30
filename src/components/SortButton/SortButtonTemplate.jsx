@@ -1,21 +1,25 @@
 import { React, useState } from "react";
+import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
+import { toggleSortCards } from "../../Redux/actions";
 
-const SortButtonTemplate = (props) => {
+const SortButtonTemplate = ({ isFetching, id, text }) => {
   const [isSwitched, setSwitchStatus] = useState(false);
+
+  const dispatch = useDispatch();
 
   const runSort = () => {
     setSwitchStatus(!isSwitched);
-    props.toggleSortCards(props.id, isSwitched);
+    dispatch(toggleSortCards(id, isSwitched));
   };
 
   return (
     <button
       className="controls__menu"
-      disabled={props.isFetching ? "" : true}
+      disabled={isFetching ? "" : true}
       onClick={runSort}
     >
-      <span className="controls__menu_text">{props.text}</span>
+      <span className="controls__menu_text">{text}</span>
       <span className={isSwitched ? "icon sorted" : "icon"}>
         <SvgTemplate id="arrow-sort" />
       </span>

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { changePageStatus } from "../../Redux/actions";
 
-const HeaderLink = (props) => {
+const HeaderLink = ({ isBurgerHidden, link, text }) => {
   const dispatch = useDispatch();
 
   const removeBodyStatus = () => {
@@ -12,19 +12,13 @@ const HeaderLink = (props) => {
   };
 
   return (
-    <li
-      className={
-        props.isBurgerHidden ? "nav__menu_item" : "nav__menu_item-burger"
-      }
-    >
+    <li className={isBurgerHidden ? "nav__menu_item" : "nav__menu_item-burger"}>
       <NavLink
-        to={props.link}
-        className={
-          props.isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"
-        }
+        to={link}
+        className={isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"}
         onClick={removeBodyStatus}
       >
-        {props.text}
+        {text}
       </NavLink>
     </li>
   );

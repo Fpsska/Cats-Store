@@ -1,11 +1,10 @@
 import React, { useLayoutEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import "./Header.scss";
-import { useDispatch } from "react-redux";
 import { changeNavDisplay } from "../../Redux/actions";
-import { useSelector } from "react-redux";
+import "./Header.scss";
 
 const Header = () => {
   const {

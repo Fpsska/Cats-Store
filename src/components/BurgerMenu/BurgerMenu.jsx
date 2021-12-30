@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import HeaderNav from "../Header/HeaderNav";
+import { changeScrollStatus } from "../../Redux/actions";
 import "./BurgerMenu.scss";
 
 const BurgerMenu = (props) => {
+  const dispatch = useDispatch();
+  const isBurgerHidden = useSelector((state) => state.mainPage);
   const [isOpened, setOpenedStatus] = useState(false);
 
   const openBurger = () => {
     setOpenedStatus(!isOpened);
 
-    props.changeScrollStatus(!isOpened);
+    dispatch(changeScrollStatus(!isOpened));
 
-    if (props.isBurgerHidden === !isOpened) {
+    if (isBurgerHidden === !isOpened) {
       document.body.style.overflowY = "auto";
     } else {
       document.body.style.overflowY = "hidden";
@@ -47,10 +51,7 @@ const BurgerMenu = (props) => {
       </div>
       <div className={isOpened ? "burger active" : "burger"}>
         <div className="burger__nav">
-          <HeaderNav
-            headerLinks={props.headerLinks}
-            changeScrollStatus={props.changeScrollStatus}
-          />
+          <HeaderNav />
         </div>
       </div>
     </>

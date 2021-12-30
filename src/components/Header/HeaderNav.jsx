@@ -1,21 +1,25 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import HeaderLink from "./HeaderLink";
 
-const HeaderNav = (props) => {
-  const headerNav = props.headerLinks.map((item) => {
+const HeaderNav = () => {
+  const { headerLinks, isBurgerHidden } = useSelector(
+    (state) => state.mainPage
+  );
+
+  const headerNav = headerLinks.map((item) => {
     return (
       <HeaderLink
         key={item.id}
         text={item.text}
         link={item.link}
-        isBurgerHidden={props.isBurgerHidden}
-        changePageStatus={props.changePageStatus}
+        isBurgerHidden={isBurgerHidden}
       />
     );
   });
   return (
     <nav className="nav">
-      <ul className={props.isBurgerHidden ? "nav__menu" : "nav__menu-burger"}>
+      <ul className={isBurgerHidden ? "nav__menu" : "nav__menu-burger"}>
         {headerNav}
       </ul>
     </nav>

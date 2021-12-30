@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Common/Layout';
-import MainContainer from './components/Pages/MainPage/MainPageContainer';
+import MainPage from './components/Pages/MainPage/MainPage';
 import GalleryPage from './components/Pages/GalleryPage/GalleryPage'
 import NewsPage from './components/Pages/NewsPage/NewsPage'
 import ProfilePage from './components/Pages/ProfilePage/ProfilePage'
@@ -15,7 +15,7 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path="/Cats-Store" element={<Layout />}>
-          <Route index element={<MainContainer />} />
+          <Route index element={<MainPage />} />
           <Route path='Gallery' element={<GalleryPage />} />
           <Route path='News' element={<NewsPage />} />
           <Route path='Profile' element={<ProfilePage />} />
