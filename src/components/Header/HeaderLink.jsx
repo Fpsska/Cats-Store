@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { changePageStatus } from "../../Redux/actions";
+import { changePageStatus, changeBurgerStatus } from "../../Redux/actions";
 
-const HeaderLink = ({ isBurgerHidden, setOpenedStatus, link, text }) => {
+const HeaderLink = ({ isBurgerHidden, isBurgerOpen, link, text }) => {
   const dispatch = useDispatch();
   //
   const removeBodyStatus = () => {
     dispatch(changePageStatus(false));
+    dispatch(changeBurgerStatus(!isBurgerOpen));
     document.body.style.overflowY = "auto";
-    setOpenedStatus(false);
   };
 
   return (

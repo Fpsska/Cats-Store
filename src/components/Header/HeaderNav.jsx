@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import HeaderLink from "./HeaderLink";
 
-const HeaderNav = ({ setOpenedStatus }) => {
+const HeaderNav = ({ isBurgerOpen }) => {
   const { headerLinks, isBurgerHidden } = useSelector(
     (state) => state.mainPage
   );
@@ -14,7 +14,7 @@ const HeaderNav = ({ setOpenedStatus }) => {
         text={item.text}
         link={item.link}
         isBurgerHidden={isBurgerHidden}
-        setOpenedStatus={setOpenedStatus}
+        isBurgerOpen={isBurgerOpen}
       />
     );
   });

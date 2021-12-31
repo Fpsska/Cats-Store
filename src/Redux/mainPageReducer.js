@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_PAGE_STATUS, ACTION_GET_INPUT_VALUE, ACTION_CHANGE_SCROLL_STATUS, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_CHANGE_BURGER_STATUS, ACTION_CHANGE_PAGE_STATUS, ACTION_GET_INPUT_VALUE, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
 
 const initialState = {
     cards: [],
@@ -39,6 +39,7 @@ const initialState = {
     catsCount: "",
     isFetching: false,
     isBurgerHidden: true,
+    isBurgerOpen: false,
     isBodyScrolling: true,
     isHomePage: true,
     emailValue: ""
@@ -121,11 +122,6 @@ const mainPageReducer = (state = initialState, action) => {
                 ...state,
                 isBurgerHidden: action.payload
             }
-        case ACTION_CHANGE_SCROLL_STATUS:
-            return {
-                ...state,
-                isBodyScrolling: action.payload
-            }
         case ACTION_GET_INPUT_VALUE:
             return {
                 ...state,
@@ -135,6 +131,11 @@ const mainPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isHomePage: action.payload
+            }
+        case ACTION_CHANGE_BURGER_STATUS:
+            return {
+                ...state,
+                isBurgerOpen: action.payload
             }
         default:
             return state
