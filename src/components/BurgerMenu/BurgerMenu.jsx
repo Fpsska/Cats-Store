@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import HeaderNav from "../Header/HeaderNav";
 import { changeScrollStatus } from "../../Redux/actions";
+import HeaderNav from "../Header/HeaderNav";
 import "./BurgerMenu.scss";
 
-const BurgerMenu = (props) => {
-  const dispatch = useDispatch();
-  const isBurgerHidden = useSelector((state) => state.mainPage);
+const BurgerMenu = () => {
+  const { isBurgerHidden } = useSelector((state) => state.mainPage);
   const [isOpened, setOpenedStatus] = useState(false);
+  const dispatch = useDispatch();
+  //
 
   const openBurger = () => {
     setOpenedStatus(!isOpened);
@@ -38,7 +39,7 @@ const BurgerMenu = (props) => {
           className={
             isOpened
               ? "menu__line menu__line-middle opened"
-              : "menu__line menu__line-middle"
+              : "menu__line menu__line-middle "
           }
         ></div>
         <div
@@ -49,9 +50,9 @@ const BurgerMenu = (props) => {
           }
         ></div>
       </div>
-      <div className={isOpened ? "burger active" : "burger"}>
+      <div className={isOpened ? "burger  active" : "burger"}>
         <div className="burger__nav">
-          <HeaderNav />
+          <HeaderNav isOpened={isOpened} setOpenedStatus={setOpenedStatus} />
         </div>
       </div>
     </>

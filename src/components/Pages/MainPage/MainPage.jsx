@@ -9,8 +9,8 @@ import requestHandler from "../../../Redux/Middleware/request";
 const MainPage = () => {
   const { isFetching } = useSelector((state) => state.mainPage);
   const dispatch = useDispatch();
-
   const scrollPoint = useRef();
+  //
   const scrollTop = () => {
     scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
   };
