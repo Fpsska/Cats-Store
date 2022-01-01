@@ -9,20 +9,27 @@ const BurgerMenu = () => {
   const [isOpened, setOpenedStatus] = useState(false);
   const dispatch = useDispatch();
   //
+  const calcScrollBarWidth = () => {
+    return window.innerWidth - document.body.clientWidth;
+  };
 
-  const openBurger = () => {
-    setOpenedStatus(!isOpened);
+  const calcPaddingValue = () => {
+    return (document.body.style.paddingRight = `${calcScrollBarWidth()}`);
+  };
 
-    dispatch(changeBurgerStatus(!isOpened));
-
-    if (isBurgerOpen === !isOpened) {
+  const defineScrollStatus = () => {
+    if (isBurgerOpen === true) {
       document.body.style.overflowY = "auto";
     } else {
       document.body.style.overflowY = "hidden";
     }
+  };
 
-    const ScrollBarWidth = window.innerWidth - document.body.clientWidth;
-    document.body.style.paddingRight = `${ScrollBarWidth}px`;
+  const openBurger = () => {
+    setOpenedStatus(!isOpened);
+    dispatch(changeBurgerStatus(!isOpened));
+    defineScrollStatus();
+    calcPaddingValue();
   };
 
   return (
