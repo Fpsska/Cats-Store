@@ -18,7 +18,7 @@ const Header = () => {
   } = useSelector((state) => state.mainPage);
 
   const dispatch = useDispatch();
-
+  //
   const defineBurgerStatus = () => {
     if (window.innerWidth < 800) {
       dispatch(changeNavDisplay(false));

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import inProcessImage from "../../../assets/images/in_process.png";
 import { useDispatch } from "react-redux";
-import { changePageStatus } from "../../../Redux/actions";
+import { changePageStatus, fetchToggle } from "../../../Redux/actions";
 
 const NewsPage = () => {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const NewsPage = () => {
   const goHomePage = () => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
+    dispatch(fetchToggle(false))
   };
   return (
     <>

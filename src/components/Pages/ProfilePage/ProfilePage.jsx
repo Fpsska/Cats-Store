@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import inProcessImage from "../../../assets/images/in_process.png";
-import { changePageStatus } from "../../../Redux/actions";
-import { useDispatch } from "react-redux";
+import { changePageStatus, fetchToggle } from "../../../Redux/actions";
+import { useDispatch  } from "react-redux";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const ProfilePage = () => {
   const goHomePage = () => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
+    dispatch(fetchToggle(false))
   };
   return (
     <>
@@ -21,7 +22,7 @@ const ProfilePage = () => {
         <p className="section__link">
           return to home{" "}
           <span>
-            <Link to="/Cats-Store">page</Link>
+            <Link to="/Cats-Store" onClick={goHomePage}>page</Link>
           </span>
         </p>
       </div>

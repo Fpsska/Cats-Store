@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import noFoundPage from "../../../assets/images/no_found.png";
-import { changePageStatus } from "../../../Redux/actions";
 import { useDispatch } from "react-redux";
+import noFoundPage from "../../../assets/images/no_found.png";
+import { changePageStatus, fetchToggle } from "../../../Redux/actions";
 
 const NoFoundPage = () => {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const NoFoundPage = () => {
   const goHomePage = () => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
+    dispatch(fetchToggle(false));
   };
 
   return (

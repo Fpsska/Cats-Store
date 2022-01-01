@@ -35,7 +35,7 @@ const MainPage = () => {
             </>
           </div>
           <div className="gallery">
-            {isFetching ? <CardList /> : <Preloader />}
+            <>{isFetching ? <CardList /> : <Preloader />}</>
             <button
               className="gallery__button button"
               disabled={isFetching ? "" : true}
