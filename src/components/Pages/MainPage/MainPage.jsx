@@ -21,7 +21,6 @@ const MainPage = () => {
 
   useEffect(() => {
     dispatch(requestHandler());
-    console.log("requestHandler");
   }, []);
 
   return (
