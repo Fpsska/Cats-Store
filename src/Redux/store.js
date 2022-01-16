@@ -11,7 +11,6 @@ const reducers = combineReducers({
     headerReducer: headerReducer,
 });
 
-
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
