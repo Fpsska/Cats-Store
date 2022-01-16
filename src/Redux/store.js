@@ -1,10 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import mainPageReducer from './mainPageReducer'
+import cardReducer from './Reducers/cardReducer';
+import headerReducer from './Reducers/headerReducer';
+
+
 
 const reducers = combineReducers({
-    mainPage: mainPageReducer,
+    cardReducer: cardReducer,
+    headerReducer: headerReducer,
 });
 
 

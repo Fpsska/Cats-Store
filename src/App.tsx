@@ -1,0 +1,29 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Common/Layout";
+import MainPage from "./components/Pages/MainPage/MainPage";
+import GalleryPage from "./components/Pages/GalleryPage/GalleryPage";
+import NewsPage from "./components/Pages/NewsPage/NewsPage";
+import ProfilePage from "./components/Pages/ProfilePage/ProfilePage";
+import NoFoundPage from "./components/Pages/NoFoundPage/NoFoundPage";
+import "./App.scss";
+import "./assets/scss/reset.scss";
+import "./assets/scss/media.scss";
+
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/Cats-Store" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path="Gallery" element={<GalleryPage />} />
+          <Route path="News" element={<NewsPage />} />
+          <Route path="Profile" element={<ProfilePage />} />
+          <Route path="*" element={<NoFoundPage />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+};
+
+export default App;

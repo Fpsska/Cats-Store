@@ -10,12 +10,13 @@ const Header = () => {
   const {
     headerLinks,
     catsCount,
-    isFetching,
     isBurgerHidden,
     isBodyScrolling,
     changeScrollStatus,
     isHomePage,
-  } = useSelector((state) => state.mainPage);
+  } = useSelector((state) => state.headerReducer);
+
+  const { isFetching } = useSelector((state) => state.cardReducer);
 
   const dispatch = useDispatch();
   //

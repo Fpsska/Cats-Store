@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Card from "./Card";
 
 const CardList = () => {
-  const { cards } = useSelector((state) => state.mainPage);
+  const { cards } = useSelector((state) => state.cardReducer);
 
   const cardList = useMemo(
     () =>

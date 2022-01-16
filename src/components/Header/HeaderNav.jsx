@@ -5,7 +5,7 @@ import HeaderLink from "./HeaderLink";
 
 const HeaderNav = ({ isBurgerOpen }) => {
   const { headerLinks, isBurgerHidden } = useSelector(
-    (state) => state.mainPage
+    (state) => state.headerReducer
   );
 
   const headerNav = useMemo(

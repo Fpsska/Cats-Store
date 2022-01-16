@@ -1,29 +1,14 @@
-import { ACTION_CHANGE_BURGER_STATUS, ACTION_CHANGE_PAGE_STATUS, ACTION_GET_INPUT_VALUE, ACTION_CHANGE_NAV_DISPLAY, ACTION_GET_CATS_COUNT, ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from './actions'
+import { ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from '../actions'
+
+// interface headerState {
+//     id: number;
+//     text: string;
+//     link: string
+// }
+
 
 const initialState = {
     cards: [],
-    headerLinks: [
-        {
-            id: 1,
-            text: "Main",
-            link: "/Cats-Store/"
-        },
-        {
-            id: 2,
-            text: "Gallery",
-            link: "Gallery"
-        },
-        {
-            id: 3,
-            text: "News",
-            link: "News"
-        },
-        {
-            id: 4,
-            text: "Profile",
-            link: "Profile"
-        }
-    ],
     sortButtons: [
         {
             text: "Цена",
@@ -36,17 +21,11 @@ const initialState = {
             isSorted: false
         }
     ],
-    catsCount: "",
     isFetching: false,
-    isBurgerHidden: true,
-    isBurgerOpen: false,
-    isBodyScrolling: true,
-    isHomePage: true,
-    emailValue: ""
 }
 
 
-const mainPageReducer = (state = initialState, action) => {
+const cardReducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_TOGGLE_FAVOURITE:
             return {
@@ -60,6 +39,17 @@ const mainPageReducer = (state = initialState, action) => {
                     }
                     return item
                 })
+            }
+        case ACTION_FETCH_CARDS:
+            return {
+                ...state,
+                cards: [...state.cards.concat(action.payload)],
+                catsCount: ""
+            }
+        case ACTION_FETCH_TOGGLE:
+            return {
+                ...state,
+                isFetching: action.payload
             }
         case ACTION_SORT_CARDS:
             if (action.payload.id === "price" && action.payload.status === false) {
@@ -101,51 +91,9 @@ const mainPageReducer = (state = initialState, action) => {
             }
             // /. age sort
             break
-        case ACTION_FETCH_CARDS:
-            return {
-                ...state,
-                cards: [...state.cards.concat(action.payload)],
-                catsCount: ""
-            }
-        case ACTION_FETCH_TOGGLE:
-            return {
-                ...state,
-                isFetching: action.payload
-            }
-        case ACTION_GET_CATS_COUNT:
-            return {
-                ...state,
-                catsCount: state.catsCount = action.payload
-            }
-        case ACTION_CHANGE_NAV_DISPLAY:
-            return {
-                ...state,
-                isBurgerHidden: action.payload
-            }
-        case ACTION_GET_INPUT_VALUE:
-            return {
-                ...state,
-                emailValue: action.payload
-            }
-        case ACTION_CHANGE_PAGE_STATUS:
-            return {
-                ...state,
-                isHomePage: action.payload
-            }
-        case ACTION_CHANGE_BURGER_STATUS:
-            return {
-                ...state,
-                isBurgerOpen: action.payload
-            }
         default:
             return state
     }
 }
 
-
-
-
-
-
-
-export default mainPageReducer;
+export default cardReducer;

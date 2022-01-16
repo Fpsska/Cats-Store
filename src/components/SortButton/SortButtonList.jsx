@@ -3,12 +3,11 @@ import SortButtonTemplate from "./SortButtonTemplate";
 import "./Sort.scss";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
+import { toggleSortCards } from "../../Redux/actions";
 
 const SortButtonList = () => {
-  const { isFetching, sortButtons, toggleSortCards } = useSelector(
-    (state) => state.mainPage
-  );
-
+  const { isFetching, sortButtons } = useSelector((state) => state.cardReducer);
+  //
   const sortButtonList = useMemo(
     () =>
       sortButtons.map((item) => {

@@ -1,9 +1,8 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { toggleSortCards } from "../../Redux/actions";
 
-const SortButtonTemplate = ({ isFetching, id, text }) => {
+const SortButtonTemplate = ({ isFetching, id, text, toggleSortCards }) => {
   const [isSwitched, setSwitchStatus] = useState(false);
 
   const dispatch = useDispatch();

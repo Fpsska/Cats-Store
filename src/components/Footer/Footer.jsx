@@ -5,14 +5,14 @@ import { useSelector } from "react-redux";
 import "./Footer.scss";
 
 const Footer = () => {
-  const { isHomePage } = useSelector((state) => state.mainPage);
+  const { isHomePage, emailValue } = useSelector(
+    (state) => state.headerReducer
+  );
   const dispatch = useDispatch();
 
   const inputHandler = (event) => {
     dispatch(getInputValue(event.target.value));
   };
-
-  const { emailValue } = useSelector((state) => state.mainPage);
 
   return (
     <footer className={isHomePage ? "footer" : "footer--minimized"}>

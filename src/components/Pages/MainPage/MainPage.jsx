@@ -7,7 +7,7 @@ import Preloader from "../../Common/Preloader/Preloader";
 import requestHandler from "../../../Redux/Middleware/request";
 
 const MainPage = () => {
-  const { isFetching } = useSelector((state) => state.mainPage);
+  const { isFetching } = useSelector((state) => state.cardReducer);
   const dispatch = useDispatch();
   const scrollPoint = useRef();
   //

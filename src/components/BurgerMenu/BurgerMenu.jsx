@@ -5,7 +5,7 @@ import HeaderNav from "../Header/HeaderNav";
 import "./BurgerMenu.scss";
 
 const BurgerMenu = () => {
-  const { isBurgerOpen } = useSelector((state) => state.mainPage);
+  const { isBurgerOpen } = useSelector((state) => state.headerReducer);
   const [isOpened, setOpenedStatus] = useState(false);
   const dispatch = useDispatch();
   //
