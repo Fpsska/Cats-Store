@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import { changeNavDisplay } from "../../Redux/actions";
+import { changeNavDisplay } from "../../Redux/Actions/headerActions";
 import "./Header.scss";
 
 const Header = () => {
@@ -11,8 +11,8 @@ const Header = () => {
     headerLinks,
     catsCount,
     isBurgerHidden,
+    isBurgerOpen,
     isBodyScrolling,
-    changeScrollStatus,
     isHomePage,
   } = useSelector((state) => state.headerReducer);
 
@@ -27,7 +27,7 @@ const Header = () => {
       dispatch(changeNavDisplay(true));
     }
   };
-
+  //
   useLayoutEffect(() => {
     window.addEventListener("resize", defineBurgerStatus);
     window.addEventListener("load", defineBurgerStatus);
@@ -49,13 +49,12 @@ const Header = () => {
               <HeaderNav
                 headerLinks={headerLinks}
                 isBurgerHidden={isBurgerHidden}
+                isBurgerOpen={isBurgerOpen}
               />
             ) : (
               <BurgerMenu
                 headerLinks={headerLinks}
-                isBodyScrolling={isBodyScrolling}
-                isBurgerHidden={isBurgerHidden}
-                changeScrollStatus={changeScrollStatus}
+                isBurgerOpen={isBurgerOpen}
               />
             )}
           </>

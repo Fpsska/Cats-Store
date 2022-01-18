@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { changeBurgerStatus } from "../../Redux/actions";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { changeBurgerStatus } from "../../Redux/Actions/headerActions";
 import HeaderNav from "../Header/HeaderNav";
 import "./BurgerMenu.scss";
 
-const BurgerMenu = () => {
-  const { isBurgerOpen } = useSelector((state) => state.headerReducer);
-  const [isOpened, setOpenedStatus] = useState(false);
+const BurgerMenu = ({ headerLinks, isBurgerOpen }) => {
   const dispatch = useDispatch();
   //
   const calcScrollBarWidth = () => {
@@ -26,8 +24,7 @@ const BurgerMenu = () => {
   };
 
   const openBurger = () => {
-    setOpenedStatus(!isOpened);
-    dispatch(changeBurgerStatus(!isOpened));
+    dispatch(changeBurgerStatus(!isBurgerOpen));
     defineScrollStatus();
     calcPaddingValue();
   };
@@ -59,7 +56,7 @@ const BurgerMenu = () => {
       </div>
       <div className={isBurgerOpen ? "burger active" : "burger"}>
         <div className="burger__nav">
-          <HeaderNav isBurgerOpen={isBurgerOpen} />
+          <HeaderNav headerLinks={headerLinks} />
         </div>
       </div>
     </>

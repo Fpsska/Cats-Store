@@ -1,4 +1,4 @@
-import { ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from '../actions'
+import { ACTION_FETCH_TOGGLE, ACTION_FETCH_CARDS, ACTION_TOGGLE_FAVOURITE, ACTION_SORT_CARDS } from '../Actions/cardActions'
 
 // interface headerState {
 //     id: number;

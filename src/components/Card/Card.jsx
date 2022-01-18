@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { toggleIsFavourite } from "../../Redux/actions";
+import { toggleIsFavourite } from "../../Redux/Actions/cardActions";
 import "./Card.scss";
 
 const Card = ({

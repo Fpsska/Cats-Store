@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 import {
   changePageStatus,
   changeBurgerStatus,
-  fetchToggle,
-} from "../../Redux/actions";
+} from "../../Redux/Actions/headerActions";
+import { fetchToggle } from "../../Redux/Actions/cardActions";
 
-const HeaderLink = ({ isBurgerHidden, isBurgerOpen, link, text }) => {
+const HeaderLink = ({ isBurgerHidden, link, text }) => {
   const dispatch = useDispatch();
   //
   const defineMainPage = () => {
@@ -19,7 +19,7 @@ const HeaderLink = ({ isBurgerHidden, isBurgerOpen, link, text }) => {
 
   const removeBodyStatus = () => {
     dispatch(changePageStatus(false));
-    dispatch(changeBurgerStatus(!isBurgerOpen));
+    dispatch(changeBurgerStatus(false));
     defineMainPage();
     document.body.style.overflowY = "auto";
   };

@@ -1,7 +1,7 @@
 export interface headerState {
   headerLinks: any[];
   catsCount: string;
-  isBurgerHidden: boolean;
+  isBurgerHidden: boolean;  
   isBurgerOpen: boolean;
   isBodyScrolling: boolean;
   isHomePage: boolean;

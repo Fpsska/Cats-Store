@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getInputValue } from "../../Redux/actions";
+import { getInputValue } from "../../Redux/Actions/headerActions";
 import { useSelector } from "react-redux";
 import "./Footer.scss";
 

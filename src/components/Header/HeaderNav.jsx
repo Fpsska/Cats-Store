@@ -1,13 +1,8 @@
 import React from "react";
 import { useMemo } from "react";
-import { useSelector } from "react-redux";
 import HeaderLink from "./HeaderLink";
 
-const HeaderNav = ({ isBurgerOpen }) => {
-  const { headerLinks, isBurgerHidden } = useSelector(
-    (state) => state.headerReducer
-  );
-
+const HeaderNav = ({ headerLinks, isBurgerHidden }) => {
   const headerNav = useMemo(
     () =>
       headerLinks.map((item) => {
@@ -17,12 +12,12 @@ const HeaderNav = ({ isBurgerOpen }) => {
             text={item.text}
             link={item.link}
             isBurgerHidden={isBurgerHidden}
-            isBurgerOpen={isBurgerOpen}
           />
         );
       }),
     [headerLinks]
   );
+
   return (
     <nav className="nav">
       <ul className={isBurgerHidden ? "nav__menu" : "nav__menu-burger"}>

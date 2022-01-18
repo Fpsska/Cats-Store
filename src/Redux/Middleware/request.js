@@ -1,5 +1,6 @@
 import { getDataAPI } from '../../api/api'
-import { getCatsCount, fetchCards, fetchToggle } from '../actions'
+import { getCatsCount } from '../Actions/headerActions'
+import { fetchCards, fetchToggle } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
 
 const requestHandler = () => {
