@@ -14,6 +14,7 @@ const HeaderLink = ({ isBurgerHidden, link, text }) => {
     if (text === "Main") {
       dispatch(fetchToggle(false));
       dispatch(changePageStatus(true));
+      console.log("defineMainPage func");
     }
   };
 

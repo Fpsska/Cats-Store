@@ -1,10 +1,14 @@
-import {
-  headerState,
-  headerActionTypes,
-  headerAction,
-} from "../../Types/headerType";
+import { headerStateTypes, headerActionTypes } from "../../Types/headerType";
 
-const initialState: headerState = {
+import {
+  ACTION_GET_CATS_COUNT,
+  ACTION_CHANGE_NAV_DISPLAY,
+  ACTION_GET_INPUT_VALUE,
+  ACTION_CHANGE_PAGE_STATUS,
+  ACTION_CHANGE_BURGER_STATUS,
+} from "../Actions/headerActions";
+
+const initialState: headerStateTypes = {
   headerLinks: [
     {
       id: 1,
@@ -37,30 +41,30 @@ const initialState: headerState = {
 
 const headerReducer = (
   state = initialState,
-  action: headerAction
-): headerState => {
+  action: headerActionTypes
+): headerStateTypes => {
   switch (action.type) {
-    case headerActionTypes.ACTION_GET_CATS_COUNT:
+    case ACTION_GET_CATS_COUNT:
       return {
         ...state,
         catsCount: (state.catsCount = action.payload),
       };
-    case headerActionTypes.ACTION_CHANGE_NAV_DISPLAY:
+    case ACTION_CHANGE_NAV_DISPLAY:
       return {
         ...state,
         isBurgerHidden: action.payload,
       };
-    case headerActionTypes.ACTION_GET_INPUT_VALUE:
+    case ACTION_GET_INPUT_VALUE:
       return {
         ...state,
         emailValue: action.payload,
       };
-    case headerActionTypes.ACTION_CHANGE_PAGE_STATUS:
+    case ACTION_CHANGE_PAGE_STATUS:
       return {
         ...state,
         isHomePage: action.payload,
       };
-    case headerActionTypes.ACTION_CHANGE_BURGER_STATUS:
+    case ACTION_CHANGE_BURGER_STATUS:
       return {
         ...state,
         isBurgerOpen: action.payload,
