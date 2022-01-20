@@ -4,19 +4,14 @@ import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { changeNavDisplay } from "../../Redux/Actions/headerActions";
+import { RootState } from "../../Redux/store";
 import "./Header.scss";
 
-const Header = () => {
-  const {
-    headerLinks,
-    catsCount,
-    isBurgerHidden,
-    isBurgerOpen,
-    isBodyScrolling,
-    isHomePage,
-  } = useSelector((state) => state.headerReducer);
+const Header: React.FC = () => {
+  const { headerLinks, catsCount, isBurgerHidden, isBurgerOpen, isHomePage } =
+    useSelector((state: RootState) => state.headerReducer);
 
-  const { isFetching } = useSelector((state) => state.cardReducer);
+  const { isFetching } = useSelector((state: RootState) => state.cardReducer);
 
   const dispatch = useDispatch();
   //
@@ -49,7 +44,6 @@ const Header = () => {
               <HeaderNav
                 headerLinks={headerLinks}
                 isBurgerHidden={isBurgerHidden}
-                isBurgerOpen={isBurgerOpen}
               />
             ) : (
               <BurgerMenu

@@ -7,13 +7,13 @@ import {
 } from "../Redux//Actions/headerActions";
 
 export interface headerStateTypes {
-  headerLinks: any[];
-  catsCount: string;
-  isBurgerHidden: boolean;
-  isBurgerOpen: boolean;
-  isBodyScrolling: boolean;
-  isHomePage: boolean;
-  emailValue: string;
+  headerLinks?: any[];
+  catsCount?: string;
+  isBurgerHidden?: boolean;
+  isBurgerOpen?: boolean;
+  isBodyScrolling?: boolean;
+  isHomePage?: boolean;
+  emailValue?: string;
 }
 
 interface changeBurgerStatus {

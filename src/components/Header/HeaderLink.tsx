@@ -6,8 +6,14 @@ import {
   changeBurgerStatus,
 } from "../../Redux/Actions/headerActions";
 import { fetchToggle } from "../../Redux/Actions/cardActions";
+import { headerStateTypes } from "../../Types/headerType";
 
-const HeaderLink = ({ isBurgerHidden, link, text }) => {
+interface HeaderLinkProps {
+  link: string;
+  text: string
+}
+
+const HeaderLink = ({ isBurgerHidden, link, text }: HeaderLinkProps & headerStateTypes) => {
   const dispatch = useDispatch();
   //
   const defineMainPage = () => {

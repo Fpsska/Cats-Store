@@ -1,22 +1,36 @@
 import React from "react";
 import { useMemo } from "react";
 import HeaderLink from "./HeaderLink";
+import { headerStateTypes } from "../../Types/headerType";
 
-const HeaderNav = ({ headerLinks, isBurgerHidden }) => {
-  const headerNav = useMemo(
-    () =>
-      headerLinks.map((item) => {
-        return (
-          <HeaderLink
-            key={item.id}
-            text={item.text}
-            link={item.link}
-            isBurgerHidden={isBurgerHidden}
-          />
-        );
-      }),
-    [headerLinks]
-  );
+const HeaderNav = ({ headerLinks, isBurgerHidden }: headerStateTypes) => {
+  // const headerNav = useMemo(
+  //   () =>
+  //     headerLinks.map((item) => {
+  //       return (
+  //         <HeaderLink
+  //           // headerLinks={headerLinks}
+  //           key={item.id}
+  //           text={item.text}
+  //           link={item.link}
+  //           isBurgerHidden={isBurgerHidden}
+  //         />
+  //       );
+  //     }),
+  //   [headerLinks]
+  // );
+
+  const headerNav = headerLinks.map((item) => {
+    return (
+      <HeaderLink
+        headerLinks={headerLinks}
+        key={item.id}
+        text={item.text}
+        link={item.link}
+        isBurgerHidden={isBurgerHidden}
+      />
+    );
+  });
 
   return (
     <nav className="nav">
