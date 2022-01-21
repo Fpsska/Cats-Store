@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import { getInputValue } from "../../Redux/Actions/headerActions";
 import { useSelector } from "react-redux";
 import "./Footer.scss";
+import { RootState } from "../../Redux/store";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const { isHomePage, emailValue } = useSelector(
-    (state) => state.headerReducer
+    (state: RootState) => state.headerReducer
   );
   const dispatch = useDispatch();
 
-  const inputHandler = (event) => {
+  const inputHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(getInputValue(event.target.value));
   };
 
