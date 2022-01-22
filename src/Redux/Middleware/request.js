@@ -37,7 +37,6 @@ const requestHandler = () => {
                             discountStatus: Boolean(Math.round(Math.random())),
                             cardStatus: Boolean(Math.round(Math.random())),
                             isFavourite: false,
-                            isLoadingImage: true
                         }
                     )
                 })

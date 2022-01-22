@@ -4,7 +4,21 @@ import SvgTemplate from "../Common/SvgTemplate";
 import { toggleIsFavourite } from "../../Redux/Actions/cardActions";
 import "./Card.scss";
 
-const Card = ({
+interface CardProps {
+  id: number;
+  image: string;
+  name: string;
+  location: string;
+  age: number;
+  paw: number;
+  price: number;
+  discount: number;
+  isFavourite: boolean;
+  cardStatus: boolean;
+  discountStatus: boolean;
+}
+
+const Card: React.FC<CardProps> = ({
   id,
   image,
   name,
@@ -16,11 +30,10 @@ const Card = ({
   isFavourite,
   cardStatus,
   discountStatus,
-  isLoadingImage,
 }) => {
   const dispatch = useDispatch();
 
-  const setFavourite = () => {
+  const setFavourite = (): void => {
     isFavourite
       ? dispatch(toggleIsFavourite(id, false))
       : dispatch(toggleIsFavourite(id, true));

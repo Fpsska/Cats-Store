@@ -4,7 +4,7 @@ import HeaderLink from "./HeaderLink";
 
 interface HeaderNavProps {
   headerLinks: any[];
-  isBurgerHidden: boolean;
+  isBurgerHidden?: boolean;
 }
 
 const HeaderNav: React.FC<HeaderNavProps> = ({

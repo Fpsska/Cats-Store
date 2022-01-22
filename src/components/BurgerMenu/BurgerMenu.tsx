@@ -4,18 +4,26 @@ import { changeBurgerStatus } from "../../Redux/Actions/headerActions";
 import HeaderNav from "../Header/HeaderNav";
 import "./BurgerMenu.scss";
 
-const BurgerMenu = ({ headerLinks, isBurgerOpen }) => {
+interface BurgerMenuProps {
+  headerLinks: any[];
+  isBurgerOpen: boolean;
+}
+
+const BurgerMenu: React.FC<BurgerMenuProps> = ({
+  headerLinks,
+  isBurgerOpen,
+}) => {
   const dispatch = useDispatch();
   //
   const calcScrollBarWidth = () => {
     return window.innerWidth - document.body.clientWidth;
   };
 
-  const calcPaddingValue = () => {
+  const calcPaddingValue = (): string => {
     return (document.body.style.paddingRight = `${calcScrollBarWidth()}`);
   };
 
-  const defineScrollStatus = () => {
+  const defineScrollStatus = (): void => {
     if (isBurgerOpen === true) {
       document.body.style.overflowY = "auto";
     } else {
@@ -23,7 +31,7 @@ const BurgerMenu = ({ headerLinks, isBurgerOpen }) => {
     }
   };
 
-  const openBurger = () => {
+  const openBurger = (): void => {
     dispatch(changeBurgerStatus(!isBurgerOpen));
     defineScrollStatus();
     calcPaddingValue();

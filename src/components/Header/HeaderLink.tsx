@@ -8,7 +8,7 @@ import {
 import { fetchToggle } from "../../Redux/Actions/cardActions";
 
 interface HeaderLinkProps {
-  isBurgerHidden: boolean;
+  isBurgerHidden?: boolean;
   link: string;
   text: string;
 }
