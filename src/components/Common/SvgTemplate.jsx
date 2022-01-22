@@ -1,6 +1,7 @@
 import React from "react";
 
-const SvgTemplate = (props) => {
+
+const SvgTemplate  = (props) => {
   switch (props.id) {
     case "heart":
       return (
