@@ -20,7 +20,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
 }) => {
   const dispatch = useDispatch();
   //
-  const defineMainPage = () => {
+  const defineMainPage = (): void => {
     if (text === "Main") {
       dispatch(fetchToggle(false));
       dispatch(changePageStatus(true));
@@ -28,7 +28,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
     }
   };
 
-  const removeBodyStatus = () => {
+  const removeBodyStatus = (): void => {
     dispatch(changePageStatus(false));
     dispatch(changeBurgerStatus(false));
     defineMainPage();

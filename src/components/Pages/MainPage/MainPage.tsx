@@ -1,21 +1,22 @@
-import { React, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
 import requestHandler from "../../../Redux/Middleware/request";
+import { RootState } from "../../../Redux/store";
 
-const MainPage = () => {
-  const { isFetching } = useSelector((state) => state.cardReducer);
+const MainPage: React.FC = () => {
+  const { isFetching } = useSelector((state: RootState) => state.cardReducer);
   const dispatch = useDispatch();
-  const scrollPoint = useRef();
+  const scrollPoint = useRef<HTMLDivElement>(null!);
   //
-  const scrollTop = () => {
-    scrollPoint.current.scrollIntoView({ top: 0, behavior: "smooth" });
+  const scrollTop = (): void => {
+    scrollPoint.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
-  const fetchRequest = () => {
+  const fetchRequest = (): void => {
     dispatch(requestHandler());
   };
 
@@ -37,14 +38,14 @@ const MainPage = () => {
             <>{isFetching ? <CardList /> : <Preloader />}</>
             <button
               className="gallery__button button"
-              disabled={isFetching ? "" : true}
+              disabled={isFetching ? false : true}
               onClick={fetchRequest}
             >
               Показать ещё
             </button>
             <button
               className="pagination"
-              disabled={isFetching ? "" : true}
+              disabled={isFetching ? false : true}
               onClick={scrollTop}
             >
               <span className="icon">

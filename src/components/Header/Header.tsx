@@ -15,7 +15,7 @@ const Header: React.FC = () => {
 
   const dispatch = useDispatch();
   //
-  const defineBurgerStatus = () => {
+  const defineBurgerStatus = (): void => {
     if (window.innerWidth < 800) {
       dispatch(changeNavDisplay(false));
     } else if (window.innerWidth > 800) {

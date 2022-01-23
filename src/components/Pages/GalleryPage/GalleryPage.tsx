@@ -6,11 +6,11 @@ import inProcessImage from "../../../assets/images/in_process.png";
 import { changePageStatus } from "../../../Redux/Actions/headerActions";
 import { fetchToggle } from "../../../Redux/Actions/cardActions";
 
-const GalleryPage = () => {
+const GalleryPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //
-  const goHomePage = () => {
+  const goHomePage = (): void => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
     dispatch(fetchToggle(false));
