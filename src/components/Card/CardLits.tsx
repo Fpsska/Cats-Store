@@ -1,13 +1,15 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import Card from "./Card";
+import { RootState } from "../../Redux/store";
 
-const CardList = () => {
-  const { cards } = useSelector((state) => state.cardReducer);
+const CardList: React.FC = () => {
+  const { cards } = useSelector((state: RootState) => state.cardReducer);
 
   const cardList = useMemo(
     () =>
       cards.map((item) => {
+        console.log(item);
         return (
           <Card
             key={item.id}
@@ -22,7 +24,6 @@ const CardList = () => {
             isFavourite={item.isFavourite}
             cardStatus={item.cardStatus}
             discountStatus={item.discountStatus}
-            isLoadingImage={item.isLoadingImage}
           />
         );
       }),

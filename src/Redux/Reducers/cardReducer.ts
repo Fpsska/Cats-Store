@@ -23,7 +23,10 @@ const initialState: CardStateTypes = {
   isFetching: false,
 };
 
-const cardReducer = (state = initialState, action: cardActionTypes) => {
+const cardReducer = (
+  state = initialState,
+  action: cardActionTypes
+): CardStateTypes => {
   switch (action.type) {
     case ACTION_TOGGLE_FAVOURITE:
       return {
@@ -42,73 +45,72 @@ const cardReducer = (state = initialState, action: cardActionTypes) => {
       return {
         ...state,
         cards: [...state.cards.concat(action.payload)],
-        catsCount: "",
+        // catsCount: ""
       };
     case ACTION_FETCH_TOGGLE:
       return {
         ...state,
-        isFetching: action.payload,
+        isFetching: action.payload.value,
       };
-    case ACTION_SORT_CARDS:
-      if (action.payload.id === "price" && action.payload.status === false) {
-        return {
-          ...state,
-          cards: [
-            ...state.cards.sort((a, b) => {
-              return parseInt(b.price) - parseInt(a.price);
-            }),
-          ],
-          sortButtons: state.sortButtons.map((item) => {
-            return {
-              ...item,
-              isSorted: action.payload.status,
-            };
-          }),
-        };
-      } else if (
-        action.payload.id === "price" &&
-        action.payload.status === true
-      ) {
-        return {
-          ...state,
-          cards: [
-            ...state.cards.sort((a, b) => {
-              return parseInt(a.price) - parseInt(b.price);
-            }),
-          ],
-        };
-      }
-      // /. price sort
-      else if (action.payload.id === "age" && action.payload.status === false) {
-        return {
-          ...state,
-          cards: [
-            ...state.cards.sort((a, b) => {
-              return parseInt(b.age) - parseInt(a.age);
-            }),
-          ],
-          sortButtons: state.sortButtons.map((item) => {
-            return {
-              ...item,
-              isSorted: action.payload.status,
-            };
-          }),
-        };
-      } else if (
-        action.payload.id === "age" &&
-        action.payload.status === true
-      ) {
-        return {
-          ...state,
-          cards: [
-            ...state.cards.sort((a, b) => {
-              return parseInt(a.age) - parseInt(b.age);
-            }),
-          ],
-        };
-      }
-      // /. age sort
-      break;
+    // case ACTION_SORT_CARDS:
+    //   if (action.payload.id === "price" && action.payload.status === false) {
+    //     return {
+    //       ...state,
+    //       cards: [
+    //         ...state.cards.sort((a, b) => {
+    //           return parseInt(b.price) - parseInt(a.price);
+    //         }),
+    //       ],
+    //       sortButtons: state.sortButtons.map((item) => {
+    //         return {
+    //           ...item,
+    //           isSorted: action.payload.status,
+    //         };
+    //       }),
+    //     };
+    //   } else if (
+    //     action.payload.id === "price" &&
+    //     action.payload.status === true
+    //   ) {
+    //     return {
+    //       ...state,
+    //       cards: [
+    //         ...state.cards.sort((a, b) => {
+    //           return parseInt(a.price) - parseInt(b.price);
+    //         }),
+    //       ],
+    //     };
+    //   }
+    //   // /. price sort
+    //   else if (action.payload.id === "age" && action.payload.status === false) {
+    //     return {
+    //       ...state,
+    //       cards: [
+    //         ...state.cards.sort((a, b) => {
+    //           return parseInt(b.age) - parseInt(a.age);
+    //         }),
+    //       ],
+    //       sortButtons: state.sortButtons.map((item) => {
+    //         return {
+    //           ...item,
+    //           isSorted: action.payload.status,
+    //         };
+    //       }),
+    //     };
+    //   } else if (
+    //     action.payload.id === "age" &&
+    //     action.payload.status === true
+    //   ) {
+    //     return {
+    //       ...state,
+    //       cards: [
+    //         ...state.cards.sort((a, b) => {
+    //           return parseInt(a.age) - parseInt(b.age);
+    //         }),
+    //       ],
+    //     };
+    //   }
+    // // // /. age sort
     default:
       return state;
   }

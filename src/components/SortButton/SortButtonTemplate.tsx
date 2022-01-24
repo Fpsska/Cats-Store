@@ -8,6 +8,7 @@ interface SortButtonTemplateProps {
   text: string;
   isFetching: boolean;
   isSorted: boolean;
+  toggleSortCards: (arg1: string, arg2: boolean) => void;
 }
 
 const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({

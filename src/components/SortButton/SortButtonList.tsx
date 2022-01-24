@@ -4,9 +4,12 @@ import "./Sort.scss";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import { toggleSortCards } from "../../Redux/Actions/cardActions";
+import { RootState } from "../../Redux/store";
 
-const SortButtonList = () => {
-  const { isFetching, sortButtons } = useSelector((state) => state.cardReducer);
+const SortButtonList: React.FC = () => {
+  const { isFetching, sortButtons } = useSelector(
+    (state: RootState) => state.cardReducer
+  );
   //
   const sortButtonList = useMemo(
     () =>
@@ -16,7 +19,7 @@ const SortButtonList = () => {
             key={item.id}
             id={item.id}
             text={item.text}
-            name={item.name}
+            // name={item.name}
             isSorted={item.isSorted}
             toggleSortCards={toggleSortCards}
             isFetching={isFetching}
