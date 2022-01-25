@@ -1,7 +1,10 @@
 import React from "react";
 
+interface SvgTemplateProps {
+  id: any;
+}
 
-const SvgTemplate  = (props) => {
+const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
   switch (props.id) {
     case "heart":
       return (
