@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Cats-Store/static/css/main.a44e6d93.chunk.css",
-    "main.js": "/Cats-Store/static/js/main.015fc983.chunk.js",
-    "main.js.map": "/Cats-Store/static/js/main.015fc983.chunk.js.map",
+    "main.js": "/Cats-Store/static/js/main.46a7320d.chunk.js",
+    "main.js.map": "/Cats-Store/static/js/main.46a7320d.chunk.js.map",
     "runtime-main.js": "/Cats-Store/static/js/runtime-main.3cf23896.js",
     "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.3cf23896.js.map",
-    "static/js/2.31098f28.chunk.js": "/Cats-Store/static/js/2.31098f28.chunk.js",
-    "static/js/2.31098f28.chunk.js.map": "/Cats-Store/static/js/2.31098f28.chunk.js.map",
+    "static/js/2.c7d4ad33.chunk.js": "/Cats-Store/static/js/2.c7d4ad33.chunk.js",
+    "static/js/2.c7d4ad33.chunk.js.map": "/Cats-Store/static/js/2.c7d4ad33.chunk.js.map",
     "static/js/3.793f73f5.chunk.js": "/Cats-Store/static/js/3.793f73f5.chunk.js",
     "static/js/3.793f73f5.chunk.js.map": "/Cats-Store/static/js/3.793f73f5.chunk.js.map",
     "index.html": "/Cats-Store/index.html",
     "static/css/main.a44e6d93.chunk.css.map": "/Cats-Store/static/css/main.a44e6d93.chunk.css.map",
-    "static/js/2.31098f28.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.31098f28.chunk.js.LICENSE.txt",
+    "static/js/2.c7d4ad33.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.c7d4ad33.chunk.js.LICENSE.txt",
     "static/media/Header.scss": "/Cats-Store/static/media/header-background.6da77330.jpg",
     "static/media/in_process.448aa860.png": "/Cats-Store/static/media/in_process.448aa860.png",
     "static/media/no_found.bee11de8.png": "/Cats-Store/static/media/no_found.bee11de8.png",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3cf23896.js",
-    "static/js/2.31098f28.chunk.js",
+    "static/js/2.c7d4ad33.chunk.js",
     "static/css/main.a44e6d93.chunk.css",
-    "static/js/main.015fc983.chunk.js"
+    "static/js/main.46a7320d.chunk.js"
   ]
 }
