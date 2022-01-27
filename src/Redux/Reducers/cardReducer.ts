@@ -2,7 +2,10 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_TOGGLE_FAVOURITE,
-  ACTION_SORT_CARDS,
+  ACTION_SORT_CARDS_PRICE_DECREASE,
+  ACTION_SORT_CARDS_PRICE_INCREASE,
+  ACTION_SORT_CARDS_AGE_DECREASE,
+  ACTION_SORT_CARDS_AGE_INCREASE,
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -52,65 +55,66 @@ const cardReducer = (
         ...state,
         isFetching: action.payload.value,
       };
-    // case ACTION_SORT_CARDS:
-    //   if (action.payload.id === "price" && action.payload.status === false) {
-    //     return {
-    //       ...state,
-    //       cards: [
-    //         ...state.cards.sort((a, b) => {
-    //           return parseInt(b.price) - parseInt(a.price);
-    //         }),
-    //       ],
-    //       sortButtons: state.sortButtons.map((item) => {
-    //         return {
-    //           ...item,
-    //           isSorted: action.payload.status,
-    //         };
-    //       }),
-    //     };
-    //   } else if (
-    //     action.payload.id === "price" &&
-    //     action.payload.status === true
-    //   ) {
-    //     return {
-    //       ...state,
-    //       cards: [
-    //         ...state.cards.sort((a, b) => {
-    //           return parseInt(a.price) - parseInt(b.price);
-    //         }),
-    //       ],
-    //     };
-    //   }
-    //   // /. price sort
-    //   else if (action.payload.id === "age" && action.payload.status === false) {
-    //     return {
-    //       ...state,
-    //       cards: [
-    //         ...state.cards.sort((a, b) => {
-    //           return parseInt(b.age) - parseInt(a.age);
-    //         }),
-    //       ],
-    //       sortButtons: state.sortButtons.map((item) => {
-    //         return {
-    //           ...item,
-    //           isSorted: action.payload.status,
-    //         };
-    //       }),
-    //     };
-    //   } else if (
-    //     action.payload.id === "age" &&
-    //     action.payload.status === true
-    //   ) {
-    //     return {
-    //       ...state,
-    //       cards: [
-    //         ...state.cards.sort((a, b) => {
-    //           return parseInt(a.age) - parseInt(b.age);
-    //         }),
-    //       ],
-    //     };
-    //   }
-    // // // /. age sort
+    case ACTION_SORT_CARDS_PRICE_DECREASE:
+      return {
+        ...state,
+        cards: [
+          ...state.cards.sort((a, b) => {
+            return parseInt(b.price) - parseInt(a.price);
+          }),
+        ],
+        sortButtons: state.sortButtons.map((item) => {
+          return {
+            ...item,
+            isSorted: action.payload.status,
+          };
+        }),
+      };
+    case ACTION_SORT_CARDS_PRICE_INCREASE:
+      return {
+        ...state,
+        cards: [
+          ...state.cards.sort((a, b) => {
+            return parseInt(a.price) - parseInt(b.price);
+          }),
+        ],
+        sortButtons: state.sortButtons.map((item) => {
+          return {
+            ...item,
+            isSorted: action.payload.status,
+          };
+        }),
+      };
+    case ACTION_SORT_CARDS_AGE_DECREASE:
+      return {
+        ...state,
+        cards: [
+          ...state.cards.sort((a, b) => {
+            return parseInt(b.age) - parseInt(a.age);
+          }),
+        ],
+        sortButtons: state.sortButtons.map((item) => {
+          return {
+            ...item,
+            isSorted: action.payload.status,
+          };
+        }),
+      };
+    case ACTION_SORT_CARDS_AGE_INCREASE:
+      return {
+        ...state,
+        cards: [
+          ...state.cards.sort((a, b) => {
+            return parseInt(a.age) - parseInt(b.age);
+          }),
+        ],
+        sortButtons: state.sortButtons.map((item) => {
+          return {
+            ...item,
+            isSorted: action.payload.status,
+          };
+        }),
+      };
     default:
       return state;
   }

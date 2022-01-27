@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { toggleSortCards } from "../../Redux/Actions/cardActions";
 
 interface SortButtonTemplateProps {
   id: string;
   text: string;
   isFetching: boolean;
   isSorted: boolean;
-  toggleSortCards: (arg1: string, arg2: boolean) => void;
+  toggleSortCardsPriceDecrease: (arg1: string, arg2: boolean) => void;
+  toggleSortCardsAgeDecrease: (arg1: string, arg2: boolean) => void;
+  toggleSortCardsPriceIncrease: (arg1: string, arg2: boolean) => void;
+  toggleSortCardsAgeIncrease: (arg1: string, arg2: boolean) => void;
 }
 
 const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
@@ -16,6 +18,10 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   text,
   isSorted,
   isFetching,
+  toggleSortCardsPriceDecrease,
+  toggleSortCardsAgeDecrease,
+  toggleSortCardsPriceIncrease,
+  toggleSortCardsAgeIncrease,
 }) => {
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
 
@@ -23,7 +29,18 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   //
   const runSort = (): void => {
     setSwitchStatus(!isSwitched);
-    dispatch(toggleSortCards(id, isSwitched));
+    if (id === "price") {
+      dispatch(toggleSortCardsPriceDecrease(id, isSwitched));
+    }
+    if (id === "age") {
+      dispatch(toggleSortCardsAgeDecrease(id, isSwitched));
+    }
+    if (id === "price" && isSwitched === false) {
+      dispatch(toggleSortCardsPriceIncrease(id, isSwitched));
+    }
+    if (id === "age" && isSwitched === false) {
+      dispatch(toggleSortCardsAgeIncrease(id, isSwitched));
+    }
   };
 
   return (

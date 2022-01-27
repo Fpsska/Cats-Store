@@ -2,7 +2,10 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_TOGGLE_FAVOURITE,
-  ACTION_SORT_CARDS,
+  ACTION_SORT_CARDS_PRICE_DECREASE,
+  ACTION_SORT_CARDS_PRICE_INCREASE,
+  ACTION_SORT_CARDS_AGE_DECREASE,
+  ACTION_SORT_CARDS_AGE_INCREASE,
 } from "../Redux/Actions/cardActions";
 
 export interface CardStateTypes {
@@ -31,8 +34,32 @@ interface toggleIsFavourite {
   };
 }
 
-interface toggleSortCards {
-  type: typeof ACTION_SORT_CARDS;
+interface toggleSortCardsPriceDecrease {
+  type: typeof ACTION_SORT_CARDS_PRICE_DECREASE;
+  payload: {
+    id: string;
+    status: boolean;
+  };
+}
+
+interface toggleSortCardsPriceIncrease {
+  type: typeof ACTION_SORT_CARDS_PRICE_INCREASE;
+  payload: {
+    id: string;
+    status: boolean;
+  };
+}
+
+interface toggleSortCardsAgeDecrease {
+  type: typeof ACTION_SORT_CARDS_AGE_DECREASE;
+  payload: {
+    id: string;
+    status: boolean;
+  };
+}
+
+interface toggleSortCardsAgeIncrease {
+  type: typeof ACTION_SORT_CARDS_AGE_INCREASE;
   payload: {
     id: string;
     status: boolean;
@@ -43,4 +70,7 @@ export type cardActionTypes =
   | fetchToggle
   | fetchCards
   | toggleIsFavourite
-  | toggleSortCards;
+  | toggleSortCardsPriceDecrease
+  | toggleSortCardsPriceIncrease
+  | toggleSortCardsAgeDecrease
+  | toggleSortCardsAgeIncrease;
