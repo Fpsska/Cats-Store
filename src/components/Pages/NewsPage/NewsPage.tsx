@@ -13,7 +13,7 @@ const NewsPage: React.FC = () => {
   const goHomePage = (): void=> {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
-    dispatch(fetchToggle(false));
+    dispatch(fetchToggle(true));
   };
   return (
     <>

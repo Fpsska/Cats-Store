@@ -35,17 +35,17 @@ const MainPage: React.FC = () => {
             </>
           </div>
           <div className="gallery">
-            <>{isFetching ? <CardList /> : <Preloader />}</>
+            <>{isFetching ? <Preloader /> : <CardList />}</>
             <button
               className="gallery__button button"
-              disabled={isFetching ? false : true}
+              disabled={isFetching ? true : false}
               onClick={fetchRequest}
             >
               Показать ещё
             </button>
             <button
               className="pagination"
-              disabled={isFetching ? false : true}
+              disabled={isFetching ? true : false}
               onClick={scrollTop}
             >
               <span className="icon">

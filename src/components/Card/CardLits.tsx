@@ -9,7 +9,6 @@ const CardList: React.FC = () => {
   const cardList = useMemo(
     () =>
       cards.map((item) => {
-        console.log(item);
         return (
           <Card
             key={item.id}

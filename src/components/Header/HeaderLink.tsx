@@ -22,9 +22,8 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   //
   const defineMainPage = (): void => {
     if (text === "Main") {
-      dispatch(fetchToggle(false));
+      dispatch(fetchToggle(true));
       dispatch(changePageStatus(true));
-      console.log("defineMainPage func");
     }
   };
 

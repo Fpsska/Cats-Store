@@ -20,7 +20,7 @@ const initialState: CardStateTypes = {
       isSorted: false,
     },
   ],
-  isFetching: false,
+  isFetching: true,
 };
 
 const cardReducer = (

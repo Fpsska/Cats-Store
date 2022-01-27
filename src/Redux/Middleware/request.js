@@ -8,7 +8,7 @@ const requestHandler = () => {
         getDataAPI()
             .then(async function (response) {
                 setTimeout(() => {
-                    dispatch(fetchToggle(true))
+                    dispatch(fetchToggle(false))
                 }, 1500)
 
                 const responseData = await response.data

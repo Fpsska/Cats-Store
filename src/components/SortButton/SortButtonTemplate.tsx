@@ -29,7 +29,7 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   return (
     <button
       className="controls__menu"
-      disabled={isFetching ? false : true}
+      disabled={isFetching ? true : false}
       onClick={runSort}
     >
       <span className="controls__menu_text">{text}</span>
