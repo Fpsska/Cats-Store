@@ -1,8 +1,6 @@
 # Cats-Store
-```
-GH-PAGES:
-```
-- [cats-store](https://fpsska.github.io/Cats-Store/)
+
+### `Watch demo` _[cats-store](https://fpsska.github.io/Cats-Store/)_
 
 # Getting Started with Create React App
 
