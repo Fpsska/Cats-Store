@@ -6,6 +6,8 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
+  ACTION_SET_FETCH_ERROR_MESSAGE,
+  ACTION_SET_FETCH_ERROR_STATUS
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -24,6 +26,8 @@ const initialState: CardStateTypes = {
     },
   ],
   isFetching: true,
+  isFetchError: false,
+  fetchErrorMessage: "test",
 };
 
 const cardReducer = (
@@ -48,12 +52,21 @@ const cardReducer = (
       return {
         ...state,
         cards: [...state.cards.concat(action.payload)],
-        // catsCount: ""
       };
     case ACTION_FETCH_TOGGLE:
       return {
         ...state,
         isFetching: action.payload.value,
+      };
+    case ACTION_SET_FETCH_ERROR_MESSAGE:
+      return {
+        ...state,
+        fetchErrorMessage: action.payload.value,
+      };
+    case ACTION_SET_FETCH_ERROR_STATUS:
+      return {
+        ...state,
+        isFetchError: action.payload.value,
       };
     case ACTION_SORT_CARDS_PRICE_DECREASE:
       return {

@@ -6,12 +6,30 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
+  ACTION_SET_FETCH_ERROR_MESSAGE,
+  ACTION_SET_FETCH_ERROR_STATUS
 } from "../Redux/Actions/cardActions";
 
 export interface CardStateTypes {
   cards: any[];
   sortButtons: any[];
   isFetching: boolean;
+  isFetchError: boolean;
+  fetchErrorMessage: string;
+}
+
+interface setFetchErrorStatus {
+  type: typeof ACTION_SET_FETCH_ERROR_STATUS;
+  payload: {
+    value: boolean;
+  };
+}
+
+interface setFetchErrorMessage {
+  type: typeof ACTION_SET_FETCH_ERROR_MESSAGE;
+  payload: {
+    value: string;
+  };
 }
 
 interface fetchToggle {
@@ -67,6 +85,8 @@ interface toggleSortCardsAgeIncrease {
 }
 
 export type cardActionTypes =
+  | setFetchErrorStatus
+  | setFetchErrorMessage
   | fetchToggle
   | fetchCards
   | toggleIsFavourite

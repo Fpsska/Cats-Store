@@ -8,7 +8,7 @@ import requestHandler from "../../../Redux/Middleware/request";
 import { RootState } from "../../../Redux/store";
 
 const MainPage: React.FC = () => {
-  const { isFetching } = useSelector((state: RootState) => state.cardReducer);
+  const { isFetching, isFetchError, fetchErrorMessage } = useSelector((state: RootState) => state.cardReducer);
   const dispatch = useDispatch();
   const scrollPoint = useRef<HTMLDivElement>(null!);
   //
@@ -25,37 +25,35 @@ const MainPage: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <main ref={scrollPoint}>
-        <div className="container">
-          <div className="controls">
-            <span className="controls__title">Сортировать по:</span>
-            <>
-              <SortButtonList />
-            </>
-          </div>
-          <div className="gallery">
-            <>{isFetching ? <Preloader /> : <CardList />}</>
-            <button
-              className="gallery__button button"
-              disabled={isFetching ? true : false}
-              onClick={fetchRequest}
-            >
-              Показать ещё
-            </button>
-            <button
-              className="pagination"
-              disabled={isFetching ? true : false}
-              onClick={scrollTop}
-            >
-              <span className="icon">
-                <SvgTemplate id="arrow" />
-              </span>
-            </button>
-          </div>
+    <div ref={scrollPoint}>
+      <div className="container">
+        <div className="controls">
+          <span className="controls__title">Сортировать по:</span>
+          <>
+            <SortButtonList />
+          </>
         </div>
-      </main>
-    </>
+        <div className="gallery">
+          <>{isFetching ? <Preloader /> : isFetchError ? <div className="error">{fetchErrorMessage}</div> : <CardList />}</>
+          <button
+            className="gallery__button button"
+            disabled={isFetching ? true : false}
+            onClick={fetchRequest}
+          >
+            Показать ещё
+          </button>
+          <button
+            className="pagination"
+            disabled={isFetching ? true : false}
+            onClick={scrollTop}
+          >
+            <span className="icon">
+              <SvgTemplate id="arrow" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

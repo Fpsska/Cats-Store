@@ -9,6 +9,26 @@ export const ACTION_SORT_CARDS_AGE_DECREASE = "ACTION_SORT_CARDS_AGE_DECREASE";
 export const ACTION_SORT_CARDS_AGE_INCREASE = "ACTION_SORT_CARDS_AGE_INCREASE";
 export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS";
 export const ACTION_FETCH_TOGGLE = "ACTION_FETCH_TOGGLE";
+export const ACTION_SET_FETCH_ERROR_STATUS = "ACTION_SET_FETCH_ERROR_STATUS";
+export const ACTION_SET_FETCH_ERROR_MESSAGE = "ACTION_SET_FETCH_ERROR_MESSAGE";
+
+export const setFetchErrorMessage = (value: string): cardActionTypes => {
+  return {
+    type: ACTION_SET_FETCH_ERROR_MESSAGE,
+    payload: {
+      value,
+    },
+  };
+};
+
+export const setFetchErrorStatus = (value: boolean): cardActionTypes => {
+  return {
+    type: ACTION_SET_FETCH_ERROR_STATUS,
+    payload: {
+      value,
+    },
+  };
+};
 
 export const fetchToggle = (value: boolean): cardActionTypes => {
   return {

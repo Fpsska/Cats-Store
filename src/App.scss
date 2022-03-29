@@ -17,7 +17,7 @@ body {
     padding: 0;
     font-size: 16px;
     background-color: #f3f3f3;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     position: relative;
 }
 
@@ -56,6 +56,11 @@ main {
 .section__title-error {
     font-weight: 900;
     font-size: 120px;
+}
+.error {
+    margin: auto;
+    text-align: center;
+    padding: 15vh 0;
 }
 // /. general pages styles
 
