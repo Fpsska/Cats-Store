@@ -8,7 +8,7 @@ import {
 
 export interface headerStateTypes {
   headerLinks: any[];
-  catsCount: string;
+  catsCount: number;
   isBurgerHidden: boolean;
   isBurgerOpen: boolean;
   isBodyScrolling: boolean;
@@ -33,7 +33,7 @@ interface changeNavDisplay {
 
 interface getCatsCount {
   type: typeof ACTION_GET_CATS_COUNT;
-  payload: string;
+  payload: number;
 }
 
 interface getInputValue {

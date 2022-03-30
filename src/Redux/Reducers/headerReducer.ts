@@ -31,7 +31,7 @@ const initialState: headerStateTypes = {
       link: "Profile",
     },
   ],
-  catsCount: "",
+  catsCount: 0,
   isBurgerHidden: true,
   isBurgerOpen: false,
   isBodyScrolling: true,

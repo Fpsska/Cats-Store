@@ -34,7 +34,7 @@ export const changeNavDisplay = (status: boolean): headerActionTypes => {
   };
 };
 
-export const getCatsCount = (count: string): headerActionTypes => {
+export const getCatsCount = (count: number): headerActionTypes => {
   return {
     type: ACTION_GET_CATS_COUNT,
     payload: count,

@@ -1,11 +1,12 @@
-import { getCatsCount } from '../Actions/headerActions'
 import { fetchCards, fetchToggle, setFetchErrorMessage, setFetchErrorStatus } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
 
+
 const requestHandler = () => {
+    const pageCount = Math.floor(Math.random() * 10)
     return async function (dispatch) {
         try {
-            const response = await fetch(`htps://api.thecatapi.com/v1/breeds?api_key=8df551cd-f3e4-4f5d-947a-5c7e82d333ca&limit=6&page=1`)
+            const response = await fetch(`https://api.thecatapi.com/v1/breeds?api_key=8df551cd-f3e4-4f5d-947a-5c7e82d333ca&limit=6&page=${pageCount}`)
             const data = await response.json()
 
             setTimeout(() => {
@@ -42,9 +43,8 @@ const requestHandler = () => {
                 )
             })
             dispatch(fetchCards(actualData))
-            dispatch(getCatsCount(response.headers["pagination-count"]))
         } catch (error) {
-            dispatch(setFetchErrorMessage(`There are some problems with resonse: ${error.message}.`))
+            dispatch(setFetchErrorMessage(`There are some problems with response: ${error.message}.`))
             setTimeout(() => {
                 dispatch(fetchToggle(false))
                 dispatch(setFetchErrorStatus(true))

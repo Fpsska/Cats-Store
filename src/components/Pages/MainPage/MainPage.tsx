@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
@@ -16,14 +16,10 @@ const MainPage: React.FC = () => {
     scrollPoint.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
-  const fetchRequest = (): void => {
+  const fetchRequest = () => {
     dispatch(requestHandler());
   };
-
-  useEffect(() => {
-    dispatch(requestHandler());
-  }, []);
-
+  // 
   return (
     <div ref={scrollPoint}>
       <div className="container">
@@ -37,14 +33,14 @@ const MainPage: React.FC = () => {
           <>{isFetching ? <Preloader /> : isFetchError ? <div className="error">{fetchErrorMessage}</div> : <CardList />}</>
           <button
             className="gallery__button button"
-            disabled={isFetching ? true : false}
+            disabled={isFetching ? true : isFetchError ? true : false}
             onClick={fetchRequest}
           >
             Показать ещё
           </button>
           <button
             className="pagination"
-            disabled={isFetching ? true : false}
+            disabled={isFetching ? true : isFetchError ? true : false}
             onClick={scrollTop}
           >
             <span className="icon">

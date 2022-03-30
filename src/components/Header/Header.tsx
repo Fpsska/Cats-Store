@@ -8,10 +8,10 @@ import { RootState } from "../../Redux/store";
 import "./Header.scss";
 
 const Header: React.FC = () => {
-  const { headerLinks, catsCount, isBurgerHidden, isBurgerOpen, isHomePage } =
+  const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage } =
     useSelector((state: RootState) => state.headerReducer);
 
-  const { isFetching } = useSelector((state: RootState) => state.cardReducer);
+  const { isFetching, isFetchError, cards } = useSelector((state: RootState) => state.cardReducer);
 
   const dispatch = useDispatch();
   //
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                 </h1>
               ) : (
                 <>
-                  <h1 className="header__text">Найдено {catsCount} котов</h1>
+                  <h1 className="header__text">Найдено {isFetchError ? "0" : cards.length} котов</h1>
                 </>
               )}
             </>
