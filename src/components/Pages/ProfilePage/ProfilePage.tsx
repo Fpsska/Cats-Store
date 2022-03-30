@@ -1,10 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import inProcessImage from "../../../assets/images/in_process.png";
 import { changePageStatus } from "../../../Redux/Actions/headerActions";
-import { fetchToggle } from "../../../Redux/Actions/cardActions";
-import { useDispatch } from "react-redux";
+import inProcessImage from "../../../assets/images/in_process.png";
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
@@ -13,7 +12,6 @@ const ProfilePage: React.FC = () => {
   const goHomePage = (): void => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
-    dispatch(fetchToggle(true));
   };
   return (
     <>

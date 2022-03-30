@@ -23,7 +23,6 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   const defineMainPage = (): void => {
     if (text === "Main") {
       dispatch(changePageStatus(true));
-      console.log("!!!")
     }
   };
 
@@ -33,7 +32,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
     defineMainPage();
     document.body.style.overflowY = "auto";
   };
-
+  // 
   return (
     <li className={isBurgerHidden ? "nav__menu_item" : "nav__menu_item-burger"}>
       <NavLink

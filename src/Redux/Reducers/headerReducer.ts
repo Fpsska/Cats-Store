@@ -1,7 +1,6 @@
 import { headerStateTypes, headerActionTypes } from "../../Types/headerType";
 
 import {
-  ACTION_GET_CATS_COUNT,
   ACTION_CHANGE_NAV_DISPLAY,
   ACTION_GET_INPUT_VALUE,
   ACTION_CHANGE_PAGE_STATUS,
@@ -31,7 +30,6 @@ const initialState: headerStateTypes = {
       link: "Profile",
     },
   ],
-  catsCount: 0,
   isBurgerHidden: true,
   isBurgerOpen: false,
   isBodyScrolling: true,
@@ -44,11 +42,6 @@ const headerReducer = (
   action: headerActionTypes
 ): headerStateTypes => {
   switch (action.type) {
-    case ACTION_GET_CATS_COUNT:
-      return {
-        ...state,
-        catsCount: (state.catsCount = action.payload),
-      };
     case ACTION_CHANGE_NAV_DISPLAY:
       return {
         ...state,

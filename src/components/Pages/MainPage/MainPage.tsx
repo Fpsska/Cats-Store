@@ -16,7 +16,7 @@ const MainPage: React.FC = () => {
     scrollPoint.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
-  const fetchRequest = () => {
+  const fetchRequest = (): void => {
     dispatch(requestHandler());
   };
   // 

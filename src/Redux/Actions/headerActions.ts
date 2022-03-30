@@ -1,6 +1,5 @@
 import { headerActionTypes, headerStateTypes } from "../../Types/headerType";
 
-export const ACTION_GET_CATS_COUNT = "ACTION_GET_CATS_COUNT";
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY";
 export const ACTION_GET_INPUT_VALUE = "ACTION_SET_INPUT_VALUE";
 export const ACTION_CHANGE_PAGE_STATUS = "ACTION_CHANGE_PAGE_STATUS";
@@ -34,9 +33,3 @@ export const changeNavDisplay = (status: boolean): headerActionTypes => {
   };
 };
 
-export const getCatsCount = (count: number): headerActionTypes => {
-  return {
-    type: ACTION_GET_CATS_COUNT,
-    payload: count,
-  };
-};

@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import inProcessImage from "../../../assets/images/in_process.png";
 import { useDispatch } from "react-redux";
 import { changePageStatus } from "../../../Redux/Actions/headerActions";
-import { fetchToggle } from "../../../Redux/Actions/cardActions";
+import inProcessImage from "../../../assets/images/in_process.png";
 
 const NewsPage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //
-  const goHomePage = (): void=> {
+  const goHomePage = (): void => {
     dispatch(changePageStatus(true));
     navigate("/Cats-Store", { replace: true });
-    dispatch(fetchToggle(true));
   };
   return (
     <>

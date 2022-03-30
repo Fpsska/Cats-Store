@@ -1,5 +1,4 @@
 import {
-  ACTION_GET_CATS_COUNT,
   ACTION_CHANGE_NAV_DISPLAY,
   ACTION_GET_INPUT_VALUE,
   ACTION_CHANGE_PAGE_STATUS,
@@ -8,7 +7,6 @@ import {
 
 export interface headerStateTypes {
   headerLinks: any[];
-  catsCount: number;
   isBurgerHidden: boolean;
   isBurgerOpen: boolean;
   isBodyScrolling: boolean;
@@ -31,11 +29,6 @@ interface changeNavDisplay {
   payload: boolean;
 }
 
-interface getCatsCount {
-  type: typeof ACTION_GET_CATS_COUNT;
-  payload: number;
-}
-
 interface getInputValue {
   type: typeof ACTION_GET_INPUT_VALUE;
   payload: string;
@@ -45,5 +38,4 @@ export type headerActionTypes =
   | changeBurgerStatus
   | changePageStatus
   | changeNavDisplay
-  | getCatsCount
   | getInputValue;
