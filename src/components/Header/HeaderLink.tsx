@@ -5,7 +5,6 @@ import {
   changePageStatus,
   changeBurgerStatus,
 } from "../../Redux/Actions/headerActions";
-import { fetchToggle } from "../../Redux/Actions/cardActions";
 
 interface HeaderLinkProps {
   isBurgerHidden?: boolean;

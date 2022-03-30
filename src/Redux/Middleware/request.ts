@@ -1,10 +1,24 @@
 import { fetchCards, fetchToggle, setFetchErrorMessage, setFetchErrorStatus } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
+import { cardActionTypes } from "../../Types/cardType";
 
+interface actualDataTypes {
+    id: string,
+    image: string,
+    name: string,
+    location: string,
+    paw: string,
+    age: string,
+    price: string,
+    discount: string,
+    discountStatus: boolean,
+    cardStatus: boolean,
+    isFavourite: boolean,
+}
 
 const requestHandler = () => {
     const pageCount = Math.floor(Math.random() * 10)
-    return async function (dispatch) {
+    return async function (dispatch: (arg0: cardActionTypes) => void) {
         try {
             const response = await fetch(`https://api.thecatapi.com/v1/breeds?api_key=8df551cd-f3e4-4f5d-947a-5c7e82d333ca&limit=6&page=${pageCount}`)
             const data = await response.json()
@@ -13,8 +27,8 @@ const requestHandler = () => {
                 dispatch(fetchToggle(false))
             }, 900)
 
-            const responseData = data
-            const actualData = []
+            const responseData: any[] = data
+            const actualData: actualDataTypes[] = []
 
             responseData.forEach(item => {
                 if (item["image"] === undefined) {
@@ -43,7 +57,7 @@ const requestHandler = () => {
                 )
             })
             dispatch(fetchCards(actualData))
-        } catch (error) {
+        } catch (error: any) {
             dispatch(setFetchErrorMessage(`There are some problems with response: ${error.message}.`))
             setTimeout(() => {
                 dispatch(fetchToggle(false))
