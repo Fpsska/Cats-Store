@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.css": "/Cats-Store/static/css/main.3e63297f.chunk.css",
-    "main.js": "/Cats-Store/static/js/main.512b9f58.chunk.js",
-    "main.js.map": "/Cats-Store/static/js/main.512b9f58.chunk.js.map",
-    "runtime-main.js": "/Cats-Store/static/js/runtime-main.ddeea7bc.js",
-    "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.ddeea7bc.js.map",
-    "static/js/2.4afc8575.chunk.js": "/Cats-Store/static/js/2.4afc8575.chunk.js",
-    "static/js/2.4afc8575.chunk.js.map": "/Cats-Store/static/js/2.4afc8575.chunk.js.map",
-    "static/js/3.3c83b78e.chunk.js": "/Cats-Store/static/js/3.3c83b78e.chunk.js",
-    "static/js/3.3c83b78e.chunk.js.map": "/Cats-Store/static/js/3.3c83b78e.chunk.js.map",
+    "main.css": "/Cats-Store/static/css/main.e808e3dc.chunk.css",
+    "main.js": "/Cats-Store/static/js/main.053040b8.chunk.js",
+    "main.js.map": "/Cats-Store/static/js/main.053040b8.chunk.js.map",
+    "runtime-main.js": "/Cats-Store/static/js/runtime-main.862c0edb.js",
+    "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.862c0edb.js.map",
+    "static/js/2.68b78145.chunk.js": "/Cats-Store/static/js/2.68b78145.chunk.js",
+    "static/js/2.68b78145.chunk.js.map": "/Cats-Store/static/js/2.68b78145.chunk.js.map",
+    "static/js/3.c855c6be.chunk.js": "/Cats-Store/static/js/3.c855c6be.chunk.js",
+    "static/js/3.c855c6be.chunk.js.map": "/Cats-Store/static/js/3.c855c6be.chunk.js.map",
     "index.html": "/Cats-Store/index.html",
-    "static/css/main.3e63297f.chunk.css.map": "/Cats-Store/static/css/main.3e63297f.chunk.css.map",
-    "static/js/2.4afc8575.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.4afc8575.chunk.js.LICENSE.txt",
+    "static/css/main.e808e3dc.chunk.css.map": "/Cats-Store/static/css/main.e808e3dc.chunk.css.map",
+    "static/js/2.68b78145.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.68b78145.chunk.js.LICENSE.txt",
+    "static/media/empty.cd1884f0.png": "/Cats-Store/static/media/empty.cd1884f0.png",
     "static/media/Header.scss": "/Cats-Store/static/media/header-background.6da77330.jpg",
     "static/media/in_process.448aa860.png": "/Cats-Store/static/media/in_process.448aa860.png",
     "static/media/no_found.bee11de8.png": "/Cats-Store/static/media/no_found.bee11de8.png",
     "static/media/no_photo.bb351cb8.png": "/Cats-Store/static/media/no_photo.bb351cb8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ddeea7bc.js",
-    "static/js/2.4afc8575.chunk.js",
-    "static/css/main.3e63297f.chunk.css",
-    "static/js/main.512b9f58.chunk.js"
+    "static/js/runtime-main.862c0edb.js",
+    "static/js/2.68b78145.chunk.js",
+    "static/css/main.e808e3dc.chunk.css",
+    "static/js/main.053040b8.chunk.js"
   ]
 }
