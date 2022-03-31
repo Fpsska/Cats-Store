@@ -1,4 +1,4 @@
-import { headerActionTypes, headerStateTypes } from "../../Types/headerType";
+import { headerActionTypes } from "../../Types/headerType";
 
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY";
 export const ACTION_GET_INPUT_VALUE = "ACTION_SET_INPUT_VALUE";

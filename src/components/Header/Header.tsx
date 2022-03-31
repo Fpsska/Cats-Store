@@ -11,8 +11,7 @@ const Header: React.FC = () => {
   const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage } =
     useSelector((state: RootState) => state.headerReducer);
   const { isFetching, isFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-  const [textCount, setTextCount] = useState<string>("котов");
-  const [mainText, setMainText] = useState<string>("Выбрано");
+  const [textCount, setTextCount] = useState<string>("cats");
   const dispatch = useDispatch();
   //
   const defineBurgerStatus = (): void => {
@@ -33,21 +32,11 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (likedCardsData.length === 0) {
-      setMainText("Выбрано")
-      setTextCount("котов")
-    }
     if (likedCardsData.length === 1) {
-      setMainText("Выбран")
-      setTextCount("кот")
+      setTextCount("cat")
     }
-    if (likedCardsData.length >= 2 && likedCardsData.length <= 4) {
-      setMainText("Выбрано")
-      setTextCount("кота")
-    }
-    if (likedCardsData.length >= 5) {
-      setMainText("Выбрано")
-      setTextCount("котов")
+    if (likedCardsData.length >= 2) {
+      setTextCount("cats")
     }
   }, [isFetchError, likedCardsData])
   // 
@@ -75,14 +64,14 @@ const Header: React.FC = () => {
             <a className="telephone__number" href="tel:+544 3490 00000">
               +544 3490 00000
             </a>
-            <span className="telephone__description">Звони скорее!</span>
+            <span className="telephone__description">Call soon!</span>
           </div>
         </div>
         <>
           <>
             {isFetching ? (
               <h1 className="header__text header__text--loading">
-                Загрузка
+                Loading
                 <span className="header__text_dot"></span>
                 <span className="header__text_dot"></span>
                 <span className="header__text_dot"></span>
@@ -90,8 +79,8 @@ const Header: React.FC = () => {
             ) : (
               <>
                 {isHomePage
-                  ? <h1 className="header__text">Найдено {isFetchError ? "0" : cards.length} котов</h1>
-                  : <h1 className="header__text">{isFetchError ? "Выбрано" : mainText} {isFetchError ? "0" : likedCardsData.length} {isFetchError ? "котов" : textCount}</h1>
+                  ? <h1 className="header__text">Found {isFetchError ? "0" : cards.length} cats</h1>
+                  : <h1 className="header__text">Selected {isFetchError ? "0" : likedCardsData.length} cats</h1>
                 }
               </>
             )}

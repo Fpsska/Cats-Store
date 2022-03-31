@@ -73,10 +73,10 @@ const Card: React.FC<CardProps> = ({
             <strong>{location}</strong>
           </li>
           <li className="description__item description__item_age">
-            <span className="bold">{age}</span> <br /> Возраст
+            <span className="bold">{age}</span> <br /> Age
           </li>
           <li className="description__item description__item_paw">
-            <span className="bold">{paw}</span> <br /> Кол-во лап
+            <span className="bold">{paw}</span> <br /> Paws count
           </li>
         </ul>
         <p className="card__price">{price}</p>
@@ -86,7 +86,7 @@ const Card: React.FC<CardProps> = ({
           cardStatus ? "card__button button" : "card__button-sold button"
         }
       >
-        {cardStatus ? "Купить" : "Продано"}
+        {cardStatus ? "Buy" : "Sold"}
       </button>
     </div>
   );

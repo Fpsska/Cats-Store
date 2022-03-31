@@ -8,7 +8,6 @@ import {
   ACTION_SORT_CARDS_AGE_INCREASE,
   ACTION_SET_FETCH_ERROR_MESSAGE,
   ACTION_SET_FETCH_ERROR_STATUS,
-  // ACTION_SET_LIKED_CARDS_DATA
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -17,12 +16,12 @@ const initialState: CardStateTypes = {
   likedCardsData: [],
   sortButtons: [
     {
-      text: "Цена",
+      text: "Price",
       id: "price",
       isSorted: false,
     },
     {
-      text: "Возраст",
+      text: "Age",
       id: "age",
       isSorted: false,
     },

@@ -24,7 +24,7 @@ const MainPage: React.FC = () => {
     <div ref={scrollPoint}>
       <div className="container">
         <div className="controls">
-          <span className="controls__title">Сортировать по:</span>
+          <span className="controls__title">Sorted by:</span>
           <>
             <SortButtonList />
           </>
@@ -36,7 +36,7 @@ const MainPage: React.FC = () => {
             disabled={isFetching ? true : isFetchError ? true : false}
             onClick={fetchRequest}
           >
-            Показать ещё
+            Watch more
           </button>
           <button
             className="pagination"

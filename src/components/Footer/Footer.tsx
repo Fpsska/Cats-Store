@@ -20,9 +20,9 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="footer__wrapper">
           <div className="footer__description">
-            <h2 className="footer__title">Успей купить!</h2>
+            <h2 className="footer__title">Hurry up to buy!</h2>
             <p className="footer__subtitle">
-              Подпишись и успей словить все акции
+              Subscribe and catch all the promotions
             </p>
           </div>
           <form className="form">
@@ -35,10 +35,10 @@ const Footer: React.FC = () => {
                 value={emailValue}
                 onChange={inputHandler}
               />
-              <button className="form__button button">Подписаться</button>
+              <button className="form__button button">Subscribe</button>
             </div>
             <label className="form__cheakbox-text">
-              Подписаться на новости
+              Subscribe to news
               <input
                 className="form__cheakbox-input"
                 type="checkbox"
