@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { toggleIsFavourite } from "../../Redux/Actions/cardActions";
+import { setLikedCardsData } from "../../Redux/Actions/cardActions";
 import "./Card.scss";
 
 interface CardProps {
@@ -35,8 +35,8 @@ const Card: React.FC<CardProps> = ({
 
   const setFavourite = (): void => {
     isFavourite
-      ? dispatch(toggleIsFavourite(id, false))
-      : dispatch(toggleIsFavourite(id, true));
+      ? dispatch(setLikedCardsData(id, false))
+      : dispatch(setLikedCardsData(id, true));
   };
 
   return (

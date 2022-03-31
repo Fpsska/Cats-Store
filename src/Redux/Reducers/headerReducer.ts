@@ -16,8 +16,8 @@ const initialState: headerStateTypes = {
     },
     {
       id: 2,
-      text: "Gallery",
-      link: "Gallery",
+      text: "Favourite",
+      link: "Favourite",
     },
     {
       id: 3,

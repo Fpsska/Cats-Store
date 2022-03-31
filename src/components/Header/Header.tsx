@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
@@ -10,9 +10,9 @@ import "./Header.scss";
 const Header: React.FC = () => {
   const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage } =
     useSelector((state: RootState) => state.headerReducer);
-
-  const { isFetching, isFetchError, cards } = useSelector((state: RootState) => state.cardReducer);
-
+  const { isFetching, isFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
+  const [textCount, setTextCount] = useState<string>("котов");
+  const [mainText, setMainText] = useState<string>("Выбрано");
   const dispatch = useDispatch();
   //
   const defineBurgerStatus = (): void => {
@@ -32,8 +32,27 @@ const Header: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (likedCardsData.length === 0) {
+      setMainText("Выбрано")
+      setTextCount("котов")
+    }
+    if (likedCardsData.length === 1) {
+      setMainText("Выбран")
+      setTextCount("кот")
+    }
+    if (likedCardsData.length >= 2 && likedCardsData.length <= 4) {
+      setMainText("Выбрано")
+      setTextCount("кота")
+    }
+    if (likedCardsData.length >= 5) {
+      setMainText("Выбрано")
+      setTextCount("котов")
+    }
+  }, [isFetchError, likedCardsData])
+  // 
   return (
-    <header className={isHomePage ? "header" : "header header--minimized"}>
+    <header className="header">
       <div className="container">
         <div className="header__section">
           <span className="icon">
@@ -60,24 +79,23 @@ const Header: React.FC = () => {
           </div>
         </div>
         <>
-          {isHomePage ? (
-            <>
-              {isFetching ? (
-                <h1 className="header__text header__text--loading">
-                  Загрузка
-                  <span className="header__text_dot"></span>
-                  <span className="header__text_dot"></span>
-                  <span className="header__text_dot"></span>
-                </h1>
-              ) : (
-                <>
-                  <h1 className="header__text">Найдено {isFetchError ? "0" : cards.length} котов</h1>
-                </>
-              )}
-            </>
-          ) : (
-            <></>
-          )}
+          <>
+            {isFetching ? (
+              <h1 className="header__text header__text--loading">
+                Загрузка
+                <span className="header__text_dot"></span>
+                <span className="header__text_dot"></span>
+                <span className="header__text_dot"></span>
+              </h1>
+            ) : (
+              <>
+                {isHomePage
+                  ? <h1 className="header__text">Найдено {isFetchError ? "0" : cards.length} котов</h1>
+                  : <h1 className="header__text">{isFetchError ? "Выбрано" : mainText} {isFetchError ? "0" : likedCardsData.length} {isFetchError ? "котов" : textCount}</h1>
+                }
+              </>
+            )}
+          </>
         </>
       </div>
     </header>

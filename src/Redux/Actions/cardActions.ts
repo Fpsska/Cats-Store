@@ -1,6 +1,6 @@
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
-export const ACTION_TOGGLE_FAVOURITE = "ACTION_TOGGLE_FAVOURITE";
+export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
 export const ACTION_SORT_CARDS_PRICE_DECREASE =
   "ACTION_SORT_CARDS_PRICE_DECREASE";
 export const ACTION_SORT_CARDS_PRICE_INCREASE =
@@ -11,16 +11,7 @@ export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS";
 export const ACTION_FETCH_TOGGLE = "ACTION_FETCH_TOGGLE";
 export const ACTION_SET_FETCH_ERROR_STATUS = "ACTION_SET_FETCH_ERROR_STATUS";
 export const ACTION_SET_FETCH_ERROR_MESSAGE = "ACTION_SET_FETCH_ERROR_MESSAGE";
-export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
 
-export const setLikedCardsData = (data: any[]): cardActionTypes => {
-  return {
-    type: ACTION_SET_LIKED_CARDS_DATA,
-    payload: {
-      data
-    },
-  };
-};
 
 export const setFetchErrorMessage = (value: string): cardActionTypes => {
   return {
@@ -96,12 +87,12 @@ export const toggleSortCardsAgeIncrease = (
   };
 };
 
-export const toggleIsFavourite = (
+export const setLikedCardsData = (
   id: string,
   status: boolean
 ): cardActionTypes => {
   return {
-    type: ACTION_TOGGLE_FAVOURITE,
+    type: ACTION_SET_LIKED_CARDS_DATA,
     payload: { id, status },
   };
 };

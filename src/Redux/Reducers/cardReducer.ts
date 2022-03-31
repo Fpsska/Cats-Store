@@ -1,14 +1,14 @@
 import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
-  ACTION_TOGGLE_FAVOURITE,
+  ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
   ACTION_SET_FETCH_ERROR_MESSAGE,
   ACTION_SET_FETCH_ERROR_STATUS,
-  ACTION_SET_LIKED_CARDS_DATA
+  // ACTION_SET_LIKED_CARDS_DATA
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -40,10 +40,6 @@ const cardReducer = (
     case ACTION_SET_LIKED_CARDS_DATA:
       return {
         ...state,
-      };
-    case ACTION_TOGGLE_FAVOURITE:
-      return {
-        ...state,
         cards: state.cards.map((item) => {
           if (item.id === action.payload.id) {
             return {
@@ -59,7 +55,6 @@ const cardReducer = (
       return {
         ...state,
         cards: [...state.cards.concat(action.payload)],
-        // likedCardsData: [...state.likedCardsData.concat(action.payload)]
       };
     case ACTION_FETCH_TOGGLE:
       return {

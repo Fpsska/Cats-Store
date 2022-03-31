@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import CardList from "../../Card/CardLits"
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png"
-import "./GalleryPage.scss"
+import "./FavouritePage.scss"
 
 const GalleryPage: React.FC = () => {
   const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)

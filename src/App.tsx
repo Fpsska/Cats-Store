@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Common/Layout";
 import MainPage from "./components/Pages/MainPage/MainPage";
-import GalleryPage from "./components/Pages/GalleryPage/GalleryPage";
+import FavouritePage from "./components/Pages/FavouritePage/FavouritePage";
 import NewsPage from "./components/Pages/NewsPage/NewsPage";
 import ProfilePage from "./components/Pages/ProfilePage/ProfilePage";
 import NoFoundPage from "./components/Pages/NoFoundPage/NoFoundPage";
@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/Cats-Store" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path="Gallery" element={<GalleryPage />} />
+          <Route path="Favourite" element={<FavouritePage />} />
           <Route path="News" element={<NewsPage />} />
           <Route path="Profile" element={<ProfilePage />} />
           <Route path="*" element={<NoFoundPage />} />
