@@ -5,14 +5,14 @@ import { toggleIsFavourite } from "../../Redux/Actions/cardActions";
 import "./Card.scss";
 
 interface CardProps {
-  id: number;
+  id: string;
   image: string;
   name: string;
   location: string;
-  age: number;
-  paw: number;
-  price: number;
-  discount: number;
+  age: string;
+  paw: string;
+  price: string;
+  discount: string;
   isFavourite: boolean;
   cardStatus: boolean;
   discountStatus: boolean;

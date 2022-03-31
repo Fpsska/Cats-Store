@@ -1,0 +1,11 @@
+.basket {
+    max-width: 100%;
+    &__wrapper {
+        display: flex;
+    }
+    &__slider {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

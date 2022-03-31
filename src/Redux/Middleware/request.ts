@@ -1,20 +1,8 @@
 import { fetchCards, fetchToggle, setFetchErrorMessage, setFetchErrorStatus } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
-import { cardActionTypes } from "../../Types/cardType";
+import { cardActionTypes, actualDataTypes } from "../../Types/cardType";
 
-interface actualDataTypes {
-    id: string,
-    image: string,
-    name: string,
-    location: string,
-    paw: string,
-    age: string,
-    price: string,
-    discount: string,
-    discountStatus: boolean,
-    cardStatus: boolean,
-    isFavourite: boolean,
-}
+
 
 const requestHandler = () => {
     const pageCount = Math.floor(Math.random() * 10)

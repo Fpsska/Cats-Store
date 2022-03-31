@@ -1,31 +1,38 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import { changePageStatus } from "../../../Redux/Actions/headerActions";
-import inProcessImage from "../../../assets/images/in_process.png";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import CardList from "../../Card/CardLits"
+import { RootState } from "../../../Redux/store";
+import empty_image from "../../../assets/images/empty.png"
+import "./GalleryPage.scss"
 
 const GalleryPage: React.FC = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  //
-  const goHomePage = (): void => {
-    dispatch(changePageStatus(true));
-    navigate("/Cats-Store", { replace: true });
-  };
-
+  const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)
+  const [empty, setEmptyStatus] = useState<boolean>(true)
+  // 
+  useEffect(() => {
+    if (likedCardsData.length === 0) {
+      setEmptyStatus(true)
+    } else {
+      setEmptyStatus(false)
+    }
+  }, [likedCardsData])
+  // 
   return (
     <div className="section">
-      <img className="section__image" src={inProcessImage} alt="cat" />
-      <h1 className="section__title">GALLERY PAGE IN PROCESS</h1>
-      <p className="section__link">
-        return to home{" "}
-        <span>
-          <Link to="/Cats-Store" onClick={goHomePage}>
-            page
-          </Link>
-        </span>
-      </p>
+      <div className="basket">
+        <div className="basket__wrapper">
+          <div className="basket__slider">
+            {empty
+              ?
+              <div className="empty">
+                <img className="empty__preview" src={empty_image} alt="empty" />
+                <h4 className="empty__text">No matches</h4>
+              </div>
+              : <CardList />
+            }
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

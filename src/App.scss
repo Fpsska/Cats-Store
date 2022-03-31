@@ -21,8 +21,6 @@ body {
     position: relative;
 }
 
-
-
 main {
     flex: 1 0 auto;
     background-color: #fff;
@@ -62,8 +60,21 @@ main {
     text-align: center;
     padding: 15vh 0;
 }
+.empty {
+    :not(:last-child) {
+        margin: 0 0 35px 0;
+    }
+    &__preview {
+        object-fit: cover;
+        height: 110px;
+        width: 110px;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
 // /. general pages styles
-
 
 .button {
     background-color: #6ebbd3;

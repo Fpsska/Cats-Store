@@ -7,12 +7,14 @@ import {
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
   ACTION_SET_FETCH_ERROR_MESSAGE,
-  ACTION_SET_FETCH_ERROR_STATUS
+  ACTION_SET_FETCH_ERROR_STATUS,
+  ACTION_SET_LIKED_CARDS_DATA
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
 const initialState: CardStateTypes = {
   cards: [],
+  likedCardsData: [],
   sortButtons: [
     {
       text: "Цена",
@@ -35,6 +37,10 @@ const cardReducer = (
   action: cardActionTypes
 ): CardStateTypes => {
   switch (action.type) {
+    case ACTION_SET_LIKED_CARDS_DATA:
+      return {
+        ...state,
+      };
     case ACTION_TOGGLE_FAVOURITE:
       return {
         ...state,
@@ -45,13 +51,15 @@ const cardReducer = (
               isFavourite: action.payload.status,
             };
           }
-          return item;
+          return item
         }),
+        likedCardsData: state.cards.filter(item => item.isFavourite === true)
       };
     case ACTION_FETCH_CARDS:
       return {
         ...state,
         cards: [...state.cards.concat(action.payload)],
+        // likedCardsData: [...state.likedCardsData.concat(action.payload)]
       };
     case ACTION_FETCH_TOGGLE:
       return {
