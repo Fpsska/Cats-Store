@@ -49,7 +49,10 @@ const Alert: React.FC = () => {
                         </Link>
                     </span>
                 </div>
-                <span className="alert__message">Visit to Favourite page!</span>
+                <div className="alert__information">
+                    <span className="alert__message">Visit to Favourite page!</span>
+                    <span className="alert__count">{`${likedCardsData.length} in basket!`}</span>
+                </div>
                 <button className="alert__button" onClick={closeAlert}>
                     <span className="icon">
                         <SvgTemplate id="close" />

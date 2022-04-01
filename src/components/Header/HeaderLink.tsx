@@ -5,6 +5,7 @@ import {
   changePageStatus,
   changeBurgerStatus,
 } from "../../Redux/Actions/headerActions";
+import { setNotificationVisibleStatus } from "../../Redux/Actions/cardActions";
 
 interface HeaderLinkProps {
   isBurgerHidden?: boolean;
@@ -22,6 +23,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   const defineMainPage = (): void => {
     if (text === "Main") {
       dispatch(changePageStatus(true));
+      dispatch(setNotificationVisibleStatus(false))
     }
   };
 

@@ -5,10 +5,7 @@
     max-width: 380px;
     width: 100%;
     border-radius: 10px;
-    margin-bottom: 28px;
-    &:not(:nth-child(3n + 3)) {
-        margin-right: 10px;
-    }
+    margin: 10px;
 }
 .card__preview {
     position: relative;
