@@ -4,6 +4,7 @@ import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
+import Alert from "../../Common/Alert/Alert";
 import requestHandler from "../../../Redux/Middleware/request";
 import { RootState } from "../../../Redux/store";
 
@@ -22,6 +23,7 @@ const MainPage: React.FC = () => {
   // 
   return (
     <div ref={scrollPoint}>
+      <Alert />
       <div className="container">
         <div className="controls">
           <span className="controls__title">Sorted by:</span>

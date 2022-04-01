@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { setFavouriteStatus, setLikedCardsData } from "../../Redux/Actions/cardActions";
+import { setFavouriteStatus, setLikedCardsData, setNotificationVisibleStatus } from "../../Redux/Actions/cardActions";
 import { actualDataTypes } from "../../Types/cardType";
 import "./Card.scss";
 

@@ -9,6 +9,7 @@ import {
   ACTION_SORT_CARDS_AGE_INCREASE,
   ACTION_SET_FETCH_ERROR_MESSAGE,
   ACTION_SET_FETCH_ERROR_STATUS,
+  ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -30,6 +31,7 @@ const initialState: CardStateTypes = {
   isFetching: true,
   isFetchError: false,
   fetchErrorMessage: "test",
+  isNotificationVisible: false
 };
 
 const cardReducer = (
@@ -74,6 +76,11 @@ const cardReducer = (
       return {
         ...state,
         isFetchError: action.payload.value,
+      };
+    case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
+      return {
+        ...state,
+        isNotificationVisible: action.payload.status
       };
     case ACTION_SORT_CARDS_PRICE_DECREASE:
       return {

@@ -2,6 +2,7 @@ import { actualDataTypes, cardActionTypes } from "../../Types/cardType";
 
 export const ACTION_SET_FAVOURITE_STATUS = "ACTION_SET_FAVOURITE_STATUS";
 export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
+export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = "ACTION_SET_NOTIFICATION_VISIBLE_STATUS";
 export const ACTION_SORT_CARDS_PRICE_DECREASE =
   "ACTION_SORT_CARDS_PRICE_DECREASE";
 export const ACTION_SORT_CARDS_PRICE_INCREASE =
@@ -19,6 +20,15 @@ export const setFetchErrorMessage = (value: string): cardActionTypes => {
     type: ACTION_SET_FETCH_ERROR_MESSAGE,
     payload: {
       value,
+    },
+  };
+};
+
+export const setNotificationVisibleStatus = (status: boolean): cardActionTypes => {
+  return {
+    type: ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
+    payload: {
+      status
     },
   };
 };
