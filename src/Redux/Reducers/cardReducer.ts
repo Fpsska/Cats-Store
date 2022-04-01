@@ -2,6 +2,7 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_SET_FAVOURITE_STATUS,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
@@ -36,7 +37,7 @@ const cardReducer = (
   action: cardActionTypes
 ): CardStateTypes => {
   switch (action.type) {
-    case ACTION_SET_LIKED_CARDS_DATA:
+    case ACTION_SET_FAVOURITE_STATUS:
       return {
         ...state,
         cards: state.cards.map((item) => {
@@ -47,7 +48,11 @@ const cardReducer = (
             };
           }
           return item
-        }),
+        })
+      };
+    case ACTION_SET_LIKED_CARDS_DATA:
+      return {
+        ...state,
         likedCardsData: state.cards.filter(item => item.isFavourite === true)
       };
     case ACTION_FETCH_CARDS:

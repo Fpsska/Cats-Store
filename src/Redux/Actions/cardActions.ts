@@ -1,5 +1,6 @@
-import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
+import { actualDataTypes, cardActionTypes } from "../../Types/cardType";
 
+export const ACTION_SET_FAVOURITE_STATUS = "ACTION_SET_FAVOURITE_STATUS";
 export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
 export const ACTION_SORT_CARDS_PRICE_DECREASE =
   "ACTION_SORT_CARDS_PRICE_DECREASE";
@@ -40,10 +41,27 @@ export const fetchToggle = (value: boolean): cardActionTypes => {
   };
 };
 
-export const fetchCards = (results: any[]): cardActionTypes => {
+export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
   return {
     type: ACTION_FETCH_CARDS,
-    payload: results,
+    payload: data,
+  };
+};
+
+export const setLikedCardsData = (data: actualDataTypes[]): cardActionTypes => {
+  return {
+    type: ACTION_SET_LIKED_CARDS_DATA,
+    payload: data,
+  };
+};
+
+export const setFavouriteStatus = (
+  id: string,
+  status: boolean
+): cardActionTypes => {
+  return {
+    type: ACTION_SET_FAVOURITE_STATUS,
+    payload: { id, status },
   };
 };
 
@@ -87,12 +105,4 @@ export const toggleSortCardsAgeIncrease = (
   };
 };
 
-export const setLikedCardsData = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
-  return {
-    type: ACTION_SET_LIKED_CARDS_DATA,
-    payload: { id, status },
-  };
-};
+

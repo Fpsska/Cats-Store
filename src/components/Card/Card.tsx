@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { setLikedCardsData } from "../../Redux/Actions/cardActions";
+import { setFavouriteStatus, setLikedCardsData } from "../../Redux/Actions/cardActions";
+import { actualDataTypes } from "../../Types/cardType";
 import "./Card.scss";
 
 interface CardProps {
@@ -16,6 +17,7 @@ interface CardProps {
   isFavourite: boolean;
   cardStatus: boolean;
   discountStatus: boolean;
+  cards: actualDataTypes[]
 }
 
 const Card: React.FC<CardProps> = ({
@@ -30,15 +32,17 @@ const Card: React.FC<CardProps> = ({
   isFavourite,
   cardStatus,
   discountStatus,
+  cards
 }) => {
   const dispatch = useDispatch();
 
   const setFavourite = (): void => {
     isFavourite
-      ? dispatch(setLikedCardsData(id, false))
-      : dispatch(setLikedCardsData(id, true));
+      ? dispatch(setFavouriteStatus(id, false))
+      : dispatch(setFavouriteStatus(id, true));
+    dispatch(setLikedCardsData(cards))
   };
-
+  // 
   return (
     <div className="card">
       <div className="card__preview">

@@ -13,7 +13,7 @@ const CardList: React.FC = () => {
   useEffect(() => {
     isHomePage ? setList(cards) : setList(likedCardsData)
   }, [cards, likedCardsData, isHomePage])
-
+  // 
   const cardList = useMemo(
     () =>
       list.map((item) => {
@@ -31,10 +31,11 @@ const CardList: React.FC = () => {
             isFavourite={item.isFavourite}
             cardStatus={item.cardStatus}
             discountStatus={item.discountStatus}
+            cards={cards}
           />
         );
       }),
-    [list]
+    [list, cards]
   );
 
   return <>{cardList}</>;

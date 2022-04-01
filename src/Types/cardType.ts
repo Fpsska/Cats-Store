@@ -2,6 +2,7 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_SET_FAVOURITE_STATUS,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
@@ -57,11 +58,16 @@ interface fetchToggle {
 
 interface fetchCards {
   type: typeof ACTION_FETCH_CARDS;
-  payload: any[];
+  payload: actualDataTypes[];
 }
 
 interface setLikedCardsData {
   type: typeof ACTION_SET_LIKED_CARDS_DATA;
+  payload: actualDataTypes[]
+}
+
+interface setFavouriteStatus {
+  type: typeof ACTION_SET_FAVOURITE_STATUS;
   payload: {
     id: string;
     status: boolean;
@@ -100,11 +106,13 @@ interface toggleSortCardsAgeIncrease {
   };
 }
 
+
 export type cardActionTypes =
   | setFetchErrorStatus
   | setFetchErrorMessage
   | fetchToggle
   | fetchCards
+  | setFavouriteStatus
   | setLikedCardsData
   | toggleSortCardsPriceDecrease
   | toggleSortCardsPriceIncrease
