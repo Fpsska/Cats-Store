@@ -32,7 +32,11 @@ const MainPage: React.FC = () => {
           </>
         </div>
         <div className="gallery">
-          <>{isFetching ? <Preloader /> : isFetchError ? <div className="error">{fetchErrorMessage}</div> : <div className="gallery__wrapper"><CardList /></div>}</>
+          <>{isFetching
+            ? <Preloader />
+            : isFetchError
+              ? <div className="error">{fetchErrorMessage}</div>
+              : <div className="gallery__wrapper"><CardList /></div>}</>
           <button
             className="gallery__button button"
             disabled={isFetching ? true : isFetchError ? true : false}

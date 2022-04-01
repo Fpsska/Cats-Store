@@ -35,7 +35,7 @@ const CardList: React.FC = () => {
           />
         );
       }),
-    [list, cards]
+    [list, cards] // +list
   );
 
   return <>{cardList}</>;

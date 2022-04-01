@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import CardList from "../../Card/CardLits"
+import Card from "../../Card/Card"
 import { RootState } from "../../../Redux/store";
-import empty_image from "../../../assets/images/empty.png"
-import "./FavouritePage.scss"
+import empty_image from "../../../assets/images/empty.png";
+import "./FavouritePage.scss";
+// Import Swiper styles
+import 'swiper/swiper.scss'; // core Swiper
+import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import SwiperCore from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+// import required modules
+import { Pagination } from "swiper";
+SwiperCore.use([Pagination]);
 
-const GalleryPage: React.FC = () => {
+
+const FavouritePage: React.FC = () => {
   const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)
   const [empty, setEmptyStatus] = useState<boolean>(true)
   // 
@@ -28,7 +37,35 @@ const GalleryPage: React.FC = () => {
                 <img className="empty__preview" src={empty_image} alt="empty" />
                 <h4 className="empty__text">No matches</h4>
               </div>
-              : <CardList />
+              :
+              <>
+                <Swiper className="mySwiper"
+                  slidesPerView={3}
+                  spaceBetween={5}
+                >
+                  {likedCardsData.map(item => {
+                    return (
+                      <SwiperSlide key={item.id}>
+                        <Card
+                          key={item.id}
+                          id={item.id}
+                          image={item.image}
+                          name={item.name}
+                          location={item.location}
+                          age={item.age}
+                          paw={item.paw}
+                          price={item.price}
+                          discount={item.discount}
+                          isFavourite={item.isFavourite}
+                          cardStatus={item.cardStatus}
+                          discountStatus={item.discountStatus}
+                          cards={likedCardsData}
+                        />
+                      </SwiperSlide>
+                    )
+                  })}
+                </Swiper>
+              </>
             }
           </div>
         </div>
@@ -37,4 +74,4 @@ const GalleryPage: React.FC = () => {
   );
 };
 
-export default GalleryPage;
+export default FavouritePage;
