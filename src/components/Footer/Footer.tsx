@@ -6,7 +6,7 @@ import "./Footer.scss";
 import { RootState } from "../../Redux/store";
 
 const Footer: React.FC = () => {
-  const { isHomePage, emailValue } = useSelector(
+  const { emailValue } = useSelector(
     (state: RootState) => state.headerReducer
   );
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className={isHomePage ? "footer" : "footer--minimized"}>
+    <footer className="footer">
       <div className="container">
         <div className="footer__wrapper">
           <div className="footer__description">

@@ -42,6 +42,24 @@ const FavouritePage: React.FC = () => {
                 <Swiper className="mySwiper"
                   slidesPerView={3}
                   spaceBetween={5}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                      spaceBetween: 30,
+                    },
+                    360: {
+                      slidesPerView: 1,
+                      spaceBetween: 30,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 30,
+                    },
+                    1024: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 30,
+                    },
+                  }}
                 >
                   {likedCardsData.map(item => {
                     return (
