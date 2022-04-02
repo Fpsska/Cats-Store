@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Cats-Store/static/css/main.a87ea91c.chunk.css",
-    "main.js": "/Cats-Store/static/js/main.f4796697.chunk.js",
-    "main.js.map": "/Cats-Store/static/js/main.f4796697.chunk.js.map",
-    "runtime-main.js": "/Cats-Store/static/js/runtime-main.62dabfb2.js",
-    "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.62dabfb2.js.map",
+    "main.css": "/Cats-Store/static/css/main.f265ebcb.chunk.css",
+    "main.js": "/Cats-Store/static/js/main.bd850286.chunk.js",
+    "main.js.map": "/Cats-Store/static/js/main.bd850286.chunk.js.map",
+    "runtime-main.js": "/Cats-Store/static/js/runtime-main.12ec8593.js",
+    "runtime-main.js.map": "/Cats-Store/static/js/runtime-main.12ec8593.js.map",
     "static/css/2.12395cea.chunk.css": "/Cats-Store/static/css/2.12395cea.chunk.css",
-    "static/js/2.4d6c820c.chunk.js": "/Cats-Store/static/js/2.4d6c820c.chunk.js",
-    "static/js/2.4d6c820c.chunk.js.map": "/Cats-Store/static/js/2.4d6c820c.chunk.js.map",
-    "static/js/3.40e3f7aa.chunk.js": "/Cats-Store/static/js/3.40e3f7aa.chunk.js",
-    "static/js/3.40e3f7aa.chunk.js.map": "/Cats-Store/static/js/3.40e3f7aa.chunk.js.map",
+    "static/js/2.26bf0399.chunk.js": "/Cats-Store/static/js/2.26bf0399.chunk.js",
+    "static/js/2.26bf0399.chunk.js.map": "/Cats-Store/static/js/2.26bf0399.chunk.js.map",
+    "static/js/3.1976b58c.chunk.js": "/Cats-Store/static/js/3.1976b58c.chunk.js",
+    "static/js/3.1976b58c.chunk.js.map": "/Cats-Store/static/js/3.1976b58c.chunk.js.map",
     "index.html": "/Cats-Store/index.html",
     "static/css/2.12395cea.chunk.css.map": "/Cats-Store/static/css/2.12395cea.chunk.css.map",
-    "static/css/main.a87ea91c.chunk.css.map": "/Cats-Store/static/css/main.a87ea91c.chunk.css.map",
-    "static/js/2.4d6c820c.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.4d6c820c.chunk.js.LICENSE.txt",
+    "static/css/main.f265ebcb.chunk.css.map": "/Cats-Store/static/css/main.f265ebcb.chunk.css.map",
+    "static/js/2.26bf0399.chunk.js.LICENSE.txt": "/Cats-Store/static/js/2.26bf0399.chunk.js.LICENSE.txt",
     "static/media/empty.cd1884f0.png": "/Cats-Store/static/media/empty.cd1884f0.png",
     "static/media/Header.scss": "/Cats-Store/static/media/header-background.6da77330.jpg",
     "static/media/in_process.448aa860.png": "/Cats-Store/static/media/in_process.448aa860.png",
@@ -21,10 +21,10 @@
     "static/media/no_photo.bb351cb8.png": "/Cats-Store/static/media/no_photo.bb351cb8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.62dabfb2.js",
+    "static/js/runtime-main.12ec8593.js",
     "static/css/2.12395cea.chunk.css",
-    "static/js/2.4d6c820c.chunk.js",
-    "static/css/main.a87ea91c.chunk.css",
-    "static/js/main.f4796697.chunk.js"
+    "static/js/2.26bf0399.chunk.js",
+    "static/css/main.f265ebcb.chunk.css",
+    "static/js/main.bd850286.chunk.js"
   ]
 }
