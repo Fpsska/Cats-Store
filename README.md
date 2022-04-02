@@ -1,10 +1,8 @@
-# Cats-Store
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+###### _powered by [The Cat API](https://thecatapi.com/)_
 
 ### `Watch demo` _[cats-store](https://fpsska.github.io/Cats-Store/)_
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
