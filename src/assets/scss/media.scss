@@ -49,6 +49,9 @@
 }
 
 @media (max-width: 470px) {
+    .price.price {
+        align-items: center;
+    }
     .controls__menu {
         flex: 1;
         &:not(:last-child) {

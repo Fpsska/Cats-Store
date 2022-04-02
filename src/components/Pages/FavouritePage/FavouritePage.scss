@@ -1,13 +1,43 @@
 .basket {
     max-width: 100%;
     width: 100%;
+    padding: 20px 0 40px 10px;
     &__wrapper {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
     }
     &__slider {
         width: 100%;
+    }
+    &__price {
+        margin: 0 0 30px 0;
+    }
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    :not(:last-child) {
+        margin: 0 0 5px 0;
+    }
+    &__text {
+        font-weight: 600;
+    }
+    &__section {
+        display: flex;
+        align-items: center;
+        :not(:last-child) {
+            margin: 0 15px 0 0;
+        }
+    }
+    &__count {
+        background-color: rgba($color: #ccc, $alpha: 0.8);
+        border-radius: 5px;
+        padding: 10px 60px;
+    }
+    &__currency {
+        font-weight: 600;
     }
 }
 

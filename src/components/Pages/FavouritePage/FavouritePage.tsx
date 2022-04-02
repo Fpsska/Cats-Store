@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Card/Card"
+import SvgTemplate from "../../Common/SvgTemplate";
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png";
 import "./FavouritePage.scss";
@@ -17,19 +18,41 @@ SwiperCore.use([Pagination]);
 const FavouritePage: React.FC = () => {
   const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)
   const [empty, setEmptyStatus] = useState<boolean>(true)
+  const [totalPrice, setTotalPrice] = useState<number>(0)
   // 
+  const calcTotalPrice = useMemo(() => (array: any[]) => {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+      sum += parseInt(array[i].price.match(/\d+/))
+      setTotalPrice(sum)
+    }
+  }, [likedCardsData])
+
   useEffect(() => {
     if (likedCardsData.length === 0) {
       setEmptyStatus(true)
+      setTotalPrice(0)
     } else {
       setEmptyStatus(false)
     }
+    calcTotalPrice(likedCardsData)
   }, [likedCardsData])
   // 
   return (
     <div className="section">
       <div className="basket">
         <div className="basket__wrapper">
+          {empty ?
+            <></>
+            :
+            <div className="basket__price price">
+              <h3 className="price__text">Total price:</h3>
+              <div className="price__section">
+                <span className="price__count">{totalPrice}</span>
+                <span className="price__currency">$</span>
+              </div>
+            </div>
+          }
           <div className="basket__slider">
             {empty
               ?
