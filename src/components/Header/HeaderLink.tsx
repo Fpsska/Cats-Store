@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
-  changePageStatus,
+  changeMainPageStatus,
   changeBurgerStatus,
+  changeOverviewPageStatus
 } from "../../Redux/Actions/headerActions";
 import { setNotificationVisibleStatus } from "../../Redux/Actions/cardActions";
 
@@ -22,13 +23,20 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   //
   const defineMainPage = (): void => {
     if (text === "Main") {
-      dispatch(changePageStatus(true));
+      dispatch(changeMainPageStatus(true));
       dispatch(setNotificationVisibleStatus(false))
+      dispatch(changeOverviewPageStatus(false))
+    }
+    if (text === "Favourite") {
+      dispatch(changeOverviewPageStatus(false))
+    }
+    if (text === "Live") {
+      dispatch(changeOverviewPageStatus(true))
     }
   };
 
   const removeBodyStatus = (): void => {
-    dispatch(changePageStatus(false));
+    dispatch(changeMainPageStatus(false));
     dispatch(changeBurgerStatus(false));
     defineMainPage();
     document.body.style.overflowY = "auto";

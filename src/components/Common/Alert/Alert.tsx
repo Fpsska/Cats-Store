@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SvgTemplate from "../SvgTemplate";
 import { setNotificationVisibleStatus } from "../../../Redux/Actions/cardActions";
-import { changePageStatus } from "../../../Redux/Actions/headerActions";
+import { changeMainPageStatus } from "../../../Redux/Actions/headerActions";
 import { RootState } from "../../../Redux/store";
 import "./Alert.scss"
 
@@ -19,7 +19,7 @@ const Alert: React.FC = () => {
     }
 
     const relocateToFavouritePage = (): void => {
-        dispatch(changePageStatus(false))
+        dispatch(changeMainPageStatus(false))
     }
 
     useEffect(() => {

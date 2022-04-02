@@ -5,11 +5,13 @@ import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
 import Alert from "../../Common/Alert/Alert";
-import requestHandler from "../../../Redux/Middleware/request";
+import requestHandler from "../../../Redux/Middleware/fetchCardsData";
 import { RootState } from "../../../Redux/store";
 
 const MainPage: React.FC = () => {
-  const { isFetching, isFetchError, fetchErrorMessage } = useSelector((state: RootState) => state.cardReducer);
+  const { isFetching, isFetchError, fetchErrorMessage } = useSelector(
+    (state: RootState) => state.cardReducer
+  );
   const dispatch = useDispatch();
   const scrollPoint = useRef<HTMLDivElement>(null!);
   //
@@ -20,7 +22,7 @@ const MainPage: React.FC = () => {
   const fetchRequest = (): void => {
     dispatch(requestHandler());
   };
-  // 
+  //
   return (
     <div ref={scrollPoint}>
       <Alert />
@@ -32,11 +34,17 @@ const MainPage: React.FC = () => {
           </>
         </div>
         <div className="gallery">
-          <>{isFetching
-            ? <Preloader />
-            : isFetchError
-              ? <div className="error">{fetchErrorMessage}</div>
-              : <div className="gallery__wrapper"><CardList /></div>}</>
+          <>
+            {isFetching ? (
+              <Preloader />
+            ) : isFetchError ? (
+              <div className="error">{fetchErrorMessage}</div>
+            ) : (
+              <div className="gallery__wrapper">
+                <CardList />
+              </div>
+            )}
+          </>
           <button
             className="gallery__button button"
             disabled={isFetching ? true : isFetchError ? true : false}

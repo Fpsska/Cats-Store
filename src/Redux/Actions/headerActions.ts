@@ -2,7 +2,8 @@ import { headerActionTypes } from "../../Types/headerType";
 
 export const ACTION_CHANGE_NAV_DISPLAY = "ACTION_CHANGE_NAV_DISPLAY";
 export const ACTION_GET_INPUT_VALUE = "ACTION_SET_INPUT_VALUE";
-export const ACTION_CHANGE_PAGE_STATUS = "ACTION_CHANGE_PAGE_STATUS";
+export const ACTION_CHANGE_MAIN_PAGE_STATUS = "ACTION_CHANGE_MAIN_PAGE_STATUS";
+export const ACTION_CHANGE_OVERVIEW_PAGE_STATUS = "ACTION_CHANGE_OVERVIEW_PAGE_STATUS";
 export const ACTION_CHANGE_BURGER_STATUS = "ACTION_CHANGE_BURGER_STATUS";
 
 export const changeBurgerStatus = (status: boolean): headerActionTypes => {
@@ -12,9 +13,16 @@ export const changeBurgerStatus = (status: boolean): headerActionTypes => {
   };
 };
 
-export const changePageStatus = (status: boolean): headerActionTypes => {
+export const changeMainPageStatus = (status: boolean): headerActionTypes => {
   return {
-    type: ACTION_CHANGE_PAGE_STATUS,
+    type: ACTION_CHANGE_MAIN_PAGE_STATUS,
+    payload: status,
+  };
+};
+
+export const changeOverviewPageStatus = (status: boolean): headerActionTypes => {
+  return {
+    type: ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
     payload: status,
   };
 };

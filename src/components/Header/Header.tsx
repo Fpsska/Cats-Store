@@ -8,7 +8,7 @@ import { RootState } from "../../Redux/store";
 import "./Header.scss";
 
 const Header: React.FC = () => {
-  const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage } =
+  const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage, isOverviewPage } =
     useSelector((state: RootState) => state.headerReducer);
   const { isFetching, isFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
   const [textCount, setTextCount] = useState<string>("cats");
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
   }, [isFetchError, likedCardsData])
   // 
   return (
-    <header className="header">
+    <header className={isOverviewPage ? "header header--minimized" : "header"}>
       <div className="container">
         <div className="header__section">
           <span className="icon">
@@ -78,9 +78,14 @@ const Header: React.FC = () => {
               </h1>
             ) : (
               <>
-                {isHomePage
-                  ? <h1 className="header__text">Found {isFetchError ? "0" : cards.length} cats</h1>
-                  : <h1 className="header__text">Selected {isFetchError ? "0" : likedCardsData.length} cats</h1>
+                {isOverviewPage ? <></>
+                  :
+                  <>
+                    {isHomePage
+                      ? <h1 className="header__text">Found {isFetchError ? "0" : cards.length} cats</h1>
+                      : <h1 className="header__text">Selected {isFetchError ? "0" : likedCardsData.length} cats</h1>
+                    }
+                  </>
                 }
               </>
             )}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { changePageStatus } from "../../../Redux/Actions/headerActions";
+import { changeMainPageStatus } from "../../../Redux/Actions/headerActions";
 import noFoundPage from "../../../assets/images/no_found.png";
 
 
@@ -11,7 +11,7 @@ const NoFoundPage: React.FC = () => {
   const dispatch = useDispatch();
   //
   const goHomePage = (): void => {
-    dispatch(changePageStatus(true));
+    dispatch(changeMainPageStatus(true));
     navigate("/Cats-Store", { replace: true });
   };
 

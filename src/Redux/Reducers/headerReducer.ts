@@ -3,7 +3,8 @@ import { headerStateTypes, headerActionTypes } from "../../Types/headerType";
 import {
   ACTION_CHANGE_NAV_DISPLAY,
   ACTION_GET_INPUT_VALUE,
-  ACTION_CHANGE_PAGE_STATUS,
+  ACTION_CHANGE_MAIN_PAGE_STATUS,
+  ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
 } from "../Actions/headerActions";
 
@@ -21,8 +22,8 @@ const initialState: headerStateTypes = {
     },
     {
       id: 3,
-      text: "News",
-      link: "News",
+      text: "Live",
+      link: "Live",
     },
     {
       id: 4,
@@ -34,6 +35,7 @@ const initialState: headerStateTypes = {
   isBurgerOpen: false,
   isBodyScrolling: true,
   isHomePage: true,
+  isOverviewPage: false,
   emailValue: "",
 };
 
@@ -52,10 +54,15 @@ const headerReducer = (
         ...state,
         emailValue: action.payload,
       };
-    case ACTION_CHANGE_PAGE_STATUS:
+    case ACTION_CHANGE_MAIN_PAGE_STATUS:
       return {
         ...state,
         isHomePage: action.payload,
+      };
+    case ACTION_CHANGE_OVERVIEW_PAGE_STATUS:
+      return {
+        ...state,
+        isOverviewPage: action.payload,
       };
     case ACTION_CHANGE_BURGER_STATUS:
       return {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Card/Card"
-import SvgTemplate from "../../Common/SvgTemplate";
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png";
 import "./FavouritePage.scss";

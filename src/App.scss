@@ -32,6 +32,10 @@ main {
     margin: 0 auto;
     padding: 0 10px;
 }
+.container--middle {
+    @extend .container;
+    max-width: 1300px;
+}
 
 .section {
     display: flex;
@@ -40,7 +44,6 @@ main {
     text-align: center;
     justify-content: center;
     height: 100%;
-    // padding: 150px 0;
 }
 .section__image {
     object-fit: contain;

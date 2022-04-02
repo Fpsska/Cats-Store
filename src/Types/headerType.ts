@@ -1,7 +1,8 @@
 import {
   ACTION_CHANGE_NAV_DISPLAY,
   ACTION_GET_INPUT_VALUE,
-  ACTION_CHANGE_PAGE_STATUS,
+  ACTION_CHANGE_MAIN_PAGE_STATUS,
+  ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
 } from "../Redux//Actions/headerActions";
 
@@ -11,6 +12,7 @@ export interface headerStateTypes {
   isBurgerOpen: boolean;
   isBodyScrolling: boolean;
   isHomePage: boolean;
+  isOverviewPage: boolean;
   emailValue: string;
 }
 
@@ -19,8 +21,13 @@ interface changeBurgerStatus {
   payload: boolean;
 }
 
-interface changePageStatus {
-  type: typeof ACTION_CHANGE_PAGE_STATUS;
+interface changeMainPageStatus {
+  type: typeof ACTION_CHANGE_MAIN_PAGE_STATUS;
+  payload: boolean;
+}
+
+interface changeOverviewPageStatus {
+  type: typeof ACTION_CHANGE_OVERVIEW_PAGE_STATUS;
   payload: boolean;
 }
 
@@ -36,6 +43,7 @@ interface getInputValue {
 
 export type headerActionTypes =
   | changeBurgerStatus
-  | changePageStatus
+  | changeMainPageStatus
+  | changeOverviewPageStatus
   | changeNavDisplay
   | getInputValue;

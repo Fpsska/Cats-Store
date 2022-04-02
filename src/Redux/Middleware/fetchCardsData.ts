@@ -4,7 +4,8 @@ import { cardActionTypes, actualDataTypes } from "../../Types/cardType";
 
 
 
-const requestHandler = () => {
+
+const fetchCardsData = () => {
     const pageCount = Math.floor(Math.random() * 10)
     return async function (dispatch: (arg0: cardActionTypes) => void) {
         try {
@@ -40,7 +41,7 @@ const requestHandler = () => {
                         discount: `-${Math.floor(Math.random() * 60) + 10}%`,
                         discountStatus: Boolean(Math.round(Math.random())),
                         cardStatus: Boolean(Math.round(Math.random())),
-                        isFavourite: false,
+                        isFavourite: false
                     }
                 )
             })
@@ -55,6 +56,5 @@ const requestHandler = () => {
     }
 }
 
-
-export default requestHandler;
+export default fetchCardsData;
 

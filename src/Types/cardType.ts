@@ -2,6 +2,7 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_SET_GIF_DATA,
   ACTION_SET_FAVOURITE_STATUS,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
@@ -16,6 +17,7 @@ export interface CardStateTypes {
   cards: actualDataTypes[];
   likedCardsData: actualDataTypes[];
   sortButtons: any[];
+  gifData: gifDataTypes[];
   isFetching: boolean;
   isFetchError: boolean;
   isNotificationVisible: boolean;
@@ -36,6 +38,10 @@ export interface actualDataTypes {
   isFavourite: boolean,
 }
 
+export interface gifDataTypes {
+  id: string,
+  image: string
+}
 
 interface setFetchErrorStatus {
   type: typeof ACTION_SET_FETCH_ERROR_STATUS;
@@ -67,6 +73,12 @@ interface setLikedCardsData {
   type: typeof ACTION_SET_LIKED_CARDS_DATA;
   payload: actualDataTypes[]
 }
+
+interface setGifData {
+  type: typeof ACTION_SET_GIF_DATA;
+  payload: gifDataTypes[]
+}
+
 
 interface setFavouriteStatus {
   type: typeof ACTION_SET_FAVOURITE_STATUS;
@@ -124,6 +136,7 @@ export type cardActionTypes =
   | setFavouriteStatus
   | setNotificationVisibleStatus
   | setLikedCardsData
+  | setGifData
   | toggleSortCardsPriceDecrease
   | toggleSortCardsPriceIncrease
   | toggleSortCardsAgeDecrease

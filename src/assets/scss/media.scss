@@ -43,6 +43,10 @@
 }
 
 @media (max-width: 470px) {
+    .overview__card {
+        width: 280px;
+        margin: 0 0 40px 0;
+    }
     .card {
         margin: 10px 0;
     }

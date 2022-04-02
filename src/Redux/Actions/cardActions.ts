@@ -1,7 +1,8 @@
-import { actualDataTypes, cardActionTypes } from "../../Types/cardType";
+import { actualDataTypes, gifDataTypes, cardActionTypes } from "../../Types/cardType";
 
 export const ACTION_SET_FAVOURITE_STATUS = "ACTION_SET_FAVOURITE_STATUS";
 export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
+export const ACTION_SET_GIF_DATA = "ACTION_SET_GIF_DATA";
 export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = "ACTION_SET_NOTIFICATION_VISIBLE_STATUS";
 export const ACTION_SORT_CARDS_PRICE_DECREASE =
   "ACTION_SORT_CARDS_PRICE_DECREASE";
@@ -61,6 +62,13 @@ export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
 export const setLikedCardsData = (data: actualDataTypes[]): cardActionTypes => {
   return {
     type: ACTION_SET_LIKED_CARDS_DATA,
+    payload: data,
+  };
+};
+
+export const setGifData = (data: gifDataTypes[]): cardActionTypes => {
+  return {
+    type: ACTION_SET_GIF_DATA,
     payload: data,
   };
 };

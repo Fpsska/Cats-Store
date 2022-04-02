@@ -2,6 +2,7 @@ import {
   ACTION_FETCH_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_SET_GIF_DATA,
   ACTION_SET_FAVOURITE_STATUS,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
@@ -15,6 +16,7 @@ import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
 const initialState: CardStateTypes = {
   cards: [],
+  gifData: [],
   likedCardsData: [],
   sortButtons: [
     {
@@ -56,6 +58,11 @@ const cardReducer = (
       return {
         ...state,
         likedCardsData: state.cards.filter(item => item.isFavourite === true)
+      };
+    case ACTION_SET_GIF_DATA:
+      return {
+        ...state,
+        gifData: action.payload
       };
     case ACTION_FETCH_CARDS:
       return {
