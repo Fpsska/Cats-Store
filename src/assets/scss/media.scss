@@ -18,12 +18,6 @@
     .gallery__wrapper {
         justify-content: space-evenly;
     }
-    .card {
-        margin-right: 0 !important;
-        &:nth-child(2n + 1) {
-            margin-right: 10px !important;
-        }
-    }
 }
 
 @media (max-width: 960px) {
@@ -49,8 +43,15 @@
 }
 
 @media (max-width: 470px) {
+    .card {
+        margin: 10px 0;
+    }
+    .basket {
+        padding: 40px 0 40px 0;
+    }
     .price.price {
         align-items: center;
+        padding: 0;
     }
     .controls__menu {
         flex: 1;
@@ -69,12 +70,6 @@
     }
     .footer.footer {
         padding: 90px 10px;
-    }
-    .card {
-        margin-right: 0 !important;
-        &:nth-child(2n + 1) {
-            margin-right: 0 !important;
-        }
     }
     .icon__logo {
         display: none;

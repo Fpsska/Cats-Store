@@ -40,7 +40,7 @@ const FavouritePage: React.FC = () => {
   // 
   return (
     <div className="section">
-      <div className="basket">
+      <div className={empty ? "basket empty" : "basket"}>
         <div className="basket__wrapper">
           {empty ?
             <></>
