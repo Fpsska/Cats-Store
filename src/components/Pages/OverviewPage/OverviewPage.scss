@@ -1,5 +1,5 @@
 .overview {
-    padding: 20px 0;
+    padding: 20px 0 50px 0;
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -22,8 +22,9 @@
         object-fit: cover;
     }
     &__button {
-        padding: 20px;
+        padding: 22px 126px;
         border-radius: 5px;
-        width: 50%;
+        margin: 0 auto;
+        border: 1px solid #cacaca;
     }
 }

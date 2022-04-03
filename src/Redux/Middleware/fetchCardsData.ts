@@ -1,4 +1,4 @@
-import { fetchCards, fetchToggle, setFetchErrorMessage, setFetchErrorStatus } from "../Actions/cardActions";
+import { fetchCards, fetchCardsDataToggle, setFetchCardsDataErrorMessage, setFetchCardsDataErrorStatus } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
 import { cardActionTypes, actualDataTypes } from "../../Types/cardType";
 
@@ -13,7 +13,7 @@ const fetchCardsData = () => {
             const data = await response.json()
 
             setTimeout(() => {
-                dispatch(fetchToggle(false))
+                dispatch(fetchCardsDataToggle(false))
             }, 900)
 
             const responseData: any[] = data
@@ -47,10 +47,10 @@ const fetchCardsData = () => {
             })
             dispatch(fetchCards(actualData))
         } catch (error: any) {
-            dispatch(setFetchErrorMessage(`There are some problems with response: ${error.message}.`))
+            dispatch(setFetchCardsDataErrorMessage(`There are some problems with response: ${error.message}.`))
             setTimeout(() => {
-                dispatch(fetchToggle(false))
-                dispatch(setFetchErrorStatus(true))
+                dispatch(fetchCardsDataToggle(false))
+                dispatch(setFetchCardsDataErrorStatus(true))
             }, 600);
         }
     }

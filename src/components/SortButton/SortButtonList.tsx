@@ -12,7 +12,7 @@ import {
 import { RootState } from "../../Redux/store";
 
 const SortButtonList: React.FC = () => {
-  const { isFetching, isFetchError, sortButtons } = useSelector(
+  const { isCardsDataFetching, isCardsDataFetchError, sortButtons } = useSelector(
     (state: RootState) => state.cardReducer
   );
   //
@@ -29,12 +29,12 @@ const SortButtonList: React.FC = () => {
             toggleSortCardsPriceIncrease={toggleSortCardsPriceIncrease}
             toggleSortCardsAgeDecrease={toggleSortCardsAgeDecrease}
             toggleSortCardsAgeIncrease={toggleSortCardsAgeIncrease}
-            isFetching={isFetching}
-            isFetchError={isFetchError}
+            isCardsDataFetching={isCardsDataFetching}
+            isCardsDataFetchError={isCardsDataFetchError}
           />
         );
       }),
-    [isFetching, isFetchError]
+    [isCardsDataFetching, isCardsDataFetchError]
   );
   return <div className="controls__wrapper">{sortButtonList}</div>;
 };

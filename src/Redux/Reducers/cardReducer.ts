@@ -1,5 +1,5 @@
 import {
-  ACTION_FETCH_TOGGLE,
+  ACTION_FETCH_CARDS_DATA_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SET_GIF_DATA,
@@ -8,8 +8,8 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_FETCH_ERROR_MESSAGE,
-  ACTION_SET_FETCH_ERROR_STATUS,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
@@ -30,9 +30,9 @@ const initialState: CardStateTypes = {
       isSorted: false,
     },
   ],
-  isFetching: true,
-  isFetchError: false,
-  fetchErrorMessage: "test",
+  isCardsDataFetching: true,
+  isCardsDataFetchError: false,
+  CardsDataFetchErrorMessage: "test1",
   isNotificationVisible: false
 };
 
@@ -69,20 +69,20 @@ const cardReducer = (
         ...state,
         cards: [...state.cards.concat(action.payload)],
       };
-    case ACTION_FETCH_TOGGLE:
+    case ACTION_FETCH_CARDS_DATA_TOGGLE:
       return {
         ...state,
-        isFetching: action.payload.value,
+        isCardsDataFetching: action.payload.value,
       };
-    case ACTION_SET_FETCH_ERROR_MESSAGE:
+    case ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE:
       return {
         ...state,
-        fetchErrorMessage: action.payload.value,
+        CardsDataFetchErrorMessage: action.payload.value,
       };
-    case ACTION_SET_FETCH_ERROR_STATUS:
+    case ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS:
       return {
         ...state,
-        isFetchError: action.payload.value,
+        isCardsDataFetchError: action.payload.value,
       };
     case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
       return {

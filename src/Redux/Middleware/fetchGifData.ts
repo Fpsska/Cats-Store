@@ -1,4 +1,4 @@
-import { setGifData, fetchToggle, setFetchErrorMessage, setFetchErrorStatus } from "../Actions/cardActions";
+import { setGifData, setFetchCardsDataErrorMessage } from "../Actions/cardActions";
 import { cardActionTypes, gifDataTypes } from "../../Types/cardType";
 
 const fetchGifData = () => {
@@ -8,9 +8,11 @@ const fetchGifData = () => {
             const data = await response.json()
             console.log(data)
 
-            setTimeout(() => {
-                dispatch(fetchToggle(false))
-            }, 900)
+            // setTimeout(() => {
+            //     dispatch(fetchToggle(false))
+            // }, 900) 
+
+            // make private fetching toggle logic!!!!
 
             const responseData: any[] = data
             const actualData: gifDataTypes[] = []
@@ -25,10 +27,10 @@ const fetchGifData = () => {
             })
             dispatch(setGifData(actualData))
         } catch (error: any) {
-            dispatch(setFetchErrorMessage(`There are some problems with response: ${error.message}.`))
+            dispatch(setFetchCardsDataErrorMessage(`There are some problems with response: ${error.message}.`))
             setTimeout(() => {
-                dispatch(fetchToggle(false))
-                dispatch(setFetchErrorStatus(true))
+                // dispatch(fetchToggle(false))
+                // dispatch(setFetchErrorStatus(true))
             }, 600);
         }
     }

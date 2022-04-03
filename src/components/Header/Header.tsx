@@ -10,7 +10,7 @@ import "./Header.scss";
 const Header: React.FC = () => {
   const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage, isOverviewPage } =
     useSelector((state: RootState) => state.headerReducer);
-  const { isFetching, isFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
+  const { isCardsDataFetching, isCardsDataFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
   const [textCount, setTextCount] = useState<string>("cats");
   const dispatch = useDispatch();
   //
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
     if (likedCardsData.length >= 2) {
       setTextCount("cats")
     }
-  }, [isFetchError, likedCardsData])
+  }, [isCardsDataFetchError, likedCardsData])
   // 
   return (
     <header className={isOverviewPage ? "header header--minimized" : "header"}>
@@ -69,7 +69,7 @@ const Header: React.FC = () => {
         </div>
         <>
           <>
-            {isFetching ? (
+            {isCardsDataFetching ? (
               <h1 className="header__text header__text--loading">
                 Loading
                 <span className="header__text_dot"></span>
@@ -82,8 +82,8 @@ const Header: React.FC = () => {
                   :
                   <>
                     {isHomePage
-                      ? <h1 className="header__text">Found {isFetchError ? "0" : cards.length} cats</h1>
-                      : <h1 className="header__text">Selected {isFetchError ? "0" : likedCardsData.length} cats</h1>
+                      ? <h1 className="header__text">Found {isCardsDataFetchError ? "0" : cards.length} cats</h1>
+                      : <h1 className="header__text">Selected {isCardsDataFetchError ? "0" : likedCardsData.length} cats</h1>
                     }
                   </>
                 }

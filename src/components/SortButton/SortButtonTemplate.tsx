@@ -5,8 +5,8 @@ import SvgTemplate from "../Common/SvgTemplate";
 interface SortButtonTemplateProps {
   id: string;
   text: string;
-  isFetching: boolean;
-  isFetchError: boolean;
+  isCardsDataFetching: boolean;
+  isCardsDataFetchError: boolean;
   isSorted: boolean;
   toggleSortCardsPriceDecrease: (arg1: string, arg2: boolean) => void;
   toggleSortCardsAgeDecrease: (arg1: string, arg2: boolean) => void;
@@ -17,8 +17,8 @@ interface SortButtonTemplateProps {
 const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   id,
   text,
-  isFetching,
-  isFetchError,
+  isCardsDataFetching,
+  isCardsDataFetchError,
   toggleSortCardsPriceDecrease,
   toggleSortCardsAgeDecrease,
   toggleSortCardsPriceIncrease,
@@ -47,7 +47,7 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   return (
     <button
       className="controls__menu"
-      disabled={isFetching ? true : isFetchError ? true : false}
+      disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
       onClick={runSort}
     >
       <span className="controls__menu_text">{text}</span>

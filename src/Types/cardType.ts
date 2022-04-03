@@ -1,5 +1,5 @@
 import {
-  ACTION_FETCH_TOGGLE,
+  ACTION_FETCH_CARDS_DATA_TOGGLE,
   ACTION_FETCH_CARDS,
   ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SET_GIF_DATA,
@@ -8,8 +8,8 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_FETCH_ERROR_MESSAGE,
-  ACTION_SET_FETCH_ERROR_STATUS,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Redux/Actions/cardActions";
 
@@ -18,10 +18,10 @@ export interface CardStateTypes {
   likedCardsData: actualDataTypes[];
   sortButtons: any[];
   gifData: gifDataTypes[];
-  isFetching: boolean;
-  isFetchError: boolean;
+  isCardsDataFetching: boolean;
+  isCardsDataFetchError: boolean;
+  CardsDataFetchErrorMessage: string;
   isNotificationVisible: boolean;
-  fetchErrorMessage: string;
 }
 
 export interface actualDataTypes {
@@ -43,22 +43,22 @@ export interface gifDataTypes {
   image: string
 }
 
-interface setFetchErrorStatus {
-  type: typeof ACTION_SET_FETCH_ERROR_STATUS;
+interface setFetchCardsDataErrorStatus {
+  type: typeof ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS;
   payload: {
     value: boolean;
   };
 }
 
-interface setFetchErrorMessage {
-  type: typeof ACTION_SET_FETCH_ERROR_MESSAGE;
+interface setFetchCardsDataErrorMessage {
+  type: typeof ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE;
   payload: {
     value: string;
   };
 }
 
-interface fetchToggle {
-  type: typeof ACTION_FETCH_TOGGLE;
+interface fetchCardsDataToggle {
+  type: typeof ACTION_FETCH_CARDS_DATA_TOGGLE;
   payload: {
     value: boolean;
   };
@@ -129,9 +129,9 @@ interface toggleSortCardsAgeIncrease {
 
 
 export type cardActionTypes =
-  | setFetchErrorStatus
-  | setFetchErrorMessage
-  | fetchToggle
+  | setFetchCardsDataErrorStatus
+  | setFetchCardsDataErrorMessage
+  | fetchCardsDataToggle
   | fetchCards
   | setFavouriteStatus
   | setNotificationVisibleStatus

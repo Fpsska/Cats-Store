@@ -9,7 +9,7 @@ import requestHandler from "../../../Redux/Middleware/fetchCardsData";
 import { RootState } from "../../../Redux/store";
 
 const MainPage: React.FC = () => {
-  const { isFetching, isFetchError, fetchErrorMessage } = useSelector(
+  const { isCardsDataFetching, isCardsDataFetchError, CardsDataFetchErrorMessage } = useSelector(
     (state: RootState) => state.cardReducer
   );
   const dispatch = useDispatch();
@@ -35,10 +35,10 @@ const MainPage: React.FC = () => {
         </div>
         <div className="gallery">
           <>
-            {isFetching ? (
+            {isCardsDataFetching ? (
               <Preloader />
-            ) : isFetchError ? (
-              <div className="error">{fetchErrorMessage}</div>
+            ) : isCardsDataFetchError ? (
+              <div className="error">{CardsDataFetchErrorMessage}</div>
             ) : (
               <div className="gallery__wrapper">
                 <CardList />
@@ -47,14 +47,14 @@ const MainPage: React.FC = () => {
           </>
           <button
             className="gallery__button button"
-            disabled={isFetching ? true : isFetchError ? true : false}
+            disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
             onClick={fetchRequest}
           >
             Watch more
           </button>
           <button
             className="pagination"
-            disabled={isFetching ? true : isFetchError ? true : false}
+            disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
             onClick={scrollTop}
           >
             <span className="icon">
