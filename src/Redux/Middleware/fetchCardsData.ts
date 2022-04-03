@@ -3,8 +3,6 @@ import url from "../../assets/images/no_photo.png";
 import { cardActionTypes, actualDataTypes } from "../../Types/cardType";
 
 
-
-
 const fetchCardsData = () => {
     const pageCount = Math.floor(Math.random() * 10)
     return async function (dispatch: (arg0: cardActionTypes) => void) {

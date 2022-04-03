@@ -1,15 +1,19 @@
 import {
-  ACTION_FETCH_CARDS_DATA_TOGGLE,
   ACTION_FETCH_CARDS,
-  ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_FETCH_CARDS_DATA_TOGGLE,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
   ACTION_SET_GIF_DATA,
+  ACTION_FETCH_GIF_DATA_TOGGLE,
+  ACTION_SET_GIF_DATA_ERROR_STATUS,
+  ACTION_SET_GIF_DATA_ERROR_MESSAGE,
+  ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SET_FAVOURITE_STATUS,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
-  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
+
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Redux/Actions/cardActions";
 
@@ -20,7 +24,10 @@ export interface CardStateTypes {
   gifData: gifDataTypes[];
   isCardsDataFetching: boolean;
   isCardsDataFetchError: boolean;
-  CardsDataFetchErrorMessage: string;
+  cardsDataFetchErrorMessage: string;
+  isGifDataFetching: boolean;
+  isGifDataFetchError: boolean;
+  gifDataFetchErrorMessage: string;
   isNotificationVisible: boolean;
 }
 
@@ -43,13 +50,23 @@ export interface gifDataTypes {
   image: string
 }
 
+
+interface fetchCards {
+  type: typeof ACTION_FETCH_CARDS;
+  payload: actualDataTypes[];
+}
+interface fetchCardsDataToggle {
+  type: typeof ACTION_FETCH_CARDS_DATA_TOGGLE;
+  payload: {
+    value: boolean;
+  };
+}
 interface setFetchCardsDataErrorStatus {
   type: typeof ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS;
   payload: {
     value: boolean;
   };
 }
-
 interface setFetchCardsDataErrorMessage {
   type: typeof ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE;
   payload: {
@@ -57,28 +74,35 @@ interface setFetchCardsDataErrorMessage {
   };
 }
 
-interface fetchCardsDataToggle {
-  type: typeof ACTION_FETCH_CARDS_DATA_TOGGLE;
-  payload: {
-    value: boolean;
-  };
-}
-
-interface fetchCards {
-  type: typeof ACTION_FETCH_CARDS;
-  payload: actualDataTypes[];
-}
-
-interface setLikedCardsData {
-  type: typeof ACTION_SET_LIKED_CARDS_DATA;
-  payload: actualDataTypes[]
-}
 
 interface setGifData {
   type: typeof ACTION_SET_GIF_DATA;
   payload: gifDataTypes[]
 }
+interface fetchGifDataToggle {
+  type: typeof ACTION_FETCH_GIF_DATA_TOGGLE;
+  payload: {
+    value: boolean;
+  };
+}
+interface setFetchGifDataErrorStatus {
+  type: typeof ACTION_SET_GIF_DATA_ERROR_STATUS;
+  payload: {
+    value: boolean;
+  };
+}
+interface setFetchGifDataErrorMessage {
+  type: typeof ACTION_SET_GIF_DATA_ERROR_MESSAGE;
+  payload: {
+    value: string;
+  };
+}
 
+
+interface setLikedCardsData {
+  type: typeof ACTION_SET_LIKED_CARDS_DATA;
+  payload: actualDataTypes[]
+}
 
 interface setFavouriteStatus {
   type: typeof ACTION_SET_FAVOURITE_STATUS;
@@ -88,12 +112,6 @@ interface setFavouriteStatus {
   };
 }
 
-interface setNotificationVisibleStatus {
-  type: typeof ACTION_SET_NOTIFICATION_VISIBLE_STATUS;
-  payload: {
-    status: boolean
-  };
-}
 
 interface toggleSortCardsPriceDecrease {
   type: typeof ACTION_SORT_CARDS_PRICE_DECREASE;
@@ -102,7 +120,6 @@ interface toggleSortCardsPriceDecrease {
     status: boolean;
   };
 }
-
 interface toggleSortCardsPriceIncrease {
   type: typeof ACTION_SORT_CARDS_PRICE_INCREASE;
   payload: {
@@ -118,7 +135,6 @@ interface toggleSortCardsAgeDecrease {
     status: boolean;
   };
 }
-
 interface toggleSortCardsAgeIncrease {
   type: typeof ACTION_SORT_CARDS_AGE_INCREASE;
   payload: {
@@ -127,16 +143,26 @@ interface toggleSortCardsAgeIncrease {
   };
 }
 
+interface setNotificationVisibleStatus {
+  type: typeof ACTION_SET_NOTIFICATION_VISIBLE_STATUS;
+  payload: {
+    status: boolean
+  };
+}
+
 
 export type cardActionTypes =
+  | fetchCards
+  | fetchCardsDataToggle
   | setFetchCardsDataErrorStatus
   | setFetchCardsDataErrorMessage
-  | fetchCardsDataToggle
-  | fetchCards
+  | setGifData
+  | fetchGifDataToggle
+  | setFetchGifDataErrorStatus
+  | setFetchGifDataErrorMessage
   | setFavouriteStatus
   | setNotificationVisibleStatus
   | setLikedCardsData
-  | setGifData
   | toggleSortCardsPriceDecrease
   | toggleSortCardsPriceIncrease
   | toggleSortCardsAgeDecrease

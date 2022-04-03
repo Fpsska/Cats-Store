@@ -15,7 +15,7 @@
 }
 
 @media (max-width: 1180px) {
-    .gallery__wrapper {
+    .gallery__cards {
         justify-content: space-evenly;
     }
 }
@@ -33,9 +33,6 @@
     .footer__description.footer__description {
         flex: auto;
         margin-bottom: 60px;
-    }
-    .gallery {
-        margin: 30px 0 42px 0;
     }
     .gallery__button {
         margin: 0 auto 100px auto;
@@ -86,4 +83,3 @@
         padding: 20px 0;
     }
 }
-

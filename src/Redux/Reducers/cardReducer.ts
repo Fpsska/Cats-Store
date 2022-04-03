@@ -1,15 +1,18 @@
 import {
-  ACTION_FETCH_CARDS_DATA_TOGGLE,
   ACTION_FETCH_CARDS,
-  ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_FETCH_CARDS_DATA_TOGGLE,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
+  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
   ACTION_SET_GIF_DATA,
+  ACTION_FETCH_GIF_DATA_TOGGLE,
+  ACTION_SET_GIF_DATA_ERROR_STATUS,
+  ACTION_SET_GIF_DATA_ERROR_MESSAGE,
   ACTION_SET_FAVOURITE_STATUS,
+  ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SORT_CARDS_PRICE_DECREASE,
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE,
-  ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
@@ -32,7 +35,10 @@ const initialState: CardStateTypes = {
   ],
   isCardsDataFetching: true,
   isCardsDataFetchError: false,
-  CardsDataFetchErrorMessage: "test1",
+  cardsDataFetchErrorMessage: "error from fetchCardsData thunk",
+  isGifDataFetching: true,
+  isGifDataFetchError: false,
+  gifDataFetchErrorMessage: "error from fetchGifData thunk",
   isNotificationVisible: false
 };
 
@@ -41,6 +47,56 @@ const cardReducer = (
   action: cardActionTypes
 ): CardStateTypes => {
   switch (action.type) {
+    case ACTION_FETCH_CARDS:
+      return {
+        ...state,
+        cards: [...state.cards.concat(action.payload)],
+      };
+    case ACTION_FETCH_CARDS_DATA_TOGGLE:
+      return {
+        ...state,
+        isCardsDataFetching: action.payload.value,
+      };
+    case ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS:
+      return {
+        ...state,
+        isCardsDataFetchError: action.payload.value,
+      };
+    case ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE:
+      return {
+        ...state,
+        cardsDataFetchErrorMessage: action.payload.value,
+      };
+    case ACTION_SET_GIF_DATA:
+      return {
+        ...state,
+        gifData: action.payload
+      };
+    case ACTION_FETCH_GIF_DATA_TOGGLE:
+      return {
+        ...state,
+        isGifDataFetching: action.payload.value,
+      };
+    case ACTION_SET_GIF_DATA_ERROR_STATUS:
+      return {
+        ...state,
+        isGifDataFetchError: action.payload.value,
+      };
+    case ACTION_SET_GIF_DATA_ERROR_MESSAGE:
+      return {
+        ...state,
+        gifDataFetchErrorMessage: action.payload.value,
+      };
+    case ACTION_SET_LIKED_CARDS_DATA:
+      return {
+        ...state,
+        likedCardsData: state.cards.filter(item => item.isFavourite === true)
+      };
+    case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
+      return {
+        ...state,
+        isNotificationVisible: action.payload.status
+      };
     case ACTION_SET_FAVOURITE_STATUS:
       return {
         ...state,
@@ -53,41 +109,6 @@ const cardReducer = (
           }
           return item
         })
-      };
-    case ACTION_SET_LIKED_CARDS_DATA:
-      return {
-        ...state,
-        likedCardsData: state.cards.filter(item => item.isFavourite === true)
-      };
-    case ACTION_SET_GIF_DATA:
-      return {
-        ...state,
-        gifData: action.payload
-      };
-    case ACTION_FETCH_CARDS:
-      return {
-        ...state,
-        cards: [...state.cards.concat(action.payload)],
-      };
-    case ACTION_FETCH_CARDS_DATA_TOGGLE:
-      return {
-        ...state,
-        isCardsDataFetching: action.payload.value,
-      };
-    case ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE:
-      return {
-        ...state,
-        CardsDataFetchErrorMessage: action.payload.value,
-      };
-    case ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS:
-      return {
-        ...state,
-        isCardsDataFetchError: action.payload.value,
-      };
-    case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
-      return {
-        ...state,
-        isNotificationVisible: action.payload.status
       };
     case ACTION_SORT_CARDS_PRICE_DECREASE:
       return {

@@ -14,8 +14,8 @@ const ProfilePage: React.FC = () => {
     navigate("/Cats-Store", { replace: true });
   };
   return (
-    <>
-      <div className="section">
+    <div className="section">
+      <div className="section__wrapper">
         <img className="section__image" src={inProcessImage} alt="cat" />
         <h1 className="section__title">PROFILE PAGE IN PROCESS</h1>
         <p className="section__link">
@@ -27,7 +27,7 @@ const ProfilePage: React.FC = () => {
           </span>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

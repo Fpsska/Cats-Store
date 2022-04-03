@@ -38,7 +38,7 @@ const CardList: React.FC = () => {
     [list, cards] // +list
   );
 
-  return <>{cardList}</>;
+  return <div className="gallery__cards">{cardList}</div>;
 };
 
 export default CardList;
