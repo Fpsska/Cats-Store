@@ -1,15 +1,5 @@
 import { actualDataTypes, gifDataTypes, cardActionTypes } from "../../Types/cardType";
 
-export const ACTION_SET_FAVOURITE_STATUS = "ACTION_SET_FAVOURITE_STATUS";
-export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
-export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = "ACTION_SET_NOTIFICATION_VISIBLE_STATUS";
-export const ACTION_SORT_CARDS_PRICE_DECREASE =
-  "ACTION_SORT_CARDS_PRICE_DECREASE";
-export const ACTION_SORT_CARDS_PRICE_INCREASE =
-  "ACTION_SORT_CARDS_PRICE_INCREASE";
-export const ACTION_SORT_CARDS_AGE_DECREASE = "ACTION_SORT_CARDS_AGE_DECREASE";
-export const ACTION_SORT_CARDS_AGE_INCREASE = "ACTION_SORT_CARDS_AGE_INCREASE";
-
 export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS";
 export const ACTION_FETCH_CARDS_DATA_TOGGLE = "ACTION_FETCH_CARDS_DATA_TOGGLE";
 export const ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS = "ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS";
@@ -20,7 +10,18 @@ export const ACTION_FETCH_GIF_DATA_TOGGLE = "ACTION_FETCH_GIF_DATA_TOGGLE";
 export const ACTION_SET_GIF_DATA_ERROR_STATUS = "ACTION_SET_GIF_DATA_ERROR_STATUS";
 export const ACTION_SET_GIF_DATA_ERROR_MESSAGE = "ACTION_SET_GIF_DATA_ERROR_MESSAGE";
 
+export const ACTION_SET_LIKED_CARDS_DATA = "ACTION_SET_LIKED_CARDS_DATA";
+export const ACTION_SET_FAVOURITE_STATUS = "ACTION_SET_FAVOURITE_STATUS";
+export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = "ACTION_SET_NOTIFICATION_VISIBLE_STATUS";
 
+export const ACTION_SORT_CARDS_PRICE_DECREASE =
+  "ACTION_SORT_CARDS_PRICE_DECREASE";
+export const ACTION_SORT_CARDS_PRICE_INCREASE =
+  "ACTION_SORT_CARDS_PRICE_INCREASE";
+export const ACTION_SORT_CARDS_AGE_DECREASE = "ACTION_SORT_CARDS_AGE_DECREASE";
+export const ACTION_SORT_CARDS_AGE_INCREASE = "ACTION_SORT_CARDS_AGE_INCREASE";
+
+// AC Names
 
 export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
   return {
@@ -52,7 +53,6 @@ export const setFetchCardsDataErrorMessage = (value: string): cardActionTypes =>
     },
   };
 };
-
 
 
 
@@ -117,6 +117,7 @@ export const setFavouriteStatus = (
   };
 };
 
+
 export const toggleSortCardsPriceDecrease = (
   id: string,
   status: boolean
@@ -126,7 +127,6 @@ export const toggleSortCardsPriceDecrease = (
     payload: { id, status }
   };
 };
-
 export const toggleSortCardsPriceIncrease = (
   id: string,
   status: boolean
@@ -137,6 +137,7 @@ export const toggleSortCardsPriceIncrease = (
   };
 };
 
+
 export const toggleSortCardsAgeDecrease = (
   id: string,
   status: boolean
@@ -146,7 +147,6 @@ export const toggleSortCardsAgeDecrease = (
     payload: { id, status }
   };
 };
-
 export const toggleSortCardsAgeIncrease = (
   id: string,
   status: boolean

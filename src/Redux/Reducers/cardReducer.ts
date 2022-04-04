@@ -23,13 +23,13 @@ const initialState: CardStateTypes = {
   likedCardsData: [],
   sortButtons: [
     {
-      text: "Price",
       id: "price",
+      text: "Price",
       isSorted: false,
     },
     {
-      text: "Age",
       id: "age",
+      text: "Age",
       isSorted: false,
     },
   ],
@@ -92,11 +92,6 @@ const cardReducer = (
         ...state,
         likedCardsData: state.cards.filter(item => item.isFavourite === true)
       };
-    case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
-      return {
-        ...state,
-        isNotificationVisible: action.payload.status
-      };
     case ACTION_SET_FAVOURITE_STATUS:
       return {
         ...state,
@@ -109,6 +104,11 @@ const cardReducer = (
           }
           return item
         })
+      };
+    case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
+      return {
+        ...state,
+        isNotificationVisible: action.payload.status
       };
     case ACTION_SORT_CARDS_PRICE_DECREASE:
       return {

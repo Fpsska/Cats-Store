@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
@@ -11,7 +11,8 @@ const Header: React.FC = () => {
   const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage, isOverviewPage } =
     useSelector((state: RootState) => state.headerReducer);
   const { isCardsDataFetching, isCardsDataFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-  const [textCount, setTextCount] = useState<string>("cats");
+  const text = useRef<string>("cat")
+
   const dispatch = useDispatch();
   //
   const defineBurgerStatus = (): void => {
@@ -33,10 +34,10 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     if (likedCardsData.length === 1) {
-      setTextCount("cat")
+      text.current = "cat"
     }
     if (likedCardsData.length >= 2) {
-      setTextCount("cats")
+      text.current = "cats"
     }
   }, [isCardsDataFetchError, likedCardsData])
   // 
@@ -82,8 +83,8 @@ const Header: React.FC = () => {
                   :
                   <>
                     {isHomePage
-                      ? <h1 className="header__text">Found {isCardsDataFetchError ? "0" : cards.length} cats</h1>
-                      : <h1 className="header__text">Selected {isCardsDataFetchError ? "0" : likedCardsData.length} cats</h1>
+                      ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`} </h1>
+                      : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : likedCardsData.length} ${text.current}`}</h1>
                     }
                   </>
                 }

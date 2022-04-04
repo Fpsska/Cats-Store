@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Card/Card"
 import { RootState } from "../../../Redux/store";
@@ -16,7 +16,7 @@ SwiperCore.use([Pagination]);
 
 const FavouritePage: React.FC = () => {
   const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)
-  const [empty, setEmptyStatus] = useState<boolean>(true)
+  const empty = useRef<boolean>(true)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   // 
   const calcTotalPrice = useMemo(() => (array: any[]) => {
@@ -29,19 +29,19 @@ const FavouritePage: React.FC = () => {
 
   useEffect(() => {
     if (likedCardsData.length === 0) {
-      setEmptyStatus(true)
+      empty.current = true
       setTotalPrice(0)
     } else {
-      setEmptyStatus(false)
+      empty.current = false
     }
     calcTotalPrice(likedCardsData)
   }, [likedCardsData])
   // 
   return (
     <div className="section">
-      <div className={empty ? "basket empty" : "basket"}>
+      <div className={empty.current ? "basket empty" : "basket"}>
         <div className="basket__wrapper">
-          {empty ?
+          {empty.current ?
             <></>
             :
             <div className="basket__price price">
@@ -53,7 +53,7 @@ const FavouritePage: React.FC = () => {
             </div>
           }
           <div className="basket__slider">
-            {empty
+            {empty.current
               ?
               <div className="empty">
                 <img className="empty__preview" src={empty_image} alt="empty" />

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+  toggleSortCardsPriceDecrease,
+  toggleSortCardsAgeDecrease,
+  toggleSortCardsPriceIncrease,
+  toggleSortCardsAgeIncrease,
+} from "../../Redux/Actions/cardActions";
 import SvgTemplate from "../Common/SvgTemplate";
 
 interface SortButtonTemplateProps {
@@ -8,10 +14,6 @@ interface SortButtonTemplateProps {
   isCardsDataFetching: boolean;
   isCardsDataFetchError: boolean;
   isSorted: boolean;
-  toggleSortCardsPriceDecrease: (arg1: string, arg2: boolean) => void;
-  toggleSortCardsAgeDecrease: (arg1: string, arg2: boolean) => void;
-  toggleSortCardsPriceIncrease: (arg1: string, arg2: boolean) => void;
-  toggleSortCardsAgeIncrease: (arg1: string, arg2: boolean) => void;
 }
 
 const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
@@ -19,13 +21,8 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   text,
   isCardsDataFetching,
   isCardsDataFetchError,
-  toggleSortCardsPriceDecrease,
-  toggleSortCardsAgeDecrease,
-  toggleSortCardsPriceIncrease,
-  toggleSortCardsAgeIncrease,
 }) => {
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
-
   const dispatch = useDispatch();
   //
   const runSort = (): void => {

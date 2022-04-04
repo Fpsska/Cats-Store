@@ -35,7 +35,7 @@ const CardList: React.FC = () => {
           />
         );
       }),
-    [list, cards] // +list
+    [list, cards]
   );
 
   return <div className="gallery__cards">{cardList}</div>;

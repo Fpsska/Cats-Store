@@ -6,12 +6,23 @@ export const ACTION_CHANGE_MAIN_PAGE_STATUS = "ACTION_CHANGE_MAIN_PAGE_STATUS";
 export const ACTION_CHANGE_OVERVIEW_PAGE_STATUS = "ACTION_CHANGE_OVERVIEW_PAGE_STATUS";
 export const ACTION_CHANGE_BURGER_STATUS = "ACTION_CHANGE_BURGER_STATUS";
 
-export const changeBurgerStatus = (status: boolean): headerActionTypes => {
+// AC Names
+
+export const changeNavDisplay = (status: boolean): headerActionTypes => {
   return {
-    type: ACTION_CHANGE_BURGER_STATUS,
+    type: ACTION_CHANGE_NAV_DISPLAY,
     payload: status,
   };
 };
+
+
+export const getInputValue = (value: string): headerActionTypes => {
+  return {
+    type: ACTION_GET_INPUT_VALUE,
+    payload: value,
+  };
+};
+
 
 export const changeMainPageStatus = (status: boolean): headerActionTypes => {
   return {
@@ -27,17 +38,22 @@ export const changeOverviewPageStatus = (status: boolean): headerActionTypes => 
   };
 };
 
-export const getInputValue = (value: string): headerActionTypes => {
-  return {
-    type: ACTION_GET_INPUT_VALUE,
-    payload: value,
-  };
-};
 
-export const changeNavDisplay = (status: boolean): headerActionTypes => {
+export const changeBurgerStatus = (status: boolean): headerActionTypes => {
   return {
-    type: ACTION_CHANGE_NAV_DISPLAY,
+    type: ACTION_CHANGE_BURGER_STATUS,
     payload: status,
   };
 };
+
+
+
+
+
+
+
+
+
+
+
 

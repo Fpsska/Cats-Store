@@ -23,7 +23,6 @@
     flex: 0 0 50%;
 }
 
-
 .form {
     display: flex;
     flex-direction: column;
@@ -49,4 +48,12 @@
     font-weight: 700;
     line-height: 17.07px;
     color: #fff;
+    transition: all 0.15s linear;
+    transform: scale(1);
+    &:hover {
+        background-color: rgba($color: #6ebbd3, $alpha: 0.85)
+    }
+    &:active {
+        transform: scale(1.05);
+    }
 }

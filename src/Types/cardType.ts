@@ -13,14 +13,15 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS
 } from "../Redux/Actions/cardActions";
+
+// /. Imports
 
 export interface CardStateTypes {
   cards: actualDataTypes[];
   likedCardsData: actualDataTypes[];
-  sortButtons: any[];
+  sortButtons: sortButtonsTypes[];
   gifData: gifDataTypes[];
   isCardsDataFetching: boolean;
   isCardsDataFetchError: boolean;
@@ -50,6 +51,13 @@ export interface gifDataTypes {
   image: string
 }
 
+export interface sortButtonsTypes {
+  text: string,
+  id: string,
+  isSorted: boolean,
+}
+
+// /. Data Types
 
 interface fetchCards {
   type: typeof ACTION_FETCH_CARDS;
@@ -104,11 +112,20 @@ interface setLikedCardsData {
   payload: actualDataTypes[]
 }
 
+
 interface setFavouriteStatus {
   type: typeof ACTION_SET_FAVOURITE_STATUS;
   payload: {
     id: string;
     status: boolean;
+  };
+}
+
+
+interface setNotificationVisibleStatus {
+  type: typeof ACTION_SET_NOTIFICATION_VISIBLE_STATUS;
+  payload: {
+    status: boolean
   };
 }
 
@@ -143,12 +160,7 @@ interface toggleSortCardsAgeIncrease {
   };
 }
 
-interface setNotificationVisibleStatus {
-  type: typeof ACTION_SET_NOTIFICATION_VISIBLE_STATUS;
-  payload: {
-    status: boolean
-  };
-}
+// /. AC Types
 
 
 export type cardActionTypes =
@@ -160,9 +172,9 @@ export type cardActionTypes =
   | fetchGifDataToggle
   | setFetchGifDataErrorStatus
   | setFetchGifDataErrorMessage
+  | setLikedCardsData
   | setFavouriteStatus
   | setNotificationVisibleStatus
-  | setLikedCardsData
   | toggleSortCardsPriceDecrease
   | toggleSortCardsPriceIncrease
   | toggleSortCardsAgeDecrease

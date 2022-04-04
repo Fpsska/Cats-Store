@@ -1,15 +1,10 @@
 import React from "react";
 import SortButtonTemplate from "./SortButtonTemplate";
-import "./Sort.scss";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
-import {
-  toggleSortCardsPriceDecrease,
-  toggleSortCardsAgeDecrease,
-  toggleSortCardsPriceIncrease,
-  toggleSortCardsAgeIncrease,
-} from "../../Redux/Actions/cardActions";
 import { RootState } from "../../Redux/store";
+import "./Sort.scss";
+
 
 const SortButtonList: React.FC = () => {
   const { isCardsDataFetching, isCardsDataFetchError, sortButtons } = useSelector(
@@ -25,10 +20,6 @@ const SortButtonList: React.FC = () => {
             id={item.id}
             text={item.text}
             isSorted={item.isSorted}
-            toggleSortCardsPriceDecrease={toggleSortCardsPriceDecrease}
-            toggleSortCardsPriceIncrease={toggleSortCardsPriceIncrease}
-            toggleSortCardsAgeDecrease={toggleSortCardsAgeDecrease}
-            toggleSortCardsAgeIncrease={toggleSortCardsAgeIncrease}
             isCardsDataFetching={isCardsDataFetching}
             isCardsDataFetchError={isCardsDataFetchError}
           />

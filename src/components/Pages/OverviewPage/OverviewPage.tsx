@@ -11,11 +11,11 @@ const OverviewPage: React.FC = () => {
   const dispatch = useDispatch();
   // 
   const fetchNewGifData = (): void => {
+    dispatch(fetchGifData())
     dispatch(fetchGifDataToggle(true))
     setTimeout(() => {
       dispatch(fetchGifDataToggle(false))
-    }, 800);
-    dispatch(fetchGifData())
+    }, 500);
   }
   // 
   return (
@@ -23,12 +23,12 @@ const OverviewPage: React.FC = () => {
       <div className="container container--middle">
         <div className="overview">
           <div className="overview__wrapper">
-            {isGifDataFetchError ?
-              <div className="error">{gifDataFetchErrorMessage}</div>
+            {isGifDataFetching ?
+              <Preloader />
               :
-              isGifDataFetching
+              isGifDataFetchError
                 ?
-                <Preloader />
+                <div className="error">{gifDataFetchErrorMessage}</div>
                 :
                 <div className="overview__gallery">
                   {
