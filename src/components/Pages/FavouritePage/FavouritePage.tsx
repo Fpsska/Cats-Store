@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Card/Card"
+import Filter from "../../Filter/Filter";
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png";
 import "./FavouritePage.scss";
@@ -44,11 +45,16 @@ const FavouritePage: React.FC = () => {
           {empty.current ?
             <></>
             :
-            <div className="basket__price price">
-              <h3 className="price__text">Total price:</h3>
-              <div className="price__section">
-                <span className="price__count">{totalPrice}</span>
-                <span className="price__currency">$</span>
+            <div className="basket__section">
+              <div className="basket__price price">
+                <h3 className="price__text">Total price:</h3>
+                <div className="price__section">
+                  <span className="price__count">{totalPrice}</span>
+                  <span className="price__currency">$</span>
+                </div>
+              </div>
+              <div className="basket__filter">
+                  <Filter/>
               </div>
             </div>
           }

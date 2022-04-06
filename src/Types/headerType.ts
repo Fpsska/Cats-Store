@@ -4,6 +4,7 @@ import {
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
+  ACTION_SET_CURRENT_RANGE_VALUE
 } from "../Redux//Actions/headerActions";
 
 // /. Imports
@@ -16,6 +17,9 @@ export interface headerStateTypes {
   isHomePage: boolean;
   isOverviewPage: boolean;
   emailValue: string;
+  inputRangeTotalValue: number;
+  inputRangeMinValue: number;
+  currentRangeValue: number;
 }
 
 // /. Data Types
@@ -50,6 +54,11 @@ interface changeBurgerStatus {
 }
 
 
+interface setCurrentRangeValue {
+  type: typeof ACTION_SET_CURRENT_RANGE_VALUE;
+  payload: number;
+}
+
 
 // /. AC Types
 
@@ -59,3 +68,4 @@ export type headerActionTypes =
   | changeMainPageStatus
   | changeOverviewPageStatus
   | changeBurgerStatus
+  | setCurrentRangeValue

@@ -42,7 +42,7 @@ const Header: React.FC = () => {
   }, [isCardsDataFetchError, likedCardsData])
   // 
   return (
-    <header className={isOverviewPage ? "header header--minimized" : "header"}>
+    <header className="header">
       <div className="container">
         <div className="header__section">
           <span className="icon">
@@ -79,14 +79,11 @@ const Header: React.FC = () => {
               </h1>
             ) : (
               <>
-                {isOverviewPage ? <></>
-                  :
-                  <>
-                    {isHomePage
-                      ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`} </h1>
-                      : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : likedCardsData.length} ${text.current}`}</h1>
-                    }
-                  </>
+                {isHomePage
+                  ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`}</h1>
+                  : isOverviewPage 
+                  ? <h1 className="header__text">{`Have a good day ;)`}</h1>
+                  : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : likedCardsData.length} ${text.current}`}</h1>
                 }
               </>
             )}

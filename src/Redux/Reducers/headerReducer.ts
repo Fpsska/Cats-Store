@@ -6,6 +6,7 @@ import {
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
+  ACTION_SET_CURRENT_RANGE_VALUE
 } from "../Actions/headerActions";
 
 const initialState: headerStateTypes = {
@@ -37,6 +38,9 @@ const initialState: headerStateTypes = {
   isHomePage: true,
   isOverviewPage: false,
   emailValue: "",
+  inputRangeTotalValue: 10000,
+  inputRangeMinValue: 1500,
+  currentRangeValue: 0,
 };
 
 const headerReducer = (
@@ -68,6 +72,11 @@ const headerReducer = (
       return {
         ...state,
         isBurgerOpen: action.payload,
+      };
+    case ACTION_SET_CURRENT_RANGE_VALUE:
+      return {
+        ...state,
+        currentRangeValue: action.payload,
       };
     default:
       return state;

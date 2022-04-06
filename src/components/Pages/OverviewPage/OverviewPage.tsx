@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Preloader from "../../Common/Preloader/Preloader";
 import fetchGifData from "../../../Redux/Middleware/fetchGifData";
@@ -11,11 +11,11 @@ const OverviewPage: React.FC = () => {
   const dispatch = useDispatch();
   // 
   const fetchNewGifData = (): void => {
-    dispatch(fetchGifData())
     dispatch(fetchGifDataToggle(true))
+    dispatch(fetchGifData())
     setTimeout(() => {
       dispatch(fetchGifDataToggle(false))
-    }, 500);
+    }, 1000);
   }
   // 
   return (
