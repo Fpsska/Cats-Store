@@ -6,13 +6,19 @@ import { actualDataTypes } from "../../Types/cardType"
 
 
 const CardList: React.FC = () => {
-  const { cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-  const { isHomePage } = useSelector((state: RootState) => state.headerReducer);
+  const { cards, likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer);
+  const { isHomePage, isOverviewPage } = useSelector((state: RootState) => state.headerReducer);
   const [list, setList] = useState<actualDataTypes[]>([])
   // 
   useEffect(() => {
     isHomePage ? setList(cards) : setList(likedCardsData)
   }, [cards, likedCardsData, isHomePage])
+
+  // useEffect(() => {
+  //   if (isOverviewPage === true && isDataFiltered === true) {
+  //     setList(filteredCardsData)
+  //   }
+  // }, [isOverviewPage, isDataFiltered])
   // 
   const cardList = useMemo(
     () =>
@@ -31,11 +37,10 @@ const CardList: React.FC = () => {
             isFavourite={item.isFavourite}
             cardStatus={item.cardStatus}
             discountStatus={item.discountStatus}
-            cards={cards}
           />
         );
       }),
-    [list, cards]
+    [list]
   );
 
   return <div className="gallery__cards">{cardList}</div>;

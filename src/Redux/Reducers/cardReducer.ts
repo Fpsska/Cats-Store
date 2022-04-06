@@ -13,7 +13,9 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_NOTIFICATION_VISIBLE_STATUS
+  ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
+  ACTION_SET_FILTERED_CARDS_DATA,
+  ACTION_SET_FILTERED_STATUS
 } from "../Actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
 
@@ -21,6 +23,7 @@ const initialState: CardStateTypes = {
   cards: [],
   gifData: [],
   likedCardsData: [],
+  filteredCardsData: [],
   sortButtons: [
     {
       id: "price",
@@ -39,7 +42,8 @@ const initialState: CardStateTypes = {
   isGifDataFetching: true,
   isGifDataFetchError: false,
   gifDataFetchErrorMessage: "error from fetchGifData thunk",
-  isNotificationVisible: false
+  isNotificationVisible: false,
+  isDataFiltered: false
 };
 
 const cardReducer = (
@@ -87,11 +91,6 @@ const cardReducer = (
         ...state,
         gifDataFetchErrorMessage: action.payload.value,
       };
-    case ACTION_SET_LIKED_CARDS_DATA:
-      return {
-        ...state,
-        likedCardsData: state.cards.filter(item => item.isFavourite === true)
-      };
     case ACTION_SET_FAVOURITE_STATUS:
       return {
         ...state,
@@ -105,6 +104,11 @@ const cardReducer = (
           return item
         })
       };
+    case ACTION_SET_LIKED_CARDS_DATA:
+      return {
+        ...state,
+        likedCardsData: state.cards.filter(item => item.isFavourite === true)
+      };
     case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
       return {
         ...state,
@@ -115,7 +119,7 @@ const cardReducer = (
         ...state,
         cards: [
           ...state.cards.sort((a, b) => {
-            return parseInt(b.price) - parseInt(a.price);
+            return b.price - a.price;
           }),
         ],
         sortButtons: state.sortButtons.map((item) => {
@@ -130,7 +134,7 @@ const cardReducer = (
         ...state,
         cards: [
           ...state.cards.sort((a, b) => {
-            return parseInt(a.price) - parseInt(b.price);
+            return a.price - b.price;
           }),
         ],
         sortButtons: state.sortButtons.map((item) => {
@@ -169,6 +173,16 @@ const cardReducer = (
             isSorted: action.payload.status,
           };
         }),
+      };
+    case ACTION_SET_FILTERED_CARDS_DATA:
+      return {
+        ...state,
+        filteredCardsData: state.likedCardsData.filter(item => item.price <= action.payload)
+      };
+    case ACTION_SET_FILTERED_STATUS:
+      return {
+        ...state,
+        isDataFiltered: action.payload
       };
     default:
       return state;

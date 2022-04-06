@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import { setFavouriteStatus, setLikedCardsData } from "../../Redux/Actions/cardActions";
-import { actualDataTypes } from "../../Types/cardType";
 import "./Card.scss";
 
 interface CardProps {
@@ -12,12 +11,11 @@ interface CardProps {
   location: string;
   age: string;
   paw: string;
-  price: string;
+  price: number;
   discount: string;
   isFavourite: boolean;
   cardStatus: boolean;
   discountStatus: boolean;
-  cards: actualDataTypes[]
 }
 
 const Card: React.FC<CardProps> = ({
@@ -32,7 +30,6 @@ const Card: React.FC<CardProps> = ({
   isFavourite,
   cardStatus,
   discountStatus,
-  cards
 }) => {
   const dispatch = useDispatch();
 
@@ -40,7 +37,7 @@ const Card: React.FC<CardProps> = ({
     isFavourite
       ? dispatch(setFavouriteStatus(id, false))
       : dispatch(setFavouriteStatus(id, true));
-    dispatch(setLikedCardsData(cards))  // filter cards for likedCardsData
+    dispatch(setLikedCardsData(isFavourite)) // filter cards for likedCardsData
   };
   // 
   return (
@@ -83,7 +80,7 @@ const Card: React.FC<CardProps> = ({
             <span className="bold">{paw}</span> <br /> Paws count
           </li>
         </ul>
-        <p className="card__price">{price}</p>
+        <p className="card__price">{`${price} USD`}</p>
       </div>
       <button
         className={

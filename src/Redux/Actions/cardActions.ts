@@ -21,6 +21,9 @@ export const ACTION_SORT_CARDS_PRICE_INCREASE =
 export const ACTION_SORT_CARDS_AGE_DECREASE = "ACTION_SORT_CARDS_AGE_DECREASE";
 export const ACTION_SORT_CARDS_AGE_INCREASE = "ACTION_SORT_CARDS_AGE_INCREASE";
 
+export const ACTION_SET_FILTERED_CARDS_DATA = "ACTION_SET_FILTERED_CARDS_DATA";
+export const ACTION_SET_FILTERED_STATUS = "ACTION_SET_FILTERED_STATUS";
+
 // AC Names
 
 export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
@@ -98,10 +101,10 @@ export const setNotificationVisibleStatus = (status: boolean): cardActionTypes =
 };
 
 
-export const setLikedCardsData = (data: actualDataTypes[]): cardActionTypes => {
+export const setLikedCardsData = (status: boolean): cardActionTypes => {  
   return {
     type: ACTION_SET_LIKED_CARDS_DATA,
-    payload: data
+    payload: status 
   };
 };
 
@@ -156,5 +159,21 @@ export const toggleSortCardsAgeIncrease = (
     payload: { id, status }
   };
 };
+
+
+export const setFilteredCardsData = (value: number): cardActionTypes => {
+  return {
+    type: ACTION_SET_FILTERED_CARDS_DATA,
+    payload: value
+  };
+};
+export const setFilteredStatus = (value: boolean): cardActionTypes => {
+  return {
+    type: ACTION_SET_FILTERED_STATUS,
+    payload: value
+  };
+};
+
+
 
 

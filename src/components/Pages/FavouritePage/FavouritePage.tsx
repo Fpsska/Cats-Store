@@ -23,7 +23,7 @@ const FavouritePage: React.FC = () => {
   const calcTotalPrice = useMemo(() => (array: any[]) => {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
-      sum += parseInt(array[i].price.match(/\d+/))
+      sum += array[i].price
       setTotalPrice(sum)
     }
   }, [likedCardsData])
@@ -105,7 +105,7 @@ const FavouritePage: React.FC = () => {
                           isFavourite={item.isFavourite}
                           cardStatus={item.cardStatus}
                           discountStatus={item.discountStatus}
-                          cards={likedCardsData}
+                          // cards={likedCardsData}
                         />
                       </SwiperSlide>
                     )

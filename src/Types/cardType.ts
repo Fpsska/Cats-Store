@@ -13,7 +13,9 @@ import {
   ACTION_SORT_CARDS_PRICE_INCREASE,
   ACTION_SORT_CARDS_AGE_DECREASE,
   ACTION_SORT_CARDS_AGE_INCREASE,
-  ACTION_SET_NOTIFICATION_VISIBLE_STATUS
+  ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
+  ACTION_SET_FILTERED_CARDS_DATA,
+  ACTION_SET_FILTERED_STATUS
 } from "../Redux/Actions/cardActions";
 
 // /. Imports
@@ -23,6 +25,7 @@ export interface CardStateTypes {
   likedCardsData: actualDataTypes[];
   sortButtons: sortButtonsTypes[];
   gifData: gifDataTypes[];
+  filteredCardsData: actualDataTypes[];
   isCardsDataFetching: boolean;
   isCardsDataFetchError: boolean;
   cardsDataFetchErrorMessage: string;
@@ -30,6 +33,7 @@ export interface CardStateTypes {
   isGifDataFetchError: boolean;
   gifDataFetchErrorMessage: string;
   isNotificationVisible: boolean;
+  isDataFiltered: boolean;
 }
 
 export interface actualDataTypes {
@@ -39,7 +43,7 @@ export interface actualDataTypes {
   location: string,
   paw: string,
   age: string,
-  price: string,
+  price: number,
   discount: string,
   discountStatus: boolean,
   cardStatus: boolean,
@@ -109,7 +113,7 @@ interface setFetchGifDataErrorMessage {
 
 interface setLikedCardsData {
   type: typeof ACTION_SET_LIKED_CARDS_DATA;
-  payload: actualDataTypes[]
+  payload: boolean 
 }
 
 
@@ -160,6 +164,19 @@ interface toggleSortCardsAgeIncrease {
   };
 }
 
+
+interface setFilteredCardsData {
+  type: typeof ACTION_SET_FILTERED_CARDS_DATA;
+  payload: number
+}
+interface setFilteredStatus {
+  type: typeof ACTION_SET_FILTERED_STATUS;
+  payload: boolean
+}
+
+
+
+
 // /. AC Types
 
 
@@ -178,4 +195,6 @@ export type cardActionTypes =
   | toggleSortCardsPriceDecrease
   | toggleSortCardsPriceIncrease
   | toggleSortCardsAgeDecrease
-  | toggleSortCardsAgeIncrease;
+  | toggleSortCardsAgeIncrease
+  | setFilteredCardsData
+  | setFilteredStatus
