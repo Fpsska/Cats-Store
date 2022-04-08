@@ -7,7 +7,6 @@ import "./Filter.scss"
 
 const Filter: React.FC = () => {
     const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } = useSelector((state: RootState) => state.headerReducer)
-    const [inputValue, setInputValue] = useState<number>(inputRangeTotalValue)
     const input = useRef<HTMLInputElement>(null!)
     const counter = useRef<HTMLDivElement>(null!)
     const fill = useRef<HTMLDivElement>(null!)
@@ -18,20 +17,20 @@ const Filter: React.FC = () => {
         dispatch(setCurrentRangeValue(currentValue))
         dispatch(setFilteredCardsData(currentValue))
         dispatch(setFilteredStatus(true))
-        setInputValue(currentValue)
         fill.current.style.width = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
         counter.current.style.left = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
     }
 
     useEffect(() => {
         dispatch(setCurrentRangeValue(inputRangeTotalValue))
+        dispatch(setFilteredCardsData(inputRangeTotalValue))
         fill.current.style.width = 100 + "%"
         counter.current.style.left = 100 + "%"
     }, [])
     // 
     return (
         <div className="filter">
-            <input ref={input} onChange={inputRangeHandler} className="filter__input" type="range" value={inputValue} min={inputRangeMinValue} max={inputRangeTotalValue} step="100" />
+            <input ref={input} onChange={inputRangeHandler} className="filter__input" type="range" value={currentRangeValue} min={inputRangeMinValue} max={inputRangeTotalValue} step="100" />
             <span className="filter__progress"><span ref={fill} className="filter__progress-fill"></span></span>
             <span ref={counter} className="filter__current">{currentRangeValue}</span>
             <div className="filter__indicators">

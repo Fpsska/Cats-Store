@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Card/Card"
 import Filter from "../../Filter/Filter";
@@ -18,9 +18,7 @@ SwiperCore.use([Pagination]);
 
 const FavouritePage: React.FC = () => {
   const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer)
-  // const { inputRangeTotalValue } = useSelector((state: RootState) => state.headerReducer)
-  const emptyLikedCardsData = useRef<boolean>(true)
-  // const emptyFilteredCardsData = useRef<boolean>(true)
+  const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true)
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const [list, setList] = useState<actualDataTypes[]>([])
@@ -39,10 +37,10 @@ const FavouritePage: React.FC = () => {
 
   useEffect(() => {
     if (likedCardsData.length === 0) {
-      emptyLikedCardsData.current = true
+      setEmptyLikedCardsStatus(true)
       setTotalPrice(0)
     } else {
-      emptyLikedCardsData.current = false
+      setEmptyLikedCardsStatus(false)
     }
     if (filteredCardsData.length === 0) {
       setEmptyFilteredCardsStatus(true)
@@ -54,9 +52,9 @@ const FavouritePage: React.FC = () => {
   // 
   return (
     <div className="section">
-      <div className={emptyLikedCardsData.current ? "basket empty" : "basket"}>
+      <div className={emptyLikedCardsDataStatus ? "basket empty" : "basket"}>
         <div className="basket__wrapper">
-          {emptyLikedCardsData.current ?
+          {emptyLikedCardsDataStatus ?
             <></>
             :
             <div className="basket__section">
@@ -72,66 +70,59 @@ const FavouritePage: React.FC = () => {
               </div>
             </div>
           }
-          <div className={emptyFilteredCardsStatus ? "basket__slider empty" : "basket__slider"}>
-            {emptyLikedCardsData.current
+          <div className={emptyLikedCardsDataStatus || emptyFilteredCardsStatus ? "basket__slider empty" : "basket__slider"}>
+            {emptyLikedCardsDataStatus || emptyFilteredCardsStatus
               ?
               <div className="empty">
                 <img className="empty__preview" src={empty_image} alt="empty" />
                 <h4 className="empty__text">No matches</h4>
               </div>
               :
-              emptyFilteredCardsStatus
-                ?
-                <div className="empty">
-                  <img className="empty__preview" src={empty_image} alt="empty" />
-                  <h4 className="empty__text">No matches</h4>
-                </div>
-                :
-                <>
-                  <Swiper className="mySwiper"
-                    slidesPerView={3}
-                    spaceBetween={5}
-                    breakpoints={{
-                      320: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                      },
-                      360: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                      },
-                      768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
-                      },
-                      1024: {
-                        slidesPerView: 2.5,
-                        spaceBetween: 30,
-                      },
-                    }}
-                  >
-                    {list.map(item => {
-                      return (
-                        <SwiperSlide key={item.id}>
-                          <Card
-                            key={item.id}
-                            id={item.id}
-                            image={item.image}
-                            name={item.name}
-                            location={item.location}
-                            age={item.age}
-                            paw={item.paw}
-                            price={item.price}
-                            discount={item.discount}
-                            isFavourite={item.isFavourite}
-                            cardStatus={item.cardStatus}
-                            discountStatus={item.discountStatus}
-                          />
-                        </SwiperSlide>
-                      )
-                    })}
-                  </Swiper>
-                </>
+              <>
+                <Swiper className="mySwiper"
+                  slidesPerView={3}
+                  spaceBetween={5}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                      spaceBetween: 30,
+                    },
+                    360: {
+                      slidesPerView: 1,
+                      spaceBetween: 30,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 30,
+                    },
+                    1024: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 30,
+                    },
+                  }}
+                >
+                  {list.map(item => {
+                    return (
+                      <SwiperSlide key={item.id}>
+                        <Card
+                          key={item.id}
+                          id={item.id}
+                          image={item.image}
+                          name={item.name}
+                          location={item.location}
+                          age={item.age}
+                          paw={item.paw}
+                          price={item.price}
+                          discount={item.discount}
+                          isFavourite={item.isFavourite}
+                          cardStatus={item.cardStatus}
+                          discountStatus={item.discountStatus}
+                        />
+                      </SwiperSlide>
+                    )
+                  })}
+                </Swiper>
+              </>
             }
           </div>
         </div>
