@@ -12,6 +12,9 @@
     .footer__wrapper {
         align-items: center;
     }
+    .basket__section {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 1180px) {
@@ -52,7 +55,6 @@
     }
     .price.price {
         align-items: center;
-        padding: 0;
     }
     .controls__menu {
         flex: 1;
@@ -81,5 +83,23 @@
     .gallery__button {
         width: 100%;
         padding: 20px 0;
+    }
+    .basket__section {
+        flex-direction: column;
+    }
+    .basket__price {
+        margin: 0 0 40px 0;
+    }
+    .basket__filter {
+        width: 80%;
+    }
+    .filter {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .basket__filter {
+        width: 70%;
     }
 }
