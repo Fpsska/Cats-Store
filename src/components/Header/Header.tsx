@@ -10,7 +10,7 @@ import "./Header.scss";
 const Header: React.FC = () => {
   const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage, isOverviewPage } =
     useSelector((state: RootState) => state.headerReducer);
-  const { isCardsDataFetching, isCardsDataFetchError, cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
+  const { isCardsDataFetching, isCardsDataFetchError, isDataFiltered, cards, likedCardsData, filteredCardsData } = useSelector((state: RootState) => state.cardReducer);
   const text = useRef<string>("cat")
 
   const dispatch = useDispatch();
@@ -39,7 +39,16 @@ const Header: React.FC = () => {
     if (likedCardsData.length >= 2) {
       text.current = "cats"
     }
-  }, [isCardsDataFetchError, likedCardsData])
+    if (filteredCardsData.length === 0) {
+      text.current = "cat"
+    }
+    if (filteredCardsData.length === 1) {
+      text.current = "cat"
+    }
+    if (filteredCardsData.length >= 2) {
+      text.current = "cats"
+    }
+  }, [likedCardsData, filteredCardsData, isDataFiltered])
   // 
   return (
     <header className="header">
@@ -81,9 +90,9 @@ const Header: React.FC = () => {
               <>
                 {isHomePage
                   ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`}</h1>
-                  : isOverviewPage 
-                  ? <h1 className="header__text">{`Have a good day ;)`}</h1>
-                  : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : likedCardsData.length} ${text.current}`}</h1>
+                  : isOverviewPage
+                    ? <h1 className="header__text">{`Have a good day ;)`}</h1>
+                    : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}</h1>
                 }
               </>
             )}

@@ -24,7 +24,6 @@
     }
 }
 .basket.empty {
-    // padding: 258.5px 0; 
     padding: 63px 0; 
 }
 .basket__slider.empty {
@@ -36,6 +35,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0 0 0 10px;
+    min-width: 200px;
     :not(:last-child) {
         margin: 0 0 5px 0;
     }

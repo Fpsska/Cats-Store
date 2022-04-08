@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentRangeValue } from "../../Redux/Actions/headerActions";
 import { setFilteredCardsData, setFilteredStatus } from "../../Redux/Actions/cardActions"
@@ -16,7 +16,7 @@ const Filter: React.FC = () => {
         const currentValue = +e.target.value
         dispatch(setCurrentRangeValue(currentValue))
         dispatch(setFilteredCardsData(currentValue))
-        dispatch(setFilteredStatus(true))
+        dispatch(setFilteredStatus(true)) // many calls => return all true 
         fill.current.style.width = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
         counter.current.style.left = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
     }

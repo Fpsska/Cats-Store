@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
-import { setFavouriteStatus, setLikedCardsData } from "../../Redux/Actions/cardActions";
+import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from "../../Redux/Actions/cardActions";
 import "./Card.scss";
 
 interface CardProps {
@@ -16,6 +16,7 @@ interface CardProps {
   isFavourite: boolean;
   cardStatus: boolean;
   discountStatus: boolean;
+  currentRangeValue: number;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -30,6 +31,7 @@ const Card: React.FC<CardProps> = ({
   isFavourite,
   cardStatus,
   discountStatus,
+  currentRangeValue
 }) => {
   const dispatch = useDispatch();
 
@@ -38,6 +40,7 @@ const Card: React.FC<CardProps> = ({
       ? dispatch(setFavouriteStatus(id, false))
       : dispatch(setFavouriteStatus(id, true));
     dispatch(setLikedCardsData(isFavourite)) // filter cards for likedCardsData
+    dispatch(setFilteredCardsData(currentRangeValue)) // update filteredCardsData
   };
   // 
   return (

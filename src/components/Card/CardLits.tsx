@@ -7,7 +7,7 @@ import { actualDataTypes } from "../../Types/cardType"
 
 const CardList: React.FC = () => {
   const { cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-  const { isHomePage } = useSelector((state: RootState) => state.headerReducer);
+  const { isHomePage, currentRangeValue } = useSelector((state: RootState) => state.headerReducer);
   const [list, setList] = useState<actualDataTypes[]>([])
   // 
   useEffect(() => {
@@ -31,6 +31,7 @@ const CardList: React.FC = () => {
             isFavourite={item.isFavourite}
             cardStatus={item.cardStatus}
             discountStatus={item.discountStatus}
+            currentRangeValue={currentRangeValue}
           />
         );
       }),

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Card from "../../Card/Card"
 import Filter from "../../Filter/Filter";
 import { actualDataTypes } from "../../../Types/cardType";
+import { setFilteredStatus } from "../../../Redux/Actions/cardActions"
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png";
 import "./FavouritePage.scss";
@@ -17,11 +18,13 @@ SwiperCore.use([Pagination]);
 
 
 const FavouritePage: React.FC = () => {
+  const { currentRangeValue } = useSelector((state: RootState) => state.headerReducer);
   const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer)
   const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true)
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true)
-  const [totalPrice, setTotalPrice] = useState<number>(0)
+  const [totalPrice, setTotalPrice] = useState<number>(0) // current total price of likedCardsData
   const [list, setList] = useState<actualDataTypes[]>([])
+  const dispatch = useDispatch()
   // 
   const calcTotalPrice = useMemo(() => (array: any[]) => {
     let sum = 0;
@@ -36,8 +39,14 @@ const FavouritePage: React.FC = () => {
   }, [filteredCardsData, likedCardsData, isDataFiltered])
 
   useEffect(() => {
+    setList(filteredCardsData)
+    console.log("!!!")
+  }, [likedCardsData])
+
+  useEffect(() => {
     if (likedCardsData.length === 0) {
       setEmptyLikedCardsStatus(true)
+      dispatch(setFilteredStatus(false))
       setTotalPrice(0)
     } else {
       setEmptyLikedCardsStatus(false)
@@ -58,11 +67,13 @@ const FavouritePage: React.FC = () => {
             <></>
             :
             <div className="basket__section">
-              <div className="basket__price price">
-                <h3 className="price__text">Total price:</h3>
-                <div className="price__section">
-                  <span className="price__count">{totalPrice}</span>
-                  <span className="price__currency">$</span>
+              <div className="basket__price">
+                <div className="price">
+                  <h3 className="price__text">Total price:</h3>
+                  <div className="price__section">
+                    <span className="price__count">{totalPrice}</span>
+                    <span className="price__currency">$</span>
+                  </div>
                 </div>
               </div>
               <div className="basket__filter">
@@ -117,6 +128,7 @@ const FavouritePage: React.FC = () => {
                           isFavourite={item.isFavourite}
                           cardStatus={item.cardStatus}
                           discountStatus={item.discountStatus}
+                          currentRangeValue={currentRangeValue}
                         />
                       </SwiperSlide>
                     )
