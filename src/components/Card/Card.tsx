@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from "../../Redux/Actions/cardActions";
@@ -31,10 +31,11 @@ const Card: React.FC<CardProps> = ({
   isFavourite,
   cardStatus,
   discountStatus,
-  currentRangeValue
+  currentRangeValue,
 }) => {
+  const buttonLike = useRef<HTMLButtonElement>(null!)
   const dispatch = useDispatch();
-
+  // 
   const setFavourite = (): void => {
     isFavourite
       ? dispatch(setFavouriteStatus(id, false))
@@ -43,6 +44,11 @@ const Card: React.FC<CardProps> = ({
     dispatch(setFilteredCardsData(currentRangeValue)) // update filteredCardsData
   };
   // 
+
+  useEffect(() => {
+    buttonLike.current.classList.remove("unlike")
+  }, [])
+
   return (
     <div className="card">
       <div className="card__preview">
@@ -57,9 +63,9 @@ const Card: React.FC<CardProps> = ({
             {discount}
           </span>
           <button
-            className={
-              isFavourite ? "card__icons_button-active" : "card__icons_button"
-            }
+            ref={buttonLike}
+            className={isFavourite ? "card__icons_button like" : "card__icons_button unlike"}
+            disabled={cardStatus ? false : true}
             onClick={setFavourite}
           >
             <span className="icon">

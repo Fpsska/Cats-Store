@@ -35,7 +35,7 @@ const fetchCardsData = () => {
                         location: item.origin,
                         paw: "4",
                         age: `${Math.floor(Math.random() * 12) + 1} mth.`,
-                        price: +Math.floor(Math.random() * 10000), // max 10000 (start at 1500)
+                        price: +Math.floor(Math.random() * 10000), // max 10000
                         discount: `-${Math.floor(Math.random() * 60) + 10}%`,
                         discountStatus: Boolean(Math.round(Math.random())),
                         cardStatus: Boolean(Math.round(Math.random())),

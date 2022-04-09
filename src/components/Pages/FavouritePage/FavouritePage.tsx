@@ -40,7 +40,6 @@ const FavouritePage: React.FC = () => {
 
   useEffect(() => {
     setList(filteredCardsData)
-    console.log("!!!")
   }, [likedCardsData])
 
   useEffect(() => {

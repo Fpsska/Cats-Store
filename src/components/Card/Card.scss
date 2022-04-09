@@ -85,16 +85,61 @@
     background: transparent;
     padding: 0;
 }
-.card__icons_button-active {
-    height: 46px;
-    width: 46px;
-    background: transparent;
-    padding: 0;
+.card__icons_button {
+    &:disabled {
+        .icon__heart path {
+            fill: #000;
+        }
+    }
+}
+.card__icons_button.like {
+    @extend .card__icons_button;
+    animation: scale 0.35s ease-out both;
+    @keyframes scale {
+        0% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.05);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        75% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
     .icon__heart path {
         fill: #e52d2d;
         opacity: 1;
     }
 }
+.card__icons_button.unlike {
+    @extend .card__icons_button;
+    animation: shaking 0.3s ease-in-out;
+    transform-origin: 50% 50%;
+    @keyframes shaking {
+        0% {
+            transform: translateX(0) rotate(0);
+        }
+        25% {
+            transform: translateX(-10px) rotate(-5deg);
+        }
+        50% {
+            transform: translateX(10px) rotate(5deg);
+        }
+        75% {
+            transform: translateX(-5px) rotate(-2deg);
+        }
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+    }
+}
+
 .icon__heart path {
     opacity: 0.55;
     transition: 0.35s linear;
