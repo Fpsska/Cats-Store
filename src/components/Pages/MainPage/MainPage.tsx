@@ -4,7 +4,7 @@ import CardList from "../../Card/CardLits";
 import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
-import Alert from "../../Common/Alert/Alert";
+import BasketAlert from "../../Common/Alert/BasketAlert/BasketAlert";
 import requestHandler from "../../../Redux/Middleware/fetchCardsData";
 import { RootState } from "../../../Redux/store";
 
@@ -61,7 +61,7 @@ const MainPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <Alert />
+      <BasketAlert />
     </div>
   );
 };

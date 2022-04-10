@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import SvgTemplate from "../SvgTemplate";
-import { setNotificationVisibleStatus } from "../../../Redux/Actions/cardActions";
-import { changeMainPageStatus } from "../../../Redux/Actions/headerActions";
-import { RootState } from "../../../Redux/store";
-import "./Alert.scss"
+import { setNotificationVisibleStatus } from "../../../../Redux/Actions/cardActions";
+import { changeMainPageStatus } from "../../../../Redux/Actions/headerActions";
+import { RootState } from "../../../../Redux/store";
+import SvgTemplate from "../../SvgTemplate";
+import "./BasketAlert.scss"
 
-const Alert: React.FC = () => {
+const BasketAlert: React.FC = () => {
     const { likedCardsData } = useSelector((state: RootState) => state.cardReducer)
     const dispatch = useDispatch()
     const alert = useRef<HTMLDivElement>(null)
@@ -63,4 +63,4 @@ const Alert: React.FC = () => {
     )
 }
 
-export default Alert;
+export default BasketAlert;

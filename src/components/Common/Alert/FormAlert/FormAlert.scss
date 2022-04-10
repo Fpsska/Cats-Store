@@ -1,0 +1,45 @@
+.form-alert {
+    max-width: 300px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 5px;
+    background-color: rgba($color: #6ebbd3, $alpha: 0.91);
+    &__wrapper {
+        padding: 20px 10px 10px 10px;
+    }
+    &__description {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin: 0 0 20px 0;
+        :not(:last-child) {
+            margin: 0 20px 0 0;
+        }
+    }
+    &__text {
+        flex: 1;
+    }
+    &__controls {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__button {
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        color: #000;
+        transition: all 0.2s linear;
+        &:hover {
+            color: #fff;
+        }
+    }
+    .icon__notification {
+        width: 25px;
+        height: 25px;
+        fill: #e52d2d;
+    }
+}

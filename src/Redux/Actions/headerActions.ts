@@ -6,6 +6,7 @@ export const ACTION_CHANGE_MAIN_PAGE_STATUS = "ACTION_CHANGE_MAIN_PAGE_STATUS";
 export const ACTION_CHANGE_OVERVIEW_PAGE_STATUS = "ACTION_CHANGE_OVERVIEW_PAGE_STATUS";
 export const ACTION_CHANGE_BURGER_STATUS = "ACTION_CHANGE_BURGER_STATUS";
 export const ACTION_SET_CURRENT_RANGE_VALUE = "ACTION_SET_CURRENT_RANGE_VALUE"
+export const ACTION_SET_FORM_ALERT_VISIBLE_STATUS = "ACTION_SET_FORM_ALERT_VISIBLE_STATUS"
 
 // AC Names
 
@@ -51,6 +52,13 @@ export const setCurrentRangeValue = (value: number): headerActionTypes => {
   return {
     type: ACTION_SET_CURRENT_RANGE_VALUE,
     payload: value,
+  };
+};
+
+export const setFormAlertVisibleStatus = (status: boolean): headerActionTypes => {
+  return {
+    type: ACTION_SET_FORM_ALERT_VISIBLE_STATUS,
+    payload: status,
   };
 };
 

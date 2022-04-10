@@ -4,7 +4,8 @@ import {
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
-  ACTION_SET_CURRENT_RANGE_VALUE
+  ACTION_SET_CURRENT_RANGE_VALUE,
+  ACTION_SET_FORM_ALERT_VISIBLE_STATUS
 } from "../Redux//Actions/headerActions";
 
 // /. Imports
@@ -20,6 +21,7 @@ export interface headerStateTypes {
   inputRangeTotalValue: number;
   inputRangeMinValue: number;
   currentRangeValue: number;
+  isFormAlertVisible: boolean;
 }
 
 // /. Data Types
@@ -59,6 +61,13 @@ interface setCurrentRangeValue {
   payload: number;
 }
 
+interface setFormAlertVisibleStatus {
+  type: typeof ACTION_SET_FORM_ALERT_VISIBLE_STATUS;
+  payload: boolean;
+}
+
+
+
 
 // /. AC Types
 
@@ -69,3 +78,4 @@ export type headerActionTypes =
   | changeOverviewPageStatus
   | changeBurgerStatus
   | setCurrentRangeValue
+  | setFormAlertVisibleStatus
