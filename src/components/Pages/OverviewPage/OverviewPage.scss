@@ -12,7 +12,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 0 0 30px 0;
+        flex: 1;
+        min-height: 640px;
     }
     &__card {
         margin: 10px;
@@ -27,7 +28,7 @@
     &__button {
         padding: 22px 126px;
         border-radius: 5px;
-        margin: 0 auto;
+        margin: 30px auto 0 auto;
         border: 1px solid #cacaca;
         transition: all 0.15s linear;
         transform: scale(1);

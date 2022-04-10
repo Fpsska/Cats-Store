@@ -10,9 +10,11 @@ const fetchCardsData = () => {
             const response = await fetch(`https://api.thecatapi.com/v1/breeds?api_key=8df551cd-f3e4-4f5d-947a-5c7e82d333ca&limit=6&page=${pageCount}`)
             const data = await response.json()
 
-            setTimeout(() => {
-                dispatch(fetchCardsDataToggle(false))
-            }, 900)
+            if (response) {
+                setTimeout(() => {
+                    dispatch(fetchCardsDataToggle(false))
+                }, 600)
+            }
 
             const responseData: any[] = data
             const actualData: actualDataTypes[] = []
