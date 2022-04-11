@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getInputValue } from "../../Redux/Actions/headerActions";
-import { setFormAlertVisibleStatus } from "../../Redux/Actions/headerActions";
+import { setFormAlertVisibleStatus } from "../../Redux/Actions/formActions";
 import { RootState } from "../../Redux/store";
 import "./Footer.scss";
 
 
 const Footer: React.FC = () => {
-  const { emailValue, isFormAlertVisible } = useSelector(
+  const { emailValue } = useSelector(
     (state: RootState) => state.headerReducer
   );
+  const { isFormAlertVisible } = useSelector(
+    (state: RootState) => state.formReducer
+  );
+  // const [unavailable, setUnavailableStatus] = useState<boolean>(false)
+  // const unavailable = useRef<boolean>(false)
+  const form = useRef<HTMLFormElement>(null)
   const dispatch = useDispatch();
-
+  // 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(getInputValue(event.target.value));
   };
@@ -20,6 +26,19 @@ const Footer: React.FC = () => {
     e.preventDefault();
     dispatch(setFormAlertVisibleStatus(!isFormAlertVisible))
   }
+
+  // useEffect(() => {
+  //   console.log(unavailable)
+  // }, [unavailable])
+
+  useEffect(() => {
+    if (!isFormAlertVisible) {
+      form.current?.reset()
+      dispatch(getInputValue(""))
+      // unavailable.current = true
+      // setUnavailableStatus(true)
+    }
+  }, [isFormAlertVisible])
 
   return (
     <footer className="footer">
@@ -31,15 +50,14 @@ const Footer: React.FC = () => {
               Subscribe and catch all the promotions
             </p>
           </div>
-          <form className="form" onSubmit={onFormSubmit}>
+          <form ref={form} className="form" onSubmit={onFormSubmit}>
             <div className="form__controls">
               <input
                 className="form__input"
                 type="email"
                 placeholder="Email"
                 required
-                // value={emailValue}
-                value="carts_store@gmail.com"
+                value={emailValue}
                 onChange={inputHandler}
               />
               <button className="form__button button">Subscribe</button>
@@ -49,7 +67,6 @@ const Footer: React.FC = () => {
               <input
                 className="form__cheakbox-input"
                 type="checkbox"
-                // checked={isFormAlertVisible ? true : false}
                 required
               />
             </label>

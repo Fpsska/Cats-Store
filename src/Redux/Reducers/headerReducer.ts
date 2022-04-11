@@ -7,7 +7,6 @@ import {
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
   ACTION_SET_CURRENT_RANGE_VALUE,
-  ACTION_SET_FORM_ALERT_VISIBLE_STATUS
 } from "../Actions/headerActions";
 
 const initialState: headerStateTypes = {
@@ -42,7 +41,6 @@ const initialState: headerStateTypes = {
   inputRangeTotalValue: 10000,
   inputRangeMinValue: 1500,
   currentRangeValue: 0,
-  isFormAlertVisible: false
 };
 
 const headerReducer = (
@@ -79,11 +77,6 @@ const headerReducer = (
       return {
         ...state,
         currentRangeValue: action.payload,
-      };
-    case ACTION_SET_FORM_ALERT_VISIBLE_STATUS:
-      return {
-        ...state,
-        isFormAlertVisible: action.payload,
       };
     default:
       return state;

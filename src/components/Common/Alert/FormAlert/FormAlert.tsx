@@ -1,7 +1,7 @@
 import React from "react";
 import SvgTemplate from "../../SvgTemplate";
 import { useDispatch } from "react-redux";
-import { setFormAlertVisibleStatus } from "../../../../Redux/Actions/headerActions";
+import { setFormAlertVisibleStatus } from "../../../../Redux/Actions/formActions";
 import "./FormAlert.scss"
 
 const FormAlert: React.FC = () => {
@@ -10,7 +10,7 @@ const FormAlert: React.FC = () => {
     const submitAlert = (): void => {
         dispatch(setFormAlertVisibleStatus(false))
     }
-
+    //
     return (
         <div className="form-alert">
             <div className="form-alert__wrapper">

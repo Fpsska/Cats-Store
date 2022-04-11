@@ -10,7 +10,7 @@ import fetchGifData from "../../Redux/Middleware/fetchGifData";
 import { RootState } from "../../Redux/store";
 
 const Layout: React.FC = () => {
-  const { isFormAlertVisible } = useSelector((state: RootState) => state.headerReducer)
+  const { isFormAlertVisible } = useSelector((state: RootState) => state.formReducer)
   const dispatch = useDispatch()
   // 
   useEffect(() => {
