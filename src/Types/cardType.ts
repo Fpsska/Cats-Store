@@ -175,10 +175,7 @@ interface setFilteredStatus {
 }
 
 
-
-
 // /. AC Types
-
 
 export type cardActionTypes =
   | fetchCards

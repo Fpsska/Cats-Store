@@ -1,7 +1,7 @@
-import React from "react";
-import SvgTemplate from "../../SvgTemplate";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setFormAlertVisibleStatus } from "../../../../Redux/Actions/formActions";
+import SvgTemplate from "../../SvgTemplate";
 import "./FormAlert.scss"
 
 const FormAlert: React.FC = () => {
@@ -10,6 +10,19 @@ const FormAlert: React.FC = () => {
     const submitAlert = (): void => {
         dispatch(setFormAlertVisibleStatus(false))
     }
+
+    const keyHandler = (e: KeyboardEvent): void => {
+        if (e.code === "Escape") {
+            dispatch(setFormAlertVisibleStatus(false))
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("keydown", keyHandler);
+        return () => {
+            window.removeEventListener("keydown", keyHandler);
+        };
+    }, []);
     //
     return (
         <div className="form-alert">

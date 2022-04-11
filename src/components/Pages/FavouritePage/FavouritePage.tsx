@@ -18,7 +18,7 @@ SwiperCore.use([Pagination]);
 
 
 const FavouritePage: React.FC = () => {
-  const { currentRangeValue } = useSelector((state: RootState) => state.headerReducer);
+  const { currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
   const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer)
   const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true)
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true)

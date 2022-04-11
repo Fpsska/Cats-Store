@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getInputValue } from "../../Redux/Actions/headerActions";
-import { setFormAlertVisibleStatus } from "../../Redux/Actions/formActions";
+import { setFormAlertVisibleStatus, setFormSubmitStatus } from "../../Redux/Actions/formActions";
 import { RootState } from "../../Redux/store";
 import "./Footer.scss";
 
@@ -10,11 +10,10 @@ const Footer: React.FC = () => {
   const { emailValue } = useSelector(
     (state: RootState) => state.headerReducer
   );
-  const { isFormAlertVisible } = useSelector(
+  const { isFormAlertVisible, isFormSubmitted } = useSelector(
     (state: RootState) => state.formReducer
   );
-  // const [unavailable, setUnavailableStatus] = useState<boolean>(false)
-  // const unavailable = useRef<boolean>(false)
+  const [unavailable, setUnavailableStatus] = useState<boolean>(false)
   const form = useRef<HTMLFormElement>(null)
   const dispatch = useDispatch();
   // 
@@ -24,21 +23,20 @@ const Footer: React.FC = () => {
 
   const onFormSubmit = (e: any): void => {
     e.preventDefault();
-    dispatch(setFormAlertVisibleStatus(!isFormAlertVisible))
+    dispatch(setFormAlertVisibleStatus(true))
+    dispatch(setFormSubmitStatus(true))
   }
 
-  // useEffect(() => {
-  //   console.log(unavailable)
-  // }, [unavailable])
-
   useEffect(() => {
-    if (!isFormAlertVisible) {
+    if (isFormSubmitted && !isFormAlertVisible) {
       form.current?.reset()
       dispatch(getInputValue(""))
-      // unavailable.current = true
-      // setUnavailableStatus(true)
+      setUnavailableStatus(true)
+      setTimeout(() => {
+        setUnavailableStatus(false)
+      }, 10000);
     }
-  }, [isFormAlertVisible])
+  }, [isFormAlertVisible, isFormSubmitted])
 
   return (
     <footer className="footer">
@@ -56,17 +54,19 @@ const Footer: React.FC = () => {
                 className="form__input"
                 type="email"
                 placeholder="Email"
+                disabled={unavailable ? true : false}
                 required
                 value={emailValue}
                 onChange={inputHandler}
               />
-              <button className="form__button button">Subscribe</button>
+              <button className="form__button button" disabled={unavailable ? true : false}>Subscribe</button>
             </div>
             <label className="form__cheakbox-text">
               Subscribe to news
               <input
                 className="form__cheakbox-input"
                 type="checkbox"
+                disabled={unavailable ? true : false}
                 required
               />
             </label>

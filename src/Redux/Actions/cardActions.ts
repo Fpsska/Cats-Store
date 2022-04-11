@@ -1,5 +1,7 @@
 import { actualDataTypes, gifDataTypes, cardActionTypes } from "../../Types/cardType";
 
+// /. Imports
+
 export const ACTION_FETCH_CARDS = "ACTION_FETCH_CARDS";
 export const ACTION_FETCH_CARDS_DATA_TOGGLE = "ACTION_FETCH_CARDS_DATA_TOGGLE";
 export const ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS = "ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS";
@@ -24,7 +26,7 @@ export const ACTION_SORT_CARDS_AGE_INCREASE = "ACTION_SORT_CARDS_AGE_INCREASE";
 export const ACTION_SET_FILTERED_CARDS_DATA = "ACTION_SET_FILTERED_CARDS_DATA";
 export const ACTION_SET_FILTERED_STATUS = "ACTION_SET_FILTERED_STATUS";
 
-// AC Names
+// /. AC Names
 
 export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
   return {
@@ -101,10 +103,10 @@ export const setNotificationVisibleStatus = (status: boolean): cardActionTypes =
 };
 
 
-export const setLikedCardsData = (status: boolean): cardActionTypes => {  
+export const setLikedCardsData = (status: boolean): cardActionTypes => {
   return {
     type: ACTION_SET_LIKED_CARDS_DATA,
-    payload: status 
+    payload: status
   };
 };
 

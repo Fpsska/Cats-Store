@@ -4,11 +4,13 @@ import thunk from "redux-thunk";
 import cardReducer from "./Reducers/cardReducer";
 import headerReducer from "./Reducers/headerReducer";
 import formReducer from "./Reducers/formReducer";
+import filterReducer from "./Reducers/filterReducer";
 
 const reducers = combineReducers({
   cardReducer: cardReducer,
   headerReducer: headerReducer,
   formReducer: formReducer,
+  filterReducer: filterReducer
 });
 
 const store = createStore(

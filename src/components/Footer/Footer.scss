@@ -43,6 +43,9 @@
     padding: 22px 33px;
     background: #fff;
     border-radius: 10px;
+    &:disabled {
+        opacity: 0.65;
+    }
 }
 .form__button {
     font-weight: 700;

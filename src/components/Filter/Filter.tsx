@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentRangeValue } from "../../Redux/Actions/headerActions";
+import { setCurrentRangeValue } from "../../Redux/Actions/filterActions";
 import { setFilteredCardsData, setFilteredStatus } from "../../Redux/Actions/cardActions"
 import { RootState } from "../../Redux/store";
 import "./Filter.scss"
 
 const Filter: React.FC = () => {
-    const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } = useSelector((state: RootState) => state.headerReducer)
+    const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } = useSelector((state: RootState) => state.filterReducer)
     const input = useRef<HTMLInputElement>(null!)
     const counter = useRef<HTMLDivElement>(null!)
     const fill = useRef<HTMLDivElement>(null!)
