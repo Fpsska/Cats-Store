@@ -1,4 +1,4 @@
-import { filterStateTypes, filterActionTypes } from "../../Types/filterType";
+import { filterStateTypes, filterActionTypes } from "../../Types/filterTypes";
 
 import {
     ACTION_SET_CURRENT_RANGE_VALUE

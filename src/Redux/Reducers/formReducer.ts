@@ -1,4 +1,4 @@
-import { formStateTypes, formActionTypes } from "../../Types/formType";
+import { formStateTypes, formActionTypes } from "../../Types/formTypes";
 
 import {
     ACTION_SET_FORM_ALERT_VISIBLE_STATUS,

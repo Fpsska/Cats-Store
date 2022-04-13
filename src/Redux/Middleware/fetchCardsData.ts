@@ -1,6 +1,6 @@
 import { fetchCards, fetchCardsDataToggle, setFetchCardsDataErrorMessage, setFetchCardsDataErrorStatus } from "../Actions/cardActions";
 import url from "../../assets/images/no_photo.png";
-import { cardActionTypes, actualDataTypes } from "../../Types/cardType";
+import { cardActionTypes, actualDataTypes } from "../../Types/cardTypes";
 
 
 const fetchCardsData = () => {

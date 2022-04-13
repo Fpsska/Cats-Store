@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Card from "./Card";
 import { RootState } from "../../Redux/store";
-import { actualDataTypes } from "../../Types/cardType"
+import { actualDataTypes } from "../../Types/cardTypes"
 
 
 const CardList: React.FC = () => {

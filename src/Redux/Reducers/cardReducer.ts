@@ -17,7 +17,7 @@ import {
   ACTION_SET_FILTERED_CARDS_DATA,
   ACTION_SET_FILTERED_STATUS
 } from "../Actions/cardActions";
-import { CardStateTypes, cardActionTypes } from "../../Types/cardType";
+import { CardStateTypes, cardActionTypes } from "../../Types/cardTypes";
 
 const initialState: CardStateTypes = {
   cards: [],

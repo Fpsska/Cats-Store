@@ -1,4 +1,4 @@
-import { filterActionTypes } from "../../Types/filterType";
+import { filterActionTypes } from "../../Types/filterTypes";
 
 // /. Imports
 

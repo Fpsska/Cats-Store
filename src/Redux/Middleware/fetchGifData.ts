@@ -1,5 +1,5 @@
 import { setGifData, fetchGifDataToggle, setGifDataErrorStatus, setFetchGifDataErrorMessage } from "../Actions/cardActions";
-import { cardActionTypes, gifDataTypes } from "../../Types/cardType";
+import { cardActionTypes, gifDataTypes } from "../../Types/cardTypes";
 
 const fetchGifData = () => {
     return async function (dispatch: (arg0: cardActionTypes) => void) {

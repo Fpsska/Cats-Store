@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../../Card/Card"
 import Filter from "../../Filter/Filter";
-import { actualDataTypes } from "../../../Types/cardType";
+import { actualDataTypes } from "../../../Types/cardTypes";
 import { setFilteredStatus } from "../../../Redux/Actions/cardActions"
 import { RootState } from "../../../Redux/store";
 import empty_image from "../../../assets/images/empty.png";

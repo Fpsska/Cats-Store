@@ -1,4 +1,4 @@
-import { headerStateTypes, headerActionTypes } from "../../Types/headerType";
+import { headerStateTypes, headerActionTypes } from "../../Types/headerTypes";
 
 import {
   ACTION_CHANGE_NAV_DISPLAY,

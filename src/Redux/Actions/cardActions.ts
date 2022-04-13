@@ -1,4 +1,4 @@
-import { actualDataTypes, gifDataTypes, cardActionTypes } from "../../Types/cardType";
+import { actualDataTypes, gifDataTypes, cardActionTypes } from "../../Types/cardTypes";
 
 // /. Imports
 
