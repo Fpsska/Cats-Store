@@ -38,15 +38,10 @@ const FavouritePage: React.FC = () => {
     isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData)
   }, [filteredCardsData, likedCardsData, isDataFiltered])
 
-  useEffect(() => {
-    setList(filteredCardsData)
-  }, [likedCardsData])
-
-  useEffect(() => {
+  useEffect(() => {  // define array empty status
     if (likedCardsData.length === 0) {
       setEmptyLikedCardsStatus(true)
       dispatch(setFilteredStatus(false))
-      setTotalPrice(0)
     } else {
       setEmptyLikedCardsStatus(false)
     }
@@ -55,8 +50,11 @@ const FavouritePage: React.FC = () => {
     } else {
       setEmptyFilteredCardsStatus(false)
     }
-    calcTotalPrice(likedCardsData)
   }, [likedCardsData, filteredCardsData])
+
+  useEffect(() => {
+    calcTotalPrice(likedCardsData)
+  }, [likedCardsData])
   // 
   return (
     <div className="section">

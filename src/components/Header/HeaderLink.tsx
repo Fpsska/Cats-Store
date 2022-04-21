@@ -4,9 +4,8 @@ import { NavLink } from "react-router-dom";
 import {
   changeMainPageStatus,
   changeBurgerStatus,
-  changeOverviewPageStatus
 } from "../../Redux/Actions/headerActions";
-import { setNotificationVisibleStatus } from "../../Redux/Actions/cardActions";
+import { useDefinePage } from "../../hooks/definePage"
 
 interface HeaderLinkProps {
   isBurgerHidden?: boolean;
@@ -19,26 +18,13 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   link,
   text,
 }) => {
+  const { handlePageName } = useDefinePage()
   const dispatch = useDispatch();
   //
-  const defineMainPage = (): void => {
-    if (text === "Main") {
-      dispatch(changeMainPageStatus(true));
-      dispatch(setNotificationVisibleStatus(false))
-      dispatch(changeOverviewPageStatus(false))
-    }
-    if (text === "Favourite") {
-      dispatch(changeOverviewPageStatus(false))
-    }
-    if (text === "Live") {
-      dispatch(changeOverviewPageStatus(true))
-    }
-  };
-
-  const removeBodyStatus = (): void => {
+  const removeBodyStatus = (text: string): void => {
     dispatch(changeMainPageStatus(false));
     dispatch(changeBurgerStatus(false));
-    defineMainPage();
+    handlePageName(text);
     document.body.style.overflowY = "auto";
   };
   // 
@@ -47,7 +33,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
       <NavLink
         to={link}
         className={isBurgerHidden ? "nav__menu_link" : "nav__menu_link-burger"}
-        onClick={removeBodyStatus}
+        onClick={() => removeBodyStatus(text)}
       >
         {text}
       </NavLink>
