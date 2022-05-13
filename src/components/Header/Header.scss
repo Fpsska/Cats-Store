@@ -26,44 +26,6 @@
     font-weight: 700;
 }
 
-.header__text--loading {
-    :not(:last-child) {
-        margin: 0 3px 0 0;
-    }
-    :nth-child(0) {
-        animation-delay: 0s;
-    }
-    :nth-child(1) {
-        animation-delay: 0.2s;
-    }
-    :nth-child(2) {
-        animation-delay: 0.4s;
-    }
-    :nth-child(3) {
-        animation-delay: 0.6s;
-    }
-}
-.header__text_dot {
-    width: 5px;
-    height: 5px;
-    background-color: #fff;
-    border-radius: 100%;
-    display: inline-block;
-    animation: loading-animation 1s ease-in-out infinite;
-    @keyframes loading-animation {
-        0%,
-        100% {
-            transform: scale(0.6);
-        }
-        40% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1);
-        }
-    }
-}
-
 .telephone {
     display: flex;
     flex-direction: column;

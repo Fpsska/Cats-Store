@@ -3,14 +3,28 @@ import { useDispatch, useSelector } from "react-redux";
 import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import Loader from "../Loader/Loader";
 import { changeNavDisplay } from "../../Redux/Actions/headerActions";
 import { RootState } from "../../Redux/store";
 import "./Header.scss";
 
 const Header: React.FC = () => {
-  const { headerLinks, isBurgerHidden, isBurgerOpen, isHomePage, isOverviewPage } =
-    useSelector((state: RootState) => state.headerReducer);
-  const { isCardsDataFetching, isCardsDataFetchError, isDataFiltered, cards, likedCardsData, filteredCardsData } = useSelector((state: RootState) => state.cardReducer);
+  const { headerLinks,
+    isBurgerHidden,
+    isBurgerOpen,
+    isHomePage,
+    isOverviewPage
+  } = useSelector((state: RootState) => state.headerReducer);
+
+  const {
+    isCardsDataFetching,
+    isCardsDataFetchError,
+    isDataFiltered,
+    cards,
+    likedCardsData,
+    filteredCardsData
+  } = useSelector((state: RootState) => state.cardReducer);
+
   const text = useRef<string>("cat")
 
   const dispatch = useDispatch();
@@ -80,19 +94,16 @@ const Header: React.FC = () => {
         <>
           <>
             {isCardsDataFetching ? (
-              <h1 className="header__text header__text--loading">
-                Loading
-                <span className="header__text_dot"></span>
-                <span className="header__text_dot"></span>
-                <span className="header__text_dot"></span>
-              </h1>
+              <Loader />
             ) : (
               <>
                 {isHomePage
                   ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`}</h1>
                   : isOverviewPage
                     ? <h1 className="header__text">{`Have a good day ;)`}</h1>
-                    : <h1 className="header__text">{`Selected ${isCardsDataFetchError ? "0" : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}</h1>
+                    : <h1 className="header__text">
+                      {`Selected ${isCardsDataFetchError ? "0" : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}
+                    </h1>
                 }
               </>
             )}
