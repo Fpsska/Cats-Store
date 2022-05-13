@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({
   useEffect(() => {
     buttonLike.current.classList.remove("unlike")
   }, [])
-
+  // 
   return (
     <div className="card">
       <div className="card__preview">

@@ -15,9 +15,9 @@ const CardList: React.FC = () => {
     isHomePage ? setList(cards) : setList(likedCardsData)
   }, [cards, likedCardsData, isHomePage])
   // 
-  const cardList = useMemo(
-    () =>
-      list.map((item) => {
+  return (
+    <div className="gallery__cards">
+      {list.map(item => {
         return (
           <Card
             key={item.id}
@@ -34,12 +34,11 @@ const CardList: React.FC = () => {
             discountStatus={item.discountStatus}
             currentRangeValue={currentRangeValue}
           />
-        );
-      }),
-    [currentRangeValue, list]
-  );
-
-  return <div className="gallery__cards">{cardList}</div>;
+        )
+      })
+      }
+    </div>
+  )
 };
 
 export default CardList;

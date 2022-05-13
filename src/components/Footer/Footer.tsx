@@ -17,11 +17,11 @@ const Footer: React.FC = () => {
   const form = useRef<HTMLFormElement>(null)
   const dispatch = useDispatch();
   // 
-  const inputHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(getInputValue(event.target.value));
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    dispatch(getInputValue(e.target.value));
   };
 
-  const onFormSubmit = (e: any): void => {
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(setFormAlertVisibleStatus(true))
     dispatch(setFormSubmitStatus(true))
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
       }, 10000);
     }
   }, [isFormAlertVisible, isFormSubmitted])
-
+  // 
   return (
     <footer className="footer">
       <div className="container">
@@ -54,19 +54,19 @@ const Footer: React.FC = () => {
                 className="form__input"
                 type="email"
                 placeholder="Email"
-                disabled={unavailable ? true : false}
+                disabled={unavailable}
                 required
                 value={emailValue}
                 onChange={inputHandler}
               />
-              <button className="form__button button" disabled={unavailable ? true : false}>Subscribe</button>
+              <button className="form__button button" disabled={unavailable}>Subscribe</button>
             </div>
             <label className="form__cheakbox-text">
               Subscribe to news
               <input
                 className="form__cheakbox-input"
                 type="checkbox"
-                disabled={unavailable ? true : false}
+                disabled={unavailable}
                 required
               />
             </label>
