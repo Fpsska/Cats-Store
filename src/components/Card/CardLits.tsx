@@ -36,7 +36,7 @@ const CardList: React.FC = () => {
           />
         );
       }),
-    [list]
+    [currentRangeValue, list]
   );
 
   return <div className="gallery__cards">{cardList}</div>;

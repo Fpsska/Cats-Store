@@ -22,8 +22,8 @@ const BasketAlert: React.FC = () => {
         dispatch(changeMainPageStatus(false))
     }
 
-    useEffect(() => {
-        if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) {
+    useEffect(() => {  
+        if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) { // logic of show/hide BasketAlert
             dispatch(setNotificationVisibleStatus(true))
             alert.current?.classList.add("visible")
             alert.current?.classList.add("opacity")
