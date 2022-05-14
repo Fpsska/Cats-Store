@@ -5,7 +5,7 @@ import {
   changeMainPageStatus,
   changeBurgerStatus,
 } from "../../Redux/Actions/headerActions";
-import { useDefinePage } from "../../hooks/definePage"
+import { usePageName } from "../../hooks/usePageName"
 
 interface HeaderLinkProps {
   isBurgerHidden?: boolean;
@@ -18,13 +18,13 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   link,
   text,
 }) => {
-  const { handlePageName } = useDefinePage()
+  const { handlePageName } = usePageName()
   const dispatch = useDispatch();
   //
   const removeBodyStatus = (text: string): void => {
     dispatch(changeMainPageStatus(false));
     dispatch(changeBurgerStatus(false));
-    handlePageName(text);
+    handlePageName({ pageName: text });
     document.body.style.overflowY = "auto";
   };
   // 

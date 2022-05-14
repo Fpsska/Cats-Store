@@ -5,10 +5,17 @@ import {
 } from "../Redux/Actions/headerActions";
 import { setNotificationVisibleStatus } from "../Redux/Actions/cardActions"
 
-export function useDefinePage() {
+interface propTypes {
+    pageName: string
+}
+
+export function usePageName() {
     const dispatch = useDispatch()
 
-    const handlePageName = (pageName: string) => {
+    const handlePageName = (props: propTypes) => {
+
+        const { pageName } = props;
+
         switch (pageName) {
             case "Main":
                 dispatch(changeMainPageStatus(true));
