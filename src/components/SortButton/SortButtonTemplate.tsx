@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  toggleSortCardsPriceDecrease,
-  toggleSortCardsAgeDecrease,
-  toggleSortCardsPriceIncrease,
-  toggleSortCardsAgeIncrease,
-} from "../../Redux/Actions/cardActions";
 import SvgTemplate from "../Common/SvgTemplate";
+import { useSort } from "../../hooks/useSort";
 
 interface SortButtonTemplateProps {
   id: string;
@@ -23,22 +17,11 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   isCardsDataFetchError,
 }) => {
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
-  const dispatch = useDispatch();
+  const { defineSortOption } = useSort();
   //
   const runSort = (): void => {
     setSwitchStatus(!isSwitched);
-    if (id === "price") {
-      dispatch(toggleSortCardsPriceDecrease(id, isSwitched));
-    }
-    if (id === "age") {
-      dispatch(toggleSortCardsAgeDecrease(id, isSwitched));
-    }
-    if (id === "price" && isSwitched === false) {
-      dispatch(toggleSortCardsPriceIncrease(id, isSwitched));
-    }
-    if (id === "age" && isSwitched === false) {
-      dispatch(toggleSortCardsAgeIncrease(id, isSwitched));
-    }
+    defineSortOption({ name: id, status: isSwitched })
   };
 
   return (
