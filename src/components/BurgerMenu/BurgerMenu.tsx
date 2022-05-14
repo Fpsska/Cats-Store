@@ -36,7 +36,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     defineScrollStatus();
     calcPaddingValue();
   };
-
+  // 
   return (
     <>
       <div className="menu" onClick={openBurger}>

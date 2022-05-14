@@ -7,13 +7,18 @@ import "./Sort.scss";
 
 
 const SortButtonList: React.FC = () => {
-  const { isCardsDataFetching, isCardsDataFetchError, sortButtons } = useSelector(
+
+  const {
+    isCardsDataFetching,
+    isCardsDataFetchError,
+    sortButtons
+  } = useSelector(
     (state: RootState) => state.cardReducer
   );
   //
-  const sortButtonList = useMemo(
-    () =>
-      sortButtons.map((item) => {
+  return (
+    <div className="controls__wrapper">
+      {sortButtons.map(item => {
         return (
           <SortButtonTemplate
             key={item.id}
@@ -24,10 +29,9 @@ const SortButtonList: React.FC = () => {
             isCardsDataFetchError={isCardsDataFetchError}
           />
         );
-      }),
-    [isCardsDataFetching, isCardsDataFetchError]
-  );
-  return <div className="controls__wrapper">{sortButtonList}</div>;
+      })}
+    </div>
+  )
 };
 
 export default SortButtonList;

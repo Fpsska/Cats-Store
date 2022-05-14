@@ -30,7 +30,16 @@ const Filter: React.FC = () => {
     // 
     return (
         <div className="filter">
-            <input ref={input} onChange={inputRangeHandler} className="filter__input" type="range" value={currentRangeValue} min={inputRangeMinValue} max={inputRangeTotalValue} step="100" />
+            <input
+                ref={input}
+                className="filter__input"
+                type="range"
+                value={currentRangeValue}
+                min={inputRangeMinValue}
+                max={inputRangeTotalValue}
+                step="100"
+                onChange={inputRangeHandler}
+            />
             <span className="filter__progress"><span ref={fill} className="filter__progress-fill"></span></span>
             <span ref={counter} className="filter__current">{currentRangeValue}</span>
             <div className="filter__indicators">
