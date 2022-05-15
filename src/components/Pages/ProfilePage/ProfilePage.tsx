@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { changeMainPageStatus } from "../../../Redux/Actions/headerActions";
+import { changeMainPageStatus } from "../../../store/actions/headerActions";
 import inProcessImage from "../../../assets/images/in_process.png";
 
 const ProfilePage: React.FC = () => {

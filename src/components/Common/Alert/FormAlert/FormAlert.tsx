@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setFormAlertVisibleStatus } from "../../../../Redux/Actions/formActions";
+import { setFormAlertVisibleStatus } from "../../../../store/actions/formActions";
 import SvgTemplate from "../../SvgTemplate";
 import "./FormAlert.scss"
 

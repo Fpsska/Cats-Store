@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import cardReducer from "./Reducers/cardReducer";
-import headerReducer from "./Reducers/headerReducer";
-import formReducer from "./Reducers/formReducer";
-import filterReducer from "./Reducers/filterReducer";
+import cardReducer from "./reducers/cardReducer";
+import headerReducer from "./reducers/headerReducer";
+import formReducer from "./reducers/formReducer";
+import filterReducer from "./reducers/filterReducer";
 
 const reducers = combineReducers({
   cardReducer: cardReducer,

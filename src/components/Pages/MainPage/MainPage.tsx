@@ -5,8 +5,8 @@ import SvgTemplate from "../../Common/SvgTemplate";
 import SortButtonList from "../../SortButton/SortButtonList";
 import Preloader from "../../Common/Preloader/Preloader";
 import BasketAlert from "../../Common/Alert/BasketAlert/BasketAlert";
-import requestHandler from "../../../Redux/Middleware/fetchCardsData";
-import { RootState } from "../../../Redux/store";
+import requestHandler from "../../../store/middleware/fetchCardsData";
+import { RootState } from "../../../store/store";
 
 const MainPage: React.FC = () => {
   const { isCardsDataFetching, isCardsDataFetchError, cardsDataFetchErrorMessage } = useSelector(

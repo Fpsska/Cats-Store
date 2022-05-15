@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setNotificationVisibleStatus } from "../../../../Redux/Actions/cardActions";
-import { changeMainPageStatus } from "../../../../Redux/Actions/headerActions";
-import { RootState } from "../../../../Redux/store";
+import { setNotificationVisibleStatus } from "../../../../store/actions/cardActions";
+import { changeMainPageStatus } from "../../../../store/actions/headerActions";
+import { RootState } from "../../../../store/store";
 import SvgTemplate from "../../SvgTemplate";
 import "./BasketAlert.scss"
 

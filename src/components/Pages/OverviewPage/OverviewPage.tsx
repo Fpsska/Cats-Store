@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Preloader from "../../Common/Preloader/Preloader";
-import fetchGifData from "../../../Redux/Middleware/fetchGifData";
-import { fetchGifDataToggle } from "../../../Redux/Actions/cardActions";
-import { RootState } from "../../../Redux/store";
+import fetchGifData from "../../../store/middleware/fetchGifData";
+import { fetchGifDataToggle } from "../../../store/actions/cardActions";
+import { RootState } from "../../../store/store";
 import "./OverviewPage.scss"
 
 const OverviewPage: React.FC = () => {

@@ -5,9 +5,9 @@ import { Outlet } from "react-router";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import FormAlert from "./Alert/FormAlert/FormAlert";
-import fetchCardsData from "../../Redux/Middleware/fetchCardsData";
-import fetchGifData from "../../Redux/Middleware/fetchGifData";
-import { RootState } from "../../Redux/store";
+import fetchCardsData from "../../store/middleware/fetchCardsData";
+import fetchGifData from "../../store/middleware/fetchGifData";
+import { RootState } from "../../store/store";
 
 const Layout: React.FC = () => {
   const { isFormAlertVisible } = useSelector((state: RootState) => state.formReducer)

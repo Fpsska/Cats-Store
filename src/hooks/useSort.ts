@@ -5,7 +5,7 @@ import {
     toggleSortCardsAgeDecrease,
     toggleSortCardsPriceIncrease,
     toggleSortCardsAgeIncrease,
-} from "../Redux/Actions/cardActions";
+} from "../store/actions/cardActions";
 
 
 interface propTypes {

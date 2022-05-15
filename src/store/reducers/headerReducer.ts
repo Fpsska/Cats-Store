@@ -6,7 +6,7 @@ import {
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
   ACTION_CHANGE_BURGER_STATUS,
-} from "../Actions/headerActions";
+} from "../actions/headerActions";
 
 const initialState: headerStateTypes = {
   headerLinks: [

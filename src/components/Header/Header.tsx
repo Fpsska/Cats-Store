@@ -4,8 +4,8 @@ import SvgTemplate from "../Common/SvgTemplate";
 import HeaderNav from "./HeaderNav";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Loader from "../Loader/Loader";
-import { changeNavDisplay } from "../../Redux/Actions/headerActions";
-import { RootState } from "../../Redux/store";
+import { changeNavDisplay } from "../../store/actions/headerActions";
+import { RootState } from "../../store/store";
 import "./Header.scss";
 
 const Header: React.FC = () => {

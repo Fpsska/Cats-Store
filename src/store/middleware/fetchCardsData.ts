@@ -1,4 +1,4 @@
-import { fetchCards, fetchCardsDataToggle, setFetchCardsDataErrorMessage, setFetchCardsDataErrorStatus } from "../Actions/cardActions";
+import { fetchCards, fetchCardsDataToggle, setFetchCardsDataErrorMessage, setFetchCardsDataErrorStatus } from "../actions/cardActions";
 import url from "../../assets/images/no_photo.png";
 import { cardActionTypes, actualDataTypes } from "../../Types/cardTypes";
 

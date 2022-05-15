@@ -3,7 +3,7 @@ import { formStateTypes, formActionTypes } from "../../Types/formTypes";
 import {
     ACTION_SET_FORM_ALERT_VISIBLE_STATUS,
     ACTION_SET_FORM_SUBMIT_STATUS
-} from "../Actions/formActions";
+} from "../actions/formActions";
 
 const initialState: formStateTypes = {
     isFormAlertVisible: false,

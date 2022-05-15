@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from "../../Card/Card"
 import Filter from "../../Filter/Filter";
 import { actualDataTypes } from "../../../Types/cardTypes";
-import { setFilteredStatus } from "../../../Redux/Actions/cardActions"
-import { RootState } from "../../../Redux/store";
+import { setFilteredStatus } from "../../../store/actions/cardActions"
+import { RootState } from "../../../store/store";
 import empty_image from "../../../assets/images/empty.png";
 import "./FavouritePage.scss";
 // Import Swiper styles

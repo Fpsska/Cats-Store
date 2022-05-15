@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getInputValue } from "../../Redux/Actions/headerActions";
-import { setFormAlertVisibleStatus, setFormSubmitStatus } from "../../Redux/Actions/formActions";
-import { RootState } from "../../Redux/store";
+import { getInputValue } from "../../store/actions/headerActions";
+import { setFormAlertVisibleStatus, setFormSubmitStatus } from "../../store/actions/formActions";
+import { RootState } from "../../store/store";
 import "./Footer.scss";
 
 

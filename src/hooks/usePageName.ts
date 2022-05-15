@@ -2,8 +2,8 @@ import { useDispatch } from "react-redux"
 import {
     changeMainPageStatus,
     changeOverviewPageStatus
-} from "../Redux/Actions/headerActions";
-import { setNotificationVisibleStatus } from "../Redux/Actions/cardActions"
+} from "../store/actions/headerActions";
+import { setNotificationVisibleStatus } from "../store/actions/cardActions"
 
 interface propTypes {
     pageName: string

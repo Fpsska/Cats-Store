@@ -1,6 +1,6 @@
 import {
     ACTION_SET_CURRENT_RANGE_VALUE
-} from "../Redux/Actions/filterActions";
+} from "../store/actions/filterActions";
 
 // /. Imports
 

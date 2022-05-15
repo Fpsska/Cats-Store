@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentRangeValue } from "../../Redux/Actions/filterActions";
-import { setFilteredCardsData, setFilteredStatus } from "../../Redux/Actions/cardActions"
-import { RootState } from "../../Redux/store";
+import { setCurrentRangeValue } from "../../store/actions/filterActions";
+import { setFilteredCardsData, setFilteredStatus } from "../../store/actions/cardActions"
+import { RootState } from "../../store/store";
 import "./Filter.scss"
 
 const Filter: React.FC = () => {

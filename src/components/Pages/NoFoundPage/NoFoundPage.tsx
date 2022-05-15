@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { changeMainPageStatus } from "../../../Redux/Actions/headerActions";
+import { changeMainPageStatus } from "../../../store/actions/headerActions";
 import noFoundPage from "../../../assets/images/no_found.png";
 
 

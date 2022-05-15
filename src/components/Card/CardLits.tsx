@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Card from "./Card";
-import { RootState } from "../../Redux/store";
+import { RootState } from "../../store/store";
 import { actualDataTypes } from "../../Types/cardTypes"
 
 

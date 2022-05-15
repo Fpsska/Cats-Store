@@ -1,4 +1,4 @@
-import { setGifData, fetchGifDataToggle, setGifDataErrorStatus, setFetchGifDataErrorMessage } from "../Actions/cardActions";
+import { setGifData, fetchGifDataToggle, setGifDataErrorStatus, setFetchGifDataErrorMessage } from "../actions/cardActions";
 import { cardActionTypes, gifDataTypes } from "../../Types/cardTypes";
 
 const fetchGifData = () => {

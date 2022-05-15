@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { changeBurgerStatus } from "../../Redux/Actions/headerActions";
+import { changeBurgerStatus } from "../../store/actions/headerActions";
 import HeaderNav from "../Header/HeaderNav";
 import "./BurgerMenu.scss";
 

@@ -16,7 +16,7 @@ import {
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
   ACTION_SET_FILTERED_STATUS
-} from "../Actions/cardActions";
+} from "../actions/cardActions";
 import { CardStateTypes, cardActionTypes } from "../../Types/cardTypes";
 
 const initialState: CardStateTypes = {

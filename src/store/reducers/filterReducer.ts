@@ -2,7 +2,7 @@ import { filterStateTypes, filterActionTypes } from "../../Types/filterTypes";
 
 import {
     ACTION_SET_CURRENT_RANGE_VALUE
-} from "../Actions/filterActions";
+} from "../actions/filterActions";
 
 const initialState: filterStateTypes = {
     inputRangeTotalValue: 10000,

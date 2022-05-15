@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
   changeMainPageStatus,
   changeBurgerStatus,
-} from "../../Redux/Actions/headerActions";
+} from "../../store/actions/headerActions";
 import { usePageName } from "../../hooks/usePageName"
 
 interface HeaderLinkProps {
