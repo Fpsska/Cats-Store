@@ -1,22 +1,27 @@
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import FormAlert from "./Alert/FormAlert/FormAlert";
-import fetchCardsData from "../../store/middleware/fetchCardsData";
-import fetchGifData from "../../store/middleware/fetchGifData";
-import { RootState } from "../../store/store";
+import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router';
+
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
+import fetchCardsData from '../../store/async-actions/fetchCardsData';
+import fetchGifData from '../../store/async-actions/fetchGifData';
+import { RootState } from '../../store/store';
+
+import FormAlert from './Alert/FormAlert/FormAlert';
+
+// /. Imports
 
 const Layout: React.FC = () => {
-  const { isFormAlertVisible } = useSelector((state: RootState) => state.formReducer)
-  const dispatch = useDispatch()
+  const { isFormAlertVisible } = useSelector((state: RootState) => state.formReducer);
+  const dispatch = useDispatch();
   // 
   useEffect(() => {
-    dispatch(fetchCardsData())
-    dispatch(fetchGifData())
-  }, [])
+    dispatch(fetchCardsData());
+    dispatch(fetchGifData());
+  }, []);
   // 
   return (
     <div className="page">

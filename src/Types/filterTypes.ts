@@ -1,6 +1,6 @@
 import {
     ACTION_SET_CURRENT_RANGE_VALUE
-} from "../store/actions/filterActions";
+} from '../store/actions/filterActions';
 
 // /. Imports
 

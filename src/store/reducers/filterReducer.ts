@@ -1,14 +1,18 @@
-import { filterStateTypes, filterActionTypes } from "../../Types/filterTypes";
+import { filterStateTypes, filterActionTypes } from '../../Types/filterTypes';
 
 import {
     ACTION_SET_CURRENT_RANGE_VALUE
-} from "../actions/filterActions";
+} from '../actions/filterActions';
+
+// /. Imports
 
 const initialState: filterStateTypes = {
     inputRangeTotalValue: 10000,
     inputRangeMinValue: 1500,
-    currentRangeValue: 0,
+    currentRangeValue: 0
 };
+
+// /. initialState
 
 const filterReducer = (
     state = initialState,
@@ -18,7 +22,7 @@ const filterReducer = (
         case ACTION_SET_CURRENT_RANGE_VALUE:
             return {
                 ...state,
-                currentRangeValue: action.payload,
+                currentRangeValue: action.payload
             };
         default:
             return state;

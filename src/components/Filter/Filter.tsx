@@ -1,32 +1,35 @@
-import React, { useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCurrentRangeValue } from "../../store/actions/filterActions";
-import { setFilteredCardsData, setFilteredStatus } from "../../store/actions/cardActions"
-import { RootState } from "../../store/store";
-import "./Filter.scss"
+import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setCurrentRangeValue } from '../../store/actions/filterActions';
+import { setFilteredCardsData, setFilteredStatus } from '../../store/actions/cardActions';
+import { RootState } from '../../store/store';
+import './Filter.scss';
+
+// /. Imports
 
 const Filter: React.FC = () => {
-    const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } = useSelector((state: RootState) => state.filterReducer)
-    const input = useRef<HTMLInputElement>(null!)
-    const counter = useRef<HTMLDivElement>(null!)
-    const fill = useRef<HTMLDivElement>(null!)
-    const dispatch = useDispatch()
+    const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
+    const input = useRef<HTMLInputElement>(null!);
+    const counter = useRef<HTMLDivElement>(null!);
+    const fill = useRef<HTMLDivElement>(null!);
+    const dispatch = useDispatch();
     // 
     const inputRangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const currentValue = +e.target.value
-        dispatch(setCurrentRangeValue(currentValue))
-        dispatch(setFilteredCardsData(currentValue))
-        dispatch(setFilteredStatus(true)) // many calls => return all true 
-        fill.current.style.width = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
-        counter.current.style.left = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + "%"
-    }
+        const currentValue = +e.target.value;
+        dispatch(setCurrentRangeValue(currentValue));
+        dispatch(setFilteredCardsData(currentValue));
+        dispatch(setFilteredStatus(true)); // many calls => return all true 
+        fill.current.style.width = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + '%';
+        counter.current.style.left = 100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue) + '%';
+    };
 
     useEffect(() => {
-        dispatch(setCurrentRangeValue(inputRangeTotalValue))
-        dispatch(setFilteredCardsData(inputRangeTotalValue))
-        fill.current.style.width = 100 + "%"
-        counter.current.style.left = 100 + "%"
-    }, [])
+        dispatch(setCurrentRangeValue(inputRangeTotalValue));
+        dispatch(setFilteredCardsData(inputRangeTotalValue));
+        fill.current.style.width = 100 + '%';
+        counter.current.style.left = 100 + '%';
+    }, []);
     // 
     return (
         <div className="filter">
@@ -47,8 +50,8 @@ const Filter: React.FC = () => {
                 <span className="filter__counter filter__counter--max">{`${inputRangeTotalValue} $`}</span>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Filter;
 

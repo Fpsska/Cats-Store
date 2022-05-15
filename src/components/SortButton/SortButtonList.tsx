@@ -1,10 +1,13 @@
-import React from "react";
-import SortButtonTemplate from "./SortButtonTemplate";
-import { useSelector } from "react-redux";
-import { useMemo } from "react";
-import { RootState } from "../../store/store";
-import "./Sort.scss";
+import React from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store/store';
+
+import SortButtonTemplate from './SortButtonTemplate';
+import './Sort.scss';
+
+// /. Imports
 
 const SortButtonList: React.FC = () => {
 
@@ -31,7 +34,7 @@ const SortButtonList: React.FC = () => {
         );
       })}
     </div>
-  )
+  );
 };
 
 export default SortButtonList;

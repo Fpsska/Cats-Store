@@ -1,18 +1,23 @@
-import React from "react";
-import HeaderLink from "./HeaderLink";
+import React from 'react';
+
+import HeaderLink from './HeaderLink';
+
+// /. Imports
 
 interface HeaderNavProps {
   headerLinks: any[];
   isBurgerHidden?: boolean;
 }
 
+// /. interfaces
+
 const HeaderNav: React.FC<HeaderNavProps> = ({
   headerLinks,
-  isBurgerHidden,
+  isBurgerHidden
 }) => {
   return (
     <nav className="nav">
-      <ul className={isBurgerHidden ? "nav__menu" : "nav__menu-burger"}>
+      <ul className={isBurgerHidden ? 'nav__menu' : 'nav__menu-burger'}>
         {headerLinks.map(item => {
           return (
             <HeaderLink

@@ -1,17 +1,22 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { changeBurgerStatus } from "../../store/actions/headerActions";
-import HeaderNav from "../Header/HeaderNav";
-import "./BurgerMenu.scss";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { changeBurgerStatus } from '../../store/actions/headerActions';
+import HeaderNav from '../Header/HeaderNav';
+import './BurgerMenu.scss';
+
+// /. Imports
 
 interface BurgerMenuProps {
   headerLinks: any[];
   isBurgerOpen: boolean;
 }
 
+// /. interfaces
+
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
   headerLinks,
-  isBurgerOpen,
+  isBurgerOpen
 }) => {
   const dispatch = useDispatch();
   //
@@ -25,9 +30,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
 
   const defineScrollStatus = (): void => {
     if (isBurgerOpen === true) {
-      document.body.style.overflowY = "auto";
+      document.body.style.overflowY = 'auto';
     } else {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
     }
   };
 
@@ -43,26 +48,26 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
         <div
           className={
             isBurgerOpen
-              ? "menu__line menu__line-top opened"
-              : "menu__line menu__line-top"
+              ? 'menu__line menu__line-top opened'
+              : 'menu__line menu__line-top'
           }
         ></div>
         <div
           className={
             isBurgerOpen
-              ? "menu__line menu__line-middle opened"
-              : "menu__line menu__line-middle"
+              ? 'menu__line menu__line-middle opened'
+              : 'menu__line menu__line-middle'
           }
         ></div>
         <div
           className={
             isBurgerOpen
-              ? "menu__line menu__line-bottom opened"
-              : "menu__line menu__line-bottom"
+              ? 'menu__line menu__line-bottom opened'
+              : 'menu__line menu__line-bottom'
           }
         ></div>
       </div>
-      <div className={isBurgerOpen ? "burger active" : "burger"}>
+      <div className={isBurgerOpen ? 'burger active' : 'burger'}>
         <div className="burger__nav">
           <HeaderNav headerLinks={headerLinks} />
         </div>

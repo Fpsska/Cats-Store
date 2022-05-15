@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import SvgTemplate from "../Common/SvgTemplate";
-import { useSort } from "../../hooks/useSort";
+import React, { useState } from 'react';
+
+import SvgTemplate from '../Common/SvgTemplate';
+import { useSort } from '../../hooks/useSort';
+
+// /. Imports
 
 interface SortButtonTemplateProps {
   id: string;
@@ -10,18 +13,20 @@ interface SortButtonTemplateProps {
   isSorted: boolean;
 }
 
+// /. interfaces
+
 const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   id,
   text,
   isCardsDataFetching,
-  isCardsDataFetchError,
+  isCardsDataFetchError
 }) => {
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
   const { defineSortOption } = useSort();
   //
   const runSort = (): void => {
     setSwitchStatus(!isSwitched);
-    defineSortOption({ name: id, status: isSwitched })
+    defineSortOption({ name: id, status: isSwitched });
   };
 
   return (
@@ -31,7 +36,7 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
       onClick={runSort}
     >
       <span className="controls__menu_text">{text}</span>
-      <span className={isSwitched ? "icon sorted" : "icon"}>
+      <span className={isSwitched ? 'icon sorted' : 'icon'}>
         <SvgTemplate id="arrow-sort" />
       </span>
     </button>

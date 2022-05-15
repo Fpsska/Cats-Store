@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getInputValue } from "../../store/actions/headerActions";
-import { setFormAlertVisibleStatus, setFormSubmitStatus } from "../../store/actions/formActions";
-import { RootState } from "../../store/store";
-import "./Footer.scss";
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { getInputValue } from '../../store/actions/headerActions';
+import { setFormAlertVisibleStatus, setFormSubmitStatus } from '../../store/actions/formActions';
+import { RootState } from '../../store/store';
+import './Footer.scss';
+
+// /. Imports
 
 const Footer: React.FC = () => {
   const { emailValue } = useSelector(
@@ -13,8 +15,8 @@ const Footer: React.FC = () => {
   const { isFormAlertVisible, isFormSubmitted } = useSelector(
     (state: RootState) => state.formReducer
   );
-  const [unavailable, setUnavailableStatus] = useState<boolean>(false)
-  const form = useRef<HTMLFormElement>(null)
+  const [unavailable, setUnavailableStatus] = useState<boolean>(false);
+  const form = useRef<HTMLFormElement>(null);
   const dispatch = useDispatch();
   // 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -23,20 +25,20 @@ const Footer: React.FC = () => {
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(setFormAlertVisibleStatus(true))
-    dispatch(setFormSubmitStatus(true))
-  }
+    dispatch(setFormAlertVisibleStatus(true));
+    dispatch(setFormSubmitStatus(true));
+  };
 
   useEffect(() => {
     if (isFormSubmitted && !isFormAlertVisible) {
-      form.current?.reset()
-      dispatch(getInputValue(""))
-      setUnavailableStatus(true)
+      form.current?.reset();
+      dispatch(getInputValue(''));
+      setUnavailableStatus(true);
       setTimeout(() => {
-        setUnavailableStatus(false)
+        setUnavailableStatus(false);
       }, 10000);
     }
-  }, [isFormAlertVisible, isFormSubmitted])
+  }, [isFormAlertVisible, isFormSubmitted]);
   // 
   return (
     <footer className="footer">

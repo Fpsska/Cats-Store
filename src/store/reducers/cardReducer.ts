@@ -16,8 +16,10 @@ import {
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
   ACTION_SET_FILTERED_STATUS
-} from "../actions/cardActions";
-import { CardStateTypes, cardActionTypes } from "../../Types/cardTypes";
+} from '../actions/cardActions';
+import { CardStateTypes, cardActionTypes } from '../../Types/cardTypes';
+
+// /. Imports
 
 const initialState: CardStateTypes = {
   cards: [],
@@ -26,25 +28,27 @@ const initialState: CardStateTypes = {
   filteredCardsData: [],
   sortButtons: [
     {
-      id: "price",
-      text: "Price",
-      isSorted: false,
+      id: 'price',
+      text: 'Price',
+      isSorted: false
     },
     {
-      id: "age",
-      text: "Age",
-      isSorted: false,
-    },
+      id: 'age',
+      text: 'Age',
+      isSorted: false
+    }
   ],
   isCardsDataFetching: true,
   isCardsDataFetchError: false,
-  cardsDataFetchErrorMessage: "error from fetchCardsData thunk",
+  cardsDataFetchErrorMessage: 'error from fetchCardsData thunk',
   isGifDataFetching: true,
   isGifDataFetchError: false,
-  gifDataFetchErrorMessage: "error from fetchGifData thunk",
+  gifDataFetchErrorMessage: 'error from fetchGifData thunk',
   isNotificationVisible: false,
   isDataFiltered: false
 };
+
+// /. initialState
 
 const cardReducer = (
   state = initialState,
@@ -54,22 +58,22 @@ const cardReducer = (
     case ACTION_FETCH_CARDS:
       return {
         ...state,
-        cards: [...state.cards.concat(action.payload)],
+        cards: [...state.cards.concat(action.payload)]
       };
     case ACTION_FETCH_CARDS_DATA_TOGGLE:
       return {
         ...state,
-        isCardsDataFetching: action.payload.value,
+        isCardsDataFetching: action.payload.value
       };
     case ACTION_SET_FETCH_CARDS_DATA_ERROR_STATUS:
       return {
         ...state,
-        isCardsDataFetchError: action.payload.value,
+        isCardsDataFetchError: action.payload.value
       };
     case ACTION_SET_FETCH_CARDS_DATA_ERROR_MESSAGE:
       return {
         ...state,
-        cardsDataFetchErrorMessage: action.payload.value,
+        cardsDataFetchErrorMessage: action.payload.value
       };
     case ACTION_SET_GIF_DATA:
       return {
@@ -79,17 +83,17 @@ const cardReducer = (
     case ACTION_FETCH_GIF_DATA_TOGGLE:
       return {
         ...state,
-        isGifDataFetching: action.payload.value,
+        isGifDataFetching: action.payload.value
       };
     case ACTION_SET_GIF_DATA_ERROR_STATUS:
       return {
         ...state,
-        isGifDataFetchError: action.payload.value,
+        isGifDataFetchError: action.payload.value
       };
     case ACTION_SET_GIF_DATA_ERROR_MESSAGE:
       return {
         ...state,
-        gifDataFetchErrorMessage: action.payload.value,
+        gifDataFetchErrorMessage: action.payload.value
       };
     case ACTION_SET_FAVOURITE_STATUS:
       return {
@@ -98,10 +102,10 @@ const cardReducer = (
           if (item.id === action.payload.id) {
             return {
               ...item,
-              isFavourite: action.payload.status,
+              isFavourite: action.payload.status
             };
           }
-          return item
+          return item;
         })
       };
     case ACTION_SET_LIKED_CARDS_DATA:
@@ -120,14 +124,14 @@ const cardReducer = (
         cards: [
           ...state.cards.sort((a, b) => {
             return b.price - a.price;
-          }),
+          })
         ],
         sortButtons: state.sortButtons.map((item) => {
           return {
             ...item,
-            isSorted: action.payload.status,
+            isSorted: action.payload.status
           };
-        }),
+        })
       };
     case ACTION_SORT_CARDS_PRICE_INCREASE:
       return {
@@ -135,14 +139,14 @@ const cardReducer = (
         cards: [
           ...state.cards.sort((a, b) => {
             return a.price - b.price;
-          }),
+          })
         ],
         sortButtons: state.sortButtons.map((item) => {
           return {
             ...item,
-            isSorted: action.payload.status,
+            isSorted: action.payload.status
           };
-        }),
+        })
       };
     case ACTION_SORT_CARDS_AGE_DECREASE:
       return {
@@ -150,14 +154,14 @@ const cardReducer = (
         cards: [
           ...state.cards.sort((a, b) => {
             return parseInt(b.age) - parseInt(a.age);
-          }),
+          })
         ],
         sortButtons: state.sortButtons.map((item) => {
           return {
             ...item,
-            isSorted: action.payload.status,
+            isSorted: action.payload.status
           };
-        }),
+        })
       };
     case ACTION_SORT_CARDS_AGE_INCREASE:
       return {
@@ -165,14 +169,14 @@ const cardReducer = (
         cards: [
           ...state.cards.sort((a, b) => {
             return parseInt(a.age) - parseInt(b.age);
-          }),
+          })
         ],
         sortButtons: state.sortButtons.map((item) => {
           return {
             ...item,
-            isSorted: action.payload.status,
+            isSorted: action.payload.status
           };
-        }),
+        })
       };
     case ACTION_SET_FILTERED_CARDS_DATA:
       return {

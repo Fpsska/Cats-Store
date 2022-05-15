@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import SvgTemplate from "../Common/SvgTemplate";
-import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from "../../store/actions/cardActions";
-import "./Card.scss";
+import React, { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
+import SvgTemplate from '../Common/SvgTemplate';
+import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from '../../store/actions/cardActions';
+import './Card.scss';
+
+// /. Imports
 
 interface CardProps {
   id: string;
@@ -19,6 +22,8 @@ interface CardProps {
   currentRangeValue: number;
 }
 
+// /. interfaces
+
 const Card: React.FC<CardProps> = ({
   id,
   image,
@@ -31,23 +36,23 @@ const Card: React.FC<CardProps> = ({
   isFavourite,
   cardStatus,
   discountStatus,
-  currentRangeValue,
+  currentRangeValue
 }) => {
-  const buttonLike = useRef<HTMLButtonElement>(null!)
+  const buttonLike = useRef<HTMLButtonElement>(null!);
   const dispatch = useDispatch();
   // 
   const setFavourite = (): void => {
     isFavourite
       ? dispatch(setFavouriteStatus(id, false))
       : dispatch(setFavouriteStatus(id, true));
-    dispatch(setLikedCardsData(isFavourite)) // filter cards for likedCardsData
-    dispatch(setFilteredCardsData(currentRangeValue)) // update filteredCardsData
+    dispatch(setLikedCardsData(isFavourite)); // filter cards for likedCardsData
+    dispatch(setFilteredCardsData(currentRangeValue)); // update filteredCardsData
   };
   // 
 
   useEffect(() => {
-    buttonLike.current.classList.remove("unlike")
-  }, [])
+    buttonLike.current.classList.remove('unlike');
+  }, []);
   // 
   return (
     <div className="card">
@@ -56,15 +61,15 @@ const Card: React.FC<CardProps> = ({
           <span
             className={
               discountStatus
-                ? "card__icons_discount"
-                : "card__icons_discount-none"
+                ? 'card__icons_discount'
+                : 'card__icons_discount-none'
             }
           >
             {discount}
           </span>
           <button
             ref={buttonLike}
-            className={isFavourite ? "card__icons_button like" : "card__icons_button unlike"}
+            className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
             disabled={cardStatus ? false : true}
             onClick={setFavourite}
           >
@@ -93,10 +98,10 @@ const Card: React.FC<CardProps> = ({
       </div>
       <button
         className={
-          cardStatus ? "card__button button" : "card__button-sold button"
+          cardStatus ? 'card__button button' : 'card__button-sold button'
         }
       >
-        {cardStatus ? "Buy" : "Sold"}
+        {cardStatus ? 'Buy' : 'Sold'}
       </button>
     </div>
   );

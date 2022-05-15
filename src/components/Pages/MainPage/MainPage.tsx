@@ -1,12 +1,15 @@
-import React, { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import CardList from "../../Card/CardLits";
-import SvgTemplate from "../../Common/SvgTemplate";
-import SortButtonList from "../../SortButton/SortButtonList";
-import Preloader from "../../Common/Preloader/Preloader";
-import BasketAlert from "../../Common/Alert/BasketAlert/BasketAlert";
-import requestHandler from "../../../store/middleware/fetchCardsData";
-import { RootState } from "../../../store/store";
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import CardList from '../../Card/CardLits';
+import SvgTemplate from '../../Common/SvgTemplate';
+import SortButtonList from '../../SortButton/SortButtonList';
+import Preloader from '../../Common/Preloader/Preloader';
+import BasketAlert from '../../Common/Alert/BasketAlert/BasketAlert';
+import requestHandler from '../../../store/async-actions/fetchCardsData';
+import { RootState } from '../../../store/store';
+
+// /. Imports
 
 const MainPage: React.FC = () => {
   const { isCardsDataFetching, isCardsDataFetchError, cardsDataFetchErrorMessage } = useSelector(
@@ -16,7 +19,7 @@ const MainPage: React.FC = () => {
   const scrollPoint = useRef<HTMLDivElement>(null!);
   //
   const scrollTop = (): void => {
-    scrollPoint.current.scrollIntoView({ block: "start", behavior: "smooth" });
+    scrollPoint.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
   const fetchRequest = (): void => {

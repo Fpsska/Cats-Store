@@ -1,7 +1,9 @@
-import React from "react";
-import "./Preloader.scss";
+import React from 'react';
+import './Preloader.scss';
 
-let Preloader: React.FC = () => {
+// /. Imports
+
+const Preloader: React.FC = () => {
   return (
     <div className="preloader">
       <div className="lds-roller">

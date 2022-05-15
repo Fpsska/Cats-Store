@@ -1,12 +1,17 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import SvgTemplate from "../Common/SvgTemplate";
-import HeaderNav from "./HeaderNav";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import Loader from "../Loader/Loader";
-import { changeNavDisplay } from "../../store/actions/headerActions";
-import { RootState } from "../../store/store";
-import "./Header.scss";
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import SvgTemplate from '../Common/SvgTemplate';
+
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Loader from '../Loader/Loader';
+import { changeNavDisplay } from '../../store/actions/headerActions';
+import { RootState } from '../../store/store';
+
+import HeaderNav from './HeaderNav';
+import './Header.scss';
+
+// /. Imports
 
 const Header: React.FC = () => {
   const { headerLinks,
@@ -25,7 +30,7 @@ const Header: React.FC = () => {
     filteredCardsData
   } = useSelector((state: RootState) => state.cardReducer);
 
-  const text = useRef<string>("cat")
+  const text = useRef<string>('cat');
 
   const dispatch = useDispatch();
   //
@@ -38,31 +43,31 @@ const Header: React.FC = () => {
   };
   //
   useLayoutEffect(() => {
-    window.addEventListener("resize", defineBurgerStatus);
-    window.addEventListener("load", defineBurgerStatus);
+    window.addEventListener('resize', defineBurgerStatus);
+    window.addEventListener('load', defineBurgerStatus);
     return () => {
-      window.removeEventListener("resize", defineBurgerStatus);
-      window.removeEventListener("load", defineBurgerStatus);
+      window.removeEventListener('resize', defineBurgerStatus);
+      window.removeEventListener('load', defineBurgerStatus);
     };
   }, []);
 
   useEffect(() => {
     if (likedCardsData.length === 1) {
-      text.current = "cat"
+      text.current = 'cat';
     }
     if (likedCardsData.length >= 2) {
-      text.current = "cats"
+      text.current = 'cats';
     }
     if (filteredCardsData.length === 0) {
-      text.current = "cat"
+      text.current = 'cat';
     }
     if (filteredCardsData.length === 1) {
-      text.current = "cat"
+      text.current = 'cat';
     }
     if (filteredCardsData.length >= 2) {
-      text.current = "cats"
+      text.current = 'cats';
     }
-  }, [likedCardsData, filteredCardsData, isDataFiltered])
+  }, [likedCardsData, filteredCardsData, isDataFiltered]);
   // 
   return (
     <header className="header">
@@ -98,11 +103,11 @@ const Header: React.FC = () => {
             ) : (
               <>
                 {isHomePage
-                  ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? "0" : cards.length} cats`}</h1>
+                  ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? '0' : cards.length} cats`}</h1>
                   : isOverviewPage
-                    ? <h1 className="header__text">{`Have a good day ;)`}</h1>
+                    ? <h1 className="header__text">{'Have a good day ;)'}</h1>
                     : <h1 className="header__text">
-                      {`Selected ${isCardsDataFetchError ? "0" : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}
+                      {`Selected ${isCardsDataFetchError ? '0' : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}
                     </h1>
                 }
               </>

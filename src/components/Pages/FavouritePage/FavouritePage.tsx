@@ -1,64 +1,69 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Card from "../../Card/Card"
-import Filter from "../../Filter/Filter";
-import { actualDataTypes } from "../../../Types/cardTypes";
-import { setFilteredStatus } from "../../../store/actions/cardActions"
-import { RootState } from "../../../store/store";
-import empty_image from "../../../assets/images/empty.png";
-import "./FavouritePage.scss";
+import React, { useState, useEffect, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import SwiperCore from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+
+import { Pagination } from 'swiper';
+
+import Card from '../../Card/Card';
+import Filter from '../../Filter/Filter';
+import { actualDataTypes } from '../../../Types/cardTypes';
+import { setFilteredStatus } from '../../../store/actions/cardActions';
+import { RootState } from '../../../store/store';
+import empty_image from '../../../assets/images/empty.png';
+import './FavouritePage.scss';
 // Import Swiper styles
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
-import SwiperCore from "swiper";
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 // import required modules
-import { Pagination } from "swiper";
 SwiperCore.use([Pagination]);
 
+// /. Imports
 
 const FavouritePage: React.FC = () => {
   const { currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
-  const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer)
-  const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true)
-  const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true)
-  const [totalPrice, setTotalPrice] = useState<number>(0) // current total price of likedCardsData
-  const [list, setList] = useState<actualDataTypes[]>([])
-  const dispatch = useDispatch()
+  const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer);
+  const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true);
+  const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true);
+  const [totalPrice, setTotalPrice] = useState<number>(0); // current total price of likedCardsData
+  const [list, setList] = useState<actualDataTypes[]>([]);
+  const dispatch = useDispatch();
   // 
   const calcTotalPrice = useMemo(() => (array: any[]) => {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
-      sum += array[i].price
-      setTotalPrice(sum)
+      sum += array[i].price;
+      setTotalPrice(sum);
     }
-  }, [likedCardsData])
+  }, [likedCardsData]);
 
   useEffect(() => {
-    isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData)
-  }, [filteredCardsData, likedCardsData, isDataFiltered])
+    isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData);
+  }, [filteredCardsData, likedCardsData, isDataFiltered]);
 
   useEffect(() => {  // define array empty status
     if (likedCardsData.length === 0) {
-      setEmptyLikedCardsStatus(true)
-      dispatch(setFilteredStatus(false))
+      setEmptyLikedCardsStatus(true);
+      dispatch(setFilteredStatus(false));
     } else {
-      setEmptyLikedCardsStatus(false)
+      setEmptyLikedCardsStatus(false);
     }
     if (filteredCardsData.length === 0) {
-      setEmptyFilteredCardsStatus(true)
+      setEmptyFilteredCardsStatus(true);
     } else {
-      setEmptyFilteredCardsStatus(false)
+      setEmptyFilteredCardsStatus(false);
     }
-  }, [likedCardsData, filteredCardsData])
+  }, [likedCardsData, filteredCardsData]);
 
   useEffect(() => {
-    calcTotalPrice(likedCardsData)
-  }, [likedCardsData])
+    calcTotalPrice(likedCardsData);
+  }, [likedCardsData]);
   // 
   return (
     <div className="section">
-      <div className={emptyLikedCardsDataStatus ? "basket empty" : "basket"}>
+      <div className={emptyLikedCardsDataStatus ? 'basket empty' : 'basket'}>
         <div className="basket__wrapper">
           {emptyLikedCardsDataStatus ?
             <></>
@@ -78,7 +83,7 @@ const FavouritePage: React.FC = () => {
               </div>
             </div>
           }
-          <div className={emptyLikedCardsDataStatus || emptyFilteredCardsStatus ? "basket__slider empty" : "basket__slider"}>
+          <div className={emptyLikedCardsDataStatus || emptyFilteredCardsStatus ? 'basket__slider empty' : 'basket__slider'}>
             {emptyLikedCardsDataStatus || emptyFilteredCardsStatus
               ?
               <div className="empty">
@@ -93,20 +98,20 @@ const FavouritePage: React.FC = () => {
                   breakpoints={{
                     320: {
                       slidesPerView: 1,
-                      spaceBetween: 30,
+                      spaceBetween: 30
                     },
                     360: {
                       slidesPerView: 1,
-                      spaceBetween: 30,
+                      spaceBetween: 30
                     },
                     768: {
                       slidesPerView: 2,
-                      spaceBetween: 30,
+                      spaceBetween: 30
                     },
                     1024: {
                       slidesPerView: 2.5,
-                      spaceBetween: 30,
-                    },
+                      spaceBetween: 30
+                    }
                   }}
                 >
                   {list.map(item => {
@@ -128,7 +133,7 @@ const FavouritePage: React.FC = () => {
                           currentRangeValue={currentRangeValue}
                         />
                       </SwiperSlide>
-                    )
+                    );
                   })}
                 </Swiper>
               </>

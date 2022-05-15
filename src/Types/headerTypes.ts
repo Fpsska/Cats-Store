@@ -3,8 +3,8 @@ import {
   ACTION_GET_INPUT_VALUE,
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
-  ACTION_CHANGE_BURGER_STATUS,
-} from "../store/actions/headerActions";
+  ACTION_CHANGE_BURGER_STATUS
+} from '../store/actions/headerActions';
 
 // /. Imports
 

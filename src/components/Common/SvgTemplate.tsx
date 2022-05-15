@@ -1,12 +1,16 @@
-import React from "react";
+import React from 'react';
+
+// /. Imports
 
 interface SvgTemplateProps {
   id: any;
 }
 
+// /. interfaces
+
 const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
   switch (props.id) {
-    case "heart":
+    case 'heart':
       return (
         <svg
           className="icon__heart"
@@ -22,7 +26,7 @@ const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
           />
         </svg>
       );
-    case "arrow":
+    case 'arrow':
       return (
         <svg
           className="icon__arrow"
@@ -50,7 +54,7 @@ const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
           </defs>
         </svg>
       );
-    case "logo":
+    case 'logo':
       return (
         <svg
           className="icon__logo"
@@ -70,7 +74,7 @@ const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
           />
         </svg>
       );
-    case "arrow-sort":
+    case 'arrow-sort':
       return (
         <svg
           className="icon__arrow-sort"
@@ -98,7 +102,7 @@ const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
           </defs>
         </svg>
       );
-    case "close":
+    case 'close':
       return (
         <svg
           className="icon__close"
@@ -116,7 +120,7 @@ const SvgTemplate: React.FC<SvgTemplateProps> = (props) => {
           />
         </svg>
       );
-    case "notification":
+    case 'notification':
       return (
         <svg
           className="icon__notification"

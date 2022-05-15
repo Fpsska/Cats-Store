@@ -1,26 +1,29 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setFormAlertVisibleStatus } from "../../../../store/actions/formActions";
-import SvgTemplate from "../../SvgTemplate";
-import "./FormAlert.scss"
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { setFormAlertVisibleStatus } from '../../../../store/actions/formActions';
+import SvgTemplate from '../../SvgTemplate';
+import './FormAlert.scss';
+
+// /. Imports
 
 const FormAlert: React.FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     // 
     const submitAlert = (): void => {
-        dispatch(setFormAlertVisibleStatus(false))
-    }
+        dispatch(setFormAlertVisibleStatus(false));
+    };
 
     const keyHandler = (e: KeyboardEvent): void => {
-        if (e.code === "Escape") {
-            dispatch(setFormAlertVisibleStatus(false))
+        if (e.code === 'Escape') {
+            dispatch(setFormAlertVisibleStatus(false));
         }
     };
 
     useEffect(() => {
-        window.addEventListener("keydown", keyHandler);
+        window.addEventListener('keydown', keyHandler);
         return () => {
-            window.removeEventListener("keydown", keyHandler);
+            window.removeEventListener('keydown', keyHandler);
         };
     }, []);
     //
@@ -36,7 +39,7 @@ const FormAlert: React.FC = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default FormAlert;

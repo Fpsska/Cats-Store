@@ -1,19 +1,22 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Preloader from "../../Common/Preloader/Preloader";
-import fetchGifData from "../../../store/middleware/fetchGifData";
-import { fetchGifDataToggle } from "../../../store/actions/cardActions";
-import { RootState } from "../../../store/store";
-import "./OverviewPage.scss"
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Preloader from '../../Common/Preloader/Preloader';
+import fetchGifData from '../../../store/async-actions/fetchGifData';
+import { fetchGifDataToggle } from '../../../store/actions/cardActions';
+import { RootState } from '../../../store/store';
+import './OverviewPage.scss';
+
+// /. Imports
 
 const OverviewPage: React.FC = () => {
-  const { gifData, isGifDataFetching, isGifDataFetchError, gifDataFetchErrorMessage } = useSelector((state: RootState) => state.cardReducer)
+  const { gifData, isGifDataFetching, isGifDataFetchError, gifDataFetchErrorMessage } = useSelector((state: RootState) => state.cardReducer);
   const dispatch = useDispatch();
   // 
   const fetchNewGifData = (): void => {
-    dispatch(fetchGifData())
-    dispatch(fetchGifDataToggle(true))
-  }
+    dispatch(fetchGifData());
+    dispatch(fetchGifDataToggle(true));
+  };
   // 
   return (
     <div className="section">
@@ -36,7 +39,7 @@ const OverviewPage: React.FC = () => {
                         <div className="overview__card" key={item.id}>
                           <img className="overview__image" src={item.image} alt="funny" />
                         </div>
-                      )
+                      );
                     })
                   }
                 </div>
