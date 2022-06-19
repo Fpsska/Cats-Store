@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({
     isFavourite
       ? dispatch(setFavouriteStatus(id, false))
       : dispatch(setFavouriteStatus(id, true));
-    dispatch(setLikedCardsData(isFavourite)); // filter cards for likedCardsData
+    dispatch(setLikedCardsData()); // filter cards for likedCardsData
     dispatch(setFilteredCardsData(currentRangeValue)); // update filteredCardsData
   };
   // 

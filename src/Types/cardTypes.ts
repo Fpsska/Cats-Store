@@ -113,7 +113,6 @@ interface setFetchGifDataErrorMessage {
 
 interface setLikedCardsData {
   type: typeof ACTION_SET_LIKED_CARDS_DATA;
-  payload: boolean 
 }
 
 

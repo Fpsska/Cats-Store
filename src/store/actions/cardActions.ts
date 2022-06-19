@@ -103,10 +103,9 @@ export const setNotificationVisibleStatus = (status: boolean): cardActionTypes =
 };
 
 
-export const setLikedCardsData = (status: boolean): cardActionTypes => {
+export const setLikedCardsData = (): cardActionTypes => {
   return {
-    type: ACTION_SET_LIKED_CARDS_DATA,
-    payload: status
+    type: ACTION_SET_LIKED_CARDS_DATA
   };
 };
 
