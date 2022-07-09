@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import SwiperCore from 'swiper';
@@ -25,21 +25,15 @@ SwiperCore.use([Pagination]);
 const FavouritePage: React.FC = () => {
   const { currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
   const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer);
+
   const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true);
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true);
   const [totalPrice, setTotalPrice] = useState<number>(0); // current total price of likedCardsData
   const [list, setList] = useState<actualDataTypes[]>([]);
-  const dispatch = useDispatch();
-  // 
-  const calcTotalPrice = useMemo(() => (array: any[]) => {
-    let sum = 0;
-    for (let i = 0; i < array.length; i++) {
-      sum += array[i].price;
-      setTotalPrice(sum);
-    }
-  }, [likedCardsData]);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {  // define current render data
     isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData);
   }, [filteredCardsData, likedCardsData, isDataFiltered]);
 
@@ -57,9 +51,9 @@ const FavouritePage: React.FC = () => {
     }
   }, [likedCardsData, filteredCardsData]);
 
-  useEffect(() => {
-    calcTotalPrice(likedCardsData);
-  }, [likedCardsData]);
+  useEffect(() => { // calc current basket total price
+    setTotalPrice(list.reduce((prev, current) => prev + current.price, 0));
+  }, [list]);
   // 
   return (
     <div className="section">
