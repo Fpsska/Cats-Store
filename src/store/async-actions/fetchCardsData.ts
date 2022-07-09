@@ -21,7 +21,7 @@ const fetchCardsData = () => {
             const actualData: actualDataTypes[] = [];
 
             responseData.forEach(item => {
-                if (item['image'] === undefined) {
+                if (!item['image']) {
                     const wrongItem = item;
                     wrongItem.image = { url };
                 }

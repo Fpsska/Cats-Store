@@ -58,7 +58,7 @@ const cardReducer = (
     case ACTION_FETCH_CARDS:
       return {
         ...state,
-        cards: [...state.cards.concat(action.payload)]
+        cards: [...state.cards, ...action.payload]
       };
     case ACTION_FETCH_CARDS_DATA_TOGGLE:
       return {
