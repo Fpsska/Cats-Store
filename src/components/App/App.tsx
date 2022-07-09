@@ -7,7 +7,6 @@ import FavouritePage from '../Pages/FavouritePage/FavouritePage';
 import OverviewPage from '../Pages/OverviewPage/OverviewPage';
 import ProfilePage from '../Pages/ProfilePage/ProfilePage';
 import NoFoundPage from '../Pages/NoFoundPage/NoFoundPage';
-import '../../assets/scss/reset.scss';
 import '../../assets/scss/media.scss';
 import './App.css';
 import './App.scss';

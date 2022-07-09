@@ -1,3 +1,30 @@
+*,
+*:before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+// ./ nullstyles
+
 .App {
     height: 100%;
 }
@@ -110,7 +137,7 @@ svg {
     width: 25px;
     height: 25px;
     fill: #000;
-    transition: all .15s linear;
+    transition: all 0.15s linear;
 }
 
 //

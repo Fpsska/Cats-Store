@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
               />
               <button className="form__button button" disabled={unavailable}>Subscribe</button>
             </div>
-            <label className="form__cheakbox-text">
+            <label className="form__cheakbox-label">
               Subscribe to news
               <input
                 className="form__cheakbox-input"

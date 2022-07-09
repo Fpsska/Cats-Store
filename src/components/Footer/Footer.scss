@@ -28,7 +28,8 @@
     flex-direction: column;
     flex: 1 1 auto;
 }
-.form__cheakbox-text {
+.form__cheakbox-label {
+    cursor: pointer;
     color: #fff;
     display: flex;
     align-items: center;
