@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "author": "Fpsska",
   "private": true,
   "homepage": "https://fpsska.github.io/Cats-Store",
   "dependencies": {
