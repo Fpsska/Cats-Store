@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import SvgTemplate from '../Common/SvgTemplate';
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
+
 import { useSort } from '../../hooks/useSort';
 
 // /. Imports
@@ -36,8 +37,8 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
       onClick={runSort}
     >
       <span className="controls__menu_text">{text}</span>
-      <span className={isSwitched ? 'icon sorted' : 'icon'}>
-        <SvgTemplate id="arrow-sort" />
+      <span>
+        {isSwitched ? <MdKeyboardArrowUp color={'#000'} size={'26px'} /> : <MdKeyboardArrowDown color={'#000'} size={'26px'} />}
       </span>
     </button>
   );

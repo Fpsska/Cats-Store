@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-import SvgTemplate from '../Common/SvgTemplate';
+import { BsHeartFill } from 'react-icons/bs';
+
 import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from '../../store/actions/cardActions';
+
 import './Card.scss';
 
 // /. Imports
@@ -42,9 +44,7 @@ const Card: React.FC<CardProps> = ({
   const dispatch = useDispatch();
   // 
   const setFavourite = (): void => {
-    isFavourite
-      ? dispatch(setFavouriteStatus(id, false))
-      : dispatch(setFavouriteStatus(id, true));
+    isFavourite ? dispatch(setFavouriteStatus(id, false)) : dispatch(setFavouriteStatus(id, true));
     dispatch(setLikedCardsData()); // filter cards for likedCardsData
     dispatch(setFilteredCardsData(currentRangeValue)); // update filteredCardsData
   };
@@ -73,9 +73,7 @@ const Card: React.FC<CardProps> = ({
             disabled={cardStatus ? false : true}
             onClick={setFavourite}
           >
-            <span className="icon">
-              <SvgTemplate id="heart" />
-            </span>
+            <BsHeartFill color={'#fff'} size={'42px'}/>
           </button>
         </div>
         <img className="card__image" src={image} alt="cat" />

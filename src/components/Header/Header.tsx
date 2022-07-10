@@ -1,14 +1,16 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import SvgTemplate from '../Common/SvgTemplate';
-
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import Loader from '../Loader/Loader';
 import { changeNavDisplay } from '../../store/actions/headerActions';
 import { RootState } from '../../store/store';
 
+import logo from '../../assets/images/logo.svg';
+
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Loader from '../Loader/Loader';
+
 import HeaderNav from './HeaderNav';
+
 import './Header.scss';
 
 // /. Imports
@@ -73,9 +75,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="container">
         <div className="header__section">
-          <span className="icon">
-            <SvgTemplate id="logo" />
-          </span>
+            <img src={logo} alt="logo" />
           <>
             {isBurgerHidden ? (
               <HeaderNav

@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { RiErrorWarningLine } from 'react-icons/ri';
+import { IoCloseOutline } from 'react-icons/io5';
+
 import { setNotificationVisibleStatus } from '../../../../store/actions/cardActions';
 import { changeMainPageStatus } from '../../../../store/actions/headerActions';
 import { RootState } from '../../../../store/store';
-import SvgTemplate from '../../SvgTemplate';
 import './BasketAlert.scss';
 
 // /. Imports
@@ -25,7 +27,7 @@ const BasketAlert: React.FC = () => {
         dispatch(changeMainPageStatus(false));
     };
 
-    useEffect(() => {  
+    useEffect(() => {
         if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) { // logic of show/hide BasketAlert
             dispatch(setNotificationVisibleStatus(true));
             alert.current?.classList.add('visible');
@@ -46,20 +48,16 @@ const BasketAlert: React.FC = () => {
         <div ref={alert} className="alert">
             <div className="alert__wrapper">
                 <div className="alert__notification">
-                    <span className="icon">
-                        <Link to="Favourite" onClick={relocateToFavouritePage}>
-                            <SvgTemplate id="notification" />
-                        </Link>
-                    </span>
+                    <Link to="Favourite" onClick={relocateToFavouritePage}>
+                        <RiErrorWarningLine color={'#000'} size={'22px'} />
+                    </Link>
                 </div>
                 <div className="alert__information">
                     <span className="alert__message">Visit to Favourite page!</span>
                     <span className="alert__count">{`${likedCardsData.length} in basket!`}</span>
                 </div>
                 <button className="alert__button" onClick={closeAlert}>
-                    <span className="icon">
-                        <SvgTemplate id="close" />
-                    </span>
+                    <IoCloseOutline color={'#000'} size={'18px'} />
                 </button>
             </div>
         </div>

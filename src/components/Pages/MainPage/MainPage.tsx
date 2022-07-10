@@ -1,12 +1,15 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { MdKeyboardArrowUp } from 'react-icons/md';
+
 import CardList from '../../Card/CardLits';
-import SvgTemplate from '../../Common/SvgTemplate';
 import SortButtonList from '../../SortButton/SortButtonList';
 import Preloader from '../../Common/Preloader/Preloader';
 import BasketAlert from '../../Common/Alert/BasketAlert/BasketAlert';
+
 import requestHandler from '../../../store/async-actions/fetchCardsData';
+
 import { RootState } from '../../../store/store';
 
 // /. Imports
@@ -57,9 +60,7 @@ const MainPage: React.FC = () => {
               disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
               onClick={scrollTop}
             >
-              <span className="icon">
-                <SvgTemplate id="arrow" />
-              </span>
+              <MdKeyboardArrowUp color={'#fff'} size={'36px'} />
             </button>
           </div>
         </div>

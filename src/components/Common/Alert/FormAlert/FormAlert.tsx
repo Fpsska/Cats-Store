@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { RiErrorWarningLine } from 'react-icons/ri';
+
 import { setFormAlertVisibleStatus } from '../../../../store/actions/formActions';
-import SvgTemplate from '../../SvgTemplate';
+
 import './FormAlert.scss';
 
 // /. Imports
@@ -31,7 +33,7 @@ const FormAlert: React.FC = () => {
         <div className="form-alert">
             <div className="form-alert__wrapper">
                 <div className="form-alert__description">
-                    <SvgTemplate id="notification" />
+                    <RiErrorWarningLine color={'#e52d2d'} size={'24px'} />
                     <p className="form-alert__text">Sorry! Function temporarily unavailable</p>
                 </div>
                 <div className="form-alert__controls">

@@ -111,6 +111,7 @@ main {
         font-size: 18px;
     }
 }
+
 // /. general pages styles
 
 .button {
@@ -182,9 +183,12 @@ svg {
     position: absolute;
     right: 0;
     bottom: 0;
-    &:hover .icon__arrow path {
+    &:hover svg {
         fill: #abadad;
-        transition: 0.1s linear;
+    }
+    svg {
+        transition: 0.2s linear;
     }
 }
+
 // /. main page styles

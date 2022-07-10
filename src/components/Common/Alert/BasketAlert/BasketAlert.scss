@@ -24,11 +24,12 @@
     }
     &__notification {
         margin: auto;
-        &:hover {
+        &:hover svg {
             cursor: pointer;
-            .icon__notification {
-                fill: #fff;
-            }
+            fill: #fff;
+        }
+        svg {
+            transition: 0.2s linear;
         }
     }
     &__button {
@@ -39,9 +40,12 @@
         border-radius: 0 5px 5px 0;
         &:hover {
             background-color: rgba($color: #fff, $alpha: 0.4);
-            .icon__close {
-                fill: red;
-            }
+        }
+        &:hover svg {
+            stroke: #e52d2d;
+        }
+        svg {
+            transition: 0.2s linear;
         }
     }
     &__information {

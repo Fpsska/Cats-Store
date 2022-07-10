@@ -84,16 +84,26 @@
     width: 46px;
     background: transparent;
     padding: 0;
-}
-.card__icons_button {
+    opacity: 0.58;
+    &:hover svg {
+        fill: #e52d2d;
+    }
     &:disabled {
-        .icon__heart path {
+        svg {
             fill: #000;
         }
     }
+    svg {
+        transition: 0.25s linear;
+    }
 }
+
 .card__icons_button.like {
     @extend .card__icons_button;
+    opacity: 1;
+    svg {
+        fill: #e52d2d;
+    }
     animation: scale 0.35s ease-out both;
     @keyframes scale {
         0% {
@@ -111,10 +121,6 @@
         100% {
             transform: scale(1);
         }
-    }
-    .icon__heart path {
-        fill: #e52d2d;
-        opacity: 1;
     }
 }
 .card__icons_button.unlike {
@@ -137,14 +143,6 @@
         100% {
             transform: translateX(0) rotate(0);
         }
-    }
-}
-
-.icon__heart path {
-    opacity: 0.55;
-    transition: 0.35s linear;
-    &:hover {
-        fill: #e52d2d;
     }
 }
 
