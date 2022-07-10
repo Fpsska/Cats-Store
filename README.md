@@ -1,6 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-###### _powered by [The Cat API](https://thecatapi.com/)_
+###### 
+_powered by_
+- [the Cat API](https://thecatapi.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
 
 ### `Watch demo` _[cats-store](https://fpsska.github.io/Cats-Store/)_
 
