@@ -1,6 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
 import { NavLink } from 'react-router-dom';
+
+import { useAppDispatch } from '../../store/hooks';
 
 import {
   changeMainPageStatus,
@@ -21,7 +23,7 @@ interface HeaderLinkProps {
 const HeaderLink: React.FC<HeaderLinkProps> = ({ isBurgerHidden, link, text }) => {
   const { handlePageName } = usePageName();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
 
   const removeBodyStatus = (text: string): void => {

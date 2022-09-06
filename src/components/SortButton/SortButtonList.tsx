@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../store/hooks';
 
 import { RootState } from '../../store/store';
 
@@ -15,7 +15,7 @@ const SortButtonList: React.FC = () => {
     isCardsDataFetching,
     isCardsDataFetchError,
     sortButtons
-  } = useSelector((state: RootState) => state.cardReducer);
+  } = useAppSelector((state: RootState) => state.cardReducer);
 
   return (
     <div className="controls__wrapper">

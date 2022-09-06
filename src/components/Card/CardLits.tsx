@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
-import { RootState } from '../../store/store';
+import { useAppSelector } from '../../store/hooks';
+
 import { actualDataTypes } from '../../Types/cardTypes';
 
 import Card from './Card';
@@ -9,9 +9,9 @@ import Card from './Card';
 // /. Imports
 
 const CardList: React.FC = () => {
-  const { cards, likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-  const { isHomePage } = useSelector((state: RootState) => state.headerReducer);
-  const { currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
+  const { cards, likedCardsData } = useAppSelector(state => state.cardReducer);
+  const { isHomePage } = useAppSelector(state => state.headerReducer);
+  const { currentRangeValue } = useAppSelector(state => state.filterReducer);
 
   const [list, setList] = useState<actualDataTypes[]>([]);
 

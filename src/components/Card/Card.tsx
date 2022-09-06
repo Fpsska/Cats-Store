@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { BsHeartFill } from 'react-icons/bs';
+
+import { useAppDispatch } from '../../store/hooks';
 
 import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from '../../store/actions/cardActions';
 
@@ -26,23 +27,26 @@ interface CardProps {
 
 // /. interfaces
 
-const Card: React.FC<CardProps> = ({
-  id,
-  image,
-  name,
-  location,
-  age,
-  paw,
-  price,
-  discount,
-  isFavourite,
-  cardStatus,
-  discountStatus,
-  currentRangeValue
-}) => {
+const Card: React.FC<CardProps> = (props) => {
+
+  const {
+    id,
+    image,
+    name,
+    location,
+    age,
+    paw,
+    price,
+    discount,
+    isFavourite,
+    cardStatus,
+    discountStatus,
+    currentRangeValue
+  } = props;
+
   const buttonLike = useRef<HTMLButtonElement>(null!);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const setFavourite = (): void => {
     isFavourite

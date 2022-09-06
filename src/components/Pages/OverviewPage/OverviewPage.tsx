@@ -1,23 +1,30 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import Preloader from '../../Common/Preloader/Preloader';
 import fetchGifData from '../../../store/async-actions/fetchGifData';
 import { fetchGifDataToggle } from '../../../store/actions/cardActions';
-import { RootState } from '../../../store/store';
+
 import './OverviewPage.scss';
 
 // /. Imports
 
 const OverviewPage: React.FC = () => {
-  const { gifData, isGifDataFetching, isGifDataFetchError, gifDataFetchErrorMessage } = useSelector((state: RootState) => state.cardReducer);
-  const dispatch = useDispatch();
-  // 
+  const {
+    gifData,
+    isGifDataFetching,
+    isGifDataFetchError,
+    gifDataFetchErrorMessage
+  } = useAppSelector(state => state.cardReducer);
+  const dispatch = useAppDispatch();
+
+
   const fetchNewGifData = (): void => {
     dispatch(fetchGifData());
     dispatch(fetchGifDataToggle(true));
   };
-  // 
+
   return (
     <div className="section">
       <div className="container container--middle">

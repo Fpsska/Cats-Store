@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import { MdKeyboardArrowUp } from 'react-icons/md';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import CardList from '../../Card/CardLits';
 import SortButtonList from '../../SortButton/SortButtonList';
@@ -10,8 +11,6 @@ import BasketAlert from '../../Common/Alert/BasketAlert/BasketAlert';
 
 import requestHandler from '../../../store/async-actions/fetchCardsData';
 
-import { RootState } from '../../../store/store';
-
 // /. Imports
 
 const MainPage: React.FC = () => {
@@ -19,11 +18,9 @@ const MainPage: React.FC = () => {
     isCardsDataFetching,
     isCardsDataFetchError,
     cardsDataFetchErrorMessage
-  } = useSelector(
-    (state: RootState) => state.cardReducer
-  );
+  } = useAppSelector(state => state.cardReducer);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const scrollPoint = useRef<HTMLDivElement>(null!);
 

@@ -1,23 +1,26 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+
+
 import { Link } from 'react-router-dom';
 
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { IoCloseOutline } from 'react-icons/io5';
 
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+
 import { setNotificationVisibleStatus } from '../../../../store/actions/cardActions';
 import { changeMainPageStatus } from '../../../../store/actions/headerActions';
-import { RootState } from '../../../../store/store';
+
 import './BasketAlert.scss';
 
 // /. Imports
 
 const BasketAlert: React.FC = () => {
-    const { likedCardsData } = useSelector((state: RootState) => state.cardReducer);
+    const { likedCardsData } = useAppSelector(state => state.cardReducer);
 
     const alert = useRef<HTMLDivElement>(null);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
 
     const closeAlert = (): void => {

@@ -1,8 +1,8 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { changeNavDisplay } from '../../store/actions/headerActions';
-import { RootState } from '../../store/store';
 
 import logo from '../../assets/images/logo.svg';
 
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     isBurgerOpen,
     isHomePage,
     isOverviewPage
-  } = useSelector((state: RootState) => state.headerReducer);
+  } = useAppSelector(state => state.headerReducer);
 
   const {
     isCardsDataFetching,
@@ -31,11 +31,11 @@ const Header: React.FC = () => {
     cards,
     likedCardsData,
     filteredCardsData
-  } = useSelector((state: RootState) => state.cardReducer);
+  } = useAppSelector(state => state.cardReducer);
 
   const text = useRef<string>('cat');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
 
   const defineBurgerStatus = (): void => {

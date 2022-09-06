@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import SwiperCore from 'swiper';
 
@@ -7,13 +6,18 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 
 import { Pagination } from 'swiper';
 
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+
 import Card from '../../Card/Card';
 import Filter from '../../Filter/Filter';
+
 import { actualDataTypes } from '../../../Types/cardTypes';
 import { setFilteredStatus } from '../../../store/actions/cardActions';
-import { RootState } from '../../../store/store';
+
 import empty_image from '../../../assets/images/empty.png';
+
 import './FavouritePage.scss';
+
 // Import Swiper styles
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
@@ -23,15 +27,15 @@ SwiperCore.use([Pagination]);
 // /. Imports
 
 const FavouritePage: React.FC = () => {
-  const { currentRangeValue } = useSelector((state: RootState) => state.filterReducer);
-  const { likedCardsData, filteredCardsData, isDataFiltered } = useSelector((state: RootState) => state.cardReducer);
+  const { currentRangeValue } = useAppSelector(state => state.filterReducer);
+  const { likedCardsData, filteredCardsData, isDataFiltered } = useAppSelector(state => state.cardReducer);
 
   const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true);
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true);
   const [totalPrice, setTotalPrice] = useState<number>(0); // current total price of likedCardsData
   const [list, setList] = useState<actualDataTypes[]>([]);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {  // define current render data
     isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData);

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useAppDispatch } from '../../store/hooks';
 
 import { changeBurgerStatus } from '../../store/actions/headerActions';
 import HeaderNav from '../Header/HeaderNav';
@@ -16,7 +17,7 @@ interface BurgerMenuProps {
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ headerLinks, isBurgerOpen }) => {
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
 
   const calcScrollBarWidth = () => {

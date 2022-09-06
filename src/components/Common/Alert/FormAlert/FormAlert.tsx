@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { RiErrorWarningLine } from 'react-icons/ri';
+
+import { useAppDispatch } from '../../../../store/hooks';
 
 import { setFormAlertVisibleStatus } from '../../../../store/actions/formActions';
 
@@ -10,7 +11,7 @@ import './FormAlert.scss';
 // /. Imports
 
 const FormAlert: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const submitAlert = (): void => {
         dispatch(setFormAlertVisibleStatus(false));

@@ -1,23 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { getInputValue } from '../../store/actions/headerActions';
 import { setFormAlertVisibleStatus, setFormSubmitStatus } from '../../store/actions/formActions';
-import { RootState } from '../../store/store';
+
 import './Footer.scss';
 
 // /. Imports
 
 const Footer: React.FC = () => {
-  const { emailValue } = useSelector((state: RootState) => state.headerReducer);
-  const { isFormAlertVisible, isFormSubmitted } = useSelector((state: RootState) => state.formReducer);
+  const { emailValue } = useAppSelector(state => state.headerReducer);
+  const { isFormAlertVisible, isFormSubmitted } = useAppSelector(state => state.formReducer);
 
   const [unavailable, setUnavailableStatus] = useState<boolean>(false);
 
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
