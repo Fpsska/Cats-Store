@@ -11,10 +11,7 @@ interface HeaderNavProps {
 
 // /. interfaces
 
-const HeaderNav: React.FC<HeaderNavProps> = ({
-  headerLinks,
-  isBurgerHidden
-}) => {
+const HeaderNav: React.FC<HeaderNavProps> = ({ headerLinks, isBurgerHidden }) => {
   return (
     <nav className="nav">
       <ul className={isBurgerHidden ? 'nav__menu' : 'nav__menu-burger'}>
@@ -22,8 +19,8 @@ const HeaderNav: React.FC<HeaderNavProps> = ({
           return (
             <HeaderLink
               key={item.id}
-              text={item.text}
-              link={item.link}
+              {...item}
+
               isBurgerHidden={isBurgerHidden}
             />
           );

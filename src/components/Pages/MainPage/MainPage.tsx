@@ -15,12 +15,18 @@ import { RootState } from '../../../store/store';
 // /. Imports
 
 const MainPage: React.FC = () => {
-  const { isCardsDataFetching, isCardsDataFetchError, cardsDataFetchErrorMessage } = useSelector(
+  const {
+    isCardsDataFetching,
+    isCardsDataFetchError,
+    cardsDataFetchErrorMessage
+  } = useSelector(
     (state: RootState) => state.cardReducer
   );
+
   const dispatch = useDispatch();
+
   const scrollPoint = useRef<HTMLDivElement>(null!);
-  //
+
   const scrollTop = (): void => {
     scrollPoint.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
@@ -28,7 +34,7 @@ const MainPage: React.FC = () => {
   const fetchRequest = (): void => {
     dispatch(requestHandler());
   };
-  //
+
   return (
     <div ref={scrollPoint} className="section">
       <div className="container">
@@ -50,14 +56,14 @@ const MainPage: React.FC = () => {
               )}</>
             <button
               className="gallery__button button"
-              disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
+              disabled={isCardsDataFetching || isCardsDataFetchError}
               onClick={fetchRequest}
             >
               Watch more
             </button>
             <button
               className="pagination"
-              disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
+              disabled={isCardsDataFetching || isCardsDataFetchError}
               onClick={scrollTop}
             >
               <MdKeyboardArrowUp color={'#fff'} size={'36px'} />

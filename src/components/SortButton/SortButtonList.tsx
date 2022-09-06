@@ -18,16 +18,15 @@ const SortButtonList: React.FC = () => {
   } = useSelector(
     (state: RootState) => state.cardReducer
   );
-  //
+
   return (
     <div className="controls__wrapper">
       {sortButtons.map(item => {
         return (
           <SortButtonTemplate
             key={item.id}
-            id={item.id}
-            text={item.text}
-            isSorted={item.isSorted}
+            {...item}
+
             isCardsDataFetching={isCardsDataFetching}
             isCardsDataFetchError={isCardsDataFetchError}
           />

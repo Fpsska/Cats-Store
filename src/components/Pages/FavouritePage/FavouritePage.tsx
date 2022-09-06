@@ -113,17 +113,8 @@ const FavouritePage: React.FC = () => {
                       <SwiperSlide key={item.id}>
                         <Card
                           key={item.id}
-                          id={item.id}
-                          image={item.image}
-                          name={item.name}
-                          location={item.location}
-                          age={item.age}
-                          paw={item.paw}
-                          price={item.price}
-                          discount={item.discount}
-                          isFavourite={item.isFavourite}
-                          cardStatus={item.cardStatus}
-                          discountStatus={item.discountStatus}
+                          {...item}
+
                           currentRangeValue={currentRangeValue}
                         />
                       </SwiperSlide>

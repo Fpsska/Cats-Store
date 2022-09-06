@@ -70,10 +70,10 @@ const Card: React.FC<CardProps> = ({
           <button
             ref={buttonLike}
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
-            disabled={cardStatus ? false : true}
+            disabled={!cardStatus}
             onClick={setFavourite}
           >
-            <BsHeartFill color={'#fff'} size={'42px'}/>
+            <BsHeartFill color={'#fff'} size={'42px'} />
           </button>
         </div>
         <img className="card__image" src={image} alt="cat" />
