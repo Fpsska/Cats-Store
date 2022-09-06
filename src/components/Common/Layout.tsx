@@ -16,21 +16,19 @@ import FormAlert from './Alert/FormAlert/FormAlert';
 
 const Layout: React.FC = () => {
   const { isFormAlertVisible } = useSelector((state: RootState) => state.formReducer);
+
   const dispatch = useDispatch();
-  // 
+
+
   useEffect(() => {
     dispatch(fetchCardsData());
     dispatch(fetchGifData());
   }, []);
-  // 
+
   return (
     <div className="page">
       <>
-        {isFormAlertVisible ?
-          <FormAlert />
-          :
-          <></>
-        }
+        {isFormAlertVisible && <FormAlert />}
       </>
       <Header />
       <main className="main">

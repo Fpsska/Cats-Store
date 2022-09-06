@@ -18,21 +18,19 @@ interface HeaderLinkProps {
 
 // /. interfaces
 
-const HeaderLink: React.FC<HeaderLinkProps> = ({
-  isBurgerHidden,
-  link,
-  text
-}) => {
+const HeaderLink: React.FC<HeaderLinkProps> = ({ isBurgerHidden, link, text }) => {
   const { handlePageName } = usePageName();
+
   const dispatch = useDispatch();
-  //
+
+
   const removeBodyStatus = (text: string): void => {
     dispatch(changeMainPageStatus(false));
     dispatch(changeBurgerStatus(false));
     handlePageName({ pageName: text });
     document.body.style.overflowY = 'auto';
   };
-  // 
+
   return (
     <li className={isBurgerHidden ? 'nav__menu_item' : 'nav__menu_item-burger'}>
       <NavLink

@@ -1,6 +1,7 @@
 .filter {
     width: 155px;
     position: relative;
+
     &__input {
         position: relative;
         z-index: 2;
@@ -10,7 +11,9 @@
         width: 100%;
         outline: none;
         border-radius: 2px;
-        &[type="range"]::-webkit-slider-thumb { // for Google
+
+        &[type="range"]::-webkit-slider-thumb {
+            // for Google
             -webkit-appearance: none;
             appearance: none;
             outline: none;
@@ -20,7 +23,9 @@
             width: 14px;
             height: 14px;
         }
-        &[type="range"]::-moz-range-thumb {  // for FireFox
+
+        &[type="range"]::-moz-range-thumb {
+            // for FireFox
             cursor: pointer;
             outline: none;
             border-radius: 50%;
@@ -29,6 +34,7 @@
             height: 14px;
         }
     }
+
     &__progress {
         position: absolute;
         z-index: 1;
@@ -40,22 +46,27 @@
         border-radius: 2px;
         overflow: hidden;
     }
+
     &__progress-fill {
         display: block;
         width: 0;
         height: 100%;
-        background-color: #6ebbd3;;
+        background-color: #6ebbd3;
+        ;
     }
+
     &__indicators {
         width: 100%;
         font-size: 15px;
         display: flex;
         justify-content: space-between;
     }
+
     &__counter {
         padding: 10px 0 0 0;
         left: 0;
     }
+
     &__current {
         background-color: #777990;
         color: #fff;

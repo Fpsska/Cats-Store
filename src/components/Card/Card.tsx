@@ -41,19 +41,22 @@ const Card: React.FC<CardProps> = ({
   currentRangeValue
 }) => {
   const buttonLike = useRef<HTMLButtonElement>(null!);
+
   const dispatch = useDispatch();
-  // 
+
   const setFavourite = (): void => {
-    isFavourite ? dispatch(setFavouriteStatus(id, false)) : dispatch(setFavouriteStatus(id, true));
+    isFavourite
+      ? dispatch(setFavouriteStatus(id, false))
+      : dispatch(setFavouriteStatus(id, true));
     dispatch(setLikedCardsData()); // filter cards for likedCardsData
     dispatch(setFilteredCardsData(currentRangeValue)); // update filteredCardsData
   };
-  // 
+
 
   useEffect(() => {
     buttonLike.current.classList.remove('unlike');
   }, []);
-  // 
+
   return (
     <div className="card">
       <div className="card__preview">

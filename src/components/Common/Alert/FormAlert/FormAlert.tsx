@@ -11,24 +11,25 @@ import './FormAlert.scss';
 
 const FormAlert: React.FC = () => {
     const dispatch = useDispatch();
-    // 
+
     const submitAlert = (): void => {
         dispatch(setFormAlertVisibleStatus(false));
     };
 
-    const keyHandler = (e: KeyboardEvent): void => {
-        if (e.code === 'Escape') {
-            dispatch(setFormAlertVisibleStatus(false));
-        }
-    };
 
     useEffect(() => {
-        window.addEventListener('keydown', keyHandler);
+        const keyHandler = (e: KeyboardEvent): void => {
+            if (e.code === 'Escape') {
+                dispatch(setFormAlertVisibleStatus(false));
+            }
+        };
+
+        document.addEventListener('keydown', keyHandler);
         return () => {
-            window.removeEventListener('keydown', keyHandler);
+            document.removeEventListener('keydown', keyHandler);
         };
     }, []);
-    //
+
     return (
         <div className="form-alert">
             <div className="form-alert__wrapper">

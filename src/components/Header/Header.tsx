@@ -16,7 +16,8 @@ import './Header.scss';
 // /. Imports
 
 const Header: React.FC = () => {
-  const { headerLinks,
+  const {
+    headerLinks,
     isBurgerHidden,
     isBurgerOpen,
     isHomePage,
@@ -35,7 +36,8 @@ const Header: React.FC = () => {
   const text = useRef<string>('cat');
 
   const dispatch = useDispatch();
-  //
+
+
   const defineBurgerStatus = (): void => {
     if (window.innerWidth < 800) {
       dispatch(changeNavDisplay(false));
@@ -43,7 +45,7 @@ const Header: React.FC = () => {
       dispatch(changeNavDisplay(true));
     }
   };
-  //
+
   useLayoutEffect(() => {
     window.addEventListener('resize', defineBurgerStatus);
     window.addEventListener('load', defineBurgerStatus);
@@ -70,12 +72,12 @@ const Header: React.FC = () => {
       text.current = 'cats';
     }
   }, [likedCardsData, filteredCardsData, isDataFiltered]);
-  // 
+
   return (
     <header className="header">
       <div className="container">
         <div className="header__section">
-            <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
           <>
             {isBurgerHidden ? (
               <HeaderNav

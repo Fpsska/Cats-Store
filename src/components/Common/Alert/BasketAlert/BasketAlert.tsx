@@ -14,9 +14,12 @@ import './BasketAlert.scss';
 
 const BasketAlert: React.FC = () => {
     const { likedCardsData } = useSelector((state: RootState) => state.cardReducer);
-    const dispatch = useDispatch();
+
     const alert = useRef<HTMLDivElement>(null);
-    // 
+
+    const dispatch = useDispatch();
+
+
     const closeAlert = (): void => {
         dispatch(setNotificationVisibleStatus(false));
         alert.current?.classList.remove('visible');
@@ -26,6 +29,7 @@ const BasketAlert: React.FC = () => {
     const relocateToFavouritePage = (): void => {
         dispatch(changeMainPageStatus(false));
     };
+
 
     useEffect(() => {
         if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) { // logic of show/hide BasketAlert
@@ -43,7 +47,7 @@ const BasketAlert: React.FC = () => {
             dispatch(setNotificationVisibleStatus(false));
         }
     }, [likedCardsData]);
-    // 
+
     return (
         <div ref={alert} className="alert">
             <div className="alert__wrapper">

@@ -14,12 +14,11 @@ interface BurgerMenuProps {
 
 // /. interfaces
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
-  headerLinks,
-  isBurgerOpen
-}) => {
+const BurgerMenu: React.FC<BurgerMenuProps> = ({ headerLinks, isBurgerOpen }) => {
+
   const dispatch = useDispatch();
-  //
+
+
   const calcScrollBarWidth = () => {
     return window.innerWidth - document.body.clientWidth;
   };
@@ -29,11 +28,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
   };
 
   const defineScrollStatus = (): void => {
-    if (isBurgerOpen === true) {
-      document.body.style.overflowY = 'auto';
-    } else {
-      document.body.style.overflowY = 'hidden';
-    }
+    isBurgerOpen
+      ? document.body.style.overflowY = 'auto'
+      : document.body.style.overflowY = 'hidden';
   };
 
   const openBurger = (): void => {
@@ -41,7 +38,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     defineScrollStatus();
     calcPaddingValue();
   };
-  // 
+
   return (
     <>
       <div className="menu" onClick={openBurger}>

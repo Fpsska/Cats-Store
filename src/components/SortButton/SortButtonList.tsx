@@ -15,9 +15,7 @@ const SortButtonList: React.FC = () => {
     isCardsDataFetching,
     isCardsDataFetchError,
     sortButtons
-  } = useSelector(
-    (state: RootState) => state.cardReducer
-  );
+  } = useSelector((state: RootState) => state.cardReducer);
 
   return (
     <div className="controls__wrapper">

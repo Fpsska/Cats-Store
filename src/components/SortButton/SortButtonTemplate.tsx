@@ -16,15 +16,13 @@ interface SortButtonTemplateProps {
 
 // /. interfaces
 
-const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
-  id,
-  text,
-  isCardsDataFetching,
-  isCardsDataFetchError
-}) => {
+const SortButtonTemplate: React.FC<SortButtonTemplateProps> = (props) => {
+
+  const { id, text, isCardsDataFetching, isCardsDataFetchError } = props;
+
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
   const { defineSortOption } = useSort();
-  //
+
   const runSort = (): void => {
     setSwitchStatus(!isSwitched);
     defineSortOption({ name: id, status: isSwitched });
@@ -33,12 +31,15 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = ({
   return (
     <button
       className="controls__menu"
-      disabled={isCardsDataFetching ? true : isCardsDataFetchError ? true : false}
+      disabled={isCardsDataFetching || isCardsDataFetchError}
       onClick={runSort}
     >
       <span className="controls__menu_text">{text}</span>
       <span>
-        {isSwitched ? <MdKeyboardArrowUp color={'#000'} size={'26px'} /> : <MdKeyboardArrowDown color={'#000'} size={'26px'} />}
+        {isSwitched ?
+          <MdKeyboardArrowUp color={'#000'} size={'26px'} />
+          : <MdKeyboardArrowDown color={'#000'} size={'26px'} />
+        }
       </span>
     </button>
   );

@@ -1,5 +1,5 @@
 *,
-*:before,
+*::before,
 *::after {
     box-sizing: border-box;
 }
@@ -28,6 +28,7 @@ li {
 .App {
     height: 100%;
 }
+
 .page {
     height: 100%;
     display: flex;
@@ -60,6 +61,7 @@ main {
     margin: 0 auto;
     padding: 0 10px;
 }
+
 .container--middle {
     @extend .container;
     max-width: 1300px;
@@ -68,6 +70,7 @@ main {
 .section {
     height: 100%;
 }
+
 .section__wrapper {
     display: flex;
     flex-direction: column;
@@ -76,36 +79,46 @@ main {
     height: 100%;
     min-height: 804px;
 }
+
 .section__image {
+    -o-object-fit: contain;
     object-fit: contain;
     width: 265px;
     height: 256px;
 }
+
 .section__title {
     font-weight: 400;
     font-size: 44px;
     margin: 10px 0;
     text-align: center;
 }
+
 .section__title-error {
     font-weight: 900;
     font-size: 120px;
 }
+
 .error {
     margin: auto;
     text-align: center;
     padding: 15vh 0;
 }
+
 .empty {
     text-align: center;
+
     :not(:last-child) {
         margin: 0 0 35px 0;
     }
+
     &__preview {
+        -o-object-fit: cover;
         object-fit: cover;
         height: 110px;
         width: 110px;
     }
+
     &__text {
         font-weight: 400;
         font-size: 18px;
@@ -131,9 +144,11 @@ main {
 svg {
     flex-shrink: 0;
 }
+
 .icon__close {
     fill: #000;
 }
+
 .icon__notification {
     width: 25px;
     height: 25px;
@@ -146,6 +161,7 @@ svg {
     padding: 30px 0 84px 0;
     height: 100%;
 }
+
 .gallery__wrapper {
     position: relative;
     display: flex;
@@ -154,12 +170,14 @@ svg {
     height: 100%;
     min-height: 500px;
 }
+
 .gallery__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 0 30px 0;
 }
+
 .gallery__button {
     border: 1px solid #cacaca;
     border-radius: 10px;
@@ -168,9 +186,11 @@ svg {
     margin: 0 auto 20px auto;
     transition: all 0.15s linear;
     transform: scale(1);
+
     &:hover {
         background-color: #abadad;
     }
+
     &:active {
         transform: scale(1.05);
     }
@@ -183,9 +203,11 @@ svg {
     position: absolute;
     right: 0;
     bottom: 0;
+
     &:hover svg {
         fill: #abadad;
     }
+
     svg {
         transition: 0.2s linear;
     }

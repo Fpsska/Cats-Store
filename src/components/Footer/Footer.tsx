@@ -9,19 +9,16 @@ import './Footer.scss';
 // /. Imports
 
 const Footer: React.FC = () => {
-  const { emailValue } = useSelector(
-    (state: RootState) => state.headerReducer
-  );
-  const { isFormAlertVisible, isFormSubmitted } = useSelector(
-    (state: RootState) => state.formReducer
-  );
+  const { emailValue } = useSelector((state: RootState) => state.headerReducer);
+  const { isFormAlertVisible, isFormSubmitted } = useSelector((state: RootState) => state.formReducer);
+
   const [unavailable, setUnavailableStatus] = useState<boolean>(false);
-  const form = useRef<HTMLFormElement>(null);
+
+
+  const formRef = useRef<HTMLFormElement>(null);
+
   const dispatch = useDispatch();
-  // 
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(getInputValue(e.target.value));
-  };
+
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -31,7 +28,7 @@ const Footer: React.FC = () => {
 
   useEffect(() => {
     if (isFormSubmitted && !isFormAlertVisible) {
-      form.current?.reset();
+      formRef.current?.reset();
       dispatch(getInputValue(''));
       setUnavailableStatus(true);
       setTimeout(() => {
@@ -50,7 +47,7 @@ const Footer: React.FC = () => {
               Subscribe and catch all the promotions
             </p>
           </div>
-          <form ref={form} className="form" onSubmit={onFormSubmit}>
+          <form ref={formRef} className="form" onSubmit={e => onFormSubmit(e)}>
             <div className="form__controls">
               <input
                 className="form__input"
@@ -59,7 +56,7 @@ const Footer: React.FC = () => {
                 disabled={unavailable}
                 required
                 value={emailValue}
-                onChange={inputHandler}
+                onChange={(e) => dispatch(getInputValue(e.target.value))}
               />
               <button className="form__button button" disabled={unavailable}>Subscribe</button>
             </div>

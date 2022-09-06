@@ -1,6 +1,7 @@
 .overview {
     padding: 20px 0 50px 0;
     height: 100%;
+
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -8,6 +9,7 @@
         height: 100%;
         min-height: 700px;
     }
+
     &__gallery {
         display: flex;
         flex-wrap: wrap;
@@ -15,16 +17,20 @@
         flex: 1;
         min-height: 640px;
     }
+
     &__card {
         margin: 10px;
         height: 300px;
         width: 300px;
     }
+
     &__image {
         height: 100%;
         width: 100%;
+        -o-object-fit: cover;
         object-fit: cover;
     }
+
     &__button {
         padding: 22px 126px;
         border-radius: 5px;
@@ -32,9 +38,11 @@
         border: 1px solid #cacaca;
         transition: all 0.15s linear;
         transform: scale(1);
+
         &:hover {
             background-color: #abadad;
         }
+
         &:active {
             transform: scale(1.05);
         }

@@ -2,16 +2,20 @@
     .form {
         padding: 0 10px;
     }
+
     .form__input.form__input {
         margin: 0 0 20px 0;
     }
+
     .form__controls {
         display: flex;
         flex-direction: column;
     }
+
     .footer__wrapper {
         align-items: center;
     }
+
     .basket__section {
         justify-content: center;
     }
@@ -21,16 +25,20 @@
     .header.header {
         padding: 60px;
     }
+
     .footer.footer {
         padding: 90px 40px;
     }
+
     .footer__wrapper {
         flex-wrap: wrap;
     }
+
     .footer__description.footer__description {
         flex: auto;
         margin-bottom: 60px;
     }
+
     .gallery__button {
         margin: 0 auto 100px auto;
     }
@@ -47,52 +55,68 @@
         width: 280px;
         margin: 0 0 40px 0;
     }
+
     .card {
         margin: 10px 0;
     }
+
     .basket {
         padding: 40px 0 40px 0;
     }
+
     .price.price {
         align-items: center;
     }
+
     .controls__menu {
         flex: 1;
+
         &:not(:last-child) {
             margin: 0 !important;
         }
     }
+
     .controls {
         flex-direction: column;
     }
+
     .controls__wrapper {
         margin-top: 24px;
     }
+
     .header.header {
         padding: 60px 30px;
     }
+
     .footer.footer {
         padding: 90px 10px;
     }
+
     .icon__logo {
         display: none;
     }
+
     .header__section.header__section {
         justify-content: flex-end;
     }
+
     .gallery__button {
         width: 100%;
         padding: 20px 0;
     }
+
     .basket__section {
         flex-direction: column;
     }
+
     .basket__price {
         margin: 0 0 40px 0;
     }
+
     .basket__filter {
         width: 80%;
     }
+
     .filter {
         width: 100%;
     }

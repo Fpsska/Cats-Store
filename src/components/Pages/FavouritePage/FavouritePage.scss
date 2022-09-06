@@ -3,11 +3,13 @@
     width: 100%;
     height: 100%;
     padding: 20px 0;
+
     &__wrapper {
         height: 100%;
         display: flex;
         flex-direction: column;
     }
+
     &__slider {
         width: 100%;
         display: flex;
@@ -15,18 +17,22 @@
         align-items: center;
         flex: 1;
     }
+
     &__price {
         margin: 0 40px 30px 0;
     }
+
     &__section {
         display: flex;
         align-items: center;
         padding: 0 10px;
     }
 }
+
 .basket.empty {
     padding: 63px 0;
 }
+
 .basket__slider.empty {
     padding: 195.5px 0;
 }
@@ -36,24 +42,30 @@
     flex-direction: column;
     align-items: flex-start;
     min-width: 200px;
+
     :not(:last-child) {
         margin: 0 0 5px 0;
     }
+
     &__text {
         font-weight: 600;
     }
+
     &__section {
         display: flex;
         align-items: center;
+
         :not(:last-child) {
             margin: 0 15px 0 0;
         }
     }
+
     &__count {
         background-color: rgba($color: #ccc, $alpha: 0.8);
         border-radius: 5px;
         padding: 10px 60px;
     }
+
     &__currency {
         font-weight: 600;
     }
@@ -64,31 +76,26 @@
     width: 100%;
     height: 100%;
 }
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
     /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
     align-items: center;
     cursor: pointer;
 }
+
 .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
+
 .swiper-wrapper {
     justify-content: flex-start;
 }
