@@ -42,7 +42,7 @@ const Filter: React.FC = () => {
     }, []);
 
     return (
-        <div className="filter">
+        <form className="filter">
             <input
                 ref={input}
                 className="filter__input"
@@ -59,7 +59,7 @@ const Filter: React.FC = () => {
                 <span className="filter__counter filter__counter--min">{`${inputRangeMinValue} $`}</span>
                 <span className="filter__counter filter__counter--max">{`${inputRangeTotalValue} $`}</span>
             </div>
-        </div>
+        </form>
     );
 };
 

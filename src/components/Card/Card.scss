@@ -74,11 +74,7 @@
     color: #fff;
     padding: 8px 20px;
     min-width: 74px;
-}
-
-.card__icons_discount-none {
-    background-color: transparent;
-    visibility: hidden;
+    margin: 0 0 0 0;
 }
 
 .card__icons {
@@ -97,6 +93,9 @@
     background: transparent;
     padding: 0;
     opacity: 0.58;
+    flex: 1;
+    max-width: 45px;
+    margin: 0 0 0 auto;
 
     &:hover svg {
         fill: #e52d2d;

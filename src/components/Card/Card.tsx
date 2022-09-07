@@ -67,15 +67,10 @@ const Card: React.FC<CardProps> = (props) => {
     <article className="card">
       <div className="card__preview">
         <div className="card__icons">
-          <span
-            className={
-              discountStatus
-                ? 'card__icons_discount'
-                : 'card__icons_discount-none'
-            }
-          >
-            {discount}
-          </span>
+          <>
+            {discountStatus &&
+              <span className="card__icons_discount">{discount}</span>}
+          </>
           <button
             ref={buttonLike}
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
@@ -96,7 +91,7 @@ const Card: React.FC<CardProps> = (props) => {
         />
       </div>
       <div className="card__information">
-        <p className="card__name">{name}</p>
+        <span className="card__name">{name}</span>
         <ul className="card__description description">
           <li className="description__item description__item_color">
             Location: <br />
@@ -109,7 +104,7 @@ const Card: React.FC<CardProps> = (props) => {
             <span className="bold">{paw}</span> <br /> Paws count
           </li>
         </ul>
-        <p className="card__price">{`${price} USD`}</p>
+        <span className="card__price">{`${price} USD`}</span>
       </div>
       <button
         className={

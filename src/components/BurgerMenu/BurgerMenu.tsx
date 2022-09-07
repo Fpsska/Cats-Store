@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useAppDispatch } from '../../store/hooks';
 
@@ -16,17 +16,8 @@ interface BurgerMenuProps {
 // /. interfaces
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ headerLinks, isBurgerOpen }) => {
-
   const dispatch = useAppDispatch();
 
-
-  const calcScrollBarWidth = () => {
-    return window.innerWidth - document.body.clientWidth;
-  };
-
-  const calcPaddingValue = (): string => {
-    return (document.body.style.paddingRight = `${calcScrollBarWidth()}`);
-  };
 
   const defineScrollStatus = (): void => {
     isBurgerOpen
@@ -37,8 +28,20 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ headerLinks, isBurgerOpen }) =>
   const openBurger = (): void => {
     dispatch(changeBurgerStatus(!isBurgerOpen));
     defineScrollStatus();
-    calcPaddingValue();
   };
+
+  useEffect(() => {
+    const keyHandler = (e: KeyboardEvent): void => {
+      if (isBurgerOpen && e.code === 'Escape') {
+        dispatch(changeBurgerStatus(false));
+      }
+    };
+
+    document.addEventListener('keydown', keyHandler);
+    return () => {
+      document.removeEventListener('keydown', keyHandler);
+    };
+  }, [isBurgerOpen]);
 
   return (
     <>
