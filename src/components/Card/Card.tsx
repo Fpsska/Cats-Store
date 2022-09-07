@@ -6,6 +6,8 @@ import { useAppDispatch } from '../../store/hooks';
 
 import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from '../../store/actions/cardActions';
 
+import image_placeholder from '../../assets/images/no_photo.png';
+
 import './Card.scss';
 
 // /. Imports
@@ -83,7 +85,15 @@ const Card: React.FC<CardProps> = (props) => {
             <BsHeartFill color={'#fff'} size={'42px'} />
           </button>
         </div>
-        <img className="card__image" src={image} alt="cat" />
+        <img
+          className="card__image"
+          src={image}
+          alt="cat"
+          onError={e => {
+            (e.target as HTMLImageElement).src = image_placeholder;
+            (e.target as HTMLImageElement).onerror = null;
+          }}
+        />
       </div>
       <div className="card__information">
         <p className="card__name">{name}</p>

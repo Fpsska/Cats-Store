@@ -40,7 +40,7 @@ const fetchCardsData = () => {
                 actualData.push(
                     {
                         id: `${Math.random() + item.id}`,
-                        image: item.image.url, // item.image.url
+                        image: item.image.url, 
                         name: item.name,
                         location: item.origin,
                         paw: '4',
