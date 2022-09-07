@@ -21,8 +21,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-export default store;
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof reducers>;
 
-
+export default store;

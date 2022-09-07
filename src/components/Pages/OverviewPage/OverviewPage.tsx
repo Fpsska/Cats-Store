@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { useDispatch } from 'react-redux';
+
+import { useAppSelector } from '../../../store/hooks';
 
 import Preloader from '../../Common/Preloader/Preloader';
-import fetchGifData from '../../../store/async-actions/fetchGifData';
+
 import { fetchGifDataToggle } from '../../../store/actions/cardActions';
+
+import fetchGifData from '../../../store/async-actions/fetchGifsData';
 
 import './OverviewPage.scss';
 
@@ -17,7 +21,8 @@ const OverviewPage: React.FC = () => {
     isGifDataFetchError,
     gifDataFetchErrorMessage
   } = useAppSelector(state => state.cardReducer);
-  const dispatch = useAppDispatch();
+
+  const dispatch = useDispatch();
 
 
   const fetchNewGifData = (): void => {
