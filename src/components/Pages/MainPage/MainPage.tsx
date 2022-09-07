@@ -37,7 +37,7 @@ const MainPage: React.FC = () => {
   return (
     <div ref={scrollPoint} className="section">
       <div className="container">
-        <div className="gallery">
+        <section className="gallery">
           <div className="controls">
             <span className="controls__title">Sorted by:</span>
             <>
@@ -68,7 +68,7 @@ const MainPage: React.FC = () => {
               <MdKeyboardArrowUp color={'#fff'} size={'36px'} />
             </button>
           </div>
-        </div>
+        </section>
       </div>
       <BasketAlert />
     </div>

@@ -41,13 +41,13 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__wrapper">
-          <div className="footer__description">
+        <section className="footer__wrapper">
+          <article className="footer__description">
             <h2 className="footer__title">Hurry up to buy!</h2>
             <p className="footer__subtitle">
               Subscribe and catch all the promotions
             </p>
-          </div>
+          </article>
           <form ref={formRef} className="form" onSubmit={e => onFormSubmit(e)}>
             <div className="form__controls">
               <input
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
               />
             </label>
           </form>
-        </div>
+        </section>
       </div>
     </footer>
   );

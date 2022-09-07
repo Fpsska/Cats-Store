@@ -76,8 +76,10 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="container">
-        <div className="header__section">
-          <img src={logo} alt="logo" />
+        <section className="header__section">
+          <a className="header__logo logo" href="#">
+            <img className="logo__image" src={logo} alt="logo" />
+          </a>
           <>
             {isBurgerHidden ? (
               <HeaderNav
@@ -97,7 +99,7 @@ const Header: React.FC = () => {
             </a>
             <span className="telephone__description">Call soon!</span>
           </div>
-        </div>
+        </section>
         <>
           <>
             {isCardsDataFetching ? (
@@ -108,7 +110,8 @@ const Header: React.FC = () => {
                   ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? '0' : cards.length} cats`}</h1>
                   : isOverviewPage
                     ? <h1 className="header__text">{'Have a good day ;)'}</h1>
-                    : <h1 className="header__text">
+                    :
+                    <h1 className="header__text">
                       {`Selected ${isCardsDataFetchError ? '0' : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}
                     </h1>
                 }

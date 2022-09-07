@@ -33,7 +33,7 @@ const OverviewPage: React.FC = () => {
   return (
     <div className="section">
       <div className="container container--middle">
-        <div className="overview">
+        <section className="overview">
           <div className="overview__wrapper">
             {isGifDataFetching ?
               <div className="overview__gallery">
@@ -56,9 +56,14 @@ const OverviewPage: React.FC = () => {
                   }
                 </div>
             }
-            <button className="overview__button" onClick={fetchNewGifData} disabled={isGifDataFetching ? true : isGifDataFetchError ? true : false}>Watch others</button>
+            <button
+              className="overview__button"
+              onClick={fetchNewGifData}
+              disabled={isGifDataFetching || isGifDataFetchError}>
+              Watch others
+            </button>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

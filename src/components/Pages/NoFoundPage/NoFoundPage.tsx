@@ -23,22 +23,20 @@ const NoFoundPage: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="section">
-        <div className="section__wrapper">
-          <img className="section__image" src={noFoundPage} alt="404 error" />
-          <h1 className="section__title section__title-error">404</h1>
-          <p className="section__link">
-            Sorry, this page doesn't exist, return to home{' '}
-            <span>
-              <Link to="/Cats-Store" onClick={goHomePage}>
-                page
-              </Link>
-            </span>
-          </p>
-        </div>
-      </div>
-    </>
+    <div className="section">
+      <article className="section__wrapper">
+        <img className="section__image" src={noFoundPage} alt="404 error" />
+        <h1 className="section__title section__title-error">404</h1>
+        <p className="section__link">
+          Sorry, this page doesn't exist, return to home{' '}
+          <span>
+            <Link to="/Cats-Store" onClick={goHomePage}>
+              page
+            </Link>
+          </span>
+        </p>
+      </article>
+    </div>
   );
 };
 

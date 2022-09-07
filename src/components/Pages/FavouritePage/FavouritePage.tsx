@@ -61,7 +61,7 @@ const FavouritePage: React.FC = () => {
   // 
   return (
     <div className="section">
-      <div className={emptyLikedCardsDataStatus ? 'basket empty' : 'basket'}>
+      <section className={emptyLikedCardsDataStatus ? 'basket empty' : 'basket'}>
         <div className="basket__wrapper">
           {emptyLikedCardsDataStatus ?
             <></>
@@ -129,7 +129,7 @@ const FavouritePage: React.FC = () => {
             }
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

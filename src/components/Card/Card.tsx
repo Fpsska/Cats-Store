@@ -64,7 +64,7 @@ const Card: React.FC<CardProps> = (props) => {
   }, []);
 
   return (
-    <div className="card">
+    <article className="card">
       <div className="card__preview">
         <div className="card__icons">
           <span
@@ -118,7 +118,7 @@ const Card: React.FC<CardProps> = (props) => {
       >
         {cardStatus ? 'Buy' : 'Sold'}
       </button>
-    </div>
+    </article>
   );
 };
 export default Card;

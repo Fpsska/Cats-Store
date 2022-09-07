@@ -21,6 +21,8 @@ input {
 ul,
 li {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 // ./ nullstyles
@@ -203,6 +205,7 @@ svg {
     position: absolute;
     right: 0;
     bottom: 0;
+    padding: 5px;
 
     &:hover svg {
         fill: #abadad;
