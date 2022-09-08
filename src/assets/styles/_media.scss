@@ -72,7 +72,7 @@
         flex: 1;
 
         &:not(:last-child) {
-            margin: 0 !important;
+            margin: 0 50px 0 0;
         }
     }
 
@@ -94,10 +94,6 @@
 
     .icon__logo {
         display: none;
-    }
-
-    .header__section.header__section {
-        justify-content: flex-end;
     }
 
     .gallery__button {
@@ -125,5 +121,13 @@
 @media screen and (max-width: 375px) {
     .basket__filter {
         width: 70%;
+    }
+
+    .header__section {
+        flex-direction: column;
+
+        :not(:last-child) {
+            margin: 0 0 20px 0;
+        }
     }
 }

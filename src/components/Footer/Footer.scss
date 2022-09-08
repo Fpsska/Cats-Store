@@ -1,5 +1,5 @@
 .footer {
-    padding: 50px 40px;
+    padding: 70px 40px;
     background-color: #1f2021;
     flex: 0 0 auto;
 }
@@ -8,7 +8,6 @@
     color: #fff;
     font-size: 48px;
     font-weight: 700;
-    margin-bottom: 40px;
 }
 
 .footer__subtitle {
@@ -16,6 +15,7 @@
     font-size: 28px;
     font-weight: 400;
     line-height: 25.54px;
+    margin: 0
 }
 
 .footer__wrapper {
@@ -25,12 +25,21 @@
 
 .footer__description {
     flex: 0 0 50%;
+    :not(:last-child) {
+        margin: 0 0 40px 0;
+    }
 }
 
 .form {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
+}
+
+.form__controls {
+    :not(:last-child) {
+        margin: 0 16px 0 0;
+    }
 }
 
 .form__cheakbox-label {
@@ -47,7 +56,6 @@
 }
 
 .form__input {
-    margin-right: 16px;
     padding: 22px 33px;
     background: #fff;
     border-radius: 10px;

@@ -41,6 +41,10 @@ li {
     height: 100%;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     line-height: 1;
     margin: 0;
@@ -92,13 +96,16 @@ main {
 .section__title {
     font-weight: 400;
     font-size: 44px;
-    margin: 10px 0;
     text-align: center;
 }
 
 .section__title-error {
     font-weight: 900;
     font-size: 120px;
+}
+
+.section__link {
+    margin: 0;
 }
 
 .error {
@@ -118,7 +125,8 @@ main {
         -o-object-fit: cover;
         object-fit: cover;
         height: 110px;
-        width: 110px;
+        max-width: 110px;
+        width: 100%;
     }
 
     &__text {
@@ -159,6 +167,7 @@ svg {
 }
 
 //
+
 .gallery {
     padding: 30px 0 84px 0;
     height: 100%;
@@ -168,7 +177,7 @@ svg {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
     min-height: 500px;
 }

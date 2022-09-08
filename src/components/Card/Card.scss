@@ -28,10 +28,13 @@
     padding: 30px;
     background-color: #f3f3f3;
     flex: 1;
+
+    :not(:last-child) {
+        margin: 0 0 22px 0;
+    }
 }
 
 .card__description {
-    margin: 22px 0;
     flex: 1;
 }
 
@@ -74,7 +77,6 @@
     color: #fff;
     padding: 8px 20px;
     min-width: 74px;
-    margin: 0 0 0 0;
 }
 
 .card__icons {
@@ -223,10 +225,9 @@
 .description {
     display: flex;
     justify-content: space-between;
-    padding: 0 15px;
-
+    padding: 0 0 0 15px;
     :not(:last-child) {
-        margin-right: 10px;
+        margin: 0 10px 0 0;
     }
 }
 
