@@ -21,13 +21,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 46px;
-
-    :not(:last-child) {
-        margin: 0 10px 0 0;
-    }
 }
 
-.header__logo  {
+.header__logo {
     max-width: 100px;
     width: 100%;
 }
@@ -66,10 +62,16 @@
     line-height: 21.94px;
 }
 
+.nav {
+    margin: 0 10px;
+}
+
 .nav__menu {
     display: flex;
+}
 
-    :not(:last-child) {
+.nav__menu_item {
+    &:not(:last-child) {
         margin-right: 50px;
     }
 }
@@ -107,8 +109,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
+}
 
-    :not(:last-child) {
+.nav__menu_item-burger {
+    &:not(:last-child) {
         margin-bottom: 20px;
     }
 }

@@ -93,7 +93,7 @@ const Card: React.FC<CardProps> = (props) => {
       <div className="card__information">
         <span className="card__name">{name}</span>
         <ul className="card__description description">
-          <li className="description__item description__item_color">
+          <li className="description__item description__item_location">
             Location: <br />
             <strong>{location}</strong>
           </li>

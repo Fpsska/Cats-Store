@@ -23,7 +23,7 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = (props) => {
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
   const { defineSortOption } = useSort();
 
-  
+
   const runSort = (): void => {
     setSwitchStatus(!isSwitched);
     defineSortOption({ name: id, status: isSwitched });

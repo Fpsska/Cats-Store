@@ -2,10 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    max-width: 380px;
-    width: 100%;
     border-radius: 10px;
     margin: 10px;
+    min-width: 380px;
+    flex-grow: 1;
 }
 
 .card__preview {
@@ -27,15 +27,11 @@
     flex-direction: column;
     padding: 30px;
     background-color: #f3f3f3;
-    flex: 1;
-
-    :not(:last-child) {
-        margin: 0 0 22px 0;
-    }
 }
 
 .card__description {
     flex: 1;
+    margin: 22px 0;
 }
 
 .card__price {
@@ -226,18 +222,18 @@
     display: flex;
     justify-content: space-between;
     padding: 0 0 0 15px;
-    :not(:last-child) {
+}
+
+.description__item {
+    font-size: 12px;
+    line-height: 14.63px;
+
+    &:not(:last-child) {
         margin: 0 10px 0 0;
     }
 }
 
-.description__item {
-    flex: 1;
-    font-size: 12px;
-    line-height: 14.63px;
-}
-
-.description__item_color {
+.description__item_location {
     position: relative;
 
     &::before {
@@ -246,8 +242,7 @@
         height: 26px;
         width: 4px;
         background-color: #6ebbd3;
-        left: -20%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        left: -1.3em;
+        top: 0;
     }
 }
