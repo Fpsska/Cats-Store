@@ -9,13 +9,12 @@ import {
   ACTION_SET_GIF_DATA_ERROR_MESSAGE,
   ACTION_SET_LIKED_CARDS_DATA,
   ACTION_SET_FAVOURITE_STATUS,
-  ACTION_SORT_CARDS_PRICE_DECREASE,
-  ACTION_SORT_CARDS_PRICE_INCREASE,
-  ACTION_SORT_CARDS_AGE_DECREASE,
-  ACTION_SORT_CARDS_AGE_INCREASE,
+  ACTION_SORT_CARDS_BY_PRICE,
+  ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
-  ACTION_SET_FILTERED_STATUS
+  ACTION_SET_FILTERED_STATUS,
+  ACTION_SET_BUTTON_SORTED_STATUS
 } from '../store/actions/cardActions';
 
 // /. Imports
@@ -133,30 +132,15 @@ interface setNotificationVisibleStatus {
 }
 
 
-interface toggleSortCardsPriceDecrease {
-  type: typeof ACTION_SORT_CARDS_PRICE_DECREASE;
+interface sortCardsByPrice {
+  type: typeof ACTION_SORT_CARDS_BY_PRICE;
   payload: {
     id: string;
     status: boolean;
   };
 }
-interface toggleSortCardsPriceIncrease {
-  type: typeof ACTION_SORT_CARDS_PRICE_INCREASE;
-  payload: {
-    id: string;
-    status: boolean;
-  };
-}
-
-interface toggleSortCardsAgeDecrease {
-  type: typeof ACTION_SORT_CARDS_AGE_DECREASE;
-  payload: {
-    id: string;
-    status: boolean;
-  };
-}
-interface toggleSortCardsAgeIncrease {
-  type: typeof ACTION_SORT_CARDS_AGE_INCREASE;
+interface sortCardsByAge {
+  type: typeof ACTION_SORT_CARDS_BY_AGE;
   payload: {
     id: string;
     status: boolean;
@@ -173,6 +157,13 @@ interface setFilteredStatus {
   payload: boolean
 }
 
+interface setButtonSortedStatus {
+  type: typeof ACTION_SET_BUTTON_SORTED_STATUS;
+  payload: {
+    id: string;
+    status: boolean;
+  };
+}
 
 // /. AC Types
 
@@ -188,9 +179,8 @@ export type cardActionTypes =
   | setLikedCardsData
   | setFavouriteStatus
   | setNotificationVisibleStatus
-  | toggleSortCardsPriceDecrease
-  | toggleSortCardsPriceIncrease
-  | toggleSortCardsAgeDecrease
-  | toggleSortCardsAgeIncrease
+  | sortCardsByPrice
+  | sortCardsByAge
   | setFilteredCardsData
   | setFilteredStatus
+  | setButtonSortedStatus

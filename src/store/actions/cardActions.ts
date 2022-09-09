@@ -16,15 +16,13 @@ export const ACTION_SET_LIKED_CARDS_DATA = 'ACTION_SET_LIKED_CARDS_DATA';
 export const ACTION_SET_FAVOURITE_STATUS = 'ACTION_SET_FAVOURITE_STATUS';
 export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = 'ACTION_SET_NOTIFICATION_VISIBLE_STATUS';
 
-export const ACTION_SORT_CARDS_PRICE_DECREASE =
-  'ACTION_SORT_CARDS_PRICE_DECREASE';
-export const ACTION_SORT_CARDS_PRICE_INCREASE =
-  'ACTION_SORT_CARDS_PRICE_INCREASE';
-export const ACTION_SORT_CARDS_AGE_DECREASE = 'ACTION_SORT_CARDS_AGE_DECREASE';
-export const ACTION_SORT_CARDS_AGE_INCREASE = 'ACTION_SORT_CARDS_AGE_INCREASE';
+export const ACTION_SORT_CARDS_BY_PRICE = 'ACTION_SORT_CARDS_BY_PRICE';
+export const ACTION_SORT_CARDS_BY_AGE = 'ACTION_SORT_CARDS_BY_AGE';
 
 export const ACTION_SET_FILTERED_CARDS_DATA = 'ACTION_SET_FILTERED_CARDS_DATA';
 export const ACTION_SET_FILTERED_STATUS = 'ACTION_SET_FILTERED_STATUS';
+
+export const ACTION_SET_BUTTON_SORTED_STATUS = 'ACTION_SET_BUTTON_SORTED_STATUS';
 
 // /. AC Names
 
@@ -58,7 +56,6 @@ export const setFetchCardsDataErrorMessage = (value: string): cardActionTypes =>
     }
   };
 };
-
 
 
 export const setGifData = (data: gifDataTypes[]): cardActionTypes => {
@@ -110,11 +107,7 @@ export const setLikedCardsData = (): cardActionTypes => {
 };
 
 
-
-export const setFavouriteStatus = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
+export const setFavouriteStatus = (id: string, status: boolean): cardActionTypes => {
   return {
     type: ACTION_SET_FAVOURITE_STATUS,
     payload: { id, status }
@@ -122,41 +115,17 @@ export const setFavouriteStatus = (
 };
 
 
-export const toggleSortCardsPriceDecrease = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
+export const sortCardsByPrice = (id: string, status: boolean): cardActionTypes => {
   return {
-    type: ACTION_SORT_CARDS_PRICE_DECREASE,
-    payload: { id, status }
-  };
-};
-export const toggleSortCardsPriceIncrease = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
-  return {
-    type: ACTION_SORT_CARDS_PRICE_INCREASE,
+    type: ACTION_SORT_CARDS_BY_PRICE,
     payload: { id, status }
   };
 };
 
 
-export const toggleSortCardsAgeDecrease = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
+export const sortCardsByAge = (id: string, status: boolean): cardActionTypes => {
   return {
-    type: ACTION_SORT_CARDS_AGE_DECREASE,
-    payload: { id, status }
-  };
-};
-export const toggleSortCardsAgeIncrease = (
-  id: string,
-  status: boolean
-): cardActionTypes => {
-  return {
-    type: ACTION_SORT_CARDS_AGE_INCREASE,
+    type: ACTION_SORT_CARDS_BY_AGE,
     payload: { id, status }
   };
 };
@@ -175,6 +144,12 @@ export const setFilteredStatus = (value: boolean): cardActionTypes => {
   };
 };
 
+export const setButtonSortedStatus = (id: string, status: boolean): cardActionTypes => {
+  return {
+    type: ACTION_SET_BUTTON_SORTED_STATUS,
+    payload: { id, status }
+  };
+};
 
 
 

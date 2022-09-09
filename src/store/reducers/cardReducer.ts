@@ -9,14 +9,14 @@ import {
   ACTION_SET_GIF_DATA_ERROR_MESSAGE,
   ACTION_SET_FAVOURITE_STATUS,
   ACTION_SET_LIKED_CARDS_DATA,
-  ACTION_SORT_CARDS_PRICE_DECREASE,
-  ACTION_SORT_CARDS_PRICE_INCREASE,
-  ACTION_SORT_CARDS_AGE_DECREASE,
-  ACTION_SORT_CARDS_AGE_INCREASE,
+  ACTION_SORT_CARDS_BY_PRICE,
+  ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
-  ACTION_SET_FILTERED_STATUS
+  ACTION_SET_FILTERED_STATUS,
+  ACTION_SET_BUTTON_SORTED_STATUS
 } from '../actions/cardActions';
+
 import { CardStateTypes, cardActionTypes } from '../../Types/cardTypes';
 
 // /. Imports
@@ -50,10 +50,7 @@ const initialState: CardStateTypes = {
 
 // /. initialState
 
-const cardReducer = (
-  state = initialState,
-  action: cardActionTypes
-): CardStateTypes => {
+const cardReducer = (state = initialState, action: cardActionTypes): CardStateTypes => {
   switch (action.type) {
     case ACTION_FETCH_CARDS:
       return {
@@ -118,65 +115,25 @@ const cardReducer = (
         ...state,
         isNotificationVisible: action.payload.status
       };
-    case ACTION_SORT_CARDS_PRICE_DECREASE:
+    case ACTION_SORT_CARDS_BY_PRICE:
       return {
         ...state,
         cards: [
           ...state.cards.sort((a, b) => {
-            return b.price - a.price;
+            return action.payload.status ? b.price - a.price : a.price - b.price;
           })
-        ],
-        sortButtons: state.sortButtons.map((item) => {
-          return {
-            ...item,
-            isSorted: action.payload.status
-          };
-        })
+        ]
       };
-    case ACTION_SORT_CARDS_PRICE_INCREASE:
+    case ACTION_SORT_CARDS_BY_AGE:
       return {
         ...state,
         cards: [
           ...state.cards.sort((a, b) => {
-            return a.price - b.price;
+            return action.payload.status
+              ? parseInt(b.age, 10) - parseInt(a.age, 10)
+              : parseInt(a.age, 10) - parseInt(b.age, 10);
           })
-        ],
-        sortButtons: state.sortButtons.map((item) => {
-          return {
-            ...item,
-            isSorted: action.payload.status
-          };
-        })
-      };
-    case ACTION_SORT_CARDS_AGE_DECREASE:
-      return {
-        ...state,
-        cards: [
-          ...state.cards.sort((a, b) => {
-            return parseInt(b.age) - parseInt(a.age);
-          })
-        ],
-        sortButtons: state.sortButtons.map((item) => {
-          return {
-            ...item,
-            isSorted: action.payload.status
-          };
-        })
-      };
-    case ACTION_SORT_CARDS_AGE_INCREASE:
-      return {
-        ...state,
-        cards: [
-          ...state.cards.sort((a, b) => {
-            return parseInt(a.age) - parseInt(b.age);
-          })
-        ],
-        sortButtons: state.sortButtons.map((item) => {
-          return {
-            ...item,
-            isSorted: action.payload.status
-          };
-        })
+        ]
       };
     case ACTION_SET_FILTERED_CARDS_DATA:
       return {
@@ -187,6 +144,15 @@ const cardReducer = (
       return {
         ...state,
         isDataFiltered: action.payload
+      };
+    case ACTION_SET_BUTTON_SORTED_STATUS:
+      return {
+        ...state,
+        sortButtons: state.sortButtons.map(item =>
+          item.id === action.payload.id
+            ? { ...item, isSorted: action.payload.status }
+            : item
+        )
       };
     default:
       return state;

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 
-import { useSort } from '../../hooks/useSort';
+import { useAppDispatch } from '../../store/hooks';
+
+import { sortCardsByPrice, sortCardsByAge, setButtonSortedStatus } from '../../store/actions/cardActions';
 
 // /. Imports
 
@@ -21,19 +23,24 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = (props) => {
   const { id, text, isCardsDataFetching, isCardsDataFetchError } = props;
 
   const [isSwitched, setSwitchStatus] = useState<boolean>(false);
-  const { defineSortOption } = useSort();
 
+  const dispatch = useAppDispatch();
 
-  const runSort = (): void => {
+  const makeDataSort = (e: React.SyntheticEvent): void => {
     setSwitchStatus(!isSwitched);
-    defineSortOption({ name: id, status: isSwitched });
+
+    dispatch(setButtonSortedStatus(id, isSwitched));
+
+    id === 'price'
+      ? dispatch(sortCardsByPrice(id, isSwitched))
+      : dispatch(sortCardsByAge(id, isSwitched));
   };
 
   return (
     <button
       className="controls__menu"
       disabled={isCardsDataFetching || isCardsDataFetchError}
-      onClick={runSort}
+      onClick={e => makeDataSort(e)}
     >
       <span className="controls__menu_text">{text}</span>
       <span>
