@@ -1,26 +1,5 @@
-.burger.burger.burger {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    height: 100%;
-    margin: 0;
-    left: -100%;
-    top: 0;
-    transition: transform 0.45s ease-in-out;
-}
-
-.burger.active {
-    position: fixed;
-    transform: translate(100%, 0);
-}
-
-.burger__nav {
-    height: 100%;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.menu.menu.menu {
+.menu {
+    background-color: transparent;
     width: 45px;
     height: 35px;
     position: fixed;
@@ -39,12 +18,13 @@
     }
 }
 
-.menu div {
+.menu__line {
     width: 35px;
     height: 5px;
-    background: rgb(223, 212, 212);
+    background-color: rgb(223, 212, 212);
     transition: transform ease-in 0.35s;
     border-radius: 2px;
+    display: block;
 }
 
 .menu__line-top.opened {

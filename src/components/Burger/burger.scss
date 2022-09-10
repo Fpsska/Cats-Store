@@ -1,0 +1,22 @@
+.burger {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    margin: 0;
+    left: -100%;
+    top: 0;
+    transition: transform 0.45s ease-in-out;
+}
+
+.burger.active {
+    position: fixed;
+    transform: translate(100%, 0);
+}
+
+.burger__nav {
+    height: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+

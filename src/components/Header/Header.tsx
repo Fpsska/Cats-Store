@@ -6,6 +6,7 @@ import { changeNavDisplay } from '../../store/actions/headerActions';
 
 import logo from '../../assets/images/logo.svg';
 
+import Burger from '../Burger/Burger';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Loader from '../Loader/Loader';
 
@@ -87,11 +88,14 @@ const Header: React.FC = () => {
                 isBurgerHidden={isBurgerHidden}
               />
             ) : (
-              <BurgerMenu
+              <Burger
                 headerLinks={headerLinks}
                 isBurgerOpen={isBurgerOpen}
               />
             )}
+          </>
+          <>
+            {!isBurgerHidden && <BurgerMenu isBurgerOpen={isBurgerOpen} />}
           </>
           <div className="header__telephone telephone">
             <a className="telephone__number" href="tel:+544 3490 00000">
