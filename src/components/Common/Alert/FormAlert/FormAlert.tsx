@@ -39,7 +39,7 @@ const FormAlert: React.FC = () => {
                     <p className="form-alert__text" >Sorry! Function temporarily unavailable</p>
                 </div>
                 <div className="form-alert__controls">
-                    <button className="form-alert__button" onClick={submitAlert}>Ok</button>
+                    <button className="form-alert__button" autoFocus onClick={submitAlert} >Ok</button>
                 </div>
             </div>
         </div>

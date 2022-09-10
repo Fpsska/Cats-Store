@@ -43,5 +43,8 @@
         &:hover {
             color: #fff;
         }
+        &:focus {
+            border: 1px solid #000
+        }
     }
 }

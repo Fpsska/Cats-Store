@@ -70,6 +70,7 @@ const Footer: React.FC = () => {
                 disabled={unavailable}
                 required
               />
+              <span className="form__cheakbox-fake"></span>
             </label>
           </form>
         </section>
