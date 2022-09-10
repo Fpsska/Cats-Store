@@ -1,11 +1,11 @@
 import { headerStateTypes, headerActionTypes } from '../../Types/headerTypes';
 
 import {
-  ACTION_CHANGE_NAV_DISPLAY,
+  ACTION_CHANGE_BURGER_VISIBLE_STATUS,
+  ACTION_CHANGE_BURGER_OPENED_STATUS,
   ACTION_GET_INPUT_VALUE,
   ACTION_CHANGE_MAIN_PAGE_STATUS,
-  ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
-  ACTION_CHANGE_BURGER_STATUS
+  ACTION_CHANGE_OVERVIEW_PAGE_STATUS
 } from '../actions/headerActions';
 
 // /. Imports
@@ -43,15 +43,17 @@ const initialState: headerStateTypes = {
 
 // /. initialState
 
-const headerReducer = (
-  state = initialState,
-  action: headerActionTypes
-): headerStateTypes => {
+const headerReducer = (state = initialState, action: headerActionTypes): headerStateTypes => {
   switch (action.type) {
-    case ACTION_CHANGE_NAV_DISPLAY:
+    case ACTION_CHANGE_BURGER_VISIBLE_STATUS:
       return {
         ...state,
         isBurgerHidden: action.payload
+      };
+    case ACTION_CHANGE_BURGER_OPENED_STATUS:
+      return {
+        ...state,
+        isBurgerOpen: action.payload
       };
     case ACTION_GET_INPUT_VALUE:
       return {
@@ -67,11 +69,6 @@ const headerReducer = (
       return {
         ...state,
         isOverviewPage: action.payload
-      };
-    case ACTION_CHANGE_BURGER_STATUS:
-      return {
-        ...state,
-        isBurgerOpen: action.payload
       };
     default:
       return state;

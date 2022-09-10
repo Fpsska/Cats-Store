@@ -1,16 +1,13 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 
-import { changeNavDisplay } from '../../store/actions/headerActions';
-
-import logo from '../../assets/images/logo.svg';
-
-import Burger from '../Burger/Burger';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Loader from '../Loader/Loader';
 
-import HeaderNav from './HeaderNav';
+import NavLayout from '../NavLayout/NavLayout';
+
+import logo from '../../assets/images/logo.svg';
 
 import './Header.scss';
 
@@ -18,7 +15,6 @@ import './Header.scss';
 
 const Header: React.FC = () => {
   const {
-    headerLinks,
     isBurgerHidden,
     isBurgerOpen,
     isHomePage,
@@ -36,25 +32,6 @@ const Header: React.FC = () => {
 
   const text = useRef<string>('cat');
 
-  const dispatch = useAppDispatch();
-
-
-  const defineBurgerStatus = (): void => {
-    if (window.innerWidth < 800) {
-      dispatch(changeNavDisplay(false));
-    } else if (window.innerWidth > 800) {
-      dispatch(changeNavDisplay(true));
-    }
-  };
-
-  useLayoutEffect(() => {
-    window.addEventListener('resize', defineBurgerStatus);
-    window.addEventListener('load', defineBurgerStatus);
-    return () => {
-      window.removeEventListener('resize', defineBurgerStatus);
-      window.removeEventListener('load', defineBurgerStatus);
-    };
-  }, []);
 
   useEffect(() => {
     if (likedCardsData.length === 1) {
@@ -78,31 +55,23 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="container">
         <section className="header__section">
+
           <a className="header__logo logo" href="#">
             <img className="logo__image" src={logo} alt="logo" />
           </a>
-          <>
-            {isBurgerHidden ? (
-              <HeaderNav
-                headerLinks={headerLinks}
-                isBurgerHidden={isBurgerHidden}
-              />
-            ) : (
-              <Burger
-                headerLinks={headerLinks}
-                isBurgerOpen={isBurgerOpen}
-              />
-            )}
-          </>
+
+          <NavLayout />
           <>
             {!isBurgerHidden && <BurgerMenu isBurgerOpen={isBurgerOpen} />}
           </>
+
           <div className="header__telephone telephone">
             <a className="telephone__number" href="tel:+544 3490 00000">
               +544 3490 00000
             </a>
             <span className="telephone__description">Call soon!</span>
           </div>
+
         </section>
         <>
           <>

@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 
 import { useAppDispatch } from '../../store/hooks';
 
-import { changeBurgerStatus } from '../../store/actions/headerActions';
+import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
+
 import HeaderNav from '../Header/HeaderNav';
+
 import './burger.scss';
 
 // /. Imports
@@ -22,7 +24,7 @@ const Burger: React.FC<propTypes> = ({ headerLinks, isBurgerOpen }) => {
   useEffect(() => {
     const keyHandler = (e: KeyboardEvent): void => {
       if (isBurgerOpen && e.code === 'Escape') {
-        dispatch(changeBurgerStatus(false));
+        dispatch(changeBurgerOpenedStatus(false));
       }
     };
 

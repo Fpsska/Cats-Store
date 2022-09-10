@@ -6,7 +6,7 @@ import { useAppDispatch } from '../../store/hooks';
 
 import {
   changeMainPageStatus,
-  changeBurgerStatus
+  changeBurgerOpenedStatus
 } from '../../store/actions/headerActions';
 import { usePageName } from '../../hooks/usePageName';
 
@@ -28,7 +28,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({ isBurgerHidden, link, text }) =
 
   const removeBodyStatus = (text: string): void => {
     dispatch(changeMainPageStatus(false));
-    dispatch(changeBurgerStatus(false));
+    dispatch(changeBurgerOpenedStatus(false));
     handlePageName({ pageName: text });
     document.body.style.overflowY = 'auto';
   };

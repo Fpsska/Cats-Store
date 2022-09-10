@@ -1,9 +1,9 @@
 import {
-  ACTION_CHANGE_NAV_DISPLAY,
+  ACTION_CHANGE_BURGER_VISIBLE_STATUS,
   ACTION_GET_INPUT_VALUE,
   ACTION_CHANGE_MAIN_PAGE_STATUS,
   ACTION_CHANGE_OVERVIEW_PAGE_STATUS,
-  ACTION_CHANGE_BURGER_STATUS
+  ACTION_CHANGE_BURGER_OPENED_STATUS
 } from '../store/actions/headerActions';
 
 // /. Imports
@@ -20,8 +20,13 @@ export interface headerStateTypes {
 
 // /. Data Types
 
-interface changeNavDisplay {
-  type: typeof ACTION_CHANGE_NAV_DISPLAY;
+interface changeBurgerVisibleStatus {
+  type: typeof ACTION_CHANGE_BURGER_VISIBLE_STATUS;
+  payload: boolean;
+}
+
+interface changeBurgerOpenedStatus {
+  type: typeof ACTION_CHANGE_BURGER_OPENED_STATUS;
   payload: boolean;
 }
 
@@ -44,18 +49,12 @@ interface changeOverviewPageStatus {
 }
 
 
-interface changeBurgerStatus {
-  type: typeof ACTION_CHANGE_BURGER_STATUS;
-  payload: boolean;
-}
-
-
-
 // /. AC Types
 
 export type headerActionTypes =
-  | changeNavDisplay
+  | changeBurgerVisibleStatus
+  | changeBurgerOpenedStatus
   | getInputValue
   | changeMainPageStatus
   | changeOverviewPageStatus
-  | changeBurgerStatus
+

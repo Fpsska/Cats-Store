@@ -41,6 +41,11 @@
 }
 
 @media (max-width: 768px) {
+
+    .header__logo {
+        margin: 0 10px 0 0;
+    }
+
     .overview__card {
         width: 280px;
         margin: 0 0 40px 0;
@@ -131,9 +136,9 @@
 
     .header__section {
         flex-direction: column;
+    }
 
-        :not(:last-child) {
-            margin: 0 0 20px 0;
-        }
+    .header__logo {
+        margin: 0 0 20px 0;
     }
 }

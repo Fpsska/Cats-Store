@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppDispatch } from '../../store/hooks';
 
-import { changeBurgerStatus } from '../../store/actions/headerActions';
+import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
 
 import './menu.scss';
 
@@ -26,7 +26,7 @@ const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
     };
 
     const openBurger = (): void => {
-        dispatch(changeBurgerStatus(!isBurgerOpen));
+        dispatch(changeBurgerOpenedStatus(!isBurgerOpen));
         defineScrollStatus();
     };
 
