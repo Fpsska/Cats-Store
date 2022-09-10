@@ -16,20 +16,21 @@ const Footer: React.FC = () => {
   const [unavailable, setUnavailableStatus] = useState<boolean>(false);
 
 
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null!);
 
   const dispatch = useAppDispatch();
 
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
     dispatch(setFormAlertVisibleStatus(true));
     dispatch(setFormSubmitStatus(true));
   };
 
   useEffect(() => {
     if (isFormSubmitted && !isFormAlertVisible) {
-      formRef.current?.reset();
+      formRef.current.reset();
       dispatch(getInputValue(''));
       setUnavailableStatus(true);
       setTimeout(() => {
@@ -59,7 +60,7 @@ const Footer: React.FC = () => {
                 value={emailValue}
                 onChange={(e) => dispatch(getInputValue(e.target.value))}
               />
-              <button className="form__button button" disabled={unavailable}>Subscribe</button>
+              <button className="form__button button" type="submit" disabled={unavailable}>Subscribe</button>
             </div>
             <label className="form__cheakbox-label">
               Subscribe to news

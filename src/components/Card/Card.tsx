@@ -76,6 +76,7 @@ const Card: React.FC<CardProps> = (props) => {
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
             disabled={!cardStatus}
             onClick={setFavourite}
+            aria-label="add to favourite" 
           >
             <BsHeartFill color={'#fff'} size={'42px'} />
           </button>

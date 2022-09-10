@@ -64,8 +64,9 @@ const MainPage: React.FC = () => {
               className="pagination"
               disabled={isCardsDataFetching || isCardsDataFetchError}
               onClick={scrollTop}
+              aria-label="scroll top"
             >
-              <MdKeyboardArrowUp color={'#fff'} size={'36px'} />
+              <MdKeyboardArrowUp color={'#fff'} size={'36px'} aria-label="scroll top" />
             </button>
           </div>
         </section>

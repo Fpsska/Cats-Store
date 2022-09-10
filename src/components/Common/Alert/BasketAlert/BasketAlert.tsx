@@ -52,10 +52,10 @@ const BasketAlert: React.FC = () => {
     }, [likedCardsData]);
 
     return (
-        <div ref={alert} className="alert">
+        <div ref={alert} className="alert" role="alert">
             <div className="alert__wrapper">
                 <div className="alert__notification">
-                    <Link to="Favourite" onClick={relocateToFavouritePage}>
+                    <Link to="Favourite" onClick={relocateToFavouritePage} aria-label="redirect to basket">
                         <RiErrorWarningLine color={'#000'} size={'22px'} />
                     </Link>
                 </div>
@@ -63,7 +63,7 @@ const BasketAlert: React.FC = () => {
                     <span className="alert__message">Visit to Favourite page!</span>
                     <span className="alert__count">{`${likedCardsData.length} in basket!`}</span>
                 </div>
-                <button className="alert__button" onClick={closeAlert}>
+                <button className="alert__button" onClick={closeAlert} aria-label="close this modal">
                     <IoCloseOutline color={'#000'} size={'18px'} />
                 </button>
             </div>

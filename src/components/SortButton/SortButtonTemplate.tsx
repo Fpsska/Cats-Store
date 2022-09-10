@@ -40,6 +40,7 @@ const SortButtonTemplate: React.FC<SortButtonTemplateProps> = (props) => {
     <button
       className="controls__menu"
       disabled={isCardsDataFetching || isCardsDataFetchError}
+      aria-label={`sort by ${id}`}
       onClick={e => makeDataSort(e)}
     >
       <span className="controls__menu_text">{text}</span>
