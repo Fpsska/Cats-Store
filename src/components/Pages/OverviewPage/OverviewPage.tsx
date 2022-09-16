@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '../../../store/hooks';
 
-import Preloader from '../../Common/Preloader/Preloader';
+import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
 
 import { fetchGifDataToggle } from '../../../store/actions/cardActions';
 
@@ -37,7 +37,7 @@ const OverviewPage: React.FC = () => {
           <div className="overview__wrapper">
             {isGifDataFetching ?
               <div className="overview__gallery">
-                <Preloader />
+                <PagePreloader />
               </div>
               :
               isGifDataFetchError

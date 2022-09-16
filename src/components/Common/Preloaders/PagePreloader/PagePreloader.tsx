@@ -1,9 +1,10 @@
 import React from 'react';
-import './Preloader.scss';
+
+import './PagePreloader.scss';
 
 // /. Imports
 
-const Preloader: React.FC = () => {
+const PagePreloader: React.FC = () => {
   return (
     <div className="preloader">
       <div className="lds-roller">
@@ -20,4 +21,4 @@ const Preloader: React.FC = () => {
   );
 };
 
-export default Preloader;
+export default PagePreloader;

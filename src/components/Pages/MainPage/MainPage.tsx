@@ -8,7 +8,7 @@ import { useAppSelector } from '../../../store/hooks';
 
 import CardList from '../../Card/CardLits';
 import SortButtonList from '../../SortButton/SortButtonList';
-import Preloader from '../../Common/Preloader/Preloader';
+import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
 import BasketAlert from '../../Common/Alert/BasketAlert/BasketAlert';
 
 import fetchCardsData from '../../../store/async-actions/fetchCardsData';
@@ -47,7 +47,7 @@ const MainPage: React.FC = () => {
           <div className="gallery__wrapper">
             <>
               {isCardsDataFetching ? (
-                <Preloader />
+                <PagePreloader />
               ) : isCardsDataFetchError ? (
                 <div className="error">{cardsDataFetchErrorMessage}</div>
               ) : (

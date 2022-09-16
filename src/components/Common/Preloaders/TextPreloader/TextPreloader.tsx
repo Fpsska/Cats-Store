@@ -1,9 +1,10 @@
 import React from 'react';
-import './Loader.scss';
+
+import './TextPreloader.scss';
 
 // /. Imports
 
-const Loader: React.FC = () => {
+const TextPreloader: React.FC = () => {
     return (
         <h1 className="loader">
             Loading
@@ -14,4 +15,4 @@ const Loader: React.FC = () => {
     );
 };
 
-export default Loader;
+export default TextPreloader;

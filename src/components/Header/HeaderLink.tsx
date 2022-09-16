@@ -12,7 +12,7 @@ import { usePageName } from '../../hooks/usePageName';
 
 // /. Imports
 
-interface HeaderLinkProps {
+interface propTypes {
   isBurgerHidden?: boolean;
   link: string;
   text: string;
@@ -20,7 +20,7 @@ interface HeaderLinkProps {
 
 // /. interfaces
 
-const HeaderLink: React.FC<HeaderLinkProps> = ({ isBurgerHidden, link, text }) => {
+const HeaderLink: React.FC<propTypes> = ({ isBurgerHidden, link, text }) => {
   const { handlePageName } = usePageName();
 
   const dispatch = useAppDispatch();

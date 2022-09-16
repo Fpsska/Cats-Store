@@ -12,7 +12,7 @@ import './Card.scss';
 
 // /. Imports
 
-interface CardProps {
+interface propTypes {
   id: string;
   image: string;
   name: string;
@@ -29,7 +29,7 @@ interface CardProps {
 
 // /. interfaces
 
-const Card: React.FC<CardProps> = (props) => {
+const Card: React.FC<propTypes> = (props) => {
 
   const {
     id,

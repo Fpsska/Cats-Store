@@ -5,7 +5,7 @@ import { useAppSelector } from '../../store/hooks';
 import { declinateByNum } from '../../helpers/declinateByNumber';
 
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import Loader from '../Loader/Loader';
+import TextPreloader from '../Common/Preloaders/TextPreloader/TextPreloader';
 import NavLayout from '../NavLayout/NavLayout';
 
 import logo from '../../assets/images/logo.svg';
@@ -55,25 +55,28 @@ const Header: React.FC = () => {
           </div>
 
         </section>
-        {isCardsDataFetching ?
-          <Loader />
-          :
-          <h1 className="header__text">
-            {isHomePage ?
-              <>
-                {`Found ${isCardsDataFetchError ? '0' : cards.length} ${mainTextValue}`}
-              </>
-              : isOverviewPage ?
+        <>
+          {isCardsDataFetching ?
+            <TextPreloader />
+            :
+            <h1 className="header__text">
+              {isHomePage ?
                 <>
-                  {'Have a good day ;)'}
+                  {`Found ${isCardsDataFetchError ? '0' : cards.length} ${mainTextValue}`}
                 </>
-                :
-                <>
-                  {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`}
-                </>
-            }
-          </h1>
-        }
+                : isOverviewPage ?
+                  <>
+                    {'Have a good day ;)'}
+                  </>
+                  :
+                  <>
+                    {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`}
+                  </>
+              }
+            </h1>
+          }
+        </>
+
       </div>
     </header>
   );

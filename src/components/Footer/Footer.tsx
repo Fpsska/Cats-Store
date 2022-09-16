@@ -38,7 +38,8 @@ const Footer: React.FC = () => {
       }, 10000);
     }
   }, [isFormAlertVisible, isFormSubmitted]);
-  // 
+
+
   return (
     <footer className="footer">
       <div className="container">

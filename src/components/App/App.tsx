@@ -9,7 +9,7 @@ import ProfilePage from '../Pages/ProfilePage/ProfilePage';
 import NoFoundPage from '../Pages/NoFoundPage/NoFoundPage';
 
 import './App.css';
-import '../../assets/styles/_styles.scss';
+import '../../assets/styles/_style.scss';
 import '../../assets/styles/_media.scss';
 
 // /. Imports

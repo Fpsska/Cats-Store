@@ -2,9 +2,8 @@ import React from 'react';
 
 import { useAppSelector } from '../../store/hooks';
 
-import { RootState } from '../../store/store';
-
 import SortButtonTemplate from './SortButtonTemplate';
+
 import './Sort.scss';
 
 // /. Imports
@@ -15,7 +14,7 @@ const SortButtonList: React.FC = () => {
     isCardsDataFetching,
     isCardsDataFetchError,
     sortButtons
-  } = useAppSelector((state: RootState) => state.cardReducer);
+  } = useAppSelector(state => state.cardReducer);
 
   return (
     <div className="controls__wrapper">

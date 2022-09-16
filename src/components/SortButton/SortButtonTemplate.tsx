@@ -8,7 +8,7 @@ import { sortCardsByPrice, sortCardsByAge, setButtonSortedStatus } from '../../s
 
 // /. Imports
 
-interface SortButtonTemplateProps {
+interface propTypes {
   id: string;
   text: string;
   isCardsDataFetching: boolean;
@@ -18,7 +18,7 @@ interface SortButtonTemplateProps {
 
 // /. interfaces
 
-const SortButtonTemplate: React.FC<SortButtonTemplateProps> = (props) => {
+const SortButtonTemplate: React.FC<propTypes> = (props) => {
 
   const { id, text, isCardsDataFetching, isCardsDataFetchError } = props;
 

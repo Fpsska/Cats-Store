@@ -3,26 +3,26 @@
     font-size: 38px;
     font-weight: 700;
 
-    :not(:last-child) {
+    &:not(:last-child) {
         margin: 0 3px 0 0;
     }
 
-    :nth-child(0) {
+    &:nth-child(0) {
         -webkit-animation-delay: 0s;
         animation-delay: 0s;
     }
 
-    :nth-child(1) {
+    &:nth-child(1) {
         -webkit-animation-delay: 0.2s;
         animation-delay: 0.2s;
     }
 
-    :nth-child(2) {
+    &:nth-child(2) {
         -webkit-animation-delay: 0.4s;
         animation-delay: 0.4s;
     }
 
-    :nth-child(3) {
+    &:nth-child(3) {
         -webkit-animation-delay: 0.6s;
         animation-delay: 0.6s;
     }
