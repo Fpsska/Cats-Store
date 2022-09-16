@@ -54,7 +54,7 @@ const BasketAlert: React.FC = () => {
     return (
         <div ref={alert} className="alert" role="alert">
             <div className="alert__wrapper">
-                <div className="alert__notification">
+                <div className="alert__notification" >
                     <Link to="Favourite" onClick={relocateToFavouritePage} aria-label="redirect to basket">
                         <RiErrorWarningLine color={'#000'} size={'22px'} />
                     </Link>

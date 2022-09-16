@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import { useAppSelector } from '../../store/hooks';
 
+import { declinateByNum } from '../../helpers/declinateByNumber';
+
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Loader from '../Loader/Loader';
-
 import NavLayout from '../NavLayout/NavLayout';
 
 import logo from '../../assets/images/logo.svg';
@@ -24,43 +25,24 @@ const Header: React.FC = () => {
   const {
     isCardsDataFetching,
     isCardsDataFetchError,
-    isDataFiltered,
     cards,
-    likedCardsData,
     filteredCardsData
   } = useAppSelector(state => state.cardReducer);
 
-  const text = useRef<string>('cat');
-
-
-  useEffect(() => {
-    if (likedCardsData.length === 1) {
-      text.current = 'cat';
-    }
-    if (likedCardsData.length >= 2) {
-      text.current = 'cats';
-    }
-    if (filteredCardsData.length === 0) {
-      text.current = 'cat';
-    }
-    if (filteredCardsData.length === 1) {
-      text.current = 'cat';
-    }
-    if (filteredCardsData.length >= 2) {
-      text.current = 'cats';
-    }
-  }, [likedCardsData, filteredCardsData, isDataFiltered]);
+  const mainTextValue = declinateByNum(cards.length, ['cat', 'cats']);
+  const filteredTextValue = declinateByNum(filteredCardsData.length, ['cat', 'cats']);
 
   return (
     <header className="header">
       <div className="container">
         <section className="header__section">
 
-          <a className="header__logo logo" href="#">
+          <a className="header__logo logo" href="#" onClick={e => e.preventDefault()}>
             <img className="logo__image" src={logo} alt="logo" />
           </a>
 
           <NavLayout />
+
           <>
             {!isBurgerHidden && <BurgerMenu isBurgerOpen={isBurgerOpen} />}
           </>
@@ -73,25 +55,25 @@ const Header: React.FC = () => {
           </div>
 
         </section>
-        <>
-          <>
-            {isCardsDataFetching ? (
-              <Loader />
-            ) : (
+        {isCardsDataFetching ?
+          <Loader />
+          :
+          <h1 className="header__text">
+            {isHomePage ?
               <>
-                {isHomePage
-                  ? <h1 className="header__text">{`Found ${isCardsDataFetchError ? '0' : cards.length} cats`}</h1>
-                  : isOverviewPage
-                    ? <h1 className="header__text">{'Have a good day ;)'}</h1>
-                    :
-                    <h1 className="header__text">
-                      {`Selected ${isCardsDataFetchError ? '0' : isDataFiltered ? filteredCardsData.length : likedCardsData.length} ${text.current}`}
-                    </h1>
-                }
+                {`Found ${isCardsDataFetchError ? '0' : cards.length} ${mainTextValue}`}
               </>
-            )}
-          </>
-        </>
+              : isOverviewPage ?
+                <>
+                  {'Have a good day ;)'}
+                </>
+                :
+                <>
+                  {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`}
+                </>
+            }
+          </h1>
+        }
       </div>
     </header>
   );
