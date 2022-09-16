@@ -42,7 +42,10 @@ const NavLayout: React.FC = () => {
                     isBurgerOpen={isBurgerOpen}
                 />
                 :
-                <HeaderNav headerLinks={headerLinks} isBurgerHidden={isBurgerHidden} />
+                <HeaderNav
+                    headerLinks={headerLinks}
+                    isBurgerHidden={isBurgerHidden}
+                />
             }
         </>
     );

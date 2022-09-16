@@ -48,7 +48,7 @@ const OverviewPage: React.FC = () => {
                   {
                     gifData.map(item => {
                       return (
-                        <div className="overview__card" key={item.id}>
+                        <div className="overview__card">
                           <img className="overview__image" src={item.image} alt="funny" />
                         </div>
                       );
@@ -59,7 +59,8 @@ const OverviewPage: React.FC = () => {
             <button
               className="overview__button"
               onClick={fetchNewGifData}
-              disabled={isGifDataFetching || isGifDataFetchError}>
+              disabled={isGifDataFetching || isGifDataFetchError}
+            >
               Watch others
             </button>
           </div>

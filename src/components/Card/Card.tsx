@@ -76,7 +76,7 @@ const Card: React.FC<propTypes> = (props) => {
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
             disabled={!cardStatus}
             onClick={setFavourite}
-            aria-label="add to favourite" 
+            aria-label="add to favourite"
           >
             <BsHeartFill color={'#fff'} size={'42px'} />
           </button>
@@ -107,10 +107,7 @@ const Card: React.FC<propTypes> = (props) => {
         </ul>
         <span className="card__price">{`${price} USD`}</span>
       </div>
-      <button
-        className={
-          cardStatus ? 'card__button button' : 'card__button-sold button'
-        }
+      <button className={cardStatus ? 'card__button button' : 'card__button-sold button'}
       >
         {cardStatus ? 'Buy' : 'Sold'}
       </button>
