@@ -46,7 +46,7 @@ const Card: React.FC<propTypes> = (props) => {
     currentRangeValue
   } = props;
 
-  const buttonLike = useRef<HTMLButtonElement>(null!);
+  const buttonLikeRef = useRef<HTMLButtonElement>(null!);
 
   const dispatch = useAppDispatch();
 
@@ -60,7 +60,7 @@ const Card: React.FC<propTypes> = (props) => {
 
 
   useEffect(() => {
-    buttonLike.current.classList.remove('unlike');
+    buttonLikeRef.current.classList.remove('unlike');
   }, []);
 
   return (
@@ -72,8 +72,8 @@ const Card: React.FC<propTypes> = (props) => {
               <span className="card__icons_discount">{discount}</span>}
           </>
           <button
-            ref={buttonLike}
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
+            ref={buttonLikeRef}
             disabled={!cardStatus}
             onClick={setFavourite}
             aria-label="add to favourite"

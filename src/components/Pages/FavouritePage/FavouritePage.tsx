@@ -8,11 +8,12 @@ import { Pagination } from 'swiper';
 
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
-import Card from '../../Card/Card';
-import Filter from '../../Filter/Filter';
-
 import { IactualData } from '../../../Types/cardTypes';
 import { setFilteredStatus } from '../../../store/actions/cardActions';
+import { setTotalRangeValue } from '../../../store/actions/filterActions';
+
+import Card from '../../Card/Card';
+import Filter from '../../Filter/Filter';
 
 import empty_image from '../../../assets/images/empty.png';
 
@@ -73,10 +74,16 @@ const FavouritePage: React.FC = () => {
     }
   }, [likedCardsData, filteredCardsData]);
 
-  useEffect(() => { // calc current basket total price
-    setTotalPrice(list.reduce((prev, current) => prev + current.price, 0));
+  useEffect(() => {
+    // calc current basket price
+    const totalSum = list.reduce((acc, { price }) => acc + price, 0);
+    setTotalPrice(totalSum);
+
+    // calc max price of basket item
+    const pricesArr = list.map(({ price }) => price); // [1000, 2000, 3000]
+    const maxPriceValue = Math.max(...pricesArr); // 3000
   }, [list]);
-  // 
+
   return (
     <div className="section">
       <section className={emptyLikedCardsDataStatus ? 'basket empty' : 'basket'}>

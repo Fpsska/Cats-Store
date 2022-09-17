@@ -1,5 +1,6 @@
 import {
-    ACTION_SET_CURRENT_RANGE_VALUE
+    ACTION_SET_CURRENT_RANGE_VALUE,
+    ACTION_SET_TOTAL_RANGE_VALUE
 } from '../store/actions/filterActions';
 
 // /. Imports
@@ -19,7 +20,14 @@ interface setCurrentRangeValue {
 }
 
 
+interface setTotalRangeValue {
+    type: typeof ACTION_SET_TOTAL_RANGE_VALUE;
+    payload: number;
+}
+
+
 // /. AC Types
 
 export type filterActionTypes =
     | setCurrentRangeValue
+    | setTotalRangeValue
