@@ -8,8 +8,14 @@ import {
 
 // /. Imports
 
-export interface headerStateTypes {
-  headerLinks: any[];
+interface IheaderLinks {
+  id: number;
+  text: string;
+  link: string
+}
+
+export interface IheaderState {
+  headerLinks: IheaderLinks[];
   isBurgerHidden: boolean;
   isBurgerOpen: boolean;
   isBodyScrolling: boolean;

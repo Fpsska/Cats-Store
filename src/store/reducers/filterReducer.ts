@@ -1,4 +1,4 @@
-import { filterStateTypes, filterActionTypes } from '../../Types/filterTypes';
+import { IfilterState, filterActionTypes } from '../../Types/filterTypes';
 
 import {
     ACTION_SET_CURRENT_RANGE_VALUE
@@ -6,7 +6,7 @@ import {
 
 // /. Imports
 
-const initialState: filterStateTypes = {
+const initialState: IfilterState = {
     inputRangeTotalValue: 10000,
     inputRangeMinValue: 1500,
     currentRangeValue: 0
@@ -14,10 +14,7 @@ const initialState: filterStateTypes = {
 
 // /. initialState
 
-const filterReducer = (
-    state = initialState,
-    action: filterActionTypes
-): filterStateTypes => {
+const filterReducer = (state = initialState, action: filterActionTypes): IfilterState => {
     switch (action.type) {
         case ACTION_SET_CURRENT_RANGE_VALUE:
             return {

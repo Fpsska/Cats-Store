@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import Card from '../../Card/Card';
 import Filter from '../../Filter/Filter';
 
-import { actualDataTypes } from '../../../Types/cardTypes';
+import { IactualData } from '../../../Types/cardTypes';
 import { setFilteredStatus } from '../../../store/actions/cardActions';
 
 import empty_image from '../../../assets/images/empty.png';
@@ -33,7 +33,7 @@ const FavouritePage: React.FC = () => {
   const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true);
   const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true);
   const [totalPrice, setTotalPrice] = useState<number>(0); // current total price of likedCardsData
-  const [list, setList] = useState<actualDataTypes[]>([]);
+  const [list, setList] = useState<IactualData[]>([]);
   const [sliderBreakpointsConfig] = useState<{ [key: number]: { [key: string]: number } }>({
     320: {
       slidesPerView: 1,

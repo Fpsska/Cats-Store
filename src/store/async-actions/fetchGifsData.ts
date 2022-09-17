@@ -7,7 +7,7 @@ import {
     setFetchGifDataErrorMessage
 } from '../actions/cardActions';
 
-import { cardActionTypes, gifDataTypes } from '../../Types/cardTypes';
+import { cardActionTypes, IgifData } from '../../Types/cardTypes';
 
 // /. Imports
 
@@ -23,7 +23,7 @@ const fetchGifsData = () => {
 
             const data = await response.json();
 
-            const actualData: gifDataTypes[] = [];
+            const actualData: IgifData[] = [];
 
             data.forEach((item: any) => {
                 actualData.push(

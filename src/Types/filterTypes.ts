@@ -4,7 +4,7 @@ import {
 
 // /. Imports
 
-export interface filterStateTypes {
+export interface IfilterState {
     inputRangeTotalValue: number,
     inputRangeMinValue: number,
     currentRangeValue: number,

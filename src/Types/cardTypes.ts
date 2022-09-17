@@ -19,23 +19,7 @@ import {
 
 // /. Imports
 
-export interface CardStateTypes {
-  cards: actualDataTypes[];
-  likedCardsData: actualDataTypes[];
-  sortButtons: sortButtonsTypes[];
-  gifData: gifDataTypes[];
-  filteredCardsData: actualDataTypes[];
-  isCardsDataFetching: boolean;
-  isCardsDataFetchError: boolean;
-  cardsDataFetchErrorMessage: string;
-  isGifDataFetching: boolean;
-  isGifDataFetchError: boolean;
-  gifDataFetchErrorMessage: string;
-  isNotificationVisible: boolean;
-  isDataFiltered: boolean;
-}
-
-export interface actualDataTypes {
+export interface IactualData {
   id: string,
   image: string,
   name: string,
@@ -49,12 +33,28 @@ export interface actualDataTypes {
   isFavourite: boolean,
 }
 
-export interface gifDataTypes {
+export interface IcardState {
+  cards: IactualData[];
+  likedCardsData: IactualData[];
+  sortButtons: IsortButtons[];
+  gifData: IgifData[];
+  filteredCardsData: IactualData[];
+  isCardsDataFetching: boolean;
+  isCardsDataFetchError: boolean;
+  cardsDataFetchErrorMessage: string;
+  isGifDataFetching: boolean;
+  isGifDataFetchError: boolean;
+  gifDataFetchErrorMessage: string;
+  isNotificationVisible: boolean;
+  isDataFiltered: boolean;
+}
+
+export interface IgifData {
   id: string,
   image: string
 }
 
-export interface sortButtonsTypes {
+export interface IsortButtons {
   text: string,
   id: string,
   isSorted: boolean,
@@ -64,7 +64,7 @@ export interface sortButtonsTypes {
 
 interface fetchCards {
   type: typeof ACTION_FETCH_CARDS;
-  payload: actualDataTypes[];
+  payload: IactualData[];
 }
 interface fetchCardsDataToggle {
   type: typeof ACTION_FETCH_CARDS_DATA_TOGGLE;
@@ -88,7 +88,7 @@ interface setFetchCardsDataErrorMessage {
 
 interface setGifData {
   type: typeof ACTION_SET_GIF_DATA;
-  payload: gifDataTypes[]
+  payload: IgifData[]
 }
 interface fetchGifDataToggle {
   type: typeof ACTION_FETCH_GIF_DATA_TOGGLE;

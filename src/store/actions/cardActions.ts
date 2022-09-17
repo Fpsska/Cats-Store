@@ -1,4 +1,4 @@
-import { actualDataTypes, gifDataTypes, cardActionTypes } from '../../Types/cardTypes';
+import { IactualData, IgifData, cardActionTypes } from '../../Types/cardTypes';
 
 // /. Imports
 
@@ -26,7 +26,7 @@ export const ACTION_SET_BUTTON_SORTED_STATUS = 'ACTION_SET_BUTTON_SORTED_STATUS'
 
 // /. AC Names
 
-export const fetchCards = (data: actualDataTypes[]): cardActionTypes => {
+export const fetchCards = (data: IactualData[]): cardActionTypes => {
   return {
     type: ACTION_FETCH_CARDS,
     payload: data
@@ -58,7 +58,7 @@ export const setFetchCardsDataErrorMessage = (value: string): cardActionTypes =>
 };
 
 
-export const setGifData = (data: gifDataTypes[]): cardActionTypes => {
+export const setGifData = (data: IgifData[]): cardActionTypes => {
   return {
     type: ACTION_SET_GIF_DATA,
     payload: data

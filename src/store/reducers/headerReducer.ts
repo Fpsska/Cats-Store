@@ -1,4 +1,4 @@
-import { headerStateTypes, headerActionTypes } from '../../Types/headerTypes';
+import { IheaderState, headerActionTypes } from '../../Types/headerTypes';
 
 import {
   ACTION_CHANGE_BURGER_VISIBLE_STATUS,
@@ -10,7 +10,7 @@ import {
 
 // /. Imports
 
-const initialState: headerStateTypes = {
+const initialState: IheaderState = {
   headerLinks: [
     {
       id: 1,
@@ -43,7 +43,7 @@ const initialState: headerStateTypes = {
 
 // /. initialState
 
-const headerReducer = (state = initialState, action: headerActionTypes): headerStateTypes => {
+const headerReducer = (state = initialState, action: headerActionTypes): IheaderState => {
   switch (action.type) {
     case ACTION_CHANGE_BURGER_VISIBLE_STATUS:
       return {

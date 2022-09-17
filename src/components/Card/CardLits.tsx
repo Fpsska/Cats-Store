@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useAppSelector } from '../../store/hooks';
 
-import { actualDataTypes } from '../../Types/cardTypes';
+import { IactualData } from '../../Types/cardTypes';
 
 import Card from './Card';
 
@@ -13,7 +13,7 @@ const CardList: React.FC = () => {
   const { isHomePage } = useAppSelector(state => state.headerReducer);
   const { currentRangeValue } = useAppSelector(state => state.filterReducer);
 
-  const [list, setList] = useState<actualDataTypes[]>([]);
+  const [list, setList] = useState<IactualData[]>([]);
 
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const CardList: React.FC = () => {
 
   return (
     <div className="gallery__cards">
-      {list.map(item => {
+      {list.map((item: IactualData) => {
         return (
           <Card
             key={item.id}

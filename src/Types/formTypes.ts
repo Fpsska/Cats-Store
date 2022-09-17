@@ -5,7 +5,7 @@ import {
 
 // /. Imports
 
-export interface formStateTypes {
+export interface IformState {
     isFormAlertVisible: boolean,
     isFormSubmitted: boolean,
 }

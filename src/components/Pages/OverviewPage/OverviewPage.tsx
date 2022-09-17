@@ -4,11 +4,14 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '../../../store/hooks';
 
-import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
+import { IgifData } from '../../../Types/cardTypes';
 
 import { fetchGifDataToggle } from '../../../store/actions/cardActions';
 
 import fetchGifData from '../../../store/async-actions/fetchGifsData';
+
+import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
+
 
 import './OverviewPage.scss';
 
@@ -46,7 +49,7 @@ const OverviewPage: React.FC = () => {
                 :
                 <div className="overview__gallery">
                   {
-                    gifData.map(item => {
+                    gifData.map((item: IgifData) => {
                       return (
                         <div className="overview__card">
                           <img className="overview__image" src={item.image} alt="funny" />

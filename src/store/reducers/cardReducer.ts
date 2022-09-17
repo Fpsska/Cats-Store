@@ -17,11 +17,11 @@ import {
   ACTION_SET_BUTTON_SORTED_STATUS
 } from '../actions/cardActions';
 
-import { CardStateTypes, cardActionTypes } from '../../Types/cardTypes';
+import { IcardState, cardActionTypes } from '../../Types/cardTypes';
 
 // /. Imports
 
-const initialState: CardStateTypes = {
+const initialState: IcardState = {
   cards: [],
   gifData: [],
   likedCardsData: [],
@@ -50,7 +50,7 @@ const initialState: CardStateTypes = {
 
 // /. initialState
 
-const cardReducer = (state = initialState, action: cardActionTypes): CardStateTypes => {
+const cardReducer = (state = initialState, action: cardActionTypes): IcardState => {
   switch (action.type) {
     case ACTION_FETCH_CARDS:
       return {

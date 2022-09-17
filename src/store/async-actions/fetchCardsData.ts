@@ -7,7 +7,7 @@ import {
     setFetchCardsDataErrorStatus
 } from '../actions/cardActions';
 
-import { cardActionTypes, actualDataTypes } from '../../Types/cardTypes';
+import { cardActionTypes, IactualData } from '../../Types/cardTypes';
 
 import image_placeholder from '../../assets/images/no_photo.png';
 
@@ -28,7 +28,7 @@ const fetchCardsData = () => {
 
             const data = await response.json();
 
-            const actualData: actualDataTypes[] = [];
+            const actualData: IactualData[] = [];
 
             data.forEach((item: any) => {
 
@@ -40,7 +40,7 @@ const fetchCardsData = () => {
                 actualData.push(
                     {
                         id: `${Math.random() + item.id}`,
-                        image: item.image.url, 
+                        image: item.image.url,
                         name: item.name,
                         location: item.origin,
                         paw: '4',

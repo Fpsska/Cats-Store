@@ -1,4 +1,4 @@
-import { formStateTypes, formActionTypes } from '../../Types/formTypes';
+import { IformState, formActionTypes } from '../../Types/formTypes';
 
 import {
     ACTION_SET_FORM_ALERT_VISIBLE_STATUS,
@@ -7,7 +7,7 @@ import {
 
 // /. Imports
 
-const initialState: formStateTypes = {
+const initialState: IformState = {
     isFormAlertVisible: false,
     isFormSubmitted: false
 };
@@ -17,7 +17,7 @@ const initialState: formStateTypes = {
 const formReducer = (
     state = initialState,
     action: formActionTypes
-): formStateTypes => {
+): IformState => {
     switch (action.type) {
         case ACTION_SET_FORM_ALERT_VISIBLE_STATUS:
             return {
