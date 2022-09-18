@@ -3,12 +3,15 @@ import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 
 import { declinateByNum } from '../../helpers/declinateByNumber';
+import { useLocationData } from '../../hooks/useLocationData';
 
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import TextPreloader from '../Common/Preloaders/TextPreloader/TextPreloader';
 import NavLayout from '../NavLayout/NavLayout';
 
 import logo from '../../assets/images/logo.svg';
+
+import HeaderTitle from './HeaderTitle';
 
 import './Header.scss';
 
@@ -17,19 +20,30 @@ import './Header.scss';
 const Header: React.FC = () => {
   const {
     isBurgerHidden,
-    isBurgerOpen,
-    isHomePage,
-    isOverviewPage
+    isBurgerOpen
   } = useAppSelector(state => state.headerReducer);
 
   const {
-    isCardsDataFetching,
-    isCardsDataFetchError,
-    cards
+    cards,
+    filteredCardsDataLength,
+    isCardsDataFetching
   } = useAppSelector(state => state.cardReducer);
 
   const mainTextValue = declinateByNum(cards.length, ['cat', 'cats']);
-  // const filteredTextValue = declinateByNum(filteredCardsData.length, ['cat', 'cats']);
+  const filteredTextValue = declinateByNum(filteredCardsDataLength, ['cat', 'cats']);
+  const { state } = useLocationData();
+
+
+  const defineTextContent = (value: string): string => {
+    switch (value) {
+      case ('main'):
+        return `Found ${cards.length} ${mainTextValue}`;
+      case ('favourite'):
+        return `Selected ${filteredCardsDataLength} ${filteredTextValue}`;
+      default:
+        return 'Have a good day ;)';
+    }
+  };
 
   return (
     <header className="header">
@@ -59,22 +73,9 @@ const Header: React.FC = () => {
           {isCardsDataFetching ?
             <TextPreloader />
             :
-            <h1 className="header__text">
-              {isHomePage ?
-                <>
-                  {`Found ${isCardsDataFetchError ? '0' : cards.length} ${mainTextValue}`}
-                </>
-                : isOverviewPage ?
-                  <>
-                    {'Have a good day ;)'}
-                  </>
-                  :
-                  <>
-                    {/* {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`} */}
-                    {`Selected ${isCardsDataFetchError ? '0' : 0} ${mainTextValue}`}
-                  </>
-              }
-            </h1>
+            <HeaderTitle>
+              {defineTextContent(state)}
+            </HeaderTitle>
           }
         </>
 

@@ -12,7 +12,7 @@ import {
   ACTION_SORT_CARDS_BY_PRICE,
   ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
-  ACTION_SET_FILTERED_CARDS_DATA,
+  ACTION_SET_FILTERED_CARDS_DATA_LENGTH,
   ACTION_SET_BUTTON_SORTED_STATUS
 } from '../store/actions/cardActions';
 
@@ -38,6 +38,7 @@ export interface IcardState {
   sortButtons: IsortButtons[];
   gifData: IgifData[];
   filteredCardsData: IactualData[];
+  filteredCardsDataLength: number;
   isCardsDataFetching: boolean;
   isCardsDataFetchError: boolean;
   cardsDataFetchErrorMessage: string;
@@ -146,10 +147,10 @@ interface sortCardsByAge {
 }
 
 
-interface setFilteredCardsData {
-  type: typeof ACTION_SET_FILTERED_CARDS_DATA;
+interface setFilteredCardsDataLength {
+  type: typeof ACTION_SET_FILTERED_CARDS_DATA_LENGTH,
   payload: number
-}
+};
 
 
 interface setButtonSortedStatus {
@@ -176,5 +177,5 @@ export type cardActionTypes =
   | setNotificationVisibleStatus
   | sortCardsByPrice
   | sortCardsByAge
-  | setFilteredCardsData
+  | setFilteredCardsDataLength
   | setButtonSortedStatus

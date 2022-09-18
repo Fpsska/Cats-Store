@@ -30,8 +30,9 @@ const NavLinkTemplate: React.FC<propTypes> = ({ link, text }) => {
   return (
     <li className="nav__menu_item">
       <NavLink
-        to={link}
         className="nav__menu_link"
+        to={link}
+        state={text.toLocaleLowerCase()}
         onClick={() => linkHandler()}
       >
         {text}

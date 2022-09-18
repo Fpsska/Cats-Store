@@ -9,6 +9,7 @@ import {
   ACTION_SET_GIF_DATA_ERROR_MESSAGE,
   ACTION_SET_FAVOURITE_STATUS,
   ACTION_SET_LIKED_CARDS_DATA,
+  ACTION_SET_FILTERED_CARDS_DATA_LENGTH,
   ACTION_SORT_CARDS_BY_PRICE,
   ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
@@ -24,6 +25,7 @@ const initialState: IcardState = {
   gifData: [],
   likedCardsData: [],
   filteredCardsData: [],
+  filteredCardsDataLength: 0,
   sortButtons: [
     {
       id: 'price',
@@ -43,7 +45,6 @@ const initialState: IcardState = {
   isGifDataFetchError: false,
   gifDataFetchErrorMessage: 'error from fetchGifData thunk',
   isNotificationVisible: false
-  // isDataFiltered: false
 };
 
 // /. initialState
@@ -138,11 +139,11 @@ const cardReducer = (state = initialState, action: cardActionTypes): IcardState 
         ]
       };
 
-    // case ACTION_SET_FILTERED_CARDS_DATA:
-    //   return {
-    //     ...state,
-    //     likedCardsData: state.likedCardsData.filter(item => item.price <= action.payload)
-    //   };
+    case ACTION_SET_FILTERED_CARDS_DATA_LENGTH:
+      return {
+        ...state,
+        filteredCardsDataLength: action.payload
+      };
 
     case ACTION_SET_BUTTON_SORTED_STATUS:
       return {

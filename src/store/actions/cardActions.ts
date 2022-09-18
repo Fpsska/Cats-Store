@@ -19,7 +19,7 @@ export const ACTION_SET_NOTIFICATION_VISIBLE_STATUS = 'ACTION_SET_NOTIFICATION_V
 export const ACTION_SORT_CARDS_BY_PRICE = 'ACTION_SORT_CARDS_BY_PRICE';
 export const ACTION_SORT_CARDS_BY_AGE = 'ACTION_SORT_CARDS_BY_AGE';
 
-export const ACTION_SET_FILTERED_CARDS_DATA = 'ACTION_SET_FILTERED_CARDS_DATA';
+export const ACTION_SET_FILTERED_CARDS_DATA_LENGTH = 'ACTION_SET_FILTERED_CARDS_DATA_LENGTH';
 
 export const ACTION_SET_BUTTON_SORTED_STATUS = 'ACTION_SET_BUTTON_SORTED_STATUS';
 
@@ -130,9 +130,9 @@ export const sortCardsByAge = (id: string, status: boolean): cardActionTypes => 
 };
 
 
-export const setFilteredCardsData = (value: number): cardActionTypes => {
+export const setFilteredCardsDataLength = (value: number): cardActionTypes => {
   return {
-    type: ACTION_SET_FILTERED_CARDS_DATA,
+    type: ACTION_SET_FILTERED_CARDS_DATA_LENGTH,
     payload: value
   };
 };

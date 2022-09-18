@@ -9,7 +9,7 @@ import { Pagination } from 'swiper';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import { IactualData } from '../../../Types/cardTypes';
-// import { setFilteredStatus } from '../../../store/actions/cardActions';
+import { setFilteredCardsDataLength } from '../../../store/actions/cardActions';
 import { setTotalRangeValue } from '../../../store/actions/filterActions';
 
 import { filterByPrice } from '../../../helpers/filterByPrice';
@@ -56,7 +56,8 @@ const FavouritePage: React.FC = () => {
     }
   });
 
-  
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     // run filter likedCardsData[]
     setFilteredData(filterByPrice(likedCardsData, currentRangeValue));
@@ -65,8 +66,11 @@ const FavouritePage: React.FC = () => {
     likedCardsData.length === 0 ? setLikedDataEmptyStatus(true) : setLikedDataEmptyStatus(false);
   }, [likedCardsData, currentRangeValue]);
 
-  useEffect(() => {  // handle filteredData[] empty status
+  useEffect(() => {
+    // handle filteredData[] empty status
     filteredData.length === 0 ? setFilteredDataEmptyStatus(true) : setFilteredDataEmptyStatus(false);
+    // set current filteredData[] length
+    dispatch(setFilteredCardsDataLength(filteredData.length));
   }, [filteredData]);
 
   useEffect(() => {

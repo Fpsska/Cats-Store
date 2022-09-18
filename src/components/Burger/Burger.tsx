@@ -6,7 +6,7 @@ import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
 
 import NavList from '../NavLayout/NavList';
 
-import './burger.scss';
+import './Burger.scss';
 
 // /. Imports
 
@@ -38,7 +38,7 @@ const Burger: React.FC<propTypes> = ({ headerLinks, isBurgerOpen }) => {
     <div className={isBurgerOpen ? 'burger active' : 'burger'}>
       <NavList
         headerLinks={headerLinks}
-        role={'nav--burger'}
+        role={'burger__nav'}
       />
     </div>
   );

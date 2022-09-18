@@ -47,7 +47,7 @@ const NavLayout: React.FC = () => {
                 :
                 <NavList
                     headerLinks={headerLinks}
-                    role={'nav--header'}
+                    role={'header__nav'}
                 />
             }
         </>
