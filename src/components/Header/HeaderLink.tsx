@@ -21,15 +21,15 @@ interface propTypes {
 // /. interfaces
 
 const HeaderLink: React.FC<propTypes> = ({ isBurgerHidden, link, text }) => {
-  const { handlePageName } = usePageName();
+  // const { handlePageName } = usePageName();
 
   const dispatch = useAppDispatch();
 
 
   const removeBodyStatus = (text: string): void => {
-    dispatch(changeMainPageStatus(false));
+    // dispatch(changeMainPageStatus(false));
+    // handlePageName({ pageName: text });
     dispatch(changeBurgerOpenedStatus(false));
-    handlePageName({ pageName: text });
     document.body.style.overflowY = 'auto';
   };
 

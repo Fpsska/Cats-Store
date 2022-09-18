@@ -13,7 +13,6 @@ import {
   ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
-  ACTION_SET_FILTERED_STATUS,
   ACTION_SET_BUTTON_SORTED_STATUS
 } from '../actions/cardActions';
 
@@ -44,8 +43,8 @@ const initialState: IcardState = {
   isGifDataFetching: true,
   isGifDataFetchError: false,
   gifDataFetchErrorMessage: 'error from fetchGifData thunk',
-  isNotificationVisible: false,
-  isDataFiltered: false
+  isNotificationVisible: false
+  // isDataFiltered: false
 };
 
 // /. initialState
@@ -57,6 +56,7 @@ const cardReducer = (state = initialState, action: cardActionTypes): IcardState 
         ...state,
         cards: [...state.cards, ...action.payload]
       };
+
     case ACTION_FETCH_CARDS_DATA_TOGGLE:
       return {
         ...state,
@@ -92,6 +92,7 @@ const cardReducer = (state = initialState, action: cardActionTypes): IcardState 
         ...state,
         gifDataFetchErrorMessage: action.payload.value
       };
+
     case ACTION_SET_FAVOURITE_STATUS:
       return {
         ...state,
@@ -105,11 +106,13 @@ const cardReducer = (state = initialState, action: cardActionTypes): IcardState 
           return item;
         })
       };
+
     case ACTION_SET_LIKED_CARDS_DATA:
       return {
         ...state,
         likedCardsData: state.cards.filter(item => item.isFavourite === true)
       };
+
     case ACTION_SET_NOTIFICATION_VISIBLE_STATUS:
       return {
         ...state,
@@ -135,16 +138,13 @@ const cardReducer = (state = initialState, action: cardActionTypes): IcardState 
           })
         ]
       };
-    case ACTION_SET_FILTERED_CARDS_DATA:
-      return {
-        ...state,
-        filteredCardsData: state.likedCardsData.filter(item => item.price <= action.payload)
-      };
-    case ACTION_SET_FILTERED_STATUS:
-      return {
-        ...state,
-        isDataFiltered: action.payload
-      };
+
+    // case ACTION_SET_FILTERED_CARDS_DATA:
+    //   return {
+    //     ...state,
+    //     likedCardsData: state.likedCardsData.filter(item => item.price <= action.payload)
+    //   };
+
     case ACTION_SET_BUTTON_SORTED_STATUS:
       return {
         ...state,

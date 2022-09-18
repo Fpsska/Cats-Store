@@ -4,7 +4,7 @@ import { BsHeartFill } from 'react-icons/bs';
 
 import { useAppDispatch } from '../../store/hooks';
 
-import { setFavouriteStatus, setLikedCardsData, setFilteredCardsData } from '../../store/actions/cardActions';
+import { setFavouriteStatus, setLikedCardsData } from '../../store/actions/cardActions';
 
 import image_placeholder from '../../assets/images/no_photo.png';
 
@@ -50,12 +50,12 @@ const Card: React.FC<propTypes> = (props) => {
 
   const dispatch = useAppDispatch();
 
-  const setFavourite = (): void => {
+  const addToFavourite = (): void => {
     isFavourite
       ? dispatch(setFavouriteStatus(id, false))
       : dispatch(setFavouriteStatus(id, true));
-    dispatch(setLikedCardsData()); // filter cards for likedCardsData
-    dispatch(setFilteredCardsData(currentRangeValue)); // update filteredCardsData
+
+    dispatch(setLikedCardsData()); // update likedCardsData[]
   };
 
 
@@ -75,7 +75,7 @@ const Card: React.FC<propTypes> = (props) => {
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
             ref={buttonLikeRef}
             disabled={!cardStatus}
-            onClick={setFavourite}
+            onClick={addToFavourite}
             aria-label="add to favourite"
           >
             <BsHeartFill color={'#fff'} size={'42px'} />

@@ -13,7 +13,6 @@ import {
   ACTION_SORT_CARDS_BY_AGE,
   ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
   ACTION_SET_FILTERED_CARDS_DATA,
-  ACTION_SET_FILTERED_STATUS,
   ACTION_SET_BUTTON_SORTED_STATUS
 } from '../store/actions/cardActions';
 
@@ -46,7 +45,6 @@ export interface IcardState {
   isGifDataFetchError: boolean;
   gifDataFetchErrorMessage: string;
   isNotificationVisible: boolean;
-  isDataFiltered: boolean;
 }
 
 export interface IgifData {
@@ -152,10 +150,7 @@ interface setFilteredCardsData {
   type: typeof ACTION_SET_FILTERED_CARDS_DATA;
   payload: number
 }
-interface setFilteredStatus {
-  type: typeof ACTION_SET_FILTERED_STATUS;
-  payload: boolean
-}
+
 
 interface setButtonSortedStatus {
   type: typeof ACTION_SET_BUTTON_SORTED_STATUS;
@@ -182,5 +177,4 @@ export type cardActionTypes =
   | sortCardsByPrice
   | sortCardsByAge
   | setFilteredCardsData
-  | setFilteredStatus
   | setButtonSortedStatus

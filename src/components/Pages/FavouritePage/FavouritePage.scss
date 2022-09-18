@@ -30,10 +30,6 @@
     }
 }
 
-.basket.empty {
-    padding: 63px 0;
-}
-
 .basket__slider.empty {
     padding: 195.5px 0;
 }
@@ -44,27 +40,21 @@
     align-items: flex-start;
     min-width: 200px;
 
-    :not(:last-child) {
-        margin: 0 0 5px 0;
-    }
-
     &__text {
         font-weight: 600;
+        margin: 0 0 10px 0;
     }
 
     &__section {
         display: flex;
         align-items: center;
-
-        :not(:last-child) {
-            margin: 0 15px 0 0;
-        }
     }
 
     &__count {
         background-color: rgba($color: #ccc, $alpha: 0.8);
         border-radius: 5px;
         padding: 10px 60px;
+        margin: 0 5px 0 0;
     }
 
     &__currency {

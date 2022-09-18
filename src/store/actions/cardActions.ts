@@ -20,7 +20,6 @@ export const ACTION_SORT_CARDS_BY_PRICE = 'ACTION_SORT_CARDS_BY_PRICE';
 export const ACTION_SORT_CARDS_BY_AGE = 'ACTION_SORT_CARDS_BY_AGE';
 
 export const ACTION_SET_FILTERED_CARDS_DATA = 'ACTION_SET_FILTERED_CARDS_DATA';
-export const ACTION_SET_FILTERED_STATUS = 'ACTION_SET_FILTERED_STATUS';
 
 export const ACTION_SET_BUTTON_SORTED_STATUS = 'ACTION_SET_BUTTON_SORTED_STATUS';
 
@@ -137,12 +136,7 @@ export const setFilteredCardsData = (value: number): cardActionTypes => {
     payload: value
   };
 };
-export const setFilteredStatus = (value: boolean): cardActionTypes => {
-  return {
-    type: ACTION_SET_FILTERED_STATUS,
-    payload: value
-  };
-};
+
 
 export const setButtonSortedStatus = (id: string, status: boolean): cardActionTypes => {
   return {

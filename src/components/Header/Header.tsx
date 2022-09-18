@@ -25,12 +25,11 @@ const Header: React.FC = () => {
   const {
     isCardsDataFetching,
     isCardsDataFetchError,
-    cards,
-    filteredCardsData
+    cards
   } = useAppSelector(state => state.cardReducer);
 
   const mainTextValue = declinateByNum(cards.length, ['cat', 'cats']);
-  const filteredTextValue = declinateByNum(filteredCardsData.length, ['cat', 'cats']);
+  // const filteredTextValue = declinateByNum(filteredCardsData.length, ['cat', 'cats']);
 
   return (
     <header className="header">
@@ -70,7 +69,8 @@ const Header: React.FC = () => {
                   </>
                   :
                   <>
-                    {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`}
+                    {/* {`Selected ${isCardsDataFetchError ? '0' : filteredCardsData.length} ${filteredTextValue}`} */}
+                    {`Selected ${isCardsDataFetchError ? '0' : 0} ${mainTextValue}`}
                   </>
               }
             </h1>

@@ -9,8 +9,10 @@ import { Pagination } from 'swiper';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import { IactualData } from '../../../Types/cardTypes';
-import { setFilteredStatus } from '../../../store/actions/cardActions';
+// import { setFilteredStatus } from '../../../store/actions/cardActions';
 import { setTotalRangeValue } from '../../../store/actions/filterActions';
+
+import { filterByPrice } from '../../../helpers/filterByPrice';
 
 import Card from '../../Card/Card';
 import Filter from '../../Filter/Filter';
@@ -29,12 +31,12 @@ SwiperCore.use([Pagination]);
 
 const FavouritePage: React.FC = () => {
   const { currentRangeValue } = useAppSelector(state => state.filterReducer);
-  const { likedCardsData, filteredCardsData, isDataFiltered } = useAppSelector(state => state.cardReducer);
+  const { likedCardsData } = useAppSelector(state => state.cardReducer);
 
-  const [emptyLikedCardsDataStatus, setEmptyLikedCardsStatus] = useState<boolean>(true);
-  const [emptyFilteredCardsStatus, setEmptyFilteredCardsStatus] = useState<boolean>(true);
+  const [filteredData, setFilteredData] = useState<IactualData[]>(likedCardsData);
+  const [isLikedDataEmpty, setLikedDataEmptyStatus] = useState<boolean>(true);
+  const [isFilteredDataEmpty, setFilteredDataEmptyStatus] = useState<boolean>(true);
   const [totalPrice, setTotalPrice] = useState<number>(0); // current total price of likedCardsData
-  const [list, setList] = useState<IactualData[]>([]);
   const [sliderBreakpointsConfig] = useState<{ [key: number]: { [key: string]: number } }>({
     320: {
       slidesPerView: 1,
@@ -54,41 +56,34 @@ const FavouritePage: React.FC = () => {
     }
   });
 
-  const dispatch = useAppDispatch();
+  
+  useEffect(() => {
+    // run filter likedCardsData[]
+    setFilteredData(filterByPrice(likedCardsData, currentRangeValue));
 
-  useEffect(() => {  // define current render data
-    isDataFiltered ? setList(filteredCardsData) : setList(likedCardsData);
-  }, [filteredCardsData, likedCardsData, isDataFiltered]);
+    // handle likedCardsData[] empty status
+    likedCardsData.length === 0 ? setLikedDataEmptyStatus(true) : setLikedDataEmptyStatus(false);
+  }, [likedCardsData, currentRangeValue]);
 
-  useEffect(() => {  // define array empty status
-    if (likedCardsData.length === 0) {
-      setEmptyLikedCardsStatus(true);
-      dispatch(setFilteredStatus(false));
-    } else {
-      setEmptyLikedCardsStatus(false);
-    }
-    if (filteredCardsData.length === 0) {
-      setEmptyFilteredCardsStatus(true);
-    } else {
-      setEmptyFilteredCardsStatus(false);
-    }
-  }, [likedCardsData, filteredCardsData]);
+  useEffect(() => {  // handle filteredData[] empty status
+    filteredData.length === 0 ? setFilteredDataEmptyStatus(true) : setFilteredDataEmptyStatus(false);
+  }, [filteredData]);
 
   useEffect(() => {
     // calc current basket price
-    const totalSum = list.reduce((acc, { price }) => acc + price, 0);
+    const totalSum = filteredData.reduce((acc, { price }) => acc + price, 0);
     setTotalPrice(totalSum);
 
     // calc max price of basket item
-    const pricesArr = list.map(({ price }) => price); // [1000, 2000, 3000]
+    const pricesArr = filteredData.map(({ price }) => price); // [1000, 2000, 3000]
     const maxPriceValue = Math.max(...pricesArr); // 3000
-  }, [list]);
+  }, [filteredData]);
 
   return (
     <div className="section">
-      <section className={emptyLikedCardsDataStatus ? 'basket empty' : 'basket'}>
+      <section className="basket">
         <div className="basket__wrapper">
-          {!emptyLikedCardsDataStatus &&
+          {!isLikedDataEmpty &&
             <div className="basket__section">
               <div className="basket__price">
                 <div className="price">
@@ -104,34 +99,32 @@ const FavouritePage: React.FC = () => {
               </div>
             </div>
           }
-          <div className={emptyLikedCardsDataStatus || emptyFilteredCardsStatus ? 'basket__slider empty' : 'basket__slider'}>
-            {emptyLikedCardsDataStatus || emptyFilteredCardsStatus
+          <div className={isFilteredDataEmpty ? 'basket__slider empty' : 'basket__slider'}>
+            {isFilteredDataEmpty
               ?
               <div className="empty">
                 <img className="empty__preview" src={empty_image} alt="empty" />
                 <h4 className="empty__text">No matches</h4>
               </div>
               :
-              <>
-                <Swiper className="mySwiper"
-                  slidesPerView={3}
-                  spaceBetween={5}
-                  breakpoints={sliderBreakpointsConfig}
-                >
-                  {list.map(item => {
-                    return (
-                      <SwiperSlide key={item.id}>
-                        <Card
-                          key={item.id}
-                          {...item}
+              <Swiper className="mySwiper"
+                slidesPerView={3}
+                spaceBetween={5}
+                breakpoints={sliderBreakpointsConfig}
+              >
+                {filteredData.map((item: IactualData) => {
+                  return (
+                    <SwiperSlide key={item.id}>
+                      <Card
+                        key={item.id}
+                        {...item}
 
-                          currentRangeValue={currentRangeValue}
-                        />
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-              </>
+                        currentRangeValue={currentRangeValue}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
             }
           </div>
         </div>

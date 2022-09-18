@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { setCurrentRangeValue } from '../../store/actions/filterActions';
-import { setFilteredCardsData, setFilteredStatus } from '../../store/actions/cardActions';
 
 import './Filter.scss';
 
@@ -28,15 +27,14 @@ const Filter: React.FC = () => {
         const currentValue = +e.target.value;
 
         dispatch(setCurrentRangeValue(currentValue));
-        dispatch(setFilteredCardsData(currentValue));
-        dispatch(setFilteredStatus(true)); // many calls => return all true 
+
         fillRef.current.style.width = `${100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue)}%`;
         counterRef.current.style.left = `${100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue)}%`;
     };
 
+
     useEffect(() => {
         dispatch(setCurrentRangeValue(inputRangeTotalValue));
-        dispatch(setFilteredCardsData(inputRangeTotalValue));
         fillRef.current.style.width = `${100}%`;
         counterRef.current.style.left = `${100}%`;
     }, []);

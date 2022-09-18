@@ -40,19 +40,18 @@ const MainPage: React.FC = () => {
         <section className="gallery">
           <div className="controls">
             <span className="controls__title">Sorted by:</span>
-            <>
-              <SortButtonList />
-            </>
+            <SortButtonList />
           </div>
           <div className="gallery__wrapper">
             <>
-              {isCardsDataFetching ? (
+              {isCardsDataFetching ?
                 <PagePreloader />
-              ) : isCardsDataFetchError ? (
-                <div className="error">{cardsDataFetchErrorMessage}</div>
-              ) : (
-                <CardList />
-              )}</>
+                : isCardsDataFetchError ?
+                  <p className="error">{cardsDataFetchErrorMessage}</p>
+                  :
+                  <CardList />
+              }
+            </>
             <button
               className="gallery__button button"
               disabled={isCardsDataFetching || isCardsDataFetchError}

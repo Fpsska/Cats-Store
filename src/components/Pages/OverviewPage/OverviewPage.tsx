@@ -45,7 +45,7 @@ const OverviewPage: React.FC = () => {
               :
               isGifDataFetchError
                 ?
-                <div className="error">{gifDataFetchErrorMessage}</div>
+                <p className="error">{gifDataFetchErrorMessage}</p>
                 :
                 <div className="overview__gallery">
                   {
