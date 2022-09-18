@@ -30,7 +30,7 @@ const MainPage: React.FC = () => {
     scrollPoint.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  const fetchRequest = (): void => {
+  const makeFetchRequest = (): void => {
     dispatch(fetchCardsData());
   };
 
@@ -55,7 +55,7 @@ const MainPage: React.FC = () => {
             <button
               className="gallery__button button"
               disabled={isCardsDataFetching || isCardsDataFetchError}
-              onClick={fetchRequest}
+              onClick={makeFetchRequest}
             >
               Watch more
             </button>

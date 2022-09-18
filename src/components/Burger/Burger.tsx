@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../store/hooks';
 
 import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
 
-import HeaderNav from '../Header/HeaderNav';
+import NavList from '../NavLayout/NavList';
 
 import './burger.scss';
 
@@ -36,9 +36,10 @@ const Burger: React.FC<propTypes> = ({ headerLinks, isBurgerOpen }) => {
 
   return (
     <div className={isBurgerOpen ? 'burger active' : 'burger'}>
-      <div className="burger__nav">
-        <HeaderNav headerLinks={headerLinks} />
-      </div>
+      <NavList
+        headerLinks={headerLinks}
+        role={'nav--burger'}
+      />
     </div>
   );
 };

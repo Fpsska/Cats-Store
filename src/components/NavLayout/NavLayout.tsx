@@ -4,12 +4,15 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { changeBurgerVisibleStatus } from '../../store/actions/headerActions';
 
-import HeaderNav from '../Header/HeaderNav';
 import Burger from '../Burger/Burger';
+
+import NavList from './NavList';
+
+// /. Imports
 
 const NavLayout: React.FC = () => {
 
-    const { headerLinks, isBurgerOpen, isBurgerHidden } = useAppSelector(state => state.headerReducer);
+    const { headerLinks, isBurgerOpen } = useAppSelector(state => state.headerReducer);
 
     const [width, setWidth] = useState<number>(window.innerWidth);
     const [breakpoint] = useState<number>(800);
@@ -42,9 +45,9 @@ const NavLayout: React.FC = () => {
                     isBurgerOpen={isBurgerOpen}
                 />
                 :
-                <HeaderNav
+                <NavList
                     headerLinks={headerLinks}
-                    isBurgerHidden={isBurgerHidden}
+                    role={'nav--header'}
                 />
             }
         </>

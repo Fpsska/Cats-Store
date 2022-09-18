@@ -54,6 +54,7 @@ const Header: React.FC = () => {
           </div>
 
         </section>
+
         <>
           {isCardsDataFetching ?
             <TextPreloader />

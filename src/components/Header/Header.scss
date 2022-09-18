@@ -6,6 +6,25 @@
     background-repeat: no-repeat;
     background-position: center;
     flex: 0 0 auto;
+
+    &__section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 46px;
+    }
+
+    &__logo {
+        max-width: 100px;
+        width: 100%;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 38px;
+        font-weight: 700;
+        margin: 0;
+    }
 }
 
 .header--minimized {
@@ -16,17 +35,6 @@
     }
 }
 
-.header__section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 46px;
-}
-
-.header__logo {
-    max-width: 100px;
-    width: 100%;
-}
 
 .logo__image {
     width: 100%;
@@ -34,85 +42,23 @@
     object-fit: cover;
 }
 
-.header__text {
-    color: #fff;
-    font-size: 38px;
-    font-weight: 700;
-    margin: 0;
-}
-
 .telephone {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-}
 
-.telephone__number.telephone__number {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.26px;
-    margin: 0;
-}
-
-.telephone__description {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.94px;
-}
-
-.nav {
-    margin: 0 10px;
-}
-
-.nav__menu {
-    display: flex;
-}
-
-.nav__menu_item {
-    &:not(:last-child) {
-        margin-right: 50px;
+    &__number {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29.26px;
+        margin: 0;
     }
-}
 
-.nav__menu_link {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 21.94px;
-    transition: all 0.2s linear;
-
-    &:hover {
-        color: #ccc;
-    }
-}
-
-.nav__menu_link.active {
-    color: #6ebbd3;
-}
-
-.nav__menu_link-burger {
-    @extend .nav__menu_link;
-    transition: 0.15s linear;
-
-    &:hover {
-        color: #6ebbd3;
-    }
-}
-
-.nav__menu-burger {
-    text-align: center;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-
-.nav__menu_item-burger {
-    &:not(:last-child) {
-        margin-bottom: 20px;
+    &__description {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.94px;
     }
 }
