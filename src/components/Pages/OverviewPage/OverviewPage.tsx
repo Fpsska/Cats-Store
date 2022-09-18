@@ -49,10 +49,10 @@ const OverviewPage: React.FC = () => {
                 :
                 <div className="overview__gallery">
                   {
-                    gifData.map((item: IgifData) => {
+                    gifData.map((gifItem: IgifData) => {
                       return (
-                        <div className="overview__card">
-                          <img className="overview__image" src={item.image} alt="funny" />
+                        <div className="overview__card" key={gifItem.id}>
+                          <img className="overview__image" src={gifItem.image} alt="funny" />
                         </div>
                       );
                     })
