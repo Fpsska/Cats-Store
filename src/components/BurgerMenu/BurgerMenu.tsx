@@ -31,7 +31,10 @@ const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
     };
 
     return (
-        <button className="menu" onClick={openBurger}>
+        <button
+            className="menu"
+            area-label={isBurgerOpen ? 'close burger menu' : 'open burger menu'}
+            onClick={openBurger}>
             <span
                 className={
                     isBurgerOpen

@@ -36,6 +36,8 @@ const Header: React.FC = () => {
 
   const defineTextContent = (value: string): string => {
     switch (value) {
+      case null: // for display correct header__title content by first render
+        return `Found ${cards.length} ${mainTextValue}`;
       case ('main'):
         return `Found ${cards.length} ${mainTextValue}`;
       case ('favourite'):
