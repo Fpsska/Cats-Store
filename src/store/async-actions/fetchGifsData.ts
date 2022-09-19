@@ -43,7 +43,7 @@ const fetchGifsData = () => {
         } finally {
             setTimeout(() => {
                 dispatch(fetchGifDataToggle(false));
-            }, 2600);
+            }, 500);
         }
     };
 };

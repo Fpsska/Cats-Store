@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -11,7 +11,6 @@ import { fetchGifDataToggle } from '../../../store/actions/cardActions';
 import fetchGifData from '../../../store/async-actions/fetchGifsData';
 
 import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
-
 
 import './OverviewPage.scss';
 
@@ -52,7 +51,7 @@ const OverviewPage: React.FC = () => {
                     gifData.map((gifItem: IgifData) => {
                       return (
                         <div className="overview__card" key={gifItem.id}>
-                          <img className="overview__image" src={gifItem.image} alt="funny" />
+                          <img className="overview__image" src={gifItem.image} alt="funny gifts" />
                         </div>
                       );
                     })

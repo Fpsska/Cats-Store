@@ -32,7 +32,7 @@ const fetchCardsData = () => {
 
             data.forEach((item: any) => {
 
-                if (!item['image']) {
+                if (!item['image'] || !item.image) {
                     item.image = { url: image_placeholder };
                 }
                 // /. response validation
@@ -63,7 +63,7 @@ const fetchCardsData = () => {
         } finally {
             setTimeout(() => {
                 dispatch(fetchCardsDataToggle(false));
-            }, 2600);
+            }, 500);
         }
     };
 };

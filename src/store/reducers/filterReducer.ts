@@ -8,7 +8,7 @@ import {
 // /. Imports
 
 const initialState: IfilterState = {
-    inputRangeTotalValue: 10000,
+    inputRangeTotalValue: 0,
     inputRangeMinValue: 0,
     currentRangeValue: 0
 };

@@ -64,6 +64,11 @@ const FavouritePage: React.FC = () => {
 
     // handle likedCardsData[] empty status
     likedCardsData.length === 0 ? setLikedDataEmptyStatus(true) : setLikedDataEmptyStatus(false);
+
+    // calc max price of basket item
+    const pricesArr = likedCardsData.map(({ price }) => price); // [1000, 2000, 3000]
+    const maxPriceValue = Math.max(...pricesArr); // 3000
+    dispatch(setTotalRangeValue(maxPriceValue));
   }, [likedCardsData, currentRangeValue]);
 
   useEffect(() => {
@@ -77,10 +82,6 @@ const FavouritePage: React.FC = () => {
     // calc current basket price
     const totalSum = filteredData.reduce((acc, { price }) => acc + price, 0);
     setTotalPrice(totalSum);
-
-    // calc max price of basket item
-    const pricesArr = filteredData.map(({ price }) => price); // [1000, 2000, 3000]
-    const maxPriceValue = Math.max(...pricesArr); // 3000
   }, [filteredData]);
 
   return (
