@@ -135,16 +135,14 @@ main {
 .empty {
     text-align: center;
 
-    // :not(:last-child) {
-    //     margin: 0 0 35px 0;
-    // }
-
     &__preview {
         -o-object-fit: cover;
         object-fit: cover;
+        overflow: hidden;
         height: 110px;
         max-width: 110px;
         width: 100%;
+        margin: 0 0 10px 0;
     }
 
     &__text {
@@ -196,7 +194,11 @@ svg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 500px;
+    min-height: 700px;
+}
+
+.gallery__controls {
+    margin: 0 0 10px 0;
 }
 
 .gallery__cards {

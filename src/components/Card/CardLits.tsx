@@ -10,7 +10,6 @@ import Card from './Card';
 
 const CardList: React.FC = () => {
   const { cards } = useAppSelector(state => state.cardReducer);
-  const { isHomePage } = useAppSelector(state => state.headerReducer);
   const { currentRangeValue } = useAppSelector(state => state.filterReducer);
 
   return (

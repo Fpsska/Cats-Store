@@ -38,10 +38,7 @@ const MainPage: React.FC = () => {
     <div ref={scrollPoint} className="section">
       <div className="container">
         <section className="gallery">
-          <div className="controls">
-            <span className="controls__title">Sorted by:</span>
-            <SortButtonList />
-          </div>
+          <SortButtonList role={'gallery__controls'} />
           <div className="gallery__wrapper">
             <>
               {isCardsDataFetching ?

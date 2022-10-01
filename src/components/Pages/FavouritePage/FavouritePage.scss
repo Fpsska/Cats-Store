@@ -34,8 +34,10 @@
     }
 }
 
-.basket__slider.empty {
-    padding: 195.5px 0;
+.basket.empty {
+    .basket__wrapper {
+        flex-direction: row;
+    }
 }
 
 .price {

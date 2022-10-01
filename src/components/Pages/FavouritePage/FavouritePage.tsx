@@ -86,7 +86,7 @@ const FavouritePage: React.FC = () => {
 
   return (
     <div className="section">
-      <section className="basket">
+      <section className={isFilteredDataEmpty ? 'basket empty' : 'basket'}>
         <div className="basket__wrapper">
           {!isLikedDataEmpty &&
             <div className="basket__section">
@@ -104,7 +104,7 @@ const FavouritePage: React.FC = () => {
               </div>
             </div>
           }
-          <div className={isFilteredDataEmpty ? 'basket__slider empty' : 'basket__slider'}>
+          <div className="basket__slider">
             {isFilteredDataEmpty
               ?
               <div className="empty">

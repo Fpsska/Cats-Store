@@ -30,7 +30,7 @@ const ProfilePage: React.FC = () => {
         <p className="section__link">
           return to home{' '}
           <span>
-            <Link to="/Cats-Store" onClick={goHomePage}>age</Link>
+            <Link to="/Cats-Store" onClick={goHomePage}>page</Link>
           </span>
         </p>
       </article>

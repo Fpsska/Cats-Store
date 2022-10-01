@@ -38,9 +38,7 @@ const OverviewPage: React.FC = () => {
         <section className="overview">
           <div className="overview__wrapper">
             {isGifDataFetching ?
-              <div className="overview__gallery">
-                <PagePreloader />
-              </div>
+              <PagePreloader />
               :
               isGifDataFetchError
                 ?
