@@ -123,6 +123,7 @@ const FavouritePage: React.FC = () => {
                       <Card
                         key={item.id}
                         {...item}
+                        role={'basket__card'}
 
                         currentRangeValue={currentRangeValue}
                       />

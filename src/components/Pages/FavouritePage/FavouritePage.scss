@@ -22,7 +22,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex: 1;
+    }
+
+    &__card {
+        max-width: 380px;
+        width: 100%;
     }
 
     &__price {

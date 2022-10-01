@@ -51,8 +51,12 @@
         margin: 0 0 40px 0;
     }
 
+    .gallery__cards {
+        grid-template-columns: repeat(8, 1fr)
+    }
+
     .card {
-        margin: 10px 0;
+        grid-column: 4 span;
     }
 
     .basket {
@@ -96,10 +100,6 @@
         padding: 20px 0;
     }
 
-    .gallery__cards {
-        justify-content: center;
-    }
-
     .basket__section {
         flex-direction: column;
     }
@@ -125,11 +125,17 @@
     }
 }
 
-@media screen and (max-width: 375px) {
-    .card {
-        min-width: auto;
+@media screen and (max-width: 475px) {
+    .gallery__cards {
+        grid-template-columns: repeat(4, 1fr)
     }
 
+    .card {
+        grid-column: 4 span;
+    }
+}
+
+@media screen and (max-width: 375px) {
     .basket__filter {
         width: 70%;
     }

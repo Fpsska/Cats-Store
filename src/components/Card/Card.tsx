@@ -25,6 +25,7 @@ interface propTypes {
   cardStatus: boolean;
   discountStatus: boolean;
   currentRangeValue: number;
+  role?: string
 }
 
 // /. interfaces
@@ -43,7 +44,7 @@ const Card: React.FC<propTypes> = (props) => {
     isFavourite,
     cardStatus,
     discountStatus,
-    currentRangeValue
+    role
   } = props;
 
   const buttonLikeRef = useRef<HTMLButtonElement>(null!);
@@ -64,13 +65,12 @@ const Card: React.FC<propTypes> = (props) => {
   }, []);
 
   return (
-    <article className="card">
+    <article className={role ? `${role} card` : 'card'}>
       <div className="card__preview">
         <div className="card__icons">
-          <>
-            {discountStatus &&
-              <span className="card__icons_discount">{discount}</span>}
-          </>
+          {discountStatus &&
+            <span className="card__icons_discount">{discount}</span>
+          }
           <button
             className={isFavourite ? 'card__icons_button like' : 'card__icons_button unlike'}
             ref={buttonLikeRef}
@@ -92,7 +92,7 @@ const Card: React.FC<propTypes> = (props) => {
         />
       </div>
       <div className="card__information">
-        <span className="card__name">{name}</span>
+        <h3 className="card__name">{name}</h3>
         <ul className="card__description description">
           <li className="description__item description__item_location">
             Location: <br />
