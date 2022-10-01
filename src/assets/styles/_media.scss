@@ -17,6 +17,16 @@
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .overview__gallery {
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    .overview__card {
+        grid-column: 5 span;
+    }
+}
+
 @media (max-width: 992px) {
     .header.header {
         padding: 60px;
@@ -44,11 +54,6 @@
 
     .header__logo {
         margin: 0 10px 0 0;
-    }
-
-    .overview__card {
-        width: 280px;
-        margin: 0 0 40px 0;
     }
 
     .gallery__cards {
@@ -133,6 +138,15 @@
     .card {
         grid-column: 4 span;
     }
+
+    .overview__gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .overview__card {
+        grid-column: 4 span;
+    }
+
 }
 
 @media screen and (max-width: 375px) {
