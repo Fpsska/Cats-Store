@@ -10,15 +10,15 @@ import filterReducer from './reducers/filterReducer';
 // /. Imports
 
 const reducers = combineReducers({
-  cardReducer: cardReducer,
-  headerReducer: headerReducer,
-  formReducer: formReducer,
-  filterReducer: filterReducer
+    cardReducer: cardReducer,
+    headerReducer: headerReducer,
+    formReducer: formReducer,
+    filterReducer: filterReducer
 });
 
 const store = createStore(
-  reducers,
-  composeWithDevTools(applyMiddleware(thunk))
+    reducers,
+    composeWithDevTools(applyMiddleware(thunk))
 );
 
 export type AppDispatch = typeof store.dispatch;

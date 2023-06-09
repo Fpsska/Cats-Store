@@ -15,19 +15,37 @@ import '../../assets/styles/_media.scss';
 // /. Imports
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/Cats-Store" element={<Layout />}>
-          <Route index element={<MainPage />} />
-          <Route path="Favourite" element={<FavouritePage />} />
-          <Route path="Live" element={<OverviewPage />} />
-          <Route path="Profile" element={<ProfilePage />} />
-          <Route path="*" element={<NoFoundPage />} />
-        </Route>
-      </Routes>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Routes>
+                <Route
+                    path="/Cats-Store"
+                    element={<Layout />}
+                >
+                    <Route
+                        index
+                        element={<MainPage />}
+                    />
+                    <Route
+                        path="Favourite"
+                        element={<FavouritePage />}
+                    />
+                    <Route
+                        path="Live"
+                        element={<OverviewPage />}
+                    />
+                    <Route
+                        path="Profile"
+                        element={<ProfilePage />}
+                    />
+                    <Route
+                        path="*"
+                        element={<NoFoundPage />}
+                    />
+                </Route>
+            </Routes>
+        </div>
+    );
 };
 
 export default App;

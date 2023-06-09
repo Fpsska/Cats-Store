@@ -9,12 +9,8 @@ import './Filter.scss';
 // /. Imports
 
 const Filter: React.FC = () => {
-
-    const {
-        inputRangeTotalValue,
-        inputRangeMinValue,
-        currentRangeValue
-    } = useAppSelector(state => state.filterReducer);
+    const { inputRangeTotalValue, inputRangeMinValue, currentRangeValue } =
+        useAppSelector(state => state.filterReducer);
 
     const inputRef = useRef<HTMLInputElement>(null!);
     const counterRef = useRef<HTMLDivElement>(null!);
@@ -22,16 +18,22 @@ const Filter: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-
-    const inputRangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const inputRangeHandler = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ): void => {
         const currentValue = +e.target.value;
 
         dispatch(setCurrentRangeValue(currentValue));
 
-        fillRef.current.style.width = `${100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue)}%`;
-        counterRef.current.style.left = `${100 * (currentValue - inputRangeMinValue) / (inputRangeTotalValue - inputRangeMinValue)}%`;
+        fillRef.current.style.width = `${
+            (100 * (currentValue - inputRangeMinValue)) /
+            (inputRangeTotalValue - inputRangeMinValue)
+        }%`;
+        counterRef.current.style.left = `${
+            (100 * (currentValue - inputRangeMinValue)) /
+            (inputRangeTotalValue - inputRangeMinValue)
+        }%`;
     };
-
 
     useEffect(() => {
         dispatch(setCurrentRangeValue(inputRangeTotalValue));
@@ -51,8 +53,18 @@ const Filter: React.FC = () => {
                 max={inputRangeTotalValue}
                 onChange={e => inputRangeHandler(e)}
             />
-            <span className="filter__progress"><span ref={fillRef} className="filter__progress-fill"></span></span>
-            <span ref={counterRef} className="filter__current">{currentRangeValue}</span>
+            <span className="filter__progress">
+                <span
+                    ref={fillRef}
+                    className="filter__progress-fill"
+                ></span>
+            </span>
+            <span
+                ref={counterRef}
+                className="filter__current"
+            >
+                {currentRangeValue}
+            </span>
             <div className="filter__indicators">
                 <span className="filter__counter filter__counter--min">{`${inputRangeMinValue} $`}</span>
                 <span className="filter__counter filter__counter--max">{`${inputRangeTotalValue} $`}</span>
@@ -62,4 +74,3 @@ const Filter: React.FC = () => {
 };
 
 export default Filter;
-

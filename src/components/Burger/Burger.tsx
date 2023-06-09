@@ -6,42 +6,41 @@ import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
 
 import NavList from '../NavLayout/NavList';
 
-import './Burger.scss';
+import './burger.scss';
 
 // /. Imports
 
 interface propTypes {
-  headerLinks: any[];
-  isBurgerOpen: boolean;
+    headerLinks: any[];
+    isBurgerOpen: boolean;
 }
 
 // /. interfaces
 
 const Burger: React.FC<propTypes> = ({ headerLinks, isBurgerOpen }) => {
-  const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        const keyHandler = (e: KeyboardEvent): void => {
+            if (isBurgerOpen && e.code === 'Escape') {
+                dispatch(changeBurgerOpenedStatus(false));
+            }
+        };
 
-  useEffect(() => {
-    const keyHandler = (e: KeyboardEvent): void => {
-      if (isBurgerOpen && e.code === 'Escape') {
-        dispatch(changeBurgerOpenedStatus(false));
-      }
-    };
+        document.addEventListener('keydown', keyHandler);
+        return () => {
+            document.removeEventListener('keydown', keyHandler);
+        };
+    }, [isBurgerOpen]);
 
-    document.addEventListener('keydown', keyHandler);
-    return () => {
-      document.removeEventListener('keydown', keyHandler);
-    };
-  }, [isBurgerOpen]);
-
-  return (
-    <div className={isBurgerOpen ? 'burger active' : 'burger'}>
-      <NavList
-        headerLinks={headerLinks}
-        role={'burger__nav'}
-      />
-    </div>
-  );
+    return (
+        <div className={isBurgerOpen ? 'burger active' : 'burger'}>
+            <NavList
+                headerLinks={headerLinks}
+                role={'burger__nav'}
+            />
+        </div>
+    );
 };
 
 export default Burger;

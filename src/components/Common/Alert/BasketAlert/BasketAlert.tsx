@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-
 import { Link } from 'react-router-dom';
 
 import { RiErrorWarningLine } from 'react-icons/ri';
@@ -22,7 +21,6 @@ const BasketAlert: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-
     const closeAlert = (): void => {
         dispatch(setNotificationVisibleStatus(false));
         alert.current?.classList.remove('visible');
@@ -33,9 +31,9 @@ const BasketAlert: React.FC = () => {
         dispatch(changeMainPageStatus(false));
     };
 
-
     useEffect(() => {
-        if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) { // logic of show/hide BasketAlert
+        if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) {
+            // logic of show/hide BasketAlert
             dispatch(setNotificationVisibleStatus(true));
             alert.current?.classList.add('visible');
             alert.current?.classList.add('opacity');
@@ -52,19 +50,39 @@ const BasketAlert: React.FC = () => {
     }, [likedCardsData]);
 
     return (
-        <div ref={alert} className="alert" role="alert">
+        <div
+            ref={alert}
+            className="alert"
+            role="alert"
+        >
             <div className="alert__wrapper">
-                <div className="alert__notification" >
-                    <Link to="Favourite" onClick={relocateToFavouritePage} aria-label="redirect to basket">
-                        <RiErrorWarningLine color={'#000'} size={'22px'} />
+                <div className="alert__notification">
+                    <Link
+                        to="Favourite"
+                        onClick={relocateToFavouritePage}
+                        aria-label="redirect to basket"
+                    >
+                        <RiErrorWarningLine
+                            color={'#000'}
+                            size={'22px'}
+                        />
                     </Link>
                 </div>
                 <div className="alert__information">
-                    <span className="alert__message">Visit to Favourite page!</span>
+                    <span className="alert__message">
+                        Visit to Favourite page!
+                    </span>
                     <span className="alert__count">{`${likedCardsData.length} in basket!`}</span>
                 </div>
-                <button className="alert__button" onClick={closeAlert} aria-label="close this modal">
-                    <IoCloseOutline color={'#000'} size={'18px'} />
+                <button
+                    className="alert__button"
+                    onClick={closeAlert}
+                    aria-label="close this modal"
+                >
+                    <IoCloseOutline
+                        color={'#000'}
+                        size={'18px'}
+                    />
                 </button>
             </div>
         </div>

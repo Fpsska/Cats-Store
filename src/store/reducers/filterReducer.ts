@@ -15,7 +15,10 @@ const initialState: IfilterState = {
 
 // /. initialState
 
-const filterReducer = (state = initialState, action: filterActionTypes): IfilterState => {
+const filterReducer = (
+    state = initialState,
+    action: filterActionTypes
+): IfilterState => {
     switch (action.type) {
         case ACTION_SET_CURRENT_RANGE_VALUE:
             return {

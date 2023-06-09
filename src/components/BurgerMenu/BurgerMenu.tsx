@@ -15,14 +15,12 @@ interface propTypes {
 // /. interfaces
 
 const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
-
     const dispatch = useAppDispatch();
-
 
     const defineScrollStatus = (): void => {
         isBurgerOpen
-            ? document.body.style.overflowY = 'auto'
-            : document.body.style.overflowY = 'hidden';
+            ? (document.body.style.overflowY = 'auto')
+            : (document.body.style.overflowY = 'hidden');
     };
 
     const openBurger = (): void => {
@@ -33,8 +31,9 @@ const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
     return (
         <button
             className="menu"
-            area-label={isBurgerOpen ? 'close burger menu' : 'open burger menu'}
-            onClick={openBurger}>
+            aria-label={isBurgerOpen ? 'close burger menu' : 'open burger menu'}
+            onClick={openBurger}
+        >
             <span
                 className={
                     isBurgerOpen

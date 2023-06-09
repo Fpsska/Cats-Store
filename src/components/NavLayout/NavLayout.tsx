@@ -11,8 +11,9 @@ import NavList from './NavList';
 // /. Imports
 
 const NavLayout: React.FC = () => {
-
-    const { headerLinks, isBurgerOpen } = useAppSelector(state => state.headerReducer);
+    const { headerLinks, isBurgerOpen } = useAppSelector(
+        state => state.headerReducer
+    );
 
     const [width, setWidth] = useState<number>(window.innerWidth);
     const [breakpoint] = useState<number>(800);
@@ -20,7 +21,6 @@ const NavLayout: React.FC = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-
         const windowReizeHandler = (): void => {
             setWidth(window.innerWidth);
         };
@@ -32,24 +32,24 @@ const NavLayout: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        width <= breakpoint ?
-            dispatch(changeBurgerVisibleStatus(false)) :
-            dispatch(changeBurgerVisibleStatus(true));
+        width <= breakpoint
+            ? dispatch(changeBurgerVisibleStatus(false))
+            : dispatch(changeBurgerVisibleStatus(true));
     }, [width, breakpoint]);
 
     return (
         <>
-            {width <= breakpoint ?
+            {width <= breakpoint ? (
                 <Burger
                     headerLinks={headerLinks}
                     isBurgerOpen={isBurgerOpen}
                 />
-                :
+            ) : (
                 <NavList
                     headerLinks={headerLinks}
                     role={'header__nav'}
                 />
-            }
+            )}
         </>
     );
 };

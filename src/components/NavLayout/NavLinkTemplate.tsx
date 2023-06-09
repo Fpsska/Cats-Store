@@ -5,40 +5,39 @@ import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../../store/hooks';
 
 import {
-  changeMainPageStatus,
-  changeBurgerOpenedStatus
+    changeMainPageStatus,
+    changeBurgerOpenedStatus
 } from '../../store/actions/headerActions';
 
 // /. Imports
 
 interface propTypes {
-  link: string;
-  text: string;
+    link: string;
+    text: string;
 }
 
 // /. interfaces
 
 const NavLinkTemplate: React.FC<propTypes> = ({ link, text }) => {
+    const dispatch = useAppDispatch();
 
-  const dispatch = useAppDispatch();
+    const linkHandler = (): void => {
+        dispatch(changeBurgerOpenedStatus(false));
+        document.body.style.overflowY = 'auto';
+    };
 
-  const linkHandler = (): void => {
-    dispatch(changeBurgerOpenedStatus(false));
-    document.body.style.overflowY = 'auto';
-  };
-
-  return (
-    <li className="nav__menu_item">
-      <NavLink
-        className="nav__menu_link"
-        to={link}
-        state={text.toLocaleLowerCase()}
-        onClick={() => linkHandler()}
-      >
-        {text}
-      </NavLink>
-    </li>
-  );
+    return (
+        <li className="nav__menu_item">
+            <NavLink
+                className="nav__menu_link"
+                to={link}
+                state={text.toLocaleLowerCase()}
+                onClick={() => linkHandler()}
+            >
+                {text}
+            </NavLink>
+        </li>
+    );
 };
 
 export default NavLinkTemplate;

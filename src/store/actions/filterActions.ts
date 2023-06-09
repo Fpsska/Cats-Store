@@ -20,11 +20,3 @@ export const setTotalRangeValue = (value: number): filterActionTypes => {
         payload: value
     };
 };
-
-
-
-
-
-
-
-
