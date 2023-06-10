@@ -4,13 +4,13 @@ import { Outlet } from 'react-router';
 
 import { useDispatch } from 'react-redux';
 
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import fetchCardsData from 'store/async-actions/fetchCardsData';
+import fetchGifsData from 'store/async-actions/fetchGifsData';
 
-import fetchCardsData from '../../store/async-actions/fetchCardsData';
-import fetchGifsData from '../../store/async-actions/fetchGifsData';
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 import FormAlert from './Alert/FormAlert/FormAlert';
 
@@ -21,10 +21,14 @@ const Layout: React.FC = () => {
 
     const dispatch = useDispatch();
 
+    // /. hooks
+
     useEffect(() => {
         dispatch(fetchCardsData());
         dispatch(fetchGifsData());
     }, []);
+
+    // /. effects
 
     return (
         <div className="page">

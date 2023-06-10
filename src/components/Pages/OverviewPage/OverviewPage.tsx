@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { useAppSelector } from '../../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
-import { IgifData } from '../../../types/cardTypes';
+import { IgifData } from 'types/cardTypes';
 
-import { fetchGifDataToggle } from '../../../store/actions/cardActions';
+import { fetchGifDataToggle } from 'store/actions/cardActions';
 
-import fetchGifData from '../../../store/async-actions/fetchGifsData';
+import fetchGifData from 'store/async-actions/fetchGifsData';
 
-import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
+import PagePreloader from 'components/Common/Preloaders/PagePreloader/PagePreloader';
 
 import './OverviewPage.scss';
 
@@ -26,10 +26,14 @@ const OverviewPage: React.FC = () => {
 
     const dispatch = useDispatch();
 
+    // /. hooks
+
     const fetchNewGifData = (): void => {
         dispatch(fetchGifData());
         dispatch(fetchGifDataToggle(true));
     };
+
+    // /. functions
 
     return (
         <div className="section">

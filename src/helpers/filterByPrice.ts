@@ -1,4 +1,4 @@
-import { Ipet } from '../types/cardTypes';
+import { Ipet } from 'types/cardTypes';
 
 // /. imports
 

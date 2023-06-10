@@ -2,12 +2,12 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
 import {
     changeMainPageStatus,
     changeBurgerOpenedStatus
-} from '../../store/actions/headerActions';
+} from 'store/actions/headerActions';
 
 // /. Imports
 
@@ -21,10 +21,14 @@ interface propTypes {
 const NavLinkTemplate: React.FC<propTypes> = ({ link, text }) => {
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const linkHandler = (): void => {
         dispatch(changeBurgerOpenedStatus(false));
         document.body.style.overflowY = 'auto';
     };
+
+    // /. functions
 
     return (
         <li className="nav__menu_item">

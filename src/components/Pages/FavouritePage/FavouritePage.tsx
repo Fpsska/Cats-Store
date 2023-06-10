@@ -4,18 +4,19 @@ import SwiperCore, { Pagination } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { Ipet } from '../../../types/cardTypes';
-import { setFilteredCardsDataLength } from '../../../store/actions/cardActions';
-import { setTotalRangeValue } from '../../../store/actions/filterActions';
+import { setFilteredCardsDataLength } from 'store/actions/cardActions';
+import { setTotalRangeValue } from 'store/actions/filterActions';
 
-import { filterByPrice } from '../../../helpers/filterByPrice';
+import { filterByPrice } from 'helpers/filterByPrice';
 
-import Card from '../../Card/Card';
-import Filter from '../../Filter/Filter';
+import { Ipet } from 'types/cardTypes';
 
-import empty_image from '../../../assets/images/empty.png';
+import Card from 'components/Card/Card';
+import Filter from 'components/Filter/Filter';
+
+import empty_image from 'assets/images/empty.png';
 
 import './FavouritePage.scss';
 
@@ -59,6 +60,8 @@ const FavouritePage: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     useEffect(() => {
         // run filter likedCardsData[]
         setFilteredData(filterByPrice(likedCardsData, currentRangeValue));
@@ -91,6 +94,8 @@ const FavouritePage: React.FC = () => {
         );
         setTotalPrice(totalSum);
     }, [filteredData]);
+
+    // /. effects
 
     return (
         <div className="section">

@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { IoCloseOutline } from 'react-icons/io5';
 
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { setNotificationVisibleStatus } from '../../../../store/actions/cardActions';
-import { changeMainPageStatus } from '../../../../store/actions/headerActions';
+import { setNotificationVisibleStatus } from 'store/actions/cardActions';
+import { changeMainPageStatus } from 'store/actions/headerActions';
 
 import './BasketAlert.scss';
 
@@ -21,6 +21,8 @@ const BasketAlert: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const closeAlert = (): void => {
         dispatch(setNotificationVisibleStatus(false));
         alert.current?.classList.remove('visible');
@@ -30,6 +32,8 @@ const BasketAlert: React.FC = () => {
     const relocateToFavouritePage = (): void => {
         dispatch(changeMainPageStatus(false));
     };
+
+    // /. functions
 
     useEffect(() => {
         if (likedCardsData.length > 1 && likedCardsData.length % 2 === 0) {
@@ -48,6 +52,8 @@ const BasketAlert: React.FC = () => {
             dispatch(setNotificationVisibleStatus(false));
         }
     }, [likedCardsData]);
+
+    // /. effects
 
     return (
         <div

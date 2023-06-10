@@ -1,4 +1,4 @@
-import { IheaderState, headerActionTypes } from '../../types/headerTypes';
+import { IheaderState, headerActionTypes } from 'types/headerTypes';
 
 import {
     ACTION_CHANGE_BURGER_VISIBLE_STATUS,
@@ -6,7 +6,7 @@ import {
     ACTION_GET_INPUT_VALUE,
     ACTION_CHANGE_MAIN_PAGE_STATUS,
     ACTION_CHANGE_OVERVIEW_PAGE_STATUS
-} from '../actions/headerActions';
+} from 'store/actions/headerActions';
 
 // /. Imports
 

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
 import {
     sortCardsByPrice,
     sortCardsByAge,
     setButtonSortedStatus
-} from '../../store/actions/cardActions';
+} from 'store/actions/cardActions';
 
 // /. Imports
 
@@ -29,6 +29,8 @@ const SortButtonTemplate: React.FC<propTypes> = props => {
 
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const makeDataSort = (e: React.SyntheticEvent): void => {
         setSwitchStatus(!isSwitched);
 
@@ -38,6 +40,8 @@ const SortButtonTemplate: React.FC<propTypes> = props => {
             ? dispatch(sortCardsByPrice(id, isSwitched))
             : dispatch(sortCardsByAge(id, isSwitched));
     };
+
+    // /. functions
 
     return (
         <button

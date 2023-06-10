@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { getInputValue } from '../../store/actions/headerActions';
+import { getInputValue } from 'store/actions/headerActions';
 import {
     setFormAlertVisibleStatus,
     setFormSubmitStatus
-} from '../../store/actions/formActions';
+} from 'store/actions/formActions';
 
 import './Footer.scss';
 
@@ -24,12 +24,16 @@ const Footer: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
 
         dispatch(setFormAlertVisibleStatus(true));
         dispatch(setFormSubmitStatus(true));
     };
+
+    // /. functions
 
     useEffect(() => {
         if (isFormSubmitted && !isFormAlertVisible) {
@@ -41,6 +45,8 @@ const Footer: React.FC = () => {
             }, 10000);
         }
     }, [isFormAlertVisible, isFormSubmitted]);
+
+    // /. effects
 
     return (
         <footer className="footer">

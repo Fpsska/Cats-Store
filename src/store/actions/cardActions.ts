@@ -1,4 +1,4 @@
-import { IactualData, IgifData, cardActionTypes } from '../../types/cardTypes';
+import { Ipet, IgifData, cardActionTypes } from 'types/cardTypes';
 
 // /. Imports
 
@@ -32,7 +32,7 @@ export const ACTION_SET_BUTTON_SORTED_STATUS =
 
 // /. AC Names
 
-export const fetchCards = (data: IactualData[]): cardActionTypes => {
+export const fetchCards = (data: Ipet[]): cardActionTypes => {
     return {
         type: ACTION_FETCH_CARDS,
         payload: data

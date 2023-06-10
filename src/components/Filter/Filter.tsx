@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { setCurrentRangeValue } from '../../store/actions/filterActions';
+import { setCurrentRangeValue } from 'store/actions/filterActions';
 
 import './Filter.scss';
 
@@ -17,6 +17,8 @@ const Filter: React.FC = () => {
     const fillRef = useRef<HTMLDivElement>(null!);
 
     const dispatch = useAppDispatch();
+
+    // /. hooks
 
     const inputRangeHandler = (
         e: React.ChangeEvent<HTMLInputElement>
@@ -35,11 +37,15 @@ const Filter: React.FC = () => {
         }%`;
     };
 
+    // /. functions
+
     useEffect(() => {
         dispatch(setCurrentRangeValue(inputRangeTotalValue));
         fillRef.current.style.width = `${100}%`;
         counterRef.current.style.left = `${100}%`;
     }, []);
+
+    // /. effects
 
     return (
         <form className="filter">

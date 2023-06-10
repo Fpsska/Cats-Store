@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { changeBurgerVisibleStatus } from '../../store/actions/headerActions';
+import { changeBurgerVisibleStatus } from 'store/actions/headerActions';
 
-import Burger from '../Burger/Burger';
+import Burger from 'components/Burger/Burger';
 
 import NavList from './NavList';
 
@@ -19,6 +19,8 @@ const NavLayout: React.FC = () => {
     const [breakpoint] = useState<number>(800);
 
     const dispatch = useAppDispatch();
+
+    // /. hooks
 
     useEffect(() => {
         const windowReizeHandler = (): void => {
@@ -36,6 +38,8 @@ const NavLayout: React.FC = () => {
             ? dispatch(changeBurgerVisibleStatus(false))
             : dispatch(changeBurgerVisibleStatus(true));
     }, [width, breakpoint]);
+
+    // /. effects
 
     return (
         <>

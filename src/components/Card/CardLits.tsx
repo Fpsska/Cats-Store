@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
-import { IactualData } from '../../types/cardTypes';
+import { Ipet } from 'types/cardTypes';
 
 import Card from './Card';
 
@@ -12,9 +12,11 @@ const CardList: React.FC = () => {
     const { cards } = useAppSelector(state => state.cardReducer);
     const { currentRangeValue } = useAppSelector(state => state.filterReducer);
 
+    // /. hooks
+
     return (
         <div className="gallery__cards">
-            {cards.map((item: IactualData) => {
+            {cards.map((item: Ipet) => {
                 return (
                     <Card
                         key={item.id}

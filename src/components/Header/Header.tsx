@@ -2,15 +2,15 @@ import React from 'react';
 
 import { useLocation } from 'react-router';
 
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
-import { declinateByNum } from '../../helpers/declinateByNumber';
+import { declinateByNum } from 'helpers/declinateByNumber';
 
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import TextPreloader from '../Common/Preloaders/TextPreloader/TextPreloader';
-import NavLayout from '../NavLayout/NavLayout';
+import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import TextPreloader from 'components/Common/Preloaders/TextPreloader/TextPreloader';
+import NavLayout from 'components/NavLayout/NavLayout';
 
-import logo from '../../assets/images/logo.svg';
+import logo from 'assets/images/logo.svg';
 
 import HeaderTitle from './HeaderTitle';
 
@@ -26,13 +26,17 @@ const Header: React.FC = () => {
     const { cards, filteredCardsDataLength, isCardsDataFetching } =
         useAppSelector(state => state.cardReducer);
 
+    const location = useLocation();
+
+    // /. hooks
+
     const mainTextValue = declinateByNum(cards.length, ['cat', 'cats']);
     const filteredTextValue = declinateByNum(filteredCardsDataLength, [
         'cat',
         'cats'
     ]);
 
-    const location = useLocation();
+    // /. variables
 
     const defineTextContent = (value: string): string => {
         switch (value) {
@@ -45,6 +49,8 @@ const Header: React.FC = () => {
                 return 'Have a good day ;)';
         }
     };
+
+    // /. functions
 
     return (
         <header className="header">

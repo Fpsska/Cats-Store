@@ -14,9 +14,9 @@ import {
     ACTION_SORT_CARDS_BY_AGE,
     ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
     ACTION_SET_BUTTON_SORTED_STATUS
-} from '../actions/cardActions';
+} from 'store/actions/cardActions';
 
-import { IcardState, cardActionTypes } from '../../types/cardTypes';
+import { IcardState, cardActionTypes } from 'types/cardTypes';
 
 // /. Imports
 

@@ -14,7 +14,7 @@ import {
     ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
     ACTION_SET_FILTERED_CARDS_DATA_LENGTH,
     ACTION_SET_BUTTON_SORTED_STATUS
-} from '../store/actions/cardActions';
+} from 'store/actions/cardActions';
 
 // /. Imports
 

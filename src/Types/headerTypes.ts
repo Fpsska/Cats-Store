@@ -8,14 +8,14 @@ import {
 
 // /. Imports
 
-interface IheaderLinks {
+export interface IheaderLink {
     id: number;
     text: string;
     link: string;
 }
 
 export interface IheaderState {
-    headerLinks: IheaderLinks[];
+    headerLinks: IheaderLink[];
     isBurgerHidden: boolean;
     isBurgerOpen: boolean;
     isBodyScrolling: boolean;

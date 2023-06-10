@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import reportWebVitals from './reportWebVitals';
-import store from './store/store';
+import store from 'store/store';
 
-import App from './components/App/App';
+import App from 'components/App/App';
+
+import reportWebVitals from 'reportWebVitals';
 
 // /. Imports
 

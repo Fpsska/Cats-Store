@@ -1,16 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Layout from '../Common/Layout';
-import MainPage from '../Pages/MainPage/MainPage';
-import FavouritePage from '../Pages/FavouritePage/FavouritePage';
-import OverviewPage from '../Pages/OverviewPage/OverviewPage';
-import ProfilePage from '../Pages/ProfilePage/ProfilePage';
-import NoFoundPage from '../Pages/NoFoundPage/NoFoundPage';
+import Layout from 'components/Common/Layout';
+import MainPage from 'components/Pages/MainPage/MainPage';
+import FavouritePage from 'components/Pages/FavouritePage/FavouritePage';
+import OverviewPage from 'components/Pages/OverviewPage/OverviewPage';
+import ProfilePage from 'components/Pages/ProfilePage/ProfilePage';
+import NoFoundPage from 'components/Pages/NoFoundPage/NoFoundPage';
 
 import './App.css';
-import '../../assets/styles/_style.scss';
-import '../../assets/styles/_media.scss';
+import 'assets/styles/_style.scss';
+import 'assets/styles/_media.scss';
 
 // /. Imports
 

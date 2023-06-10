@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 
 import { BsHeartFill } from 'react-icons/bs';
 
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
 import {
     setFavouriteStatus,
     setLikedCardsData
-} from '../../store/actions/cardActions';
+} from 'store/actions/cardActions';
 
-import image_placeholder from '../../assets/images/no_photo.png';
+import image_placeholder from 'assets/images/no_photo.png';
 
 import './Card.scss';
 
@@ -53,6 +53,8 @@ const Card: React.FC<propTypes> = props => {
 
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const addToFavourite = (): void => {
         isFavourite
             ? dispatch(setFavouriteStatus(id, false))
@@ -61,9 +63,13 @@ const Card: React.FC<propTypes> = props => {
         dispatch(setLikedCardsData()); // update likedCardsData[]
     };
 
+    // /. functions
+
     useEffect(() => {
         buttonLikeRef.current.classList.remove('unlike');
     }, []);
+
+    // /. effects
 
     return (
         <article className={role ? `${role} card` : 'card'}>

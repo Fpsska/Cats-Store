@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 import { RiErrorWarningLine } from 'react-icons/ri';
 
-import { useAppDispatch } from '../../../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
-import { setFormAlertVisibleStatus } from '../../../../store/actions/formActions';
+import { setFormAlertVisibleStatus } from 'store/actions/formActions';
 
 import './FormAlert.scss';
 
@@ -13,9 +13,13 @@ import './FormAlert.scss';
 const FormAlert: React.FC = () => {
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const submitAlert = (): void => {
         dispatch(setFormAlertVisibleStatus(false));
     };
+
+    // /. functions
 
     useEffect(() => {
         const keyHandler = (e: KeyboardEvent): void => {
@@ -29,6 +33,8 @@ const FormAlert: React.FC = () => {
             document.removeEventListener('keydown', keyHandler);
         };
     }, []);
+
+    // /. effects
 
     return (
         <div

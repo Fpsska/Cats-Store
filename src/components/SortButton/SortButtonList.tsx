@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
 import SortButtonTemplate from './SortButtonTemplate';
 
@@ -17,6 +17,8 @@ interface propTypes {
 const SortButtonList: React.FC<propTypes> = ({ role }) => {
     const { isCardsDataFetching, isCardsDataFetchError, sortButtons } =
         useAppSelector(state => state.cardReducer);
+
+    // /. hooks
 
     return (
         <div className={role ? `${role} controls` : 'controls'}>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
-import { changeBurgerOpenedStatus } from '../../store/actions/headerActions';
+import { changeBurgerOpenedStatus } from 'store/actions/headerActions';
 
 import './menu.scss';
 
@@ -17,6 +17,8 @@ interface propTypes {
 const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const defineScrollStatus = (): void => {
         isBurgerOpen
             ? (document.body.style.overflowY = 'auto')
@@ -27,6 +29,8 @@ const BurgerMenu: React.FC<propTypes> = ({ isBurgerOpen }) => {
         dispatch(changeBurgerOpenedStatus(!isBurgerOpen));
         defineScrollStatus();
     };
+
+    // /. functions
 
     return (
         <button

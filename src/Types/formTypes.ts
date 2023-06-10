@@ -1,7 +1,7 @@
 import {
     ACTION_SET_FORM_ALERT_VISIBLE_STATUS,
     ACTION_SET_FORM_SUBMIT_STATUS
-} from '../store/actions/formActions';
+} from 'store/actions/formActions';
 
 // /. Imports
 

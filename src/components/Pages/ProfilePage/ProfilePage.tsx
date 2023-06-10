@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router';
 
-import { useAppDispatch } from '../../../store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
-import { changeMainPageStatus } from '../../../store/actions/headerActions';
+import { changeMainPageStatus } from 'store/actions/headerActions';
 
-import inProcessImage from '../../../assets/images/in_process.png';
+import inProcessImage from 'assets/images/in_process.png';
 
 // /. Imports
 
@@ -16,10 +16,14 @@ const ProfilePage: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
+    // /. hooks
+
     const goHomePage = (): void => {
         dispatch(changeMainPageStatus(true));
         navigate('/Cats-Store', { replace: true });
     };
+
+    // /. functions
 
     return (
         <div className="section">

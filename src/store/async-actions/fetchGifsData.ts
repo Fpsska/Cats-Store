@@ -5,9 +5,9 @@ import {
     fetchGifDataToggle,
     setGifDataErrorStatus,
     setFetchGifDataErrorMessage
-} from '../actions/cardActions';
+} from 'store/actions/cardActions';
 
-import { cardActionTypes, IgifData } from '../../types/cardTypes';
+import { cardActionTypes, IgifData } from 'types/cardTypes';
 
 // /. Imports
 

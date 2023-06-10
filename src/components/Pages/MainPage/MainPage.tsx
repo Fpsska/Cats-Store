@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
-import { useAppSelector } from '../../../store/hooks';
+import { useAppSelector } from 'store/hooks';
 
-import CardList from '../../Card/CardLits';
-import SortButtonList from '../../SortButton/SortButtonList';
-import PagePreloader from '../../Common/Preloaders/PagePreloader/PagePreloader';
-import BasketAlert from '../../Common/Alert/BasketAlert/BasketAlert';
+import fetchCardsData from 'store/async-actions/fetchCardsData';
 
-import fetchCardsData from '../../../store/async-actions/fetchCardsData';
+import CardList from 'components/Card/CardLits';
+import SortButtonList from 'components/SortButton/SortButtonList';
+import PagePreloader from 'components/Common/Preloaders/PagePreloader/PagePreloader';
+import BasketAlert from 'components/Common/Alert/BasketAlert/BasketAlert';
 
 // /. Imports
 
@@ -26,6 +26,8 @@ const MainPage: React.FC = () => {
 
     const scrollPoint = useRef<HTMLDivElement>(null!);
 
+    // /. hooks
+
     const scrollTop = (): void => {
         scrollPoint.current.scrollIntoView({
             block: 'start',
@@ -36,6 +38,8 @@ const MainPage: React.FC = () => {
     const makeFetchRequest = (): void => {
         dispatch(fetchCardsData());
     };
+
+    // /. functions
 
     return (
         <div

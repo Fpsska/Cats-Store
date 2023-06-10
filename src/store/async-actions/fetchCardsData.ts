@@ -1,15 +1,15 @@
 import { Dispatch } from 'redux';
 
+import { cardActionTypes, Ipet } from 'types/cardTypes';
+
+import image_placeholder from 'assets/images/no_photo.png';
+
 import {
     fetchCards,
     fetchCardsDataToggle,
     setFetchCardsDataErrorMessage,
     setFetchCardsDataErrorStatus
-} from '../actions/cardActions';
-
-import { cardActionTypes, IactualData } from '../../types/cardTypes';
-
-import image_placeholder from '../../assets/images/no_photo.png';
+} from 'store/actions/cardActions';
 
 // /. Imports
 
@@ -33,7 +33,7 @@ const fetchCardsData = () => {
 
             const data = await response.json();
 
-            const actualData: IactualData[] = [];
+            const actualData: Ipet[] = [];
 
             data.forEach((item: any) => {
                 if (!item['image'] || !item.image) {

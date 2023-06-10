@@ -1,9 +1,9 @@
-import { IfilterState, filterActionTypes } from '../../types/filterTypes';
-
 import {
     ACTION_SET_CURRENT_RANGE_VALUE,
     ACTION_SET_TOTAL_RANGE_VALUE
-} from '../actions/filterActions';
+} from 'store/actions/filterActions';
+
+import { IfilterState, filterActionTypes } from 'types/filterTypes';
 
 // /. Imports
 
