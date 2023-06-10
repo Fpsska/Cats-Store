@@ -1,4 +1,4 @@
-import { IfilterState, filterActionTypes } from '../../Types/filterTypes';
+import { IfilterState, filterActionTypes } from '../../types/filterTypes';
 
 import {
     ACTION_SET_CURRENT_RANGE_VALUE,

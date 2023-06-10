@@ -1,4 +1,4 @@
-import { formActionTypes } from '../../Types/formTypes';
+import { formActionTypes } from '../../types/formTypes';
 
 // /. Imports
 

@@ -16,7 +16,7 @@ import {
     ACTION_SET_BUTTON_SORTED_STATUS
 } from '../actions/cardActions';
 
-import { IcardState, cardActionTypes } from '../../Types/cardTypes';
+import { IcardState, cardActionTypes } from '../../types/cardTypes';
 
 // /. Imports
 

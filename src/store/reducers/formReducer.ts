@@ -1,4 +1,4 @@
-import { IformState, formActionTypes } from '../../Types/formTypes';
+import { IformState, formActionTypes } from '../../types/formTypes';
 
 import {
     ACTION_SET_FORM_ALERT_VISIBLE_STATUS,

@@ -7,7 +7,7 @@ import {
     setFetchGifDataErrorMessage
 } from '../actions/cardActions';
 
-import { cardActionTypes, IgifData } from '../../Types/cardTypes';
+import { cardActionTypes, IgifData } from '../../types/cardTypes';
 
 // /. Imports
 

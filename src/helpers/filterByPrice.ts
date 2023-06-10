@@ -1,3 +1,7 @@
-export function filterByPrice(array: any[], filterProps: number): any[] {
-    return array.filter(({ price }) => price <= filterProps);
+import { Ipet } from '../types/cardTypes';
+
+// /. imports
+
+export function filterByPrice(array: Ipet[], valueToCompare: number): Ipet[] {
+    return array.filter(({ price }) => price <= valueToCompare);
 }

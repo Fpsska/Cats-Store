@@ -18,7 +18,7 @@ import {
 
 // /. Imports
 
-export interface IactualData {
+export interface Ipet {
     id: string;
     image: string;
     name: string;
@@ -33,11 +33,11 @@ export interface IactualData {
 }
 
 export interface IcardState {
-    cards: IactualData[];
-    likedCardsData: IactualData[];
+    cards: Ipet[];
+    likedCardsData: Ipet[];
     sortButtons: IsortButtons[];
     gifData: IgifData[];
-    filteredCardsData: IactualData[];
+    filteredCardsData: Ipet[];
     filteredCardsDataLength: number;
     isCardsDataFetching: boolean;
     isCardsDataFetchError: boolean;
@@ -63,7 +63,7 @@ export interface IsortButtons {
 
 interface fetchCards {
     type: typeof ACTION_FETCH_CARDS;
-    payload: IactualData[];
+    payload: Ipet[];
 }
 interface fetchCardsDataToggle {
     type: typeof ACTION_FETCH_CARDS_DATA_TOGGLE;

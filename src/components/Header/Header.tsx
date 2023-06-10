@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { useLocation } from 'react-router';
+
 import { useAppSelector } from '../../store/hooks';
 
 import { declinateByNum } from '../../helpers/declinateByNumber';
-import { useLocationData } from '../../hooks/useLocationData';
 
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import TextPreloader from '../Common/Preloaders/TextPreloader/TextPreloader';
@@ -30,12 +31,12 @@ const Header: React.FC = () => {
         'cat',
         'cats'
     ]);
-    const { state } = useLocationData();
+
+    const location = useLocation();
 
     const defineTextContent = (value: string): string => {
         switch (value) {
             case null: // for display correct header__title content by first render
-                return `Found ${cards.length} ${mainTextValue}`;
             case 'main':
                 return `Found ${cards.length} ${mainTextValue}`;
             case 'favourite':
@@ -86,7 +87,9 @@ const Header: React.FC = () => {
                     {isCardsDataFetching ? (
                         <TextPreloader />
                     ) : (
-                        <HeaderTitle>{defineTextContent(state)}</HeaderTitle>
+                        <HeaderTitle>
+                            {defineTextContent(location.state)}
+                        </HeaderTitle>
                     )}
                 </>
             </div>

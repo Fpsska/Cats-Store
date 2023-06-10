@@ -1,4 +1,4 @@
-import { IactualData, IgifData, cardActionTypes } from '../../Types/cardTypes';
+import { IactualData, IgifData, cardActionTypes } from '../../types/cardTypes';
 
 // /. Imports
 

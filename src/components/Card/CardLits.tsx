@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector } from '../../store/hooks';
 
-import { IactualData } from '../../Types/cardTypes';
+import { IactualData } from '../../types/cardTypes';
 
 import Card from './Card';
 

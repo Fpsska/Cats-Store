@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '../../../store/hooks';
 
-import { IgifData } from '../../../Types/cardTypes';
+import { IgifData } from '../../../types/cardTypes';
 
 import { fetchGifDataToggle } from '../../../store/actions/cardActions';
 

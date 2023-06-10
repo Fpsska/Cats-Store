@@ -1,4 +1,4 @@
-import { headerActionTypes } from '../../Types/headerTypes';
+import { headerActionTypes } from '../../types/headerTypes';
 
 // /. Imports
 

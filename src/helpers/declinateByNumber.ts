@@ -1,4 +1,4 @@
-export function declinateByNum(quantity: number, array: any[]): string {
+export function declinateByNum<T>(quantity: number, array: T[]): T {
     quantity = Math.abs(quantity);
 
     const itemIDX = quantity <= 1 ? 0 : 1;

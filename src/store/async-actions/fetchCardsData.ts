@@ -7,7 +7,7 @@ import {
     setFetchCardsDataErrorStatus
 } from '../actions/cardActions';
 
-import { cardActionTypes, IactualData } from '../../Types/cardTypes';
+import { cardActionTypes, IactualData } from '../../types/cardTypes';
 
 import image_placeholder from '../../assets/images/no_photo.png';
 

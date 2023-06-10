@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
-import { IactualData } from '../../../Types/cardTypes';
+import { Ipet } from '../../../types/cardTypes';
 import { setFilteredCardsDataLength } from '../../../store/actions/cardActions';
 import { setTotalRangeValue } from '../../../store/actions/filterActions';
 
@@ -31,8 +31,7 @@ const FavouritePage: React.FC = () => {
     const { currentRangeValue } = useAppSelector(state => state.filterReducer);
     const { likedCardsData } = useAppSelector(state => state.cardReducer);
 
-    const [filteredData, setFilteredData] =
-        useState<IactualData[]>(likedCardsData);
+    const [filteredData, setFilteredData] = useState<Ipet[]>(likedCardsData);
     const [isLikedDataEmpty, setLikedDataEmptyStatus] = useState<boolean>(true);
     const [isFilteredDataEmpty, setFilteredDataEmptyStatus] =
         useState<boolean>(true);
@@ -138,7 +137,7 @@ const FavouritePage: React.FC = () => {
                                 spaceBetween={5}
                                 breakpoints={sliderBreakpointsConfig}
                             >
-                                {filteredData.map((item: IactualData) => {
+                                {filteredData.map((item: Ipet) => {
                                     return (
                                         <SwiperSlide key={item.id}>
                                             <Card
