@@ -1,7 +1,5 @@
 import { Dispatch } from 'redux';
 
-import { cardActionTypes, Ipet } from 'types/cardTypes';
-
 import image_placeholder from 'assets/images/no_photo.png';
 
 import {
@@ -10,6 +8,7 @@ import {
     setFetchCardsDataErrorMessage,
     setFetchCardsDataErrorStatus
 } from 'store/actions/cardActions';
+import { Ipet, cardActionTypes } from 'types/cardTypes';
 
 // /. Imports
 

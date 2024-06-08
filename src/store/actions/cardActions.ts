@@ -1,6 +1,6 @@
-import { Ipet, IgifData, cardActionTypes } from 'types/cardTypes';
-
 // /. Imports
+
+import { IgifData, Ipet, cardActionTypes } from 'types/cardTypes';
 
 export const ACTION_FETCH_CARDS = 'ACTION_FETCH_CARDS';
 export const ACTION_FETCH_CARDS_DATA_TOGGLE = 'ACTION_FETCH_CARDS_DATA_TOGGLE';

@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from 'store/hooks';
 
-import { IgifData } from 'types/cardTypes';
-
 import { fetchGifDataToggle } from 'store/actions/cardActions';
 
 import fetchGifData from 'store/async-actions/fetchGifsData';
@@ -13,6 +11,7 @@ import fetchGifData from 'store/async-actions/fetchGifsData';
 import PagePreloader from 'components/Common/Preloaders/PagePreloader/PagePreloader';
 
 import './OverviewPage.scss';
+import { IgifData } from 'types/cardTypes';
 
 // /. Imports
 

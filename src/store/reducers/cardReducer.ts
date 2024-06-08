@@ -15,7 +15,6 @@ import {
     ACTION_SET_NOTIFICATION_VISIBLE_STATUS,
     ACTION_SET_BUTTON_SORTED_STATUS
 } from 'store/actions/cardActions';
-
 import { IcardState, cardActionTypes } from 'types/cardTypes';
 
 // /. Imports

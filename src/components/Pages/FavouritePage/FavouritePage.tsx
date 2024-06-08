@@ -11,8 +11,6 @@ import { setTotalRangeValue } from 'store/actions/filterActions';
 
 import { filterByPrice } from 'helpers/filterByPrice';
 
-import { Ipet } from 'types/cardTypes';
-
 import Card from 'components/Card/Card';
 import Filter from 'components/Filter/Filter';
 
@@ -23,6 +21,7 @@ import './FavouritePage.scss';
 // Import Swiper styles
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import { Ipet } from 'types/cardTypes';
 // import required modules
 SwiperCore.use([Pagination]);
 
