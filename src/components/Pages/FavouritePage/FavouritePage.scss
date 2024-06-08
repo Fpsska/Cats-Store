@@ -18,6 +18,7 @@
     }
 
     &__slider {
+        flex-grow: 1;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -31,12 +32,6 @@
 
     &__price {
         margin: 0 40px 0 0;
-    }
-}
-
-.basket.empty {
-    .basket__wrapper {
-        flex-direction: row;
     }
 }
 
